@@ -72,7 +72,7 @@ export function GitHubStars() {
         />
       </motion.div>
 
-      <span className="relative z-10 text-sm font-medium">Star on GitHub</span>
+      <span className="relative z-10 text-sm font-medium">For Free</span>
 
       {stars !== null && (
         <>
