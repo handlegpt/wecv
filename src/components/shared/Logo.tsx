@@ -35,7 +35,7 @@ const Logo: React.FC<LogoProps> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="Magic Resume Logo"
+      aria-label="We CV Logo"
       onClick={onClick}
     >
       <defs>
