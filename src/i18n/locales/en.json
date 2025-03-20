@@ -23,13 +23,13 @@
     "hero": {
       "badge": "Smart Resume Creation",
       "title": "Make Resume Creation Simple and Smart",
-      "subtitle": "We CV uses AI technology to help you quickly create professional resumes. No registration required, free to use, with secure data storage.",
+      "subtitle": "Create professional resumes instantly with AI. Free, secure, and no registration needed.",
       "cta": "Get Started",
       "secondary": "Browse Templates"
     },
     "features": {
       "title": "Why Choose We CV?",
-      "subtitle": "We provide an all-in-one resume solution to make your job search journey smoother",
+      "subtitle": "Experience the future of resume creation with our AI-powered platform, offering professional templates, smart optimization, and seamless data management.",
       "ai": {
         "badge": "AI Smart Check",
         "title": "Smart Detection, Professional Advice",
@@ -82,15 +82,15 @@
         },
         {
           "question": "What export formats are supported?",
-          "answer": "We currently support PDF export, ensuring your resume maintains consistent formatting on any device. We plan to support more export formats in the future."
+          "answer": "We currently support PDF export with high-quality formatting and consistent layout across all devices. We are actively developing support for additional formats including Word (DOCX) and HTML, with plans to release these features in upcoming updates."
         },
         {
           "question": "How can I sync across devices?",
-          "answer": "We provide JSON configuration export, allowing you to save your resume settings in JSON format, accessible anytime, anywhere, on any device."
+          "answer": "We provide a comprehensive JSON configuration export feature that allows you to save your complete resume settings, including layout, content, and styling preferences. This JSON file can be easily imported on any device, ensuring your resume data remains consistent and accessible across all your devices."
         },
         {
           "question": "How customizable is it?",
-          "answer": "We offer rich customization options, including colors, layouts, and more, allowing you to adjust your resume style according to personal preferences and industry requirements."
+          "answer": "We provide extensive customization capabilities across multiple aspects of your resume. You can customize typography, colors, spacing, and layout to match your personal style. Additionally, we offer industry-specific templates and styling options to help your resume stand out in your target field."
         }
       ]
     }
