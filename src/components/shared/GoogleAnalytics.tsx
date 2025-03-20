@@ -13,7 +13,7 @@ export default function GoogleAnalytics() {
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         onLoad={() => {
           console.log('Google Analytics loaded');
         }}
@@ -21,7 +21,7 @@ export default function GoogleAnalytics() {
           console.error('Error loading Google Analytics:', e);
         }}
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -30,7 +30,9 @@ export default function GoogleAnalytics() {
             transport_url: 'https://www.google-analytics.com',
             first_party_collection: true,
             anonymize_ip: true,
-            send_page_view: false
+            send_page_view: true,
+            page_path: window.location.pathname,
+            debug_mode: true
           });
         `}
       </Script>
