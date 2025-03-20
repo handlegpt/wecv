@@ -20,11 +20,12 @@ export default function LanguageSwitch() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8 relative hover:bg-accent/50"
+          variant="outline"
+          size="sm"
+          className="h-8 px-3 hover:bg-accent/50"
         >
-          <Languages className="h-[1.2rem] w-[1.2rem]" />
+          <Languages className="h-4 w-4 mr-2" />
+          <span className="text-sm font-medium">{localeNames[locale]}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
