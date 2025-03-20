@@ -22,10 +22,26 @@ export default function LanguageSwitch() {
         <Button
           variant="outline"
           size="sm"
-          className="h-8 px-3 hover:bg-accent/50 flex items-center gap-2"
+          className="h-8 px-4 hover:bg-accent/50 flex items-center gap-2 min-w-[100px] justify-between"
         >
-          <Languages className="h-4 w-4" />
-          <span className="text-sm font-medium">{localeNames[locale]}</span>
+          <div className="flex items-center gap-2">
+            <Languages className="h-4 w-4" />
+            <span className="text-sm font-medium">{localeNames[locale]}</span>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-4 w-4 opacity-50"
+          >
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
