@@ -1,13 +1,16 @@
-import { ReactNode } from "react";
+import { Inter } from "next/font/google";
 import { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/react";
+import GoogleAnalytics from "@/components/shared/GoogleAnalytics";
 import "./globals.css";
 import "./font.css";
 
-type Props = {
-  children: ReactNode;
-};
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  title: "We CV - AI Driven Resume Editor",
+  description: "We CV is an open source resume editor, free, privacy-first. No registration required, all data stored locally, support data backup and export, ensuring your resume data is always available.",
   metadataBase: new URL("https://magicv.art"),
   robots: {
     index: true,
@@ -22,6 +25,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Props) {
-  return children;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        {children}
+        <Toaster />
+        <Analytics />
+        <GoogleAnalytics />
+      </body>
+    </html>
+  );
 }
