@@ -22,9 +22,9 @@ export default function LanguageSwitch() {
         <Button
           variant="outline"
           size="sm"
-          className="h-8 px-3 hover:bg-accent/50"
+          className="h-8 px-3 hover:bg-accent/50 flex items-center gap-2"
         >
-          <Languages className="h-4 w-4 mr-2" />
+          <Languages className="h-4 w-4" />
           <span className="text-sm font-medium">{localeNames[locale]}</span>
         </Button>
       </DropdownMenuTrigger>
