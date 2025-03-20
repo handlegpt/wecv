@@ -74,11 +74,11 @@
       "items": [
         {
           "question": "Is We CV free to use?",
-          "answer": "We CV is free and meets basic resume creation needs."
+          "answer": "We CV offers a comprehensive free tier that includes essential resume creation features. Our free version provides access to all core functionalities, including AI-powered content optimization, multiple templates, and export capabilities."
         },
         {
           "question": "Is my resume data secure?",
-          "answer": "Yes, very secure. We CV uses local storage, meaning all your data is stored on your own device with no cloud storage, ensuring complete privacy protection."
+          "answer": "We CV implements a privacy-first approach with client-side data storage. All resume data is stored locally in your browser's storage, with no cloud transmission or server storage. This architecture ensures your data remains completely private and secure on your device."
         },
         {
           "question": "What export formats are supported?",
