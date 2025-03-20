@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
-import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/components/shared/GoogleAnalytics";
 import "./globals.css";
 import "./font.css";
@@ -35,7 +34,6 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <Toaster />
-        <Analytics />
         <GoogleAnalytics />
       </body>
     </html>
