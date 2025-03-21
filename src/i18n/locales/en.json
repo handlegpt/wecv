@@ -1,7 +1,7 @@
 {
   "common": {
     "title": "We CV",
-    "subtitle": "AI Driven Resume Editor",
+    "subtitle": "Smart Resume Crafting with AI",
     "description": "We CV is an open source resume editor, free, privacy-first. No registration required, all data stored locally, support data backup and export, ensuring your resume data is always available.",
     "dashboard": "Dashboard",
     "edit": "Edit",
@@ -55,10 +55,6 @@
         "item1": "Real-time preview of editing effects",
         "item2": "Multiple export format support"
       }
-    },
-    "news": {
-      "label": "News",
-      "content": "New AI Resume Enhancement Feature is Live"
     },
     "footer": {
       "copyright": " 2025 We CV. All rights reserved."
