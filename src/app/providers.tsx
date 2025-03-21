@@ -10,7 +10,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-      storageKey="magic-resume-theme"
+      storageKey="wecv-theme"
     >
       {children}
       <Analytics />

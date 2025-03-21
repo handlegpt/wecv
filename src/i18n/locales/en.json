@@ -1,7 +1,7 @@
 {
   "common": {
     "title": "We CV",
-    "subtitle": "Smart Resume Crafting with AI",
+    "subtitle": "AI-Powered Resume Builder & Editor | Free Online Tool",
     "description": "We CV is an open source resume editor, free, privacy-first. No registration required, all data stored locally, support data backup and export, ensuring your resume data is always available.",
     "dashboard": "Dashboard",
     "edit": "Edit",
@@ -56,6 +56,10 @@
         "item2": "Multiple export format support"
       }
     },
+    "news": {
+      "label": "",
+      "content": ""
+    },
     "footer": {
       "copyright": "© 2025 We CV. All rights reserved."
     },
@@ -70,23 +74,23 @@
       "items": [
         {
           "question": "Is We CV free to use?",
-          "answer": "We CV is a completely free professional resume tool. We provide a full suite of resume creation features, including AI-powered content enhancement, multiple professional templates, real-time preview, and more, enabling everyone to create outstanding resumes."
+          "answer": "We CV is completely free and includes professional resume creation features. We are committed to keeping core features free forever, enabling everyone to create professional resumes."
         },
         {
           "question": "Is my resume data secure?",
-          "answer": "We CV prioritizes your privacy and security. We use pure local storage technology, meaning all your data is stored exclusively on your device and never uploaded to any servers. You have complete control over your data, eliminating any privacy concerns."
+          "answer": "Absolutely secure. We CV uses local storage technology, meaning all your data stays on your own device without any cloud uploads. You have complete control over your personal information."
         },
         {
           "question": "What export formats are supported?",
-          "answer": "We currently support two main formats: standard PDF and JSON configuration. The PDF format ensures perfect formatting consistency across all devices, ideal for formal applications; while the JSON format facilitates data backup and cross-device usage. We're continuously working to add more practical export options."
+          "answer": "We support standard PDF export format, ensuring your resume maintains consistent professional formatting across all devices. We also support JSON format export for easy backup and migration of your resume data."
         },
         {
           "question": "How can I sync across devices?",
-          "answer": "We've designed a convenient cross-device synchronization solution: you can export your resume in JSON format and save it to a local folder, then import it whenever needed. This approach ensures both data security and easy resume management across different devices."
+          "answer": "We provide convenient JSON configuration export, allowing you to save and import your resume settings on any device. You can also set up local folder backup for added data security."
         },
         {
-          "question": "How customizable is it?",
-          "answer": "We CV offers comprehensive customization options, including: layout structure, typography, color schemes, component spacing, module ordering, and more. You can flexibly adjust every detail according to your personal preferences and target position requirements to create a unique and professional resume."
+          "question": "What customization options are available?",
+          "answer": "We CV offers rich personalization options, including multiple professional templates, custom color themes, flexible layout adjustments, font settings, and more. You can create a unique resume style based on your preferences and industry requirements."
         }
       ]
     }
