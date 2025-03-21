@@ -7,6 +7,7 @@ import { Sun, Moon, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import LanguageSwitch from "@/components/shared/LanguageSwitch";
+import { GitHubStars } from "@/components/shared/GitHubStars";
 
 interface MobileMenuProps {
   isOpen: boolean;

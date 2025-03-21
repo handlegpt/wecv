@@ -9,8 +9,7 @@ WORKDIR /app
 
 FROM base AS deps
 COPY package.json pnpm-lock.yaml* ./
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --force
-RUN pnpm add @vercel/analytics @types/node @types/react
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install  --frozen-lockfile --force
 
 FROM base AS builder
 WORKDIR /app
