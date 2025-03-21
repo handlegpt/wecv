@@ -74,23 +74,23 @@
       "items": [
         {
           "question": "Is We CV free to use?",
-          "answer": "We CV is free and meets basic resume creation needs."
+          "answer": "We CV is completely free and includes professional resume creation features. We are committed to keeping core features free forever, enabling everyone to create professional resumes."
         },
         {
           "question": "Is my resume data secure?",
-          "answer": "Yes, very secure. We CV uses local storage, meaning all your data is stored on your own device with no cloud storage, ensuring complete privacy protection."
+          "answer": "Absolutely secure. We CV uses local storage technology, meaning all your data stays on your own device without any cloud uploads. You have complete control over your personal information."
         },
         {
           "question": "What export formats are supported?",
-          "answer": "We currently support PDF export, ensuring your resume maintains consistent formatting on any device. We plan to support more export formats in the future."
+          "answer": "We support standard PDF export format, ensuring your resume maintains consistent professional formatting across all devices. We also support JSON format export for easy backup and migration of your resume data."
         },
         {
           "question": "How can I sync across devices?",
-          "answer": "We provide JSON configuration export, allowing you to save your resume settings in JSON format, accessible anytime, anywhere, on any device."
+          "answer": "We provide convenient JSON configuration export, allowing you to save and import your resume settings on any device. You can also set up local folder backup for added data security."
         },
         {
-          "question": "How customizable is it?",
-          "answer": "We offer rich customization options, including colors, layouts, and more, allowing you to adjust your resume style according to personal preferences and industry requirements."
+          "question": "What customization options are available?",
+          "answer": "We CV offers rich personalization options, including multiple professional templates, custom color themes, flexible layout adjustments, font settings, and more. You can create a unique resume style based on your preferences and industry requirements."
         }
       ]
     }
