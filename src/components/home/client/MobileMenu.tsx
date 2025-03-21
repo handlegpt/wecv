@@ -7,7 +7,6 @@ import { Sun, Moon, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import LanguageSwitch from "@/components/shared/LanguageSwitch";
-import { GitHubStars } from "@/components/shared/GitHubStars";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -48,6 +47,16 @@ export default function MobileMenu({
                 <Moon className="h-[1.2rem] w-[1.2rem] absolute inset-0 m-auto rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
               </div>
             </ThemeToggle>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <Link
+              href={`/${locale}/changelog`}
+              className="flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary hover:bg-primary/15 transition-colors"
+            >
+              <FileText className="h-3.5 w-3.5" />
+              {t("changelog")}
+            </Link>
           </div>
 
           {extraItems && extraItems.length > 0 && (
