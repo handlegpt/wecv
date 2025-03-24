@@ -1,8 +1,8 @@
 {
   "common": {
-    "title": "Magic Resume",
+    "title": "We CV",
     "subtitle": "AI Driven Resume Editor",
-    "description": "Magic Resume is an open source resume editor, free, privacy-first. No registration required, all data stored locally, support data backup and export, ensuring your resume data is always available.",
+    "description": "We CV is an open source resume editor, free, privacy-first. No registration required, all data stored locally, support data backup and export, ensuring your resume data is always available.",
     "dashboard": "Dashboard",
     "edit": "Edit",
     "delete": "Delete",
@@ -11,7 +11,7 @@
   },
   "home": {
     "header": {
-      "title": "Magic Resume",
+      "title": "We CV",
       "startButton": "Get Started",
       "features": "Features",
       "pricing": "Pricing",
@@ -23,12 +23,12 @@
     "hero": {
       "badge": "Smart Resume Creation",
       "title": "Make Resume Creation Simple and Smart",
-      "subtitle": "Magic Resume uses AI technology to help you quickly create professional resumes. No registration required, free to use, with secure data storage.",
+      "subtitle": "We CV uses AI technology to help you quickly create professional resumes. No registration required, free to use, with secure data storage.",
       "cta": "Get Started",
       "secondary": "Browse Templates"
     },
     "features": {
-      "title": "Why Choose Magic Resume?",
+      "title": "Why Choose We CV?",
       "subtitle": "We provide an all-in-one resume solution to make your job search journey smoother",
       "ai": {
         "badge": "AI Smart Check",
@@ -57,40 +57,40 @@
       }
     },
     "news": {
-      "label": "News",
-      "content": "New AI Resume Enhancement Feature is Live"
+      "label": "",
+      "content": ""
     },
     "footer": {
-      "copyright": " 2025 Magic Resume. All rights reserved."
+      "copyright": " 2025 We CV. All rights reserved."
     },
     "changelog": "Changelog",
     "cta": {
       "title": "Start Your New Career Chapter",
-      "description": "Start using Magic Resume now to create an impressive resume",
+      "description": "Start using We CV now to create an impressive resume",
       "button": "Start Using for Free"
     },
     "faq": {
       "title": "Frequently Asked Questions",
       "items": [
         {
-          "question": "Is Magic Resume free to use?",
-          "answer": "Magic Resume is currently free, meeting basic resume creation needs. The open-source version's features will remain unchanged, and the PDF export feature will always be free."
+          "question": "Is We CV free to use?",
+          "answer": "We CV is completely free and includes professional resume creation features. We are committed to keeping core features free forever, enabling everyone to create professional resumes."
         },
         {
           "question": "Is my resume data secure?",
-          "answer": "Yes, very secure. Magic Resume uses local storage, meaning all your data is stored on your own device with no cloud storage, ensuring complete privacy protection."
+          "answer": "Absolutely secure. We CV uses local storage technology, meaning all your data stays on your own device without any cloud uploads. You have complete control over your personal information."
         },
         {
           "question": "What export formats are supported?",
-          "answer": "We currently support PDF export, ensuring your resume maintains consistent formatting on any device. We plan to support more export formats in the future."
+          "answer": "We support standard PDF export format, ensuring your resume maintains consistent professional formatting across all devices. We also support JSON format export for easy backup and migration of your resume data."
         },
         {
           "question": "How can I sync across devices?",
-          "answer": "We provide JSON configuration export, allowing you to save your resume settings in JSON format, accessible anytime, anywhere, on any device."
+          "answer": "We provide convenient JSON configuration export, allowing you to save and import your resume settings on any device. You can also set up local folder backup for added data security."
         },
         {
-          "question": "How customizable is it?",
-          "answer": "We offer rich customization options, including colors, layouts, and more, allowing you to adjust your resume style according to personal preferences and industry requirements."
+          "question": "What customization options are available?",
+          "answer": "We CV offers rich personalization options, including multiple professional templates, custom color themes, flexible layout adjustments, font settings, and more. You can create a unique resume style based on your preferences and industry requirements."
         }
       ]
     }
@@ -578,7 +578,7 @@
     "upload": {
       "title": "Online Link",
       "dragHint": "Drag and drop or click to upload image",
-      "sizeLimit": "Image size must not exceed 2MB",
+      "sizeLimit": "Image size must not exceed 5MB",
       "typeLimit": "Please upload an image file",
       "urlPlaceholder": "Enter image link",
       "invalidUrl": "Invalid image URL or inaccessible, please try another image link",
