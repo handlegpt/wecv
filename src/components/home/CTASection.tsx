@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Coffee } from "lucide-react";
 import { useTranslations } from "next-intl";
 import ScrollBackground from "./client/ScrollBackground";
 import AnimatedFeature from "./client/AnimatedFeature";
@@ -19,12 +19,12 @@ export default function CTASection() {
             <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
               {t("cta.description")}
             </p>
-            <GoDashboard>
+            <Link href="https://buymeacoffee.com" target="_blank" rel="noopener noreferrer">
               <Button type="submit" size="lg" className="gap-2 text-lg px-12">
                 {t("cta.button")}
-                <ArrowRight className="w-5 h-5" />
+                <Coffee className="w-5 h-5" />
               </Button>
-            </GoDashboard>
+            </Link>
           </div>
         </AnimatedFeature>
       </div>
