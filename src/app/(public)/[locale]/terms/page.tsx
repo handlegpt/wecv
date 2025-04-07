@@ -37,7 +37,7 @@ export default function TermsPage() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">3. 免责声明</h2>
           <p>
-            We CV 按"现状"提供服务，不提供任何明示或暗示的保证。我们不对以下情况负责：
+            We CV 按&ldquo;现状&rdquo;提供服务，不提供任何明示或暗示的保证。我们不对以下情况负责：
           </p>
           <ul className="list-disc pl-6 mt-2">
             <li>服务中断或数据丢失</li>
