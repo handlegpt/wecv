@@ -31,9 +31,8 @@ RUN apk add --no-cache libc6-compat
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-# Copy public directory (create if doesn't exist)
-RUN mkdir -p ./public
-COPY --from=builder /app/public/* ./public/ 2>/dev/null || true
+# Copy public directory
+COPY --from=builder /app/public ./public
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
