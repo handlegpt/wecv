@@ -34,9 +34,21 @@
     }
   },
   "pricing": {
-    "sectionTitle": "Elige el Plan que Te Convenga",
+    "sectionTitle": "Elige el Plan que Te Conviene",
     "sectionSubtitle": "Comienza con la versión gratuita y actualiza a planes más avanzados según tus necesidades",
     "mostPopular": "Más Popular",
+    "comingSoon": {
+      "title": "Próximamente",
+      "description": "Estamos trabajando duro para traerte increíbles planes de precios. ¡Mantente atento para acceso anticipado exclusivo y ofertas especiales!",
+      "freePlan": "Plan Gratuito",
+      "freeDescription": "Características básicas para comenzar",
+      "proPlan": "Plan Pro",
+      "proDescription": "Características avanzadas para profesionales",
+      "enterprisePlan": "Plan Empresarial",
+      "enterpriseDescription": "Soluciones personalizadas para equipos",
+      "notifyMe": "Notifícame cuando esté disponible",
+      "earlyAccess": "Obtén acceso anticipado y descuentos especiales"
+    },
     "free": {
       "name": "Plan Gratuito",
       "price": "¥0",
@@ -56,9 +68,9 @@
       "features": {
         "allTemplates": "Todas las Plantillas de CV",
         "advancedAI": "Asistente de Escritura AI Avanzado",
-        "multipleFormats": "Exportación de Múltiples Formatos",
-        "onlineHosting": "Alojamiento de CV en Línea",
-        "prioritySupport": "Soporte Prioritario al Cliente",
+        "multipleFormats": "Exportación en Múltiples Formatos",
+        "onlineHosting": "Alojamiento de CV Online",
+        "prioritySupport": "Soporte al Cliente Prioritario",
         "noAds": "Experiencia Sin Anuncios"
       },
       "cta": "Elegir Profesional"
@@ -68,7 +80,7 @@
       "price": "¥99",
       "period": "/mes",
       "features": {
-        "allProFeatures": "Todas las Funciones Profesionales",
+        "allProFeatures": "Todas las Características Profesionales",
         "customAI": "Modelos AI Personalizados",
         "teamCollaboration": "Colaboración en Equipo",
         "advancedAnalytics": "Análisis Avanzado",

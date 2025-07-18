@@ -37,6 +37,18 @@
     "sectionTitle": "あなたに合ったプランを選択",
     "sectionSubtitle": "無料版から始めて、ニーズに応じてより高度なプランにアップグレード",
     "mostPopular": "最も人気",
+    "comingSoon": {
+      "title": "近日公開",
+      "description": "素晴らしい料金プランをお届けするために一生懸命取り組んでいます。独占的な先行アクセスと特別オファーをお楽しみに！",
+      "freePlan": "無料プラン",
+      "freeDescription": "始めるための基本機能",
+      "proPlan": "プロプラン",
+      "proDescription": "プロフェッショナル向けの高度な機能",
+      "enterprisePlan": "エンタープライズプラン",
+      "enterpriseDescription": "チーム向けのカスタムソリューション",
+      "notifyMe": "利用可能になったら通知",
+      "earlyAccess": "先行アクセスと特別割引を獲得"
+    },
     "free": {
       "name": "無料プラン",
       "price": "¥0",
@@ -58,7 +70,7 @@
         "advancedAI": "高度なAIライティングアシスタント",
         "multipleFormats": "複数形式エクスポート",
         "onlineHosting": "オンライン履歴書ホスティング",
-        "prioritySupport": "優先顧客サポート",
+        "prioritySupport": "優先カスタマーサポート",
         "noAds": "広告なし体験"
       },
       "cta": "プロフェッショナルを選択"

@@ -34,9 +34,21 @@
     }
   },
   "pricing": {
-    "sectionTitle": "Wählen Sie den Plan, der zu Ihnen Passt",
-    "sectionSubtitle": "Beginnen Sie mit der kostenlosen Version und upgraden Sie zu fortschrittlicheren Plänen basierend auf Ihren Bedürfnissen",
+    "sectionTitle": "Wählen Sie den Plan, der zu Ihnen passt",
+    "sectionSubtitle": "Beginnen Sie mit der kostenlosen Version und upgraden Sie je nach Bedarf zu erweiterten Plänen",
     "mostPopular": "Am Beliebtesten",
+    "comingSoon": {
+      "title": "Demnächst Verfügbar",
+      "description": "Wir arbeiten hart daran, Ihnen erstaunliche Preispläne zu bieten. Bleiben Sie dran für exklusiven Early Access und Sonderangebote!",
+      "freePlan": "Kostenloser Plan",
+      "freeDescription": "Grundfunktionen zum Einstieg",
+      "proPlan": "Pro Plan",
+      "proDescription": "Erweiterte Funktionen für Profis",
+      "enterprisePlan": "Unternehmensplan",
+      "enterpriseDescription": "Maßgeschneiderte Lösungen für Teams",
+      "notifyMe": "Benachrichtigen Sie mich, wenn verfügbar",
+      "earlyAccess": "Erhalten Sie Early Access und Sonderrabatte"
+    },
     "free": {
       "name": "Kostenloser Plan",
       "price": "¥0",
@@ -55,9 +67,9 @@
       "period": "/Monat",
       "features": {
         "allTemplates": "Alle Lebenslauf-Vorlagen",
-        "advancedAI": "Fortgeschrittener KI-Schreibassistent",
-        "multipleFormats": "Mehrfach-Format-Export",
-        "onlineHosting": "Online-Lebenslauf-Hosting",
+        "advancedAI": "Erweiterter KI-Schreibassistent",
+        "multipleFormats": "Multi-Format-Export",
+        "onlineHosting": "Online Lebenslauf-Hosting",
         "prioritySupport": "Prioritäts-Kundensupport",
         "noAds": "Werbefreie Erfahrung"
       },

@@ -37,15 +37,27 @@
     "sectionTitle": "Choisissez le Plan qui Vous Convient",
     "sectionSubtitle": "Commencez avec la version gratuite et passez à des plans plus avancés selon vos besoins",
     "mostPopular": "Le Plus Populaire",
+    "comingSoon": {
+      "title": "Bientôt Disponible",
+      "description": "Nous travaillons dur pour vous apporter des plans de tarification incroyables. Restez à l'écoute pour un accès anticipé exclusif et des offres spéciales !",
+      "freePlan": "Plan Gratuit",
+      "freeDescription": "Fonctionnalités de base pour commencer",
+      "proPlan": "Plan Pro",
+      "proDescription": "Fonctionnalités avancées pour les professionnels",
+      "enterprisePlan": "Plan Entreprise",
+      "enterpriseDescription": "Solutions personnalisées pour les équipes",
+      "notifyMe": "Notifiez-moi quand disponible",
+      "earlyAccess": "Obtenez un accès anticipé et des réductions spéciales"
+    },
     "free": {
       "name": "Plan Gratuit",
       "price": "¥0",
       "period": "/mois",
       "features": {
         "templates": "3 Modèles de CV",
-        "aiAssistant": "Assistant d'Écriture IA Basique",
-        "pdfExport": "Exportation PDF",
-        "basicSupport": "Support Basique"
+        "aiAssistant": "Assistant d'Écriture IA de Base",
+        "pdfExport": "Export PDF",
+        "basicSupport": "Support de Base"
       },
       "cta": "Commencer Gratuitement"
     },
@@ -56,7 +68,7 @@
       "features": {
         "allTemplates": "Tous les Modèles de CV",
         "advancedAI": "Assistant d'Écriture IA Avancé",
-        "multipleFormats": "Exportation de Formats Multiples",
+        "multipleFormats": "Export Multi-Formats",
         "onlineHosting": "Hébergement de CV en Ligne",
         "prioritySupport": "Support Client Prioritaire",
         "noAds": "Expérience Sans Publicité"
