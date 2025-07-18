@@ -1,8 +1,7 @@
 import { Request, Response } from 'express'
-import { Configuration, OpenAIApi } from 'openai'
+import OpenAI from 'openai'
 
-const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY })
-const openai = new OpenAIApi(configuration)
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
 // 简历写作提示模板
 const PROMPT_TEMPLATES = {
@@ -28,7 +27,7 @@ export async function aiWrite(req: Request, res: Response) {
       finalPrompt = `${PROMPT_TEMPLATES[type]}\n\n用户输入：${prompt || context || ''}`
     }
 
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         {
@@ -44,7 +43,7 @@ export async function aiWrite(req: Request, res: Response) {
       temperature: 0.7
     })
 
-    const result = completion.data.choices[0].message?.content
+    const result = completion.choices[0].message?.content
     
     res.json({ 
       result,
@@ -108,7 +107,7 @@ ${JSON.stringify(content, null, 2)}
 6. 具体改进建议
 `
 
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         {
@@ -124,7 +123,7 @@ ${JSON.stringify(content, null, 2)}
       temperature: 0.5
     })
 
-    const analysis = completion.data.choices[0].message?.content
+    const analysis = completion.choices[0].message?.content
     
     res.json({ 
       analysis,
@@ -201,37 +200,23 @@ export async function translateContent(req: Request, res: Response) {
     const sourceLang = languageNames[sourceLanguage] || sourceLanguage
     const targetLang = languageNames[targetLanguage] || targetLanguage
 
-    const translationPrompt = `
-请将以下简历内容从${sourceLang}翻译成${targetLang}。请保持JSON格式不变，只翻译其中的文本内容。
-
-原文内容：
-${content}
-
-请确保：
-1. 保持JSON结构完全不变
-2. 只翻译文本内容，不翻译字段名
-3. 保持专业术语的准确性
-4. 适应目标语言的文化和表达习惯
-5. 返回完整的JSON格式内容
-`
-
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         {
           role: 'system',
-          content: '你是一个专业的简历翻译专家，擅长将简历内容翻译成不同语言，同时保持专业性和准确性。'
+          content: `你是一个专业的翻译专家，请将以下内容从${sourceLang}翻译成${targetLang}，保持专业性和准确性。`
         },
         {
           role: 'user',
-          content: translationPrompt
+          content: content
         }
       ],
-      max_tokens: 2000,
+      max_tokens: 1000,
       temperature: 0.3
     })
 
-    const translatedContent = completion.data.choices[0].message?.content
+    const translatedContent = completion.choices[0].message?.content
     
     res.json({ 
       translatedContent,
@@ -242,4 +227,81 @@ ${content}
     console.error('翻译错误:', error)
     res.status(500).json({ message: '翻译失败', error: error.message })
   }
+}
+
+// AI内容优化
+export async function optimizeContent(req: Request, res: Response) {
+  const { content, type, target } = req.body
+  
+  if (!content) {
+    return res.status(400).json({ message: '缺少内容参数' })
+  }
+
+  try {
+    let optimizationPrompt = ''
+    
+    switch (type) {
+      case 'summary':
+        optimizationPrompt = '请优化以下个人简介，使其更专业、更有说服力：'
+        break
+      case 'experience':
+        optimizationPrompt = '请优化以下工作经历描述，使用STAR法则，突出成就和技能：'
+        break
+      case 'skills':
+        optimizationPrompt = '请优化以下技能列表，按重要性排序并添加熟练程度：'
+        break
+      default:
+        optimizationPrompt = '请优化以下内容，使其更专业和突出：'
+    }
+
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        {
+          role: 'system',
+          content: '你是一个专业的简历内容优化专家，擅长改进简历内容使其更专业和有说服力。'
+        },
+        {
+          role: 'user',
+          content: `${optimizationPrompt}\n\n${content}`
+        }
+      ],
+      max_tokens: 800,
+      temperature: 0.6
+    })
+
+    const optimizedContent = completion.choices[0].message?.content
+    
+    res.json({ 
+      optimizedContent,
+      type,
+      suggestions: generateOptimizationSuggestions(type, optimizedContent)
+    })
+  } catch (error) {
+    console.error('内容优化错误:', error)
+    res.status(500).json({ message: '内容优化失败', error: error.message })
+  }
+}
+
+// 生成优化建议
+function generateOptimizationSuggestions(type: string, content: string): string[] {
+  const suggestions = {
+    summary: [
+      '建议添加具体的职业目标',
+      '可以提及行业经验年限',
+      '建议突出核心竞争力'
+    ],
+    experience: [
+      '建议用数据量化成果',
+      '可以使用更多动词开头',
+      '建议突出技术难点'
+    ],
+    skills: [
+      '建议按熟练程度排序',
+      '可以添加技能等级',
+      '建议突出核心技能'
+    ]
+  }
+  
+  return suggestions[type] || []
 } 
