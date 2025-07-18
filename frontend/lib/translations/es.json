@@ -271,5 +271,56 @@
       "completed": "¡Generación de IA completada!",
       "failed": "Error en la generación de IA"
     }
+  },
+  "buyMeACoffee": {
+    "badge": "Apoya WeCV AI",
+    "title": "¿Te gusta WeCV AI?",
+    "subtitle": "Si encuentra útil nuestro constructor de CV con IA, considere comprarnos un café para apoyar el desarrollo de más funciones increíbles.",
+    "small": {
+      "title": "Café Pequeño",
+      "description": "Perfecto para un agradecimiento rápido"
+    },
+    "medium": {
+      "title": "Café Mediano",
+      "description": "Excelente para usuarios regulares"
+    },
+    "large": {
+      "title": "Café Grande",
+      "description": "Para usuarios avanzados y partidarios"
+    },
+    "buyNow": "Comprar Ahora",
+    "features": {
+      "support": {
+        "title": "Apoyar el Desarrollo",
+        "description": "Ayúdanos a construir mejores funciones"
+      },
+      "priority": {
+        "title": "Soporte Prioritario",
+        "description": "Obtén tiempos de respuesta más rápidos"
+      },
+      "features": {
+        "title": "Acceso Anticipado",
+        "description": "Prueba nuevas funciones primero"
+      },
+      "community": {
+        "title": "Comunidad",
+        "description": "Únete a nuestra comunidad de partidarios"
+      }
+    },
+    "alternative": {
+      "title": "Otras Formas de Apoyar",
+      "share": {
+        "title": "Compartir con Amigos",
+        "description": "Cuéntales a otros sobre WeCV AI"
+      },
+      "feedback": {
+        "title": "Dar Comentarios",
+        "description": "Ayúdanos a mejorar la plataforma"
+      },
+      "review": {
+        "title": "Dejar una Reseña",
+        "description": "Califícanos en redes sociales"
+      }
+    }
   }
 } 

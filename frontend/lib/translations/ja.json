@@ -271,5 +271,56 @@
       "completed": "AI生成が完了しました！",
       "failed": "AI生成に失敗しました"
     }
+  },
+  "buyMeACoffee": {
+    "badge": "WeCV AIをサポート",
+    "title": "WeCV AIが気に入りましたか？",
+    "subtitle": "AI搭載の履歴書ビルダーが役立つと思われる場合は、コーヒーを一杯おごって、より素晴らしい機能の開発をサポートしてください！",
+    "small": {
+      "title": "小さいコーヒー",
+      "description": "素早い感謝に最適"
+    },
+    "medium": {
+      "title": "中サイズコーヒー",
+      "description": "定期的なユーザーに最適"
+    },
+    "large": {
+      "title": "大きいコーヒー",
+      "description": "パワーユーザーとサポーター向け"
+    },
+    "buyNow": "今すぐ購入",
+    "features": {
+      "support": {
+        "title": "開発をサポート",
+        "description": "より良い機能の構築を支援"
+      },
+      "priority": {
+        "title": "優先サポート",
+        "description": "より速いレスポンス時間を取得"
+      },
+      "features": {
+        "title": "早期アクセス",
+        "description": "新機能を最初に試す"
+      },
+      "community": {
+        "title": "コミュニティ",
+        "description": "サポーターコミュニティに参加"
+      }
+    },
+    "alternative": {
+      "title": "他のサポート方法",
+      "share": {
+        "title": "友達と共有",
+        "description": "WeCV AIについて他の人に伝える"
+      },
+      "feedback": {
+        "title": "フィードバックを提供",
+        "description": "プラットフォームの改善を支援"
+      },
+      "review": {
+        "title": "レビューを残す",
+        "description": "ソーシャルメディアで評価する"
+      }
+    }
   }
 } 

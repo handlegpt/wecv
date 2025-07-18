@@ -495,5 +495,56 @@
         "Use past tense verbs"
       ]
     }
+  },
+  "buyMeACoffee": {
+    "badge": "Support WeCV AI",
+    "title": "Love WeCV AI?",
+    "subtitle": "If you find our AI-powered resume builder helpful, consider buying us a coffee to support the development of more amazing features!",
+    "small": {
+      "title": "Small Coffee",
+      "description": "Perfect for a quick thank you"
+    },
+    "medium": {
+      "title": "Medium Coffee",
+      "description": "Great for regular users"
+    },
+    "large": {
+      "title": "Large Coffee",
+      "description": "For power users and supporters"
+    },
+    "buyNow": "Buy Now",
+    "features": {
+      "support": {
+        "title": "Support Development",
+        "description": "Help us build better features"
+      },
+      "priority": {
+        "title": "Priority Support",
+        "description": "Get faster response times"
+      },
+      "features": {
+        "title": "Early Access",
+        "description": "Try new features first"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Join our supporter community"
+      }
+    },
+    "alternative": {
+      "title": "Other Ways to Support",
+      "share": {
+        "title": "Share with Friends",
+        "description": "Tell others about WeCV AI"
+      },
+      "feedback": {
+        "title": "Give Feedback",
+        "description": "Help us improve the platform"
+      },
+      "review": {
+        "title": "Leave a Review",
+        "description": "Rate us on social media"
+      }
+    }
   }
 } 

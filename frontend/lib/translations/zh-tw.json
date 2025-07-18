@@ -474,5 +474,56 @@
         "使用動詞的過去時態"
       ]
     }
+  },
+  "buyMeACoffee": {
+    "badge": "支持WeCV AI",
+    "title": "喜歡WeCV AI嗎？",
+    "subtitle": "如果您覺得我們的AI簡歷生成器很有幫助，請考慮給我們買杯咖啡，支持我們開發更多精彩功能！",
+    "small": {
+      "title": "小杯咖啡",
+      "description": "完美的快速感謝"
+    },
+    "medium": {
+      "title": "中杯咖啡",
+      "description": "適合經常使用的用戶"
+    },
+    "large": {
+      "title": "大杯咖啡",
+      "description": "適合高級用戶和支持者"
+    },
+    "buyNow": "立即購買",
+    "features": {
+      "support": {
+        "title": "支持開發",
+        "description": "幫助我們構建更好的功能"
+      },
+      "priority": {
+        "title": "優先支持",
+        "description": "獲得更快的響應時間"
+      },
+      "features": {
+        "title": "搶先體驗",
+        "description": "率先嘗試新功能"
+      },
+      "community": {
+        "title": "社區",
+        "description": "加入我們的支持者社區"
+      }
+    },
+    "alternative": {
+      "title": "其他支持方式",
+      "share": {
+        "title": "分享給朋友",
+        "description": "告訴其他人關於WeCV AI"
+      },
+      "feedback": {
+        "title": "提供反饋",
+        "description": "幫助我們改進平台"
+      },
+      "review": {
+        "title": "留下評價",
+        "description": "在社交媒體上為我們評分"
+      }
+    }
   }
 } 

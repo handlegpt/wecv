@@ -271,5 +271,56 @@
       "completed": "Génération IA terminée !",
       "failed": "Échec de la génération IA"
     }
+  },
+  "buyMeACoffee": {
+    "badge": "Soutenir WeCV AI",
+    "title": "Vous aimez WeCV AI ?",
+    "subtitle": "Si vous trouvez notre constructeur de CV alimenté par l'IA utile, envisagez de nous acheter un café pour soutenir le développement de fonctionnalités plus incroyables !",
+    "small": {
+      "title": "Petit Café",
+      "description": "Parfait pour un remerciement rapide"
+    },
+    "medium": {
+      "title": "Café Moyen",
+      "description": "Idéal pour les utilisateurs réguliers"
+    },
+    "large": {
+      "title": "Grand Café",
+      "description": "Pour les utilisateurs avancés et les supporters"
+    },
+    "buyNow": "Acheter Maintenant",
+    "features": {
+      "support": {
+        "title": "Soutenir le Développement",
+        "description": "Aidez-nous à construire de meilleures fonctionnalités"
+      },
+      "priority": {
+        "title": "Support Prioritaire",
+        "description": "Obtenez des temps de réponse plus rapides"
+      },
+      "features": {
+        "title": "Accès Anticipé",
+        "description": "Essayez les nouvelles fonctionnalités en premier"
+      },
+      "community": {
+        "title": "Communauté",
+        "description": "Rejoignez notre communauté de supporters"
+      }
+    },
+    "alternative": {
+      "title": "Autres Façons de Soutenir",
+      "share": {
+        "title": "Partager avec des Amis",
+        "description": "Parlez de WeCV AI aux autres"
+      },
+      "feedback": {
+        "title": "Donner des Commentaires",
+        "description": "Aidez-nous à améliorer la plateforme"
+      },
+      "review": {
+        "title": "Laisser un Avis",
+        "description": "Notez-nous sur les réseaux sociaux"
+      }
+    }
   }
 } 

@@ -271,5 +271,56 @@
       "completed": "KI-Generierung abgeschlossen!",
       "failed": "KI-Generierung fehlgeschlagen"
     }
+  },
+  "buyMeACoffee": {
+    "badge": "WeCV AI unterstützen",
+    "title": "Gefällt Ihnen WeCV AI?",
+    "subtitle": "Wenn Sie unseren KI-gestützten Lebenslauf-Generator hilfreich finden, erwägen Sie, uns einen Kaffee zu spenden, um die Entwicklung weiterer erstaunlicher Funktionen zu unterstützen!",
+    "small": {
+      "title": "Kleiner Kaffee",
+      "description": "Perfekt für ein schnelles Dankeschön"
+    },
+    "medium": {
+      "title": "Mittlerer Kaffee",
+      "description": "Großartig für regelmäßige Benutzer"
+    },
+    "large": {
+      "title": "Großer Kaffee",
+      "description": "Für Power-User und Unterstützer"
+    },
+    "buyNow": "Jetzt Kaufen",
+    "features": {
+      "support": {
+        "title": "Entwicklung Unterstützen",
+        "description": "Helfen Sie uns, bessere Funktionen zu entwickeln"
+      },
+      "priority": {
+        "title": "Prioritäts-Support",
+        "description": "Erhalten Sie schnellere Antwortzeiten"
+      },
+      "features": {
+        "title": "Früher Zugang",
+        "description": "Testen Sie neue Funktionen zuerst"
+      },
+      "community": {
+        "title": "Community",
+        "description": "Treten Sie unserer Unterstützer-Community bei"
+      }
+    },
+    "alternative": {
+      "title": "Andere Unterstützungsmöglichkeiten",
+      "share": {
+        "title": "Mit Freunden Teilen",
+        "description": "Erzählen Sie anderen von WeCV AI"
+      },
+      "feedback": {
+        "title": "Feedback Geben",
+        "description": "Helfen Sie uns, die Plattform zu verbessern"
+      },
+      "review": {
+        "title": "Bewertung Hinterlassen",
+        "description": "Bewerten Sie uns in sozialen Medien"
+      }
+    }
   }
 } 
