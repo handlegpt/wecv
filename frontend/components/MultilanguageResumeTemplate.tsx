@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { GlobeAltIcon, DownloadIcon, ShareIcon } from '@heroicons/react/24/outline'
+import { GlobeAltIcon, ArrowDownTrayIcon, ArrowUpTrayIcon } from '@heroicons/react/24/outline'
 
 interface MultilanguageResumeTemplateProps {
   resumeId: string
@@ -280,21 +280,21 @@ export default function MultilanguageResumeTemplate({
                   onClick={() => onExport('pdf', currentLanguage)}
                   className="btn-secondary flex items-center space-x-2"
                 >
-                  <DownloadIcon className="h-4 w-4" />
+                  <ArrowDownTrayIcon className="h-4 w-4" />
                   <span>PDF</span>
                 </button>
                 <button
                   onClick={() => onExport('docx', currentLanguage)}
                   className="btn-secondary flex items-center space-x-2"
                 >
-                  <DownloadIcon className="h-4 w-4" />
+                  <ArrowDownTrayIcon className="h-4 w-4" />
                   <span>DOCX</span>
                 </button>
                 <button
                   onClick={() => onExport('share', currentLanguage)}
                   className="btn-primary flex items-center space-x-2"
                 >
-                  <ShareIcon className="h-4 w-4" />
+                  <ArrowUpTrayIcon className="h-4 w-4" />
                   <span>Share</span>
                 </button>
               </div>

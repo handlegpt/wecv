@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast'
 import { 
   UserGroupIcon, 
   ChatBubbleLeftIcon, 
-  ShareIcon,
+  ArrowUpTrayIcon,
   EyeIcon,
   PencilIcon,
   CheckIcon,
@@ -223,7 +223,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
             onClick={() => setShowInviteModal(true)}
             className="btn-primary flex items-center space-x-2"
           >
-            <ShareIcon className="w-4 h-4" />
+            <ArrowUpTrayIcon className="w-4 h-4" />
             <span>邀请协作者</span>
           </button>
         </div>
