@@ -1,61 +1,65 @@
 'use client'
 
+import { useTranslation } from 'react-i18next'
+
 const plans = [
   {
-    name: '免费版',
+    nameKey: 'pricing.free.name',
     price: '¥0',
     period: '/月',
     features: [
-      '3个简历模板',
-      '基础AI写作助手',
-      'PDF导出',
-      '基础支持'
+      'pricing.free.features.templates',
+      'pricing.free.features.aiAssistant',
+      'pricing.free.features.pdfExport',
+      'pricing.free.features.basicSupport'
     ],
     popular: false,
-    cta: '开始免费使用'
+    ctaKey: 'pricing.free.cta'
   },
   {
-    name: '专业版',
+    nameKey: 'pricing.pro.name',
     price: '¥29',
     period: '/月',
     features: [
-      '所有简历模板',
-      '高级AI写作助手',
-      '多种格式导出',
-      '在线简历托管',
-      '优先客服支持',
-      '无广告体验'
+      'pricing.pro.features.allTemplates',
+      'pricing.pro.features.advancedAI',
+      'pricing.pro.features.multipleFormats',
+      'pricing.pro.features.onlineHosting',
+      'pricing.pro.features.prioritySupport',
+      'pricing.pro.features.noAds'
     ],
     popular: true,
-    cta: '选择专业版'
+    ctaKey: 'pricing.pro.cta'
   },
   {
-    name: '企业版',
+    nameKey: 'pricing.enterprise.name',
     price: '¥99',
     period: '/月',
     features: [
-      '所有专业版功能',
-      '自定义AI模型',
-      '团队协作',
-      '高级数据分析',
-      'API接口',
-      '专属客服'
+      'pricing.enterprise.features.allProFeatures',
+      'pricing.enterprise.features.customAI',
+      'pricing.enterprise.features.teamCollaboration',
+      'pricing.enterprise.features.advancedAnalytics',
+      'pricing.enterprise.features.apiAccess',
+      'pricing.enterprise.features.dedicatedSupport'
     ],
     popular: false,
-    cta: '联系销售'
+    ctaKey: 'pricing.enterprise.cta'
   }
 ]
 
 export function Pricing() {
+  const { t } = useTranslation()
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            选择适合您的方案
+            {t('pricing.sectionTitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            从免费版开始，根据需求升级到更高级的方案
+            {t('pricing.sectionSubtitle')}
           </p>
         </div>
         
@@ -72,14 +76,14 @@ export function Pricing() {
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    最受欢迎
+                    {t('pricing.mostPopular')}
                   </span>
                 </div>
               )}
               
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {plan.name}
+                  {t(plan.nameKey)}
                 </h3>
                 <div className="flex items-baseline justify-center">
                   <span className="text-4xl font-bold text-gray-900">
@@ -105,7 +109,7 @@ export function Pricing() {
                         clipRule="evenodd" 
                       />
                     </svg>
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-gray-700">{t(feature)}</span>
                   </li>
                 ))}
               </ul>
@@ -117,7 +121,7 @@ export function Pricing() {
                     : 'btn-secondary'
                 }`}
               >
-                {plan.cta}
+                {t(plan.ctaKey)}
               </button>
             </div>
           ))}

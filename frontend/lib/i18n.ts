@@ -129,6 +129,76 @@ const enUS = {
       resumes: 'resumes',
       originalLanguage: 'Original Language',
       noResumes: 'No resumes found'
+    },
+    // Templates
+    templates: {
+      sectionTitle: 'Featured Resume Templates',
+      sectionSubtitle: 'Multiple professional templates for you to choose from, there\'s always one that fits you',
+      preview: 'Template Preview',
+      useTemplate: 'Use This Template',
+      viewMore: 'View More Templates',
+      categories: {
+        technical: 'Technical',
+        business: 'Business',
+        creative: 'Creative',
+        general: 'General'
+      },
+      modern: {
+        name: 'Modern Minimalist',
+        description: 'Clean and modern style, suitable for technical positions'
+      },
+      classic: {
+        name: 'Classic Business',
+        description: 'Traditional business style, suitable for management positions'
+      },
+      creative: {
+        name: 'Creative Design',
+        description: 'Creative design style, suitable for creative positions'
+      },
+      minimal: {
+        name: 'Minimalist',
+        description: 'Minimalist design, highlighting the content itself'
+      }
+    },
+    // Pricing
+    pricing: {
+      sectionTitle: 'Choose the Plan That Suits You',
+      sectionSubtitle: 'Start with the free version and upgrade to more advanced plans based on your needs',
+      mostPopular: 'Most Popular',
+      free: {
+        name: 'Free Plan',
+        cta: 'Start Free',
+        features: {
+          templates: '3 Resume Templates',
+          aiAssistant: 'Basic AI Writing Assistant',
+          pdfExport: 'PDF Export',
+          basicSupport: 'Basic Support'
+        }
+      },
+      pro: {
+        name: 'Professional Plan',
+        cta: 'Choose Professional',
+        features: {
+          allTemplates: 'All Resume Templates',
+          advancedAI: 'Advanced AI Writing Assistant',
+          multipleFormats: 'Multiple Format Export',
+          onlineHosting: 'Online Resume Hosting',
+          prioritySupport: 'Priority Customer Support',
+          noAds: 'Ad-free Experience'
+        }
+      },
+      enterprise: {
+        name: 'Enterprise Plan',
+        cta: 'Contact Sales',
+        features: {
+          allProFeatures: 'All Professional Features',
+          customAI: 'Custom AI Models',
+          teamCollaboration: 'Team Collaboration',
+          advancedAnalytics: 'Advanced Analytics',
+          apiAccess: 'API Access',
+          dedicatedSupport: 'Dedicated Support'
+        }
+      }
     }
   }
 }
@@ -253,6 +323,76 @@ const zhCN = {
       resumes: '简历',
       originalLanguage: '原始语言',
       noResumes: '未找到简历'
+    },
+    // Templates
+    templates: {
+      sectionTitle: '精选简历模板',
+      sectionSubtitle: '多种专业模板供您选择，总有一款适合您',
+      preview: '模板预览',
+      useTemplate: '使用此模板',
+      viewMore: '查看更多模板',
+      categories: {
+        technical: '技术',
+        business: '商务',
+        creative: '创意',
+        general: '通用'
+      },
+      modern: {
+        name: '现代简约',
+        description: '简洁大方的现代风格，适合技术岗位'
+      },
+      classic: {
+        name: '经典商务',
+        description: '传统商务风格，适合管理岗位'
+      },
+      creative: {
+        name: '创意设计',
+        description: '富有创意的设计风格，适合创意岗位'
+      },
+      minimal: {
+        name: '极简主义',
+        description: '极简设计，突出内容本身'
+      }
+    },
+    // Pricing
+    pricing: {
+      sectionTitle: '选择适合您的方案',
+      sectionSubtitle: '从免费版开始，根据需求升级到更高级的方案',
+      mostPopular: '最受欢迎',
+      free: {
+        name: '免费版',
+        cta: '开始免费使用',
+        features: {
+          templates: '3个简历模板',
+          aiAssistant: '基础AI写作助手',
+          pdfExport: 'PDF导出',
+          basicSupport: '基础支持'
+        }
+      },
+      pro: {
+        name: '专业版',
+        cta: '选择专业版',
+        features: {
+          allTemplates: '所有简历模板',
+          advancedAI: '高级AI写作助手',
+          multipleFormats: '多种格式导出',
+          onlineHosting: '在线简历托管',
+          prioritySupport: '优先客服支持',
+          noAds: '无广告体验'
+        }
+      },
+      enterprise: {
+        name: '企业版',
+        cta: '联系销售',
+        features: {
+          allProFeatures: '所有专业版功能',
+          customAI: '自定义AI模型',
+          teamCollaboration: '团队协作',
+          advancedAnalytics: '高级数据分析',
+          apiAccess: 'API接口',
+          dedicatedSupport: '专属客服'
+        }
+      }
     }
   }
 }
@@ -377,6 +517,76 @@ const zhTW = {
       resumes: '履歷',
       originalLanguage: '原始語言',
       noResumes: '未找到履歷'
+    },
+    // Templates
+    templates: {
+      sectionTitle: '精選履歷範本',
+      sectionSubtitle: '多種專業範本供您選擇，總有一款適合您',
+      preview: '範本預覽',
+      useTemplate: '使用此範本',
+      viewMore: '查看更多範本',
+      categories: {
+        technical: '技術',
+        business: '商務',
+        creative: '創意',
+        general: '通用'
+      },
+      modern: {
+        name: '現代簡約',
+        description: '簡潔大方的現代風格，適合技術崗位'
+      },
+      classic: {
+        name: '經典商務',
+        description: '傳統商務風格，適合管理崗位'
+      },
+      creative: {
+        name: '創意設計',
+        description: '富有創意的設計風格，適合創意崗位'
+      },
+      minimal: {
+        name: '極簡主義',
+        description: '極簡設計，突出內容本身'
+      }
+    },
+    // Pricing
+    pricing: {
+      sectionTitle: '選擇適合您的方案',
+      sectionSubtitle: '從免費版開始，根據需求升級到更高級的方案',
+      mostPopular: '最受歡迎',
+      free: {
+        name: '免費版',
+        cta: '開始免費使用',
+        features: {
+          templates: '3個履歷範本',
+          aiAssistant: '基礎AI寫作助手',
+          pdfExport: 'PDF匯出',
+          basicSupport: '基礎支援'
+        }
+      },
+      pro: {
+        name: '專業版',
+        cta: '選擇專業版',
+        features: {
+          allTemplates: '所有履歷範本',
+          advancedAI: '高級AI寫作助手',
+          multipleFormats: '多種格式匯出',
+          onlineHosting: '線上履歷託管',
+          prioritySupport: '優先客服支援',
+          noAds: '無廣告體驗'
+        }
+      },
+      enterprise: {
+        name: '企業版',
+        cta: '聯繫銷售',
+        features: {
+          allProFeatures: '所有專業版功能',
+          customAI: '自定義AI模型',
+          teamCollaboration: '團隊協作',
+          advancedAnalytics: '高級數據分析',
+          apiAccess: 'API介面',
+          dedicatedSupport: '專屬客服'
+        }
+      }
     }
   }
 }
