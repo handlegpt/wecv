@@ -1,0 +1,227 @@
+{
+  "hero": {
+    "title": "KI-gestützter Lebenslauf-Generator",
+    "subtitle": "Erstellen Sie professionelle Lebensläufe mit KI-Technologie, unterstützt mehrere Sprachen, Vorlagen und Exportformate",
+    "cta": "Erstellen Starten",
+    "ctaSecondary": "Vorlagen Anzeigen"
+  },
+  "features": {
+    "title": "Leistungsstarke Funktionen",
+    "subtitle": "Wir bieten umfassende Lebenslauf-Erstellungsfunktionen, um Ihre Jobsuche reibungsloser zu gestalten",
+    "aiAssistant": {
+      "title": "KI-Schreibassistent",
+      "description": "Verwenden Sie KI-Technologie, um Lebenslauf-Inhalte intelligent zu optimieren und professionelle Schreibvorschläge zu geben"
+    },
+    "multiLanguage": {
+      "title": "Mehrsprachige Unterstützung",
+      "description": "Unterstützung für Chinesisch, Englisch und andere Sprachen für internationale Bedürfnisse"
+    },
+    "templates": {
+      "title": "Reiche Vorlagen",
+      "description": "Bieten Sie verschiedene professionelle Lebenslauf-Vorlagen mit Ein-Klick-Stilwechsel"
+    },
+    "export": {
+      "title": "Mehrere Exportformate",
+      "description": "Unterstützung für PDF-, Word-, HTML- und andere Format-Exporte"
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "description": "Lokale Speicherung, Datensicherheit, Schutz der Privatsphäre des Benutzers"
+    },
+    "hosting": {
+      "title": "Online-Hosting",
+      "description": "Bieten Sie Online-Lebenslauf-Hosting-Service mit exklusiver Link-Generierung"
+    }
+  },
+  "pricing": {
+    "title": "Wählen Sie den Plan, der zu Ihnen passt",
+    "subtitle": "Beginnen Sie mit der kostenlosen Version und upgraden Sie je nach Bedarf zu erweiterten Plänen",
+    "free": {
+      "title": "Kostenloser Plan",
+      "price": "¥0",
+      "period": "/Monat",
+      "features": [
+        "3 Lebenslauf-Vorlagen",
+        "Grundlegender KI-Schreibassistent",
+        "PDF-Export",
+        "Grundlegender Support"
+      ],
+      "cta": "Kostenlos Starten"
+    },
+    "pro": {
+      "title": "Professioneller Plan",
+      "price": "¥29",
+      "period": "/Monat",
+      "popular": "Am Beliebtesten",
+      "features": [
+        "Alle Lebenslauf-Vorlagen",
+        "Erweiterter KI-Schreibassistent",
+        "Multi-Format-Export",
+        "Online-Lebenslauf-Hosting",
+        "Prioritäts-Kundensupport",
+        "Werbefreie Erfahrung"
+      ],
+      "cta": "Professionell Wählen"
+    },
+    "enterprise": {
+      "title": "Unternehmensplan",
+      "price": "¥99",
+      "period": "/Monat",
+      "features": [
+        "Alle professionellen Funktionen",
+        "Benutzerdefinierte KI-Modelle",
+        "Team-Zusammenarbeit",
+        "Erweiterte Analysen",
+        "API-Zugang",
+        "Dedizierter Support"
+      ],
+      "cta": "Vertrieb Kontaktieren"
+    }
+  },
+  "testimonials": {
+    "title": "Was Unsere Benutzer Sagen",
+    "subtitle": "Schließen Sie sich Tausenden von Fachleuten an, die ihre Karriere mit WeCV AI transformiert haben",
+    "rating": "4.9/5 von über 2.500 Bewertungen",
+    "users": [
+      {
+        "name": "Sarah Johnson",
+        "title": "Software-Ingenieurin bei TechCorp",
+        "content": "WeCV AI half mir, einen professionellen Lebenslauf zu erstellen, der mir meinen Traumjob verschaffte. Die KI-Vorschläge waren unglaublich hilfreich!"
+      },
+      {
+        "name": "Michael Chen",
+        "title": "Produktmanager bei InnovateLab",
+        "content": "Die mehrsprachige Unterstützung ist fantastisch. Ich kann leicht Lebensläufe in verschiedenen Sprachen für internationale Möglichkeiten erstellen."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "title": "UX-Designerin bei DesignStudio",
+        "content": "Die Analyse-Funktion half mir zu verstehen, welche Bereiche meines Lebenslaufs Verbesserungen benötigten. Sehr empfehlenswert!"
+      },
+      {
+        "name": "David Kim",
+        "title": "Datenwissenschaftler bei DataFlow",
+        "content": "Der KI-Assistent ist erstaunlich. Er gab großartige Vorschläge, die meinen Lebenslauf viel überzeugender machten."
+      },
+      {
+        "name": "Lisa Wang",
+        "title": "Marketing-Managerin bei GrowthCo",
+        "content": "Die Export-Funktionen sind ausgezeichnet. Ich kann meinen Lebenslauf leicht in verschiedenen Formaten mit potenziellen Arbeitgebern teilen."
+      },
+      {
+        "name": "James Thompson",
+        "title": "DevOps-Ingenieur bei CloudTech",
+        "content": "Die Versionskontroll-Funktion ist ein Lebensretter. Ich kann Änderungen verfolgen und bei Bedarf rückgängig machen. Großartiges Tool!"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Bereit, Ihre Karriere zu Transformieren?",
+    "subtitle": "Schließen Sie sich Tausenden von Fachleuten an, die bereits beeindruckende Lebensläufe mit WeCV AI erstellt haben. Beginnen Sie heute, Ihre berufliche Zukunft aufzubauen.",
+    "primary": "Kostenlos Starten",
+    "secondary": "Vorlagen Anzeigen",
+    "features": [
+      "Keine Kreditkarte erforderlich",
+      "Kostenloser Plan für immer verfügbar",
+      "30-Tage-Geld-zurück-Garantie"
+    ]
+  },
+  "templates": {
+    "sectionTitle": "Ausgewählte Lebenslauf-Vorlagen",
+    "sectionSubtitle": "Mehrere professionelle Vorlagen zur Auswahl, es gibt immer eine, die zu Ihnen passt",
+    "preview": "Vorlagen-Vorschau",
+    "useTemplate": "Diese Vorlage verwenden",
+    "viewMore": "Weitere Vorlagen anzeigen",
+    "categories": {
+      "technical": "Technisch",
+      "business": "Geschäftlich",
+      "creative": "Kreativ",
+      "general": "Allgemein"
+    },
+    "modern": {
+      "name": "Modern Minimalistisch",
+      "description": "Sauberer und moderner Stil, geeignet für technische Positionen"
+    },
+    "classic": {
+      "name": "Klassisch Geschäftlich",
+      "description": "Traditioneller Geschäftsstil, geeignet für Führungspositionen"
+    },
+    "creative": {
+      "name": "Kreatives Design",
+      "description": "Kreativer Designstil, geeignet für kreative Positionen"
+    },
+    "minimal": {
+      "name": "Minimalistisch",
+      "description": "Minimalistisches Design, hebt den Inhalt selbst hervor"
+    }
+  },
+  "languageTips": {
+    "title": "Sprachspezifische Tipps",
+    "simplifiedChinese": {
+      "title": "Vereinfachtes Chinesisch",
+      "tips": [
+        "Formelle Titel und Höflichkeitsformen verwenden",
+        "Professionelle Fähigkeiten und Erfolge hervorheben",
+        "Knappe und klare Beschreibungen verwenden"
+      ]
+    },
+    "traditionalChinese": {
+      "title": "Traditionelles Chinesisch",
+      "tips": [
+        "Traditionelle Schriftzeichen und formelle Sprache verwenden",
+        "Professionelle Fähigkeiten und Erfolge betonen",
+        "Knappe und klare Beschreibungen verwenden"
+      ]
+    },
+    "japanese": {
+      "title": "Japanisch",
+      "tips": [
+        "Höflichkeitsformen und bescheidene Sprache verwenden",
+        "Teamwork-Fähigkeiten betonen",
+        "Spezifische Erfolgsbeschreibungen verwenden"
+      ]
+    },
+    "spanish": {
+      "title": "Spanisch",
+      "tips": [
+        "Formelles Spanisch verwenden",
+        "Fähigkeiten und Erfahrung betonen",
+        "Verben in der Vergangenheitsform verwenden"
+      ]
+    }
+  },
+  "Common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "view": "Anzeigen",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "submit": "Absenden",
+    "reset": "Zurücksetzen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "sort": "Sortieren",
+    "refresh": "Aktualisieren",
+    "download": "Herunterladen",
+    "upload": "Hochladen",
+    "share": "Teilen",
+    "copy": "Kopieren",
+    "paste": "Einfügen",
+    "cut": "Ausschneiden",
+    "selectAll": "Alles Auswählen",
+    "deselectAll": "Alles Abwählen",
+    "yes": "Ja",
+    "no": "Nein",
+    "ok": "OK",
+    "confirm": "Bestätigen",
+    "apply": "Anwenden",
+    "done": "Fertig"
+  }
+} 

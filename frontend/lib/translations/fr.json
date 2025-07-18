@@ -1,0 +1,227 @@
+{
+  "hero": {
+    "title": "Constructeur de CV IA",
+    "subtitle": "Créez des CV professionnels avec la technologie IA, prenant en charge plusieurs langues, modèles et formats d'exportation",
+    "cta": "Commencer à Créer",
+    "ctaSecondary": "Voir les Modèles"
+  },
+  "features": {
+    "title": "Fonctionnalités Puissantes",
+    "subtitle": "Nous fournissons des fonctionnalités complètes de création de CV pour rendre votre recherche d'emploi plus fluide",
+    "aiAssistant": {
+      "title": "Assistant d'Écriture IA",
+      "description": "Utilisez la technologie IA pour optimiser intelligemment le contenu du CV et fournir des suggestions d'écriture professionnelles"
+    },
+    "multiLanguage": {
+      "title": "Support Multi-langues",
+      "description": "Support pour le chinois, l'anglais et d'autres langues pour répondre aux besoins internationaux"
+    },
+    "templates": {
+      "title": "Modèles Riches",
+      "description": "Fournissez divers modèles de CV professionnels avec changement de style en un clic"
+    },
+    "export": {
+      "title": "Formats d'Exportation Multiples",
+      "description": "Support pour l'exportation PDF, Word, HTML et autres formats"
+    },
+    "privacy": {
+      "title": "Protection de la Vie Privée",
+      "description": "Stockage local, sécurité des données, protéger la vie privée de l'utilisateur"
+    },
+    "hosting": {
+      "title": "Hébergement en Ligne",
+      "description": "Fournissez un service d'hébergement de CV en ligne avec génération de liens exclusifs"
+    }
+  },
+  "pricing": {
+    "title": "Choisissez le Plan qui Vous Convient",
+    "subtitle": "Commencez avec la version gratuite et passez à des plans plus avancés selon vos besoins",
+    "free": {
+      "title": "Plan Gratuit",
+      "price": "¥0",
+      "period": "/mois",
+      "features": [
+        "3 Modèles de CV",
+        "Assistant d'Écriture IA Basique",
+        "Exportation PDF",
+        "Support Basique"
+      ],
+      "cta": "Commencer Gratuitement"
+    },
+    "pro": {
+      "title": "Plan Professionnel",
+      "price": "¥29",
+      "period": "/mois",
+      "popular": "Le Plus Populaire",
+      "features": [
+        "Tous les Modèles de CV",
+        "Assistant d'Écriture IA Avancé",
+        "Exportation Multi-formats",
+        "Hébergement de CV en Ligne",
+        "Support Client Prioritaire",
+        "Expérience Sans Publicité"
+      ],
+      "cta": "Choisir Professionnel"
+    },
+    "enterprise": {
+      "title": "Plan Entreprise",
+      "price": "¥99",
+      "period": "/mois",
+      "features": [
+        "Toutes les Fonctionnalités Professionnelles",
+        "Modèles IA Personnalisés",
+        "Collaboration d'Équipe",
+        "Analyses Avancées",
+        "Accès API",
+        "Support Dédié"
+      ],
+      "cta": "Contacter les Ventes"
+    }
+  },
+  "testimonials": {
+    "title": "Ce que Disent Nos Utilisateurs",
+    "subtitle": "Rejoignez des milliers de professionnels qui ont transformé leur carrière avec WeCV AI",
+    "rating": "4.9/5 de plus de 2,500 avis",
+    "users": [
+      {
+        "name": "Sarah Johnson",
+        "title": "Ingénieure Logiciel chez TechCorp",
+        "content": "WeCV AI m'a aidée à créer un CV professionnel qui m'a obtenu mon travail de rêve. Les suggestions IA ont été incroyablement utiles !"
+      },
+      {
+        "name": "Michael Chen",
+        "title": "Chef de Produit chez InnovateLab",
+        "content": "Le support multi-langues est fantastique. Je peux facilement créer des CV dans différentes langues pour des opportunités internationales."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "title": "Designer UX chez DesignStudio",
+        "content": "La fonction d'analyse m'a aidée à comprendre quelles parties de mon CV avaient besoin d'amélioration. Très recommandé !"
+      },
+      {
+        "name": "David Kim",
+        "title": "Scientifique des Données chez DataFlow",
+        "content": "L'assistant IA est incroyable. Il a fourni d'excellentes suggestions qui ont rendu mon CV beaucoup plus convaincant."
+      },
+      {
+        "name": "Lisa Wang",
+        "title": "Chef de Marketing chez GrowthCo",
+        "content": "Les fonctions d'exportation sont excellentes. Je peux facilement partager mon CV dans différents formats avec des employeurs potentiels."
+      },
+      {
+        "name": "James Thompson",
+        "title": "Ingénieur DevOps chez CloudTech",
+        "content": "La fonction de contrôle de version est un sauveteur. Je peux suivre les changements et revenir en arrière si nécessaire. Excellent outil !"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à Transformer Votre Carrière ?",
+    "subtitle": "Rejoignez des milliers de professionnels qui ont déjà créé des CV impressionnants avec WeCV AI. Commencez à construire votre avenir professionnel aujourd'hui.",
+    "primary": "Commencer Gratuitement",
+    "secondary": "Voir les Modèles",
+    "features": [
+      "Aucune carte de crédit requise",
+      "Plan gratuit pour toujours disponible",
+      "Garantie de remboursement de 30 jours"
+    ]
+  },
+  "templates": {
+    "sectionTitle": "Modèles de CV Mis en Avant",
+    "sectionSubtitle": "Plusieurs modèles professionnels à choisir, il y en a toujours un qui vous convient",
+    "preview": "Aperçu du Modèle",
+    "useTemplate": "Utiliser Ce Modèle",
+    "viewMore": "Voir Plus de Modèles",
+    "categories": {
+      "technical": "Technique",
+      "business": "Affaires",
+      "creative": "Créatif",
+      "general": "Général"
+    },
+    "modern": {
+      "name": "Minimaliste Moderne",
+      "description": "Style épuré et moderne, adapté aux postes techniques"
+    },
+    "classic": {
+      "name": "Affaires Classique",
+      "description": "Style d'affaires traditionnel, adapté aux postes de gestion"
+    },
+    "creative": {
+      "name": "Design Créatif",
+      "description": "Style de design créatif, adapté aux postes créatifs"
+    },
+    "minimal": {
+      "name": "Minimaliste",
+      "description": "Design minimaliste, mettant en valeur le contenu lui-même"
+    }
+  },
+  "languageTips": {
+    "title": "Conseils Spécifiques par Langue",
+    "simplifiedChinese": {
+      "title": "Chinois Simplifié",
+      "tips": [
+        "Utiliser des titres formels et des honorifiques",
+        "Mettre en valeur les compétences professionnelles et les réalisations",
+        "Utiliser des descriptions concises et claires"
+      ]
+    },
+    "traditionalChinese": {
+      "title": "Chinois Traditionnel",
+      "tips": [
+        "Utiliser des caractères traditionnels et un langage formel",
+        "Mettre l'accent sur les compétences professionnelles et les réalisations",
+        "Utiliser des descriptions concises et claires"
+      ]
+    },
+    "japanese": {
+      "title": "Japonais",
+      "tips": [
+        "Utiliser des honorifiques et un langage humble",
+        "Mettre l'accent sur les capacités de travail d'équipe",
+        "Utiliser des descriptions spécifiques de réalisations"
+      ]
+    },
+    "spanish": {
+      "title": "Espagnol",
+      "tips": [
+        "Utiliser l'espagnol formel",
+        "Mettre l'accent sur les compétences et l'expérience",
+        "Utiliser les verbes au passé"
+      ]
+    }
+  },
+  "Common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "refresh": "Actualiser",
+    "download": "Télécharger",
+    "upload": "Téléverser",
+    "share": "Partager",
+    "copy": "Copier",
+    "paste": "Coller",
+    "cut": "Couper",
+    "selectAll": "Tout Sélectionner",
+    "deselectAll": "Tout Désélectionner",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "OK",
+    "confirm": "Confirmer",
+    "apply": "Appliquer",
+    "done": "Terminé"
+  }
+} 

@@ -152,39 +152,39 @@ export default function LanguageSettingsPage() {
         {/* Language Tips */}
         <div className="mt-8 bg-blue-50 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-blue-800 mb-4">
-            {t('resume.languageTips', 'Language-Specific Tips')}
+            {t('languageTips.title')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h4 className="font-medium text-blue-700 mb-2">🇨🇳 简体中文</h4>
+              <h4 className="font-medium text-blue-700 mb-2">🇨🇳 {t('languageTips.simplifiedChinese.title')}</h4>
               <ul className="text-sm text-blue-600 space-y-1">
-                <li>• 使用正式的称谓和敬语</li>
-                <li>• 突出专业技能和成就</li>
-                <li>• 使用简洁明了的描述</li>
+                {(t('languageTips.simplifiedChinese.tips', { returnObjects: true }) as string[]).map((tip: string, index: number) => (
+                  <li key={index}>• {tip}</li>
+                ))}
               </ul>
             </div>
             <div>
-              <h4 className="font-medium text-blue-700 mb-2">🇹🇼 繁體中文</h4>
+              <h4 className="font-medium text-blue-700 mb-2">🇹🇼 {t('languageTips.traditionalChinese.title')}</h4>
               <ul className="text-sm text-blue-600 space-y-1">
-                <li>• 使用繁體字和正式用語</li>
-                <li>• 強調專業技能和成就</li>
-                <li>• 使用簡潔明瞭的描述</li>
+                {(t('languageTips.traditionalChinese.tips', { returnObjects: true }) as string[]).map((tip: string, index: number) => (
+                  <li key={index}>• {tip}</li>
+                ))}
               </ul>
             </div>
             <div>
-              <h4 className="font-medium text-blue-700 mb-2">🇯🇵 日本語</h4>
+              <h4 className="font-medium text-blue-700 mb-2">🇯🇵 {t('languageTips.japanese.title')}</h4>
               <ul className="text-sm text-blue-600 space-y-1">
-                <li>• 使用敬語和謙讓語</li>
-                <li>• 強調團隊合作能力</li>
-                <li>• 使用具體的成就描述</li>
+                {(t('languageTips.japanese.tips', { returnObjects: true }) as string[]).map((tip: string, index: number) => (
+                  <li key={index}>• {tip}</li>
+                ))}
               </ul>
             </div>
             <div>
-              <h4 className="font-medium text-blue-700 mb-2">🇪🇸 Español</h4>
+              <h4 className="font-medium text-blue-700 mb-2">🇪🇸 {t('languageTips.spanish.title')}</h4>
               <ul className="text-sm text-blue-600 space-y-1">
-                <li>• 使用正式的西班牙語</li>
-                <li>• 強調技能和經驗</li>
-                <li>• 使用動詞的過去時態</li>
+                {(t('languageTips.spanish.tips', { returnObjects: true }) as string[]).map((tip: string, index: number) => (
+                  <li key={index}>• {tip}</li>
+                ))}
               </ul>
             </div>
           </div>

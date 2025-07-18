@@ -1,0 +1,429 @@
+{
+  "hero": {
+    "title": "AI驅動的簡歷生成器",
+    "subtitle": "使用AI技術創建專業簡歷，支持多語言、模板和多種導出格式",
+    "cta": "開始創建",
+    "ctaSecondary": "查看模板"
+  },
+  "features": {
+    "title": "強大功能",
+    "subtitle": "我們提供全面的簡歷創建功能，讓您的求職之旅更加順暢",
+    "aiAssistant": {
+      "title": "AI寫作助手",
+      "description": "使用AI技術智能優化簡歷內容並提供專業寫作建議"
+    },
+    "multiLanguage": {
+      "title": "多語言支持",
+      "description": "支持中文、英文等多種語言，滿足國際化需求"
+    },
+    "templates": {
+      "title": "豐富模板",
+      "description": "提供各種專業簡歷模板，一鍵切換樣式"
+    },
+    "export": {
+      "title": "多種導出格式",
+      "description": "支持PDF、Word、HTML等多種格式導出"
+    },
+    "privacy": {
+      "title": "隱私保護",
+      "description": "本地存儲，數據安全，保護用戶隱私"
+    },
+    "hosting": {
+      "title": "在線託管",
+      "description": "提供在線簡歷託管服務，生成專屬鏈接"
+    }
+  },
+  "pricing": {
+    "title": "選擇適合您的計劃",
+    "subtitle": "從免費版本開始，根據您的需求升級到更高級的計劃",
+    "free": {
+      "title": "免費計劃",
+      "price": "¥0",
+      "period": "/月",
+      "features": [
+        "3個簡歷模板",
+        "基礎AI寫作助手",
+        "PDF導出",
+        "基礎支持"
+      ],
+      "cta": "免費開始"
+    },
+    "pro": {
+      "title": "專業計劃",
+      "price": "¥29",
+      "period": "/月",
+      "popular": "最受歡迎",
+      "features": [
+        "所有簡歷模板",
+        "高級AI寫作助手",
+        "多種格式導出",
+        "在線簡歷託管",
+        "優先客戶支持",
+        "無廣告體驗"
+      ],
+      "cta": "選擇專業版"
+    },
+    "enterprise": {
+      "title": "企業計劃",
+      "price": "¥99",
+      "period": "/月",
+      "features": [
+        "所有專業功能",
+        "自定義AI模型",
+        "團隊協作",
+        "高級分析",
+        "API訪問",
+        "專屬支持"
+      ],
+      "cta": "聯繫銷售"
+    }
+  },
+  "testimonials": {
+    "title": "用戶評價",
+    "subtitle": "加入數千名通過WeCV AI改變職業生涯的專業人士",
+    "rating": "4.9/5 來自2,500+評價",
+    "users": [
+      {
+        "name": "Sarah Johnson",
+        "title": "TechCorp軟件工程師",
+        "content": "WeCV AI幫助我創建了一份專業簡歷，讓我獲得了夢想工作。AI建議非常有用！"
+      },
+      {
+        "name": "Michael Chen",
+        "title": "InnovateLab產品經理",
+        "content": "多語言支持很棒。我可以輕鬆創建不同語言的簡歷來應對國際機會。"
+      },
+      {
+        "name": "Emily Rodriguez",
+        "title": "DesignStudio用戶體驗設計師",
+        "content": "分析功能幫助我了解簡歷哪些方面需要改進。強烈推薦！"
+      },
+      {
+        "name": "David Kim",
+        "title": "DataFlow數據科學家",
+        "content": "AI助手很棒。它提供了很好的建議，讓我的簡歷更有說服力。"
+      },
+      {
+        "name": "Lisa Wang",
+        "title": "GrowthCo營銷經理",
+        "content": "導出功能很棒。我可以輕鬆以不同格式與潛在雇主分享簡歷。"
+      },
+      {
+        "name": "James Thompson",
+        "title": "CloudTech DevOps工程師",
+        "content": "版本控制功能是救星。我可以跟蹤更改並在需要時回退。很棒的工具！"
+      }
+    ]
+  },
+  "cta": {
+    "title": "準備改變您的職業生涯？",
+    "subtitle": "加入數千名已經使用WeCV AI創建精彩簡歷的專業人士。今天就開始構建您的專業未來。",
+    "primary": "免費開始",
+    "secondary": "查看模板",
+    "features": [
+      "無需信用卡",
+      "永久免費計劃",
+      "30天退款保證"
+    ]
+  },
+  "ResumeAnalytics": {
+    "title": "簡歷分析",
+    "score": "評分",
+    "overallScore": "總體評分",
+    "completeness": "完整性",
+    "completenessDescription": "簡歷部分完成百分比",
+    "skillsDistribution": "技能分佈",
+    "experienceTimeline": "經驗時間線",
+    "educationDistribution": "教育分佈",
+    "improvementSuggestions": "改進建議",
+    "excellentScore": "優秀！您的簡歷結構良好且全面。",
+    "goodScore": "良好！您的簡歷涵蓋了大部分基本要素。",
+    "needsImprovement": "您的簡歷需要一些改進才能更具競爭力。",
+    "noData": "暫無分析數據"
+  },
+  "ResumeAIAssistant": {
+    "title": "AI助手",
+    "aiChat": "AI聊天",
+    "showChat": "顯示聊天",
+    "hideChat": "隱藏聊天",
+    "aiFeatures": "AI功能",
+    "filterSuggestions": "篩選建議",
+    "aiSuggestions": "AI建議",
+    "refresh": "刷新",
+    "copy": "複製",
+    "confidence": "置信度",
+    "noSuggestions": "暫無建議",
+    "generatingSuggestions": "正在生成建議...",
+    "chatPlaceholder": "詢問我關於您簡歷的任何問題...",
+    "allCategories": "所有類別",
+    "summary": "總結",
+    "experience": "經驗",
+    "skills": "技能",
+    "education": "教育",
+    "projects": "項目",
+    "improveSummary": "改進總結",
+    "improveSummaryDesc": "使用AI增強您的專業總結",
+    "generateExperience": "生成經驗",
+    "generateExperienceDesc": "創建引人注目的經驗描述",
+    "suggestSkills": "建議技能",
+    "suggestSkillsDesc": "為您的行業獲取技能建議",
+    "optimizeContent": "優化內容",
+    "optimizeContentDesc": "改進整體簡歷內容和結構"
+  },
+  "ResumeExporter": {
+    "title": "導出簡歷",
+    "exportOptions": "導出選項",
+    "exportFormats": "導出格式",
+    "shareOptions": "分享選項",
+    "exportSettings": "導出設置",
+    "includeHeader": "包含頁眉",
+    "includeHeaderDesc": "在頁眉添加WeCV AI品牌",
+    "includeFooter": "包含頁腳",
+    "includeFooterDesc": "添加頁碼和頁腳信息",
+    "pageNumbers": "頁碼",
+    "pageNumbersDesc": "在文檔中添加頁碼",
+    "recentExports": "最近導出",
+    "noRecentExports": "暫無最近導出",
+    "exportError": "導出簡歷失敗",
+    "shareError": "分享簡歷失敗",
+    "resumeSubject": "我的WeCV AI簡歷",
+    "resumeBody": "請查看附件中的簡歷。",
+    "linkCopied": "分享鏈接已複製到剪貼板！"
+  },
+  "ResumeVersionControl": {
+    "title": "版本控制",
+    "createVersion": "創建版本",
+    "createNewVersion": "創建新版本",
+    "versionName": "版本名稱",
+    "versionNamePlaceholder": "例如：v2.0 - 更新經驗",
+    "versionDescription": "描述",
+    "versionDescriptionPlaceholder": "描述此版本中進行的更改",
+    "saveVersion": "保存版本",
+    "cancel": "取消",
+    "versionHistory": "版本歷史",
+    "currentVersion": "當前版本",
+    "restoreVersion": "恢復版本",
+    "deleteVersion": "刪除版本",
+    "noVersions": "暫無版本",
+    "versionCreated": "版本創建成功",
+    "versionRestored": "版本恢復成功",
+    "versionDeleted": "版本刪除成功",
+    "confirmDelete": "確定要刪除此版本嗎？",
+    "confirmRestore": "確定要恢復到此版本嗎？"
+  },
+  "ResumeTemplates": {
+    "title": "簡歷模板",
+    "searchTemplates": "搜索模板",
+    "filterByCategory": "按類別篩選",
+    "allCategories": "所有類別",
+    "technical": "技術",
+    "business": "商務",
+    "creative": "創意",
+    "general": "通用",
+    "previewTemplate": "預覽模板",
+    "useTemplate": "使用此模板",
+    "templateDetails": "模板詳情",
+    "templateFeatures": "模板特點",
+    "suitableFor": "適合職位",
+    "downloadTemplate": "下載模板",
+    "noTemplates": "暫無模板",
+    "loadingTemplates": "正在加載模板...",
+    "templateError": "加載模板時出錯"
+  },
+  "ResumeBuilder": {
+    "title": "簡歷生成器",
+    "personalInfo": "個人信息",
+    "experience": "工作經驗",
+    "education": "教育背景",
+    "skills": "技能",
+    "projects": "項目",
+    "languages": "語言",
+    "certifications": "認證",
+    "interests": "興趣愛好",
+    "summary": "個人總結",
+    "addSection": "添加部分",
+    "removeSection": "刪除部分",
+    "saveResume": "保存簡歷",
+    "previewResume": "預覽簡歷",
+    "exportResume": "導出簡歷",
+    "resumeSaved": "簡歷保存成功",
+    "resumeError": "保存簡歷時出錯",
+    "confirmDelete": "確定要刪除此部分嗎？",
+    "addExperience": "添加經驗",
+    "addEducation": "添加教育",
+    "addSkill": "添加技能",
+    "addProject": "添加項目",
+    "addLanguage": "添加語言",
+    "addCertification": "添加認證",
+    "addInterest": "添加興趣"
+  },
+  "navigation": {
+    "home": "首頁",
+    "templates": "模板",
+    "pricing": "定價",
+    "login": "登錄",
+    "register": "註冊",
+    "dashboard": "儀表板",
+    "admin": "管理",
+    "settings": "設置",
+    "logout": "退出"
+  },
+  "auth": {
+    "noAccount": "沒有賬戶？",
+    "registerNow": "立即註冊",
+    "haveAccount": "已有賬戶？",
+    "loginNow": "立即登錄",
+    "confirmPassword": "確認密碼"
+  },
+  "validation": {
+    "emailRequired": "請輸入您的郵箱",
+    "emailInvalid": "請輸入有效的郵箱地址",
+    "passwordRequired": "請輸入您的密碼",
+    "passwordMinLength": "密碼至少6個字符",
+    "confirmPasswordRequired": "請確認您的密碼",
+    "passwordMismatch": "密碼不匹配",
+    "nameRequired": "請輸入您的姓名"
+  },
+  "buttons": {
+    "create": "創建簡歷",
+    "save": "保存",
+    "export": "導出",
+    "share": "分享",
+    "edit": "編輯",
+    "delete": "刪除",
+    "cancel": "取消",
+    "confirm": "確認",
+    "upload": "上傳",
+    "download": "下載"
+  },
+  "resume": {
+    "personalInfo": "個人信息",
+    "experience": "工作經驗",
+    "education": "教育背景",
+    "skills": "技能",
+    "projects": "項目",
+    "languages": "語言",
+    "certifications": "認證",
+    "interests": "興趣愛好",
+    "summary": "總結",
+    "summaryPlaceholder": "寫一個簡短的專業總結...",
+    "skillsPlaceholder": "列出您的關鍵技能和能力...",
+    "content": "內容",
+    "language": "語言"
+  },
+  "form": {
+    "firstName": "名",
+    "lastName": "姓",
+    "email": "郵箱",
+    "phone": "電話",
+    "address": "地址",
+    "website": "網站",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "company": "公司",
+    "position": "職位",
+    "startDate": "開始日期",
+    "endDate": "結束日期",
+    "description": "描述",
+    "school": "學校",
+    "degree": "學位",
+    "field": "專業",
+    "gpa": "GPA",
+    "skill": "技能",
+    "level": "水平",
+    "projectName": "項目名稱",
+    "projectUrl": "項目鏈接",
+    "language": "語言",
+    "proficiency": "熟練程度"
+  },
+  "messages": {
+    "saved": "簡歷保存成功",
+    "exported": "簡歷導出成功",
+    "deleted": "簡歷刪除成功",
+    "error": "發生錯誤",
+    "loading": "加載中...",
+    "noData": "暫無數據",
+    "loginSuccess": "登錄成功！",
+    "loginFailed": "登錄失敗",
+    "registerSuccess": "註冊成功！請登錄",
+    "registerFailed": "註冊失敗",
+    "registering": "註冊中...",
+    "loggingIn": "登錄中...",
+    "networkError": "網絡錯誤，請重試"
+  },
+  "settings": {
+    "multilanguage": "多語言設置",
+    "languagePreferences": "語言偏好",
+    "preferredLanguage": "首選語言",
+    "languageInfo": "語言信息",
+    "supportedLanguages": "支持的語言",
+    "resumeTranslations": "簡歷翻譯",
+    "resumes": "簡歷",
+    "originalLanguage": "原始語言",
+    "noResumes": "未找到簡歷"
+  },
+  "templates": {
+    "sectionTitle": "精選簡歷模板",
+    "sectionSubtitle": "多種專業模板供您選擇，總有一款適合您",
+    "preview": "模板預覽",
+    "useTemplate": "使用此模板",
+    "viewMore": "查看更多模板",
+    "categories": {
+      "technical": "技術",
+      "business": "商務",
+      "creative": "創意",
+      "general": "通用"
+    },
+    "modern": {
+      "name": "現代簡約",
+      "description": "簡潔現代風格，適合技術職位"
+    },
+    "classic": {
+      "name": "經典商務",
+      "description": "傳統商務風格，適合管理職位"
+    },
+    "creative": {
+      "name": "創意設計",
+      "description": "創意設計風格，適合創意職位"
+    },
+    "minimal": {
+      "name": "極簡主義",
+      "description": "極簡設計，突出內容本身"
+    }
+  },
+  "languageTips": {
+    "title": "語言特定提示",
+    "simplifiedChinese": {
+      "title": "簡體中文",
+      "tips": [
+        "使用正式的稱謂和敬語",
+        "突出專業技能和成就",
+        "使用簡潔明瞭的描述"
+      ]
+    },
+    "traditionalChinese": {
+      "title": "繁體中文",
+      "tips": [
+        "使用繁體字和正式用語",
+        "強調專業技能和成就",
+        "使用簡潔明瞭的描述"
+      ]
+    },
+    "japanese": {
+      "title": "日本語",
+      "tips": [
+        "使用敬語和謙讓語",
+        "強調團隊合作能力",
+        "使用具體的成就描述"
+      ]
+    },
+    "spanish": {
+      "title": "Español",
+      "tips": [
+        "使用正式的西班牙語",
+        "強調技能和經驗",
+        "使用動詞的過去時態"
+      ]
+    }
+  }
+} 

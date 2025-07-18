@@ -1,4 +1,131 @@
 {
+  "hero": {
+    "title": "AI-Powered Resume Builder",
+    "subtitle": "Create professional resumes with AI technology, supporting multiple languages, templates and export formats",
+    "cta": "Start Creating",
+    "ctaSecondary": "View Templates"
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "We provide comprehensive resume creation features to make your job search journey smoother",
+    "aiAssistant": {
+      "title": "AI Writing Assistant",
+      "description": "Use AI technology to intelligently optimize resume content and provide professional writing suggestions"
+    },
+    "multiLanguage": {
+      "title": "Multi-language Support",
+      "description": "Support Chinese, English and other languages to meet international needs"
+    },
+    "templates": {
+      "title": "Rich Templates",
+      "description": "Provide various professional resume templates with one-click style switching"
+    },
+    "export": {
+      "title": "Multiple Export Formats",
+      "description": "Support PDF, Word, HTML and other format exports"
+    },
+    "privacy": {
+      "title": "Privacy Protection",
+      "description": "Local storage, data security, protect user privacy"
+    },
+    "hosting": {
+      "title": "Online Hosting",
+      "description": "Provide online resume hosting service with exclusive link generation"
+    }
+  },
+  "pricing": {
+    "title": "Choose the Plan That Suits You",
+    "subtitle": "Start with the free version and upgrade to more advanced plans based on your needs",
+    "free": {
+      "title": "Free Plan",
+      "price": "¥0",
+      "period": "/month",
+      "features": [
+        "3 Resume Templates",
+        "Basic AI Writing Assistant",
+        "PDF Export",
+        "Basic Support"
+      ],
+      "cta": "Start Free"
+    },
+    "pro": {
+      "title": "Professional Plan",
+      "price": "¥29",
+      "period": "/month",
+      "popular": "Most Popular",
+      "features": [
+        "All Resume Templates",
+        "Advanced AI Writing Assistant",
+        "Multiple Format Export",
+        "Online Resume Hosting",
+        "Priority Customer Support",
+        "Ad-free Experience"
+      ],
+      "cta": "Choose Professional"
+    },
+    "enterprise": {
+      "title": "Enterprise Plan",
+      "price": "¥99",
+      "period": "/month",
+      "features": [
+        "All Professional Features",
+        "Custom AI Models",
+        "Team Collaboration",
+        "Advanced Analytics",
+        "API Access",
+        "Dedicated Support"
+      ],
+      "cta": "Contact Sales"
+    }
+  },
+  "testimonials": {
+    "title": "What Our Users Say",
+    "subtitle": "Join thousands of professionals who have transformed their careers with WeCV AI",
+    "rating": "4.9/5 from 2,500+ reviews",
+    "users": [
+      {
+        "name": "Sarah Johnson",
+        "title": "Software Engineer at TechCorp",
+        "content": "WeCV AI helped me create a professional resume that landed me my dream job. The AI suggestions were incredibly helpful!"
+      },
+      {
+        "name": "Michael Chen",
+        "title": "Product Manager at InnovateLab",
+        "content": "The multi-language support is fantastic. I can easily create resumes in different languages for international opportunities."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "title": "UX Designer at DesignStudio",
+        "content": "The analytics feature helped me understand what areas of my resume needed improvement. Highly recommended!"
+      },
+      {
+        "name": "David Kim",
+        "title": "Data Scientist at DataFlow",
+        "content": "The AI assistant is amazing. It provided great suggestions that made my resume much more compelling."
+      },
+      {
+        "name": "Lisa Wang",
+        "title": "Marketing Manager at GrowthCo",
+        "content": "The export features are excellent. I can easily share my resume in different formats with potential employers."
+      },
+      {
+        "name": "James Thompson",
+        "title": "DevOps Engineer at CloudTech",
+        "content": "The version control feature is a lifesaver. I can track changes and revert if needed. Great tool!"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Career?",
+    "subtitle": "Join thousands of professionals who have already created stunning resumes with WeCV AI. Start building your professional future today.",
+    "primary": "Get Started Free",
+    "secondary": "View Templates",
+    "features": [
+      "No credit card required",
+      "Free forever plan available",
+      "30-day money-back guarantee"
+    ]
+  },
   "ResumeAnalytics": {
     "title": "Resume Analytics",
     "score": "Score",
@@ -127,32 +254,67 @@
     "noTemplates": "No templates found"
   },
   "templates": {
-    "sectionTitle": "Professional Resume Templates",
-    "sectionSubtitle": "Choose from our collection of professionally designed templates to create your perfect resume",
-    "viewMore": "View All Templates",
-    "useTemplate": "Use Template",
-    "preview": "Preview",
-    "modern": {
-      "name": "Modern",
-      "description": "Clean and contemporary design with bold typography"
-    },
-    "classic": {
-      "name": "Classic",
-      "description": "Traditional layout with professional styling"
-    },
-    "creative": {
-      "name": "Creative",
-      "description": "Unique and eye-catching design for creative professionals"
-    },
-    "minimal": {
-      "name": "Minimal",
-      "description": "Simple and clean design focusing on content"
-    },
+    "sectionTitle": "Featured Resume Templates",
+    "sectionSubtitle": "Multiple professional templates for you to choose from, there's always one that fits you",
+    "preview": "Template Preview",
+    "useTemplate": "Use This Template",
+    "viewMore": "View More Templates",
     "categories": {
       "technical": "Technical",
       "business": "Business",
       "creative": "Creative",
       "general": "General"
+    },
+    "modern": {
+      "name": "Modern Minimalist",
+      "description": "Clean and modern style, suitable for technical positions"
+    },
+    "classic": {
+      "name": "Classic Business",
+      "description": "Traditional business style, suitable for management positions"
+    },
+    "creative": {
+      "name": "Creative Design",
+      "description": "Creative design style, suitable for creative positions"
+    },
+    "minimal": {
+      "name": "Minimalist",
+      "description": "Minimalist design, highlighting the content itself"
+    }
+  },
+  "languageTips": {
+    "title": "Language-Specific Tips",
+    "simplifiedChinese": {
+      "title": "Simplified Chinese",
+      "tips": [
+        "Use formal titles and honorifics",
+        "Highlight professional skills and achievements",
+        "Use concise and clear descriptions"
+      ]
+    },
+    "traditionalChinese": {
+      "title": "Traditional Chinese",
+      "tips": [
+        "Use traditional characters and formal language",
+        "Emphasize professional skills and achievements",
+        "Use concise and clear descriptions"
+      ]
+    },
+    "japanese": {
+      "title": "Japanese",
+      "tips": [
+        "Use honorifics and humble language",
+        "Emphasize teamwork abilities",
+        "Use specific achievement descriptions"
+      ]
+    },
+    "spanish": {
+      "title": "Spanish",
+      "tips": [
+        "Use formal Spanish",
+        "Emphasize skills and experience",
+        "Use past tense verbs"
+      ]
     }
   },
   "ResumeBuilder": {

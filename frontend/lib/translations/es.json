@@ -1,0 +1,227 @@
+{
+  "hero": {
+    "title": "Constructor de CV con IA",
+    "subtitle": "Cree CV profesionales con tecnología IA, compatible con múltiples idiomas, plantillas y formatos de exportación",
+    "cta": "Comenzar a Crear",
+    "ctaSecondary": "Ver Plantillas"
+  },
+  "features": {
+    "title": "Características Potentes",
+    "subtitle": "Proporcionamos funciones completas de creación de CV para hacer su búsqueda de trabajo más fluida",
+    "aiAssistant": {
+      "title": "Asistente de Escritura IA",
+      "description": "Use tecnología IA para optimizar inteligentemente el contenido del CV y proporcionar sugerencias de escritura profesional"
+    },
+    "multiLanguage": {
+      "title": "Soporte Multiidioma",
+      "description": "Soporte para chino, inglés y otros idiomas para satisfacer necesidades internacionales"
+    },
+    "templates": {
+      "title": "Plantillas Ricas",
+      "description": "Proporcione varias plantillas de CV profesionales con cambio de estilo de un clic"
+    },
+    "export": {
+      "title": "Múltiples Formatos de Exportación",
+      "description": "Soporte para exportación en PDF, Word, HTML y otros formatos"
+    },
+    "privacy": {
+      "title": "Protección de Privacidad",
+      "description": "Almacenamiento local, seguridad de datos, proteger la privacidad del usuario"
+    },
+    "hosting": {
+      "title": "Alojamiento en Línea",
+      "description": "Proporcione servicio de alojamiento de CV en línea con generación de enlaces exclusivos"
+    }
+  },
+  "pricing": {
+    "title": "Elija el Plan que se Adapte a Usted",
+    "subtitle": "Comience con la versión gratuita y actualice a planes más avanzados según sus necesidades",
+    "free": {
+      "title": "Plan Gratuito",
+      "price": "¥0",
+      "period": "/mes",
+      "features": [
+        "3 Plantillas de CV",
+        "Asistente de Escritura IA Básico",
+        "Exportación PDF",
+        "Soporte Básico"
+      ],
+      "cta": "Comenzar Gratis"
+    },
+    "pro": {
+      "title": "Plan Profesional",
+      "price": "¥29",
+      "period": "/mes",
+      "popular": "Más Popular",
+      "features": [
+        "Todas las Plantillas de CV",
+        "Asistente de Escritura IA Avanzado",
+        "Exportación de Múltiples Formatos",
+        "Alojamiento de CV en Línea",
+        "Soporte al Cliente Prioritario",
+        "Experiencia Sin Anuncios"
+      ],
+      "cta": "Elegir Profesional"
+    },
+    "enterprise": {
+      "title": "Plan Empresarial",
+      "price": "¥99",
+      "period": "/mes",
+      "features": [
+        "Todas las Características Profesionales",
+        "Modelos de IA Personalizados",
+        "Colaboración en Equipo",
+        "Análisis Avanzado",
+        "Acceso a API",
+        "Soporte Dedicado"
+      ],
+      "cta": "Contactar Ventas"
+    }
+  },
+  "testimonials": {
+    "title": "Lo que Dicen Nuestros Usuarios",
+    "subtitle": "Únase a miles de profesionales que han transformado sus carreras con WeCV AI",
+    "rating": "4.9/5 de más de 2,500 reseñas",
+    "users": [
+      {
+        "name": "Sarah Johnson",
+        "title": "Ingeniera de Software en TechCorp",
+        "content": "¡WeCV AI me ayudó a crear un CV profesional que me consiguió mi trabajo soñado. ¡Las sugerencias de IA fueron increíblemente útiles!"
+      },
+      {
+        "name": "Michael Chen",
+        "title": "Gerente de Producto en InnovateLab",
+        "content": "El soporte multiidioma es fantástico. Puedo crear fácilmente CV en diferentes idiomas para oportunidades internacionales."
+      },
+      {
+        "name": "Emily Rodriguez",
+        "title": "Diseñadora UX en DesignStudio",
+        "content": "La función de análisis me ayudó a entender qué áreas de mi CV necesitaban mejora. ¡Altamente recomendado!"
+      },
+      {
+        "name": "David Kim",
+        "title": "Científico de Datos en DataFlow",
+        "content": "El asistente de IA es increíble. Proporcionó excelentes sugerencias que hicieron mi CV mucho más convincente."
+      },
+      {
+        "name": "Lisa Wang",
+        "title": "Gerente de Marketing en GrowthCo",
+        "content": "Las funciones de exportación son excelentes. Puedo compartir fácilmente mi CV en diferentes formatos con empleadores potenciales."
+      },
+      {
+        "name": "James Thompson",
+        "title": "Ingeniero DevOps en CloudTech",
+        "content": "La función de control de versiones es un salvavidas. Puedo rastrear cambios y revertir si es necesario. ¡Excelente herramienta!"
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para Transformar tu Carrera?",
+    "subtitle": "Únase a miles de profesionales que ya han creado CV impresionantes con WeCV AI. Comience a construir su futuro profesional hoy.",
+    "primary": "Comenzar Gratis",
+    "secondary": "Ver Plantillas",
+    "features": [
+      "Sin tarjeta de crédito requerida",
+      "Plan gratuito para siempre disponible",
+      "Garantía de devolución de 30 días"
+    ]
+  },
+  "templates": {
+    "sectionTitle": "Plantillas de CV Destacadas",
+    "sectionSubtitle": "Múltiples plantillas profesionales para elegir, siempre hay una que te queda perfecta",
+    "preview": "Vista Previa de Plantilla",
+    "useTemplate": "Usar Esta Plantilla",
+    "viewMore": "Ver Más Plantillas",
+    "categories": {
+      "technical": "Técnico",
+      "business": "Negocios",
+      "creative": "Creativo",
+      "general": "General"
+    },
+    "modern": {
+      "name": "Minimalista Moderno",
+      "description": "Estilo limpio y moderno, adecuado para posiciones técnicas"
+    },
+    "classic": {
+      "name": "Negocios Clásico",
+      "description": "Estilo de negocios tradicional, adecuado para posiciones de gestión"
+    },
+    "creative": {
+      "name": "Diseño Creativo",
+      "description": "Estilo de diseño creativo, adecuado para posiciones creativas"
+    },
+    "minimal": {
+      "name": "Minimalista",
+      "description": "Diseño minimalista, destacando el contenido mismo"
+    }
+  },
+  "languageTips": {
+    "title": "Consejos Específicos por Idioma",
+    "simplifiedChinese": {
+      "title": "Chino Simplificado",
+      "tips": [
+        "Usar títulos formales y honoríficos",
+        "Destacar habilidades profesionales y logros",
+        "Usar descripciones concisas y claras"
+      ]
+    },
+    "traditionalChinese": {
+      "title": "Chino Tradicional",
+      "tips": [
+        "Usar caracteres tradicionales y lenguaje formal",
+        "Enfatizar habilidades profesionales y logros",
+        "Usar descripciones concisas y claras"
+      ]
+    },
+    "japanese": {
+      "title": "Japonés",
+      "tips": [
+        "Usar honoríficos y lenguaje humilde",
+        "Enfatizar habilidades de trabajo en equipo",
+        "Usar descripciones específicas de logros"
+      ]
+    },
+    "spanish": {
+      "title": "Español",
+      "tips": [
+        "Usar español formal",
+        "Enfatizar habilidades y experiencia",
+        "Usar verbos en tiempo pasado"
+      ]
+    }
+  },
+  "Common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "reset": "Restablecer",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "refresh": "Actualizar",
+    "download": "Descargar",
+    "upload": "Subir",
+    "share": "Compartir",
+    "copy": "Copiar",
+    "paste": "Pegar",
+    "cut": "Cortar",
+    "selectAll": "Seleccionar Todo",
+    "deselectAll": "Deseleccionar Todo",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK",
+    "confirm": "Confirmar",
+    "apply": "Aplicar",
+    "done": "Hecho"
+  }
+} 
