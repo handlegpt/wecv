@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast'
 
 interface RegisterForm {
@@ -16,12 +17,13 @@ interface RegisterForm {
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { t } = useTranslation()
   const { register, handleSubmit, watch, formState: { errors } } = useForm<RegisterForm>()
   const password = watch('password')
 
   const onSubmit = async (data: RegisterForm) => {
     if (data.password !== data.confirmPassword) {
-      toast.error('两次输入的密码不一致')
+      toast.error(t('validation.passwordMismatch', '两次输入的密码不一致'))
       return
     }
 
@@ -38,14 +40,15 @@ export default function RegisterPage() {
       })
       
       if (response.ok) {
-        toast.success('注册成功！请登录')
+        toast.success(t('messages.registerSuccess', '注册成功！请登录'))
         router.push('/auth/login')
       } else {
         const error = await response.json()
-        toast.error(error.message || '注册失败')
+        toast.error(error.message || t('messages.registerFailed', '注册失败'))
       }
     } catch (error) {
-      toast.error('网络错误，请重试')
+      console.error('Registration error:', error)
+      toast.error(t('messages.networkError', '网络错误，请重试'))
     } finally {
       setIsLoading(false)
     }
@@ -55,12 +58,12 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          注册 WeCV AI
+          {t('nav.register', 'Register')} WeCV AI
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          已有账号？{' '}
+          {t('auth.haveAccount', '已有账号？')}{' '}
           <Link href="/auth/login" className="font-medium text-primary-600 hover:text-primary-500">
-            立即登录
+            {t('auth.loginNow', '立即登录')}
           </Link>
         </p>
       </div>
@@ -70,14 +73,14 @@ export default function RegisterPage() {
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                姓名
+                {t('form.firstName', 'Name')}
               </label>
               <div className="mt-1">
                 <input
-                  {...register('name', { required: '请输入姓名' })}
+                  {...register('name', { required: t('validation.nameRequired', '请输入姓名') })}
                   type="text"
                   className="input-field"
-                  placeholder="请输入您的姓名"
+                  placeholder={t('form.firstName', 'Name')}
                 />
                 {errors.name && (
                   <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -87,15 +90,15 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                邮箱地址
+                {t('form.email', 'Email')}
               </label>
               <div className="mt-1">
                 <input
                   {...register('email', { 
-                    required: '请输入邮箱',
+                    required: t('validation.emailRequired', '请输入邮箱'),
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: '请输入有效的邮箱地址'
+                      message: t('validation.emailInvalid', '请输入有效的邮箱地址')
                     }
                   })}
                   type="email"
@@ -110,17 +113,17 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                密码
+                {t('form.password', 'Password')}
               </label>
               <div className="mt-1">
                 <input
                   {...register('password', { 
-                    required: '请输入密码',
-                    minLength: { value: 6, message: '密码至少6位' }
+                    required: t('validation.passwordRequired', '请输入密码'),
+                    minLength: { value: 6, message: t('validation.passwordMinLength', '密码至少6位') }
                   })}
                   type="password"
                   className="input-field"
-                  placeholder="请输入密码"
+                  placeholder={t('form.password', 'Password')}
                 />
                 {errors.password && (
                   <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
@@ -130,17 +133,17 @@ export default function RegisterPage() {
 
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                确认密码
+                {t('auth.confirmPassword', 'Confirm Password')}
               </label>
               <div className="mt-1">
                 <input
                   {...register('confirmPassword', { 
-                    required: '请确认密码',
-                    validate: value => value === password || '两次输入的密码不一致'
+                    required: t('validation.confirmPasswordRequired', '请确认密码'),
+                    validate: value => value === password || t('validation.passwordMismatch', '两次输入的密码不一致')
                   })}
                   type="password"
                   className="input-field"
-                  placeholder="请再次输入密码"
+                  placeholder={t('auth.confirmPassword', 'Confirm Password')}
                 />
                 {errors.confirmPassword && (
                   <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
@@ -154,7 +157,7 @@ export default function RegisterPage() {
                 disabled={isLoading}
                 className="w-full btn-primary disabled:opacity-50"
               >
-                {isLoading ? '注册中...' : '注册'}
+                {isLoading ? t('messages.registering', '注册中...') : t('nav.register', 'Register')}
               </button>
             </div>
           </form>

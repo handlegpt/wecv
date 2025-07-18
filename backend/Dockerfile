@@ -3,7 +3,7 @@ FROM node:20-alpine
 # Set working directory
 WORKDIR /app
 
-# Install necessary system dependencies for Puppeteer and other tools
+# Install necessary system dependencies for Puppeteer, Prisma, and other tools
 RUN apk add --no-cache \
     libc6-compat \
     chromium \
@@ -12,23 +12,33 @@ RUN apk add --no-cache \
     freetype-dev \
     harfbuzz \
     ca-certificates \
-    ttf-freefont
+    ttf-freefont \
+    openssl \
+    openssl-dev \
+    python3 \
+    make \
+    g++ \
+    sqlite \
+    postgresql-client
 
-# Set environment variables for Puppeteer
+# Set environment variables for Puppeteer and Prisma
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser \
+    PRISMA_ENGINE_CHECKSUM_IGNORE=1
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Remove existing package-lock.json and install dependencies
-RUN rm -f package-lock.json && npm install --production && npm cache clean --force
+# Install dependencies with force flag to resolve conflicts
+RUN rm -f package-lock.json && \
+    npm install --force && \
+    npm cache clean --force
 
 # Copy source code
 COPY . .
 
-# Generate Prisma client
-RUN npx prisma generate
+# Generate Prisma client with explicit engine download
+RUN npx prisma generate --schema=./prisma/schema.prisma
 
 # Create necessary directories
 RUN mkdir -p uploads exports temp
@@ -43,5 +53,5 @@ EXPOSE 3001
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3001/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
 
-# Start command
-CMD ["npm", "run", "dev"] 
+# Start command with database initialization
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npm run dev"] 

@@ -17,6 +17,24 @@ const enUS = {
       settings: 'Settings',
       logout: 'Logout'
     },
+    // Authentication
+    auth: {
+      noAccount: 'Don\'t have an account?',
+      registerNow: 'Register Now',
+      haveAccount: 'Already have an account?',
+      loginNow: 'Login Now',
+      confirmPassword: 'Confirm Password'
+    },
+    // Validation messages
+    validation: {
+      emailRequired: 'Please enter your email',
+      emailInvalid: 'Please enter a valid email address',
+      passwordRequired: 'Please enter your password',
+      passwordMinLength: 'Password must be at least 6 characters',
+      confirmPasswordRequired: 'Please confirm your password',
+      passwordMismatch: 'Passwords do not match',
+      nameRequired: 'Please enter your name'
+    },
     // Homepage
     hero: {
       title: 'AI-Powered Resume Builder',
@@ -116,7 +134,14 @@ const enUS = {
       deleted: 'Resume deleted successfully',
       error: 'An error occurred',
       loading: 'Loading...',
-      noData: 'No data available'
+      noData: 'No data available',
+      loginSuccess: 'Login successful!',
+      loginFailed: 'Login failed',
+      registerSuccess: 'Registration successful! Please login',
+      registerFailed: 'Registration failed',
+      registering: 'Registering...',
+      loggingIn: 'Logging in...',
+      networkError: 'Network error, please try again'
     },
     // Settings
     settings: {
@@ -217,12 +242,32 @@ const zhCN = {
       settings: '设置',
       logout: '退出'
     },
+    // Authentication
+    auth: {
+      noAccount: '还没有账号？',
+      registerNow: '立即注册',
+      haveAccount: '已有账号？',
+      loginNow: '立即登录',
+      confirmPassword: '确认密码'
+    },
+    // Validation messages
+    validation: {
+      emailRequired: '请输入邮箱',
+      emailInvalid: '请输入有效的邮箱地址',
+      passwordRequired: '请输入密码',
+      passwordMinLength: '密码至少6位',
+      confirmPasswordRequired: '请确认密码',
+      passwordMismatch: '两次输入的密码不一致',
+      nameRequired: '请输入姓名'
+    },
+    // Homepage
     hero: {
       title: 'AI驱动的智能简历构建器',
       subtitle: '使用人工智能技术创建专业简历，支持多语言、多模板、多格式导出',
       cta: '开始创建',
       ctaSecondary: '查看模板'
     },
+    // Features
     features: {
       sectionTitle: '强大的功能特性',
       sectionSubtitle: '我们提供全方位的简历制作功能，让您的求职之路更加顺畅',
@@ -252,6 +297,7 @@ const zhCN = {
       },
       analytics: '简历分析'
     },
+    // Buttons
     buttons: {
       create: '创建简历',
       save: '保存',
@@ -264,6 +310,7 @@ const zhCN = {
       upload: '上传',
       download: '下载'
     },
+    // Resume sections
     resume: {
       personalInfo: '个人信息',
       experience: '工作经验',
@@ -279,6 +326,7 @@ const zhCN = {
       content: '内容',
       language: '语言'
     },
+    // Form labels
     form: {
       firstName: '名',
       lastName: '姓',
@@ -304,13 +352,21 @@ const zhCN = {
       language: '语言',
       proficiency: '熟练程度'
     },
+    // Messages
     messages: {
       saved: '简历保存成功',
       exported: '简历导出成功',
       deleted: '简历删除成功',
       error: '发生错误',
       loading: '加载中...',
-      noData: '暂无数据'
+      noData: '暂无数据',
+      loginSuccess: '登录成功！',
+      loginFailed: '登录失败',
+      registerSuccess: '注册成功！请登录',
+      registerFailed: '注册失败',
+      registering: '注册中...',
+      loggingIn: '登录中...',
+      networkError: '网络错误，请重试'
     },
     // Settings
     settings: {
@@ -386,7 +442,7 @@ const zhCN = {
         cta: '联系销售',
         features: {
           allProFeatures: '所有专业版功能',
-          customAI: '自定义AI模型',
+          customAI: '自定義AI模型',
           teamCollaboration: '团队协作',
           advancedAnalytics: '高级数据分析',
           apiAccess: 'API接口',
@@ -410,6 +466,24 @@ const zhTW = {
       admin: '管理後台',
       settings: '設定',
       logout: '登出'
+    },
+    // Authentication
+    auth: {
+      noAccount: '還沒有帳號？',
+      registerNow: '立即註冊',
+      haveAccount: '已有帳號？',
+      loginNow: '立即登入',
+      confirmPassword: '確認密碼'
+    },
+    // Validation messages
+    validation: {
+      emailRequired: '請輸入電子郵件',
+      emailInvalid: '請輸入有效的電子郵件地址',
+      passwordRequired: '請輸入密碼',
+      passwordMinLength: '密碼至少6位',
+      confirmPasswordRequired: '請確認密碼',
+      passwordMismatch: '兩次輸入的密碼不一致',
+      nameRequired: '請輸入姓名'
     },
     hero: {
       title: 'AI驅動的智能履歷建構器',
@@ -504,7 +578,14 @@ const zhTW = {
       deleted: '履歷刪除成功',
       error: '發生錯誤',
       loading: '載入中...',
-      noData: '暫無資料'
+      noData: '暫無資料',
+      loginSuccess: '登入成功！',
+      loginFailed: '登入失敗',
+      registerSuccess: '註冊成功！請登入',
+      registerFailed: '註冊失敗',
+      registering: '註冊中...',
+      loggingIn: '登入中...',
+      networkError: '網路錯誤，請重試'
     },
     // Settings
     settings: {
@@ -605,6 +686,24 @@ const jaJP = {
       settings: '設定',
       logout: 'ログアウト'
     },
+    // Authentication
+    auth: {
+      noAccount: 'アカウントをお持ちでない方は？',
+      registerNow: '今すぐ登録',
+      haveAccount: 'すでにアカウントをお持ちですか？',
+      loginNow: '今すぐログイン',
+      confirmPassword: 'パスワード確認'
+    },
+    // Validation messages
+    validation: {
+      emailRequired: 'メールアドレスを入力してください',
+      emailInvalid: '有効なメールアドレスを入力してください',
+      passwordRequired: 'パスワードを入力してください',
+      passwordMinLength: 'パスワードは6文字以上で入力してください',
+      confirmPasswordRequired: 'パスワードを確認してください',
+      passwordMismatch: 'パスワードが一致しません',
+      nameRequired: 'お名前を入力してください'
+    },
     hero: {
       title: 'AI駆動の履歴書ビルダー',
       subtitle: 'AI技術を使用してプロフェッショナルな履歴書を作成し、多言語、多テンプレート、多形式エクスポートをサポート',
@@ -612,12 +711,32 @@ const jaJP = {
       ctaSecondary: 'テンプレートを見る'
     },
     features: {
-      aiWriting: 'AI執筆アシスタント',
-      multiLanguage: '多言語サポート',
-      templates: '豊富なテンプレート',
-      export: '多形式エクスポート',
-      privacy: 'プライバシー保護',
-      hosting: 'オンラインホスティング',
+      sectionTitle: '強力な機能',
+      sectionSubtitle: '包括的な履歴書作成機能を提供し、あなたの就職活動をよりスムーズにします',
+      aiWriting: {
+        title: 'AI執筆アシスタント',
+        description: 'AI技術を使用して履歴書の内容をインテリジェントに最適化し、プロフェッショナルな執筆提案を提供'
+      },
+      multiLanguage: {
+        title: '多言語サポート',
+        description: '中国語、英語、その他の言語をサポートし、国際的なニーズに対応'
+      },
+      templates: {
+        title: '豊富なテンプレート',
+        description: '様々なプロフェッショナルな履歴書テンプレートを提供し、ワンクリックでスタイルを切り替え'
+      },
+      export: {
+        title: '多形式エクスポート',
+        description: 'PDF、Word、HTMLなどの形式でのエクスポートをサポート'
+      },
+      privacy: {
+        title: 'プライバシー保護',
+        description: 'ローカルストレージ、データセキュリティ、ユーザープライバシーの保護'
+      },
+      hosting: {
+        title: 'オンラインホスティング',
+        description: 'オンライン履歴書ホスティングサービスを提供し、専用リンクを生成'
+      },
       analytics: '履歴書分析'
     },
     buttons: {
@@ -678,7 +797,14 @@ const jaJP = {
       deleted: '履歴書が正常に削除されました',
       error: 'エラーが発生しました',
       loading: '読み込み中...',
-      noData: 'データがありません'
+      noData: 'データがありません',
+      loginSuccess: 'ログインに成功しました！',
+      loginFailed: 'ログインに失敗しました',
+      registerSuccess: '登録に成功しました！ログインしてください',
+      registerFailed: '登録に失敗しました',
+      registering: '登録中...',
+      loggingIn: 'ログイン中...',
+      networkError: 'ネットワークエラー、再試行してください'
     },
     // Settings
     settings: {
@@ -691,6 +817,76 @@ const jaJP = {
       resumes: '履歴書',
       originalLanguage: '元の言語',
       noResumes: '履歴書が見つかりません'
+    },
+    // Templates
+    templates: {
+      sectionTitle: 'おすすめ履歴書テンプレート',
+      sectionSubtitle: '様々なプロフェッショナルなテンプレートから選択でき、必ずあなたに合うものがあります',
+      preview: 'テンプレートプレビュー',
+      useTemplate: 'このテンプレートを使用',
+      viewMore: 'さらに多くのテンプレートを見る',
+      categories: {
+        technical: '技術',
+        business: 'ビジネス',
+        creative: 'クリエイティブ',
+        general: '一般'
+      },
+      modern: {
+        name: 'モダンミニマリスト',
+        description: 'クリーンでモダンなスタイル、技術職に適しています'
+      },
+      classic: {
+        name: 'クラシックビジネス',
+        description: '伝統的なビジネススタイル、管理職に適しています'
+      },
+      creative: {
+        name: 'クリエイティブデザイン',
+        description: 'クリエイティブなデザインスタイル、クリエイティブ職に適しています'
+      },
+      minimal: {
+        name: 'ミニマリスト',
+        description: 'ミニマリストデザイン、コンテンツ自体を強調'
+      }
+    },
+    // Pricing
+    pricing: {
+      sectionTitle: 'あなたに合ったプランを選択',
+      sectionSubtitle: '無料版から始めて、ニーズに応じてより高度なプランにアップグレード',
+      mostPopular: '最も人気',
+      free: {
+        name: '無料プラン',
+        cta: '無料で開始',
+        features: {
+          templates: '3つの履歴書テンプレート',
+          aiAssistant: '基本的なAI執筆アシスタント',
+          pdfExport: 'PDFエクスポート',
+          basicSupport: '基本的なサポート'
+        }
+      },
+      pro: {
+        name: 'プロフェッショナルプラン',
+        cta: 'プロフェッショナルを選択',
+        features: {
+          allTemplates: 'すべての履歴書テンプレート',
+          advancedAI: '高度なAI執筆アシスタント',
+          multipleFormats: '多形式エクスポート',
+          onlineHosting: 'オンライン履歴書ホスティング',
+          prioritySupport: '優先カスタマーサポート',
+          noAds: '広告なし体験'
+        }
+      },
+      enterprise: {
+        name: 'エンタープライズプラン',
+        cta: '営業に連絡',
+        features: {
+          allProFeatures: 'すべてのプロフェッショナル機能',
+          customAI: 'カスタムAIモデル',
+          teamCollaboration: 'チームコラボレーション',
+          advancedAnalytics: '高度な分析',
+          apiAccess: 'APIアクセス',
+          dedicatedSupport: '専用サポート'
+        }
+      }
     }
   }
 }
@@ -709,6 +905,24 @@ const esES = {
       settings: 'Configuración',
       logout: 'Cerrar Sesión'
     },
+    // Authentication
+    auth: {
+      noAccount: '¿No tienes una cuenta?',
+      registerNow: 'Registrarse Ahora',
+      haveAccount: '¿Ya tienes una cuenta?',
+      loginNow: 'Iniciar Sesión Ahora',
+      confirmPassword: 'Confirmar Contraseña'
+    },
+    // Validation messages
+    validation: {
+      emailRequired: 'Por favor ingrese su correo electrónico',
+      emailInvalid: 'Por favor ingrese una dirección de correo válida',
+      passwordRequired: 'Por favor ingrese su contraseña',
+      passwordMinLength: 'La contraseña debe tener al menos 6 caracteres',
+      confirmPasswordRequired: 'Por favor confirme su contraseña',
+      passwordMismatch: 'Las contraseñas no coinciden',
+      nameRequired: 'Por favor ingrese su nombre'
+    },
     hero: {
       title: 'Constructor de CV con IA',
       subtitle: 'Crea currículums profesionales con tecnología de IA, compatible con múltiples idiomas, plantillas y formatos de exportación',
@@ -716,12 +930,32 @@ const esES = {
       ctaSecondary: 'Ver Plantillas'
     },
     features: {
-      aiWriting: 'Asistente de Escritura IA',
-      multiLanguage: 'Soporte Multiidioma',
-      templates: 'Plantillas Abundantes',
-      export: 'Múltiples Formatos de Exportación',
-      privacy: 'Protección de Privacidad',
-      hosting: 'Alojamiento en Línea',
+      sectionTitle: 'Características Potentes',
+      sectionSubtitle: 'Proporcionamos características completas de creación de currículums para hacer su búsqueda de empleo más fluida',
+      aiWriting: {
+        title: 'Asistente de Escritura IA',
+        description: 'Use tecnología de IA para optimizar inteligentemente el contenido del currículum y proporcionar sugerencias de escritura profesionales'
+      },
+      multiLanguage: {
+        title: 'Soporte Multiidioma',
+        description: 'Soporte para chino, inglés y otros idiomas para satisfacer las necesidades internacionales'
+      },
+      templates: {
+        title: 'Plantillas Abundantes',
+        description: 'Proporcione varias plantillas de currículum profesionales con cambio de estilo de un clic'
+      },
+      export: {
+        title: 'Múltiples Formatos de Exportación',
+        description: 'Soporte para exportación en PDF, Word, HTML y otros formatos'
+      },
+      privacy: {
+        title: 'Protección de Privacidad',
+        description: 'Almacenamiento local, seguridad de datos, proteger la privacidad del usuario'
+      },
+      hosting: {
+        title: 'Alojamiento en Línea',
+        description: 'Proporcionar servicio de alojamiento de currículum en línea con generación de enlaces exclusivos'
+      },
       analytics: 'Análisis de CV'
     },
     buttons: {
@@ -782,7 +1016,14 @@ const esES = {
       deleted: 'CV eliminado exitosamente',
       error: 'Ocurrió un error',
       loading: 'Cargando...',
-      noData: 'No hay datos disponibles'
+      noData: 'No hay datos disponibles',
+      loginSuccess: '¡Inicio de sesión exitoso!',
+      loginFailed: 'Inicio de sesión fallido',
+      registerSuccess: '¡Registro exitoso! Por favor inicie sesión',
+      registerFailed: 'Registro fallido',
+      registering: 'Registrando...',
+      loggingIn: 'Iniciando sesión...',
+      networkError: 'Error de red, por favor intente de nuevo'
     },
     // Settings
     settings: {
@@ -795,6 +1036,76 @@ const esES = {
       resumes: 'CV',
       originalLanguage: 'Lenguaje Original',
       noResumes: 'No se encontraron CV'
+    },
+    // Templates
+    templates: {
+      sectionTitle: 'Plantillas de CV Destacadas',
+      sectionSubtitle: 'Múltiples plantillas profesionales para elegir, siempre hay una que se adapta a usted',
+      preview: 'Vista Previa de Plantilla',
+      useTemplate: 'Usar Esta Plantilla',
+      viewMore: 'Ver Más Plantillas',
+      categories: {
+        technical: 'Técnico',
+        business: 'Negocios',
+        creative: 'Creativo',
+        general: 'General'
+      },
+      modern: {
+        name: 'Minimalista Moderno',
+        description: 'Estilo limpio y moderno, adecuado para posiciones técnicas'
+      },
+      classic: {
+        name: 'Negocios Clásico',
+        description: 'Estilo de negocios tradicional, adecuado para posiciones de gestión'
+      },
+      creative: {
+        name: 'Diseño Creativo',
+        description: 'Estilo de diseño creativo, adecuado para posiciones creativas'
+      },
+      minimal: {
+        name: 'Minimalista',
+        description: 'Diseño minimalista, destacando el contenido mismo'
+      }
+    },
+    // Pricing
+    pricing: {
+      sectionTitle: 'Elija el Plan que se Adapte a Usted',
+      sectionSubtitle: 'Comience con la versión gratuita y actualice a planes más avanzados según sus necesidades',
+      mostPopular: 'Más Popular',
+      free: {
+        name: 'Plan Gratuito',
+        cta: 'Comenzar Gratis',
+        features: {
+          templates: '3 Plantillas de CV',
+          aiAssistant: 'Asistente de Escritura IA Básico',
+          pdfExport: 'Exportación PDF',
+          basicSupport: 'Soporte Básico'
+        }
+      },
+      pro: {
+        name: 'Plan Profesional',
+        cta: 'Elegir Profesional',
+        features: {
+          allTemplates: 'Todas las Plantillas de CV',
+          advancedAI: 'Asistente de Escritura IA Avanzado',
+          multipleFormats: 'Exportación de Múltiples Formatos',
+          onlineHosting: 'Alojamiento de CV en Línea',
+          prioritySupport: 'Soporte al Cliente Prioritario',
+          noAds: 'Experiencia Sin Anuncios'
+        }
+      },
+      enterprise: {
+        name: 'Plan Empresarial',
+        cta: 'Contactar Ventas',
+        features: {
+          allProFeatures: 'Todas las Características Profesionales',
+          customAI: 'Modelos de IA Personalizados',
+          teamCollaboration: 'Colaboración en Equipo',
+          advancedAnalytics: 'Análisis Avanzado',
+          apiAccess: 'Acceso a API',
+          dedicatedSupport: 'Soporte Dedicado'
+        }
+      }
     }
   }
 }
@@ -1021,6 +1332,7 @@ i18n
       'de-DE': deDE
     },
     fallbackLng: 'en-US', // Set English as default
+    lng: 'en-US', // Force default language
     debug: process.env.NODE_ENV === 'development',
     
     interpolation: {
@@ -1030,6 +1342,8 @@ i18n
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
+      lookupSessionStorage: 'i18nextLng',
     }
   })
 

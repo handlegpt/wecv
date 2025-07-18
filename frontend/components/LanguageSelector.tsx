@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { GlobeAltIcon } from '@heroicons/react/24/outline'
 
@@ -24,12 +24,46 @@ const languages: Language[] = [
 export default function LanguageSelector() {
   const { i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(languages[0])
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0]
+  // Initialize language on component mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('i18nextLng')
+    if (savedLanguage) {
+      const language = languages.find(lang => lang.code === savedLanguage)
+      if (language) {
+        setCurrentLanguage(language)
+        i18n.changeLanguage(savedLanguage)
+      }
+    } else {
+      // Set default language to English
+      localStorage.setItem('i18nextLng', 'en-US')
+      i18n.changeLanguage('en-US')
+      setCurrentLanguage(languages[0])
+    }
+  }, [i18n])
 
   const changeLanguage = (languageCode: string) => {
-    i18n.changeLanguage(languageCode)
-    setIsOpen(false)
+    try {
+      // Save to localStorage
+      localStorage.setItem('i18nextLng', languageCode)
+      
+      // Change i18n language
+      i18n.changeLanguage(languageCode)
+      
+      // Update current language
+      const language = languages.find(lang => lang.code === languageCode)
+      if (language) {
+        setCurrentLanguage(language)
+      }
+      
+      // Close dropdown
+      setIsOpen(false)
+      
+      console.log(`Language changed to: ${languageCode}`)
+    } catch (error) {
+      console.error('Error changing language:', error)
+    }
   }
 
   return (
@@ -37,6 +71,7 @@ export default function LanguageSelector() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+        title={`Current language: ${currentLanguage.nativeName}`}
       >
         <GlobeAltIcon className="h-5 w-5" />
         <span className="hidden sm:inline">{currentLanguage.flag}</span>
@@ -59,7 +94,7 @@ export default function LanguageSelector() {
                 key={language.code}
                 onClick={() => changeLanguage(language.code)}
                 className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
-                  i18n.language === language.code ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
+                  currentLanguage.code === language.code ? 'bg-blue-50 text-blue-700' : 'text-gray-700'
                 }`}
               >
                 <div className="flex items-center space-x-3">

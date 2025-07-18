@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast'
 
 interface LoginForm {
@@ -14,6 +15,7 @@ interface LoginForm {
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { t } = useTranslation()
   const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>()
 
   const onSubmit = async (data: LoginForm) => {
@@ -29,14 +31,14 @@ export default function LoginPage() {
         const result = await response.json()
         localStorage.setItem('token', result.token)
         localStorage.setItem('user', JSON.stringify(result.user))
-        toast.success('登录成功！')
+        toast.success(t('messages.loginSuccess', '登录成功！'))
         router.push('/dashboard')
       } else {
         const error = await response.json()
-        toast.error(error.message || '登录失败')
+        toast.error(error.message || t('messages.loginFailed', '登录失败'))
       }
     } catch (error) {
-      toast.error('网络错误，请重试')
+      toast.error(t('messages.networkError', '网络错误，请重试'))
     } finally {
       setIsLoading(false)
     }
@@ -46,12 +48,12 @@ export default function LoginPage() {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          登录 WeCV AI
+          {t('nav.login', 'Login')} WeCV AI
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          还没有账号？{' '}
+          {t('auth.noAccount', '还没有账号？')}{' '}
           <Link href="/auth/register" className="font-medium text-primary-600 hover:text-primary-500">
-            立即注册
+            {t('auth.registerNow', '立即注册')}
           </Link>
         </p>
       </div>
@@ -61,15 +63,15 @@ export default function LoginPage() {
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                邮箱地址
+                {t('form.email', 'Email')}
               </label>
               <div className="mt-1">
                 <input
                   {...register('email', { 
-                    required: '请输入邮箱',
+                    required: t('validation.emailRequired', '请输入邮箱'),
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: '请输入有效的邮箱地址'
+                      message: t('validation.emailInvalid', '请输入有效的邮箱地址')
                     }
                   })}
                   type="email"
@@ -84,14 +86,14 @@ export default function LoginPage() {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                密码
+                {t('form.password', 'Password')}
               </label>
               <div className="mt-1">
                 <input
-                  {...register('password', { required: '请输入密码' })}
+                  {...register('password', { required: t('validation.passwordRequired', '请输入密码') })}
                   type="password"
                   className="input-field"
-                  placeholder="请输入密码"
+                  placeholder={t('form.password', 'Password')}
                 />
                 {errors.password && (
                   <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
@@ -105,7 +107,7 @@ export default function LoginPage() {
                 disabled={isLoading}
                 className="w-full btn-primary disabled:opacity-50"
               >
-                {isLoading ? '登录中...' : '登录'}
+                {isLoading ? t('messages.loggingIn', '登录中...') : t('nav.login', 'Login')}
               </button>
             </div>
           </form>
