@@ -126,6 +126,35 @@
     "searchTemplates": "Search templates...",
     "noTemplates": "No templates found"
   },
+  "templates": {
+    "sectionTitle": "Professional Resume Templates",
+    "sectionSubtitle": "Choose from our collection of professionally designed templates to create your perfect resume",
+    "viewMore": "View All Templates",
+    "useTemplate": "Use Template",
+    "preview": "Preview",
+    "modern": {
+      "name": "Modern",
+      "description": "Clean and contemporary design with bold typography"
+    },
+    "classic": {
+      "name": "Classic",
+      "description": "Traditional layout with professional styling"
+    },
+    "creative": {
+      "name": "Creative",
+      "description": "Unique and eye-catching design for creative professionals"
+    },
+    "minimal": {
+      "name": "Minimal",
+      "description": "Simple and clean design focusing on content"
+    },
+    "categories": {
+      "technical": "Technical",
+      "business": "Business",
+      "creative": "Creative",
+      "general": "General"
+    }
+  },
   "ResumeBuilder": {
     "title": "Resume Builder",
     "personalInfo": "Personal Information",
