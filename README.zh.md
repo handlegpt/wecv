@@ -1,4 +1,4 @@
-# WeCV AI - 智能简历生成与管理平台
+# WeCV AI - Intelligent Resume Generation & Management Platform
 
 [English](README.md) | [中文](README.zh.md) | [日本語](README.ja.md)
 

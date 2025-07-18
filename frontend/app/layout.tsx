@@ -6,9 +6,9 @@ import { Providers } from '@/components/providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'WeCV AI - 智能AI简历生成与管理平台',
-  description: 'WeCV AI，助力全球求职者高效打造专业简历，AI驱动，多语言多模板支持，在线托管与导出。',
-  keywords: 'WeCV, AI简历, 智能简历, 求职, 简历模板, 简历制作',
+  title: 'WeCV AI - Intelligent Resume Generation & Management Platform',
+  description: 'WeCV AI helps global job seekers efficiently create professional resumes with AI-driven technology, multi-language and multi-template support, online hosting and export.',
+  keywords: 'WeCV, AI Resume, Intelligent Resume, Job Search, Resume Templates, Resume Builder',
 }
 
 export default function RootLayout({
