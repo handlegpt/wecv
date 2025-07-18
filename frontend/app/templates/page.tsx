@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { TemplatePreview } from '@/components/TemplatePreview'
 
 interface Template {
   id: string
@@ -22,12 +23,44 @@ export default function TemplatesPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   const categories = [
-    { id: 'all', name: t('ResumeTemplates.all') },
-    { id: 'professional', name: t('ResumeTemplates.professional') },
+    { id: 'all', name: t('ResumeTemplates.allCategories') },
+    { id: 'professional', name: t('ResumeTemplates.business') },
     { id: 'creative', name: t('ResumeTemplates.creative') },
-    { id: 'modern', name: t('ResumeTemplates.modern') },
-    { id: 'classic', name: t('ResumeTemplates.classic') },
-    { id: 'minimal', name: t('ResumeTemplates.minimal') }
+    { id: 'modern', name: t('templates.modern.name') },
+    { id: 'classic', name: t('templates.classic.name') },
+    { id: 'minimal', name: t('templates.minimal.name') }
+  ]
+
+  // 模拟模板数据，因为后端可能还没有实现
+  const mockTemplates: Template[] = [
+    {
+      id: 'modern',
+      name: t('templates.modern.name'),
+      category: 'modern',
+      description: t('templates.modern.description'),
+      image: '/templates/modern.jpg'
+    },
+    {
+      id: 'classic',
+      name: t('templates.classic.name'),
+      category: 'classic',
+      description: t('templates.classic.description'),
+      image: '/templates/classic.jpg'
+    },
+    {
+      id: 'creative',
+      name: t('templates.creative.name'),
+      category: 'creative',
+      description: t('templates.creative.description'),
+      image: '/templates/creative.jpg'
+    },
+    {
+      id: 'minimal',
+      name: t('templates.minimal.name'),
+      category: 'minimal',
+      description: t('templates.minimal.description'),
+      image: '/templates/minimal.jpg'
+    }
   ]
 
   useEffect(() => {
@@ -40,9 +73,14 @@ export default function TemplatesPage() {
       if (response.ok) {
         const data = await response.json()
         setTemplates(data)
+      } else {
+        // 如果后端API不可用，使用模拟数据
+        setTemplates(mockTemplates)
       }
     } catch (error) {
       console.error('Failed to fetch templates:', error)
+      // 使用模拟数据作为后备
+      setTemplates(mockTemplates)
     } finally {
       setIsLoading(false)
     }
@@ -64,7 +102,7 @@ export default function TemplatesPage() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">{t('Common.loading')}</p>
+          <p className="mt-4 text-gray-600">{t('messages.loading')}</p>
         </div>
       </div>
     )
@@ -84,7 +122,7 @@ export default function TemplatesPage() {
               href="/builder"
               className="btn-primary"
             >
-              Create New Resume
+              {t('buttons.create')}
             </Link>
           </div>
         </div>
@@ -134,11 +172,11 @@ export default function TemplatesPage() {
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
               >
                 {/* Template Preview */}
-                <div className="aspect-[3/4] bg-gray-200 flex items-center justify-center">
-                  <div className="text-gray-500 text-sm text-center p-4">
-                    <div className="w-16 h-20 bg-white border-2 border-gray-300 mx-auto mb-2"></div>
-                    {template.name} {t('ResumeTemplates.preview')}
-                  </div>
+                <div className="aspect-[3/4] bg-gray-50 p-2">
+                  <TemplatePreview 
+                    templateId={template.id} 
+                    className="w-full h-full transform scale-75 origin-top"
+                  />
                 </div>
 
                 {/* Template Info */}
@@ -164,7 +202,7 @@ export default function TemplatesPage() {
                       {t('ResumeTemplates.useTemplate')}
                     </button>
                     <button className="btn-secondary text-sm py-2 px-3">
-                      {t('ResumeTemplates.preview')}
+                      {t('templates.preview')}
                     </button>
                   </div>
                 </div>
