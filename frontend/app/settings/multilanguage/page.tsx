@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-hot-toast'
-import { GlobeAltIcon, TranslateIcon, CogIcon } from '@heroicons/react/24/outline'
+import { GlobeAltIcon, CogIcon } from '@heroicons/react/24/outline'
 import LanguageSelector from '@/components/LanguageSelector'
 
 interface Language {
@@ -201,7 +201,7 @@ export default function MultilanguageSettingsPage() {
                   disabled={isTranslating}
                   className="btn-primary flex items-center space-x-2"
                 >
-                  <TranslateIcon className="h-4 w-4" />
+                  <GlobeAltIcon className="h-4 w-4" />
                   <span>{isTranslating ? 'Translating...' : 'Auto Translate All'}</span>
                 </button>
               </div>
