@@ -279,6 +279,54 @@
     "addCertification": "Add Certification",
     "addInterest": "Add Interest"
   },
+  "builder": {
+    "title": "WeCV AI - Resume Builder",
+    "trialMode": "Trial Mode",
+    "trialMode.title": "Trial Mode:",
+    "trialMode.description": "You can freely experience the resume creation feature. Register an account to save resumes, use AI features, and more.",
+    "registerToSave": "Register to Save",
+    "basicInfo": "Basic Information",
+    "resumeTitle": "Resume Title",
+    "resumeTitle.placeholder": "e.g., Software Engineer Resume",
+    "selectTemplate": "Select Template",
+    "personalInfo": "Personal Information",
+    "summary": "Professional Summary",
+    "summary.placeholder": "Brief professional summary...",
+    "skills": "Skills",
+    "skills.placeholder": "Skill 1, Skill 2, Skill 3...",
+    "preview": {
+      "title": "Resume Preview",
+      "yourName": "Your Name",
+      "summary": "Professional Summary",
+      "skills": "Skills",
+      "button": "Preview Resume",
+      "developing": "Preview feature is under development..."
+    },
+    "upgrade": {
+      "title": "Upgrade to Full Version",
+      "feature1": "Save unlimited resumes",
+      "feature2": "AI writing assistant",
+      "feature3": "Multi-language resume support",
+      "feature4": "Resume analysis and optimization",
+      "feature5": "Export to PDF/Word format",
+      "registerNow": "Register Now"
+    },
+    "save": "Save Resume",
+    "saving": "Saving...",
+    "success": {
+      "saved": "Resume saved successfully!"
+    },
+    "errors": {
+      "titleRequired": "Please enter a resume title",
+      "loginRequired": "Please register to save your resume",
+      "saveFailed": "Save failed",
+      "networkError": "Network error"
+    },
+    "ai": {
+      "completed": "AI generation completed!",
+      "failed": "AI generation failed"
+    }
+  },
   "navigation": {
     "home": "Home",
     "templates": "Templates",

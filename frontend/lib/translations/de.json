@@ -223,5 +223,53 @@
     "confirm": "Bestätigen",
     "apply": "Anwenden",
     "done": "Fertig"
+  },
+  "builder": {
+    "title": "WeCV AI - Lebenslauf-Generator",
+    "trialMode": "Testmodus",
+    "trialMode.title": "Testmodus:",
+    "trialMode.description": "Sie können die Lebenslauf-Erstellungsfunktion kostenlos testen. Registrieren Sie ein Konto, um Lebensläufe zu speichern, KI-Funktionen zu nutzen und mehr.",
+    "registerToSave": "Registrieren zum Speichern",
+    "basicInfo": "Grundinformationen",
+    "resumeTitle": "Lebenslauf-Titel",
+    "resumeTitle.placeholder": "z.B. Software Engineer Lebenslauf",
+    "selectTemplate": "Template Auswählen",
+    "personalInfo": "Persönliche Informationen",
+    "summary": "Berufliche Zusammenfassung",
+    "summary.placeholder": "Kurze berufliche Zusammenfassung...",
+    "skills": "Fähigkeiten",
+    "skills.placeholder": "Fähigkeit 1, Fähigkeit 2, Fähigkeit 3...",
+    "preview": {
+      "title": "Lebenslauf-Vorschau",
+      "yourName": "Ihr Name",
+      "summary": "Berufliche Zusammenfassung",
+      "skills": "Fähigkeiten",
+      "button": "Lebenslauf Vorschau",
+      "developing": "Vorschau-Funktion in Entwicklung..."
+    },
+    "upgrade": {
+      "title": "Auf Vollversion Upgraden",
+      "feature1": "Unbegrenzte Lebensläufe speichern",
+      "feature2": "KI-Schreibassistent",
+      "feature3": "Mehrsprachige Lebenslauf-Unterstützung",
+      "feature4": "Lebenslauf-Analyse und Optimierung",
+      "feature5": "Export zu PDF/Word-Format",
+      "registerNow": "Jetzt Registrieren"
+    },
+    "save": "Lebenslauf Speichern",
+    "saving": "Speichern...",
+    "success": {
+      "saved": "Lebenslauf erfolgreich gespeichert!"
+    },
+    "errors": {
+      "titleRequired": "Bitte geben Sie einen Lebenslauf-Titel ein",
+      "loginRequired": "Bitte registrieren Sie sich, um Ihren Lebenslauf zu speichern",
+      "saveFailed": "Speichern fehlgeschlagen",
+      "networkError": "Netzwerkfehler"
+    },
+    "ai": {
+      "completed": "KI-Generierung abgeschlossen!",
+      "failed": "KI-Generierung fehlgeschlagen"
+    }
   }
 } 

@@ -223,5 +223,53 @@
     "confirm": "確認",
     "apply": "適用",
     "done": "完了"
+  },
+  "builder": {
+    "title": "WeCV AI - 履歴書ビルダー",
+    "trialMode": "トライアルモード",
+    "trialMode.title": "トライアルモード：",
+    "trialMode.description": "履歴書作成機能を無料で体験できます。アカウント登録後、履歴書の保存やAI機能などをご利用いただけます。",
+    "registerToSave": "保存するには登録",
+    "basicInfo": "基本情報",
+    "resumeTitle": "履歴書タイトル",
+    "resumeTitle.placeholder": "例：ソフトウェアエンジニア履歴書",
+    "selectTemplate": "テンプレート選択",
+    "personalInfo": "個人情報",
+    "summary": "職務要約",
+    "summary.placeholder": "専門的背景、スキル、目標を簡潔に説明...",
+    "skills": "スキル",
+    "skills.placeholder": "スキル1, スキル2, スキル3...",
+    "preview": {
+      "title": "履歴書プレビュー",
+      "yourName": "お名前",
+      "summary": "職務要約",
+      "skills": "スキル",
+      "button": "履歴書プレビュー",
+      "developing": "プレビュー機能開発中..."
+    },
+    "upgrade": {
+      "title": "フルバージョンにアップグレード",
+      "feature1": "無制限の履歴書保存",
+      "feature2": "AI執筆アシスタント",
+      "feature3": "多言語履歴書サポート",
+      "feature4": "履歴書分析と最適化",
+      "feature5": "PDF/Word形式でエクスポート",
+      "registerNow": "今すぐ登録"
+    },
+    "save": "履歴書を保存",
+    "saving": "保存中...",
+    "success": {
+      "saved": "履歴書が正常に保存されました！"
+    },
+    "errors": {
+      "titleRequired": "履歴書タイトルを入力してください",
+      "loginRequired": "履歴書を保存するには登録してください",
+      "saveFailed": "保存に失敗しました",
+      "networkError": "ネットワークエラー"
+    },
+    "ai": {
+      "completed": "AI生成が完了しました！",
+      "failed": "AI生成に失敗しました"
+    }
   }
 } 

@@ -223,5 +223,53 @@
     "confirm": "Confirmer",
     "apply": "Appliquer",
     "done": "Terminé"
+  },
+  "builder": {
+    "title": "WeCV AI - Constructeur de CV",
+    "trialMode": "Mode d'Essai",
+    "trialMode.title": "Mode d'Essai :",
+    "trialMode.description": "Vous pouvez librement expérimenter la fonction de création de CV. Créez un compte pour sauvegarder des CV, utiliser les fonctions d'IA et plus encore.",
+    "registerToSave": "S'inscrire pour Sauvegarder",
+    "basicInfo": "Informations de Base",
+    "resumeTitle": "Titre du CV",
+    "resumeTitle.placeholder": "ex., CV d'Ingénieur Logiciel",
+    "selectTemplate": "Sélectionner un Modèle",
+    "personalInfo": "Informations Personnelles",
+    "summary": "Résumé Professionnel",
+    "summary.placeholder": "Bref résumé professionnel...",
+    "skills": "Compétences",
+    "skills.placeholder": "Compétence 1, Compétence 2, Compétence 3...",
+    "preview": {
+      "title": "Aperçu du CV",
+      "yourName": "Votre Nom",
+      "summary": "Résumé Professionnel",
+      "skills": "Compétences",
+      "button": "Aperçu du CV",
+      "developing": "Fonction d'aperçu en cours de développement..."
+    },
+    "upgrade": {
+      "title": "Passer à la Version Complète",
+      "feature1": "Sauvegarder des CV illimités",
+      "feature2": "Assistant d'écriture IA",
+      "feature3": "Support multilingue pour CV",
+      "feature4": "Analyse et optimisation de CV",
+      "feature5": "Exporter au format PDF/Word",
+      "registerNow": "S'inscrire Maintenant"
+    },
+    "save": "Sauvegarder le CV",
+    "saving": "Sauvegarde...",
+    "success": {
+      "saved": "CV sauvegardé avec succès !"
+    },
+    "errors": {
+      "titleRequired": "Veuillez saisir un titre pour le CV",
+      "loginRequired": "Veuillez vous inscrire pour sauvegarder votre CV",
+      "saveFailed": "Échec de la sauvegarde",
+      "networkError": "Erreur réseau"
+    },
+    "ai": {
+      "completed": "Génération IA terminée !",
+      "failed": "Échec de la génération IA"
+    }
   }
 } 

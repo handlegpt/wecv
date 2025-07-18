@@ -257,6 +257,55 @@
     "addCertification": "添加認證",
     "addInterest": "添加興趣"
   },
+  "builder": {
+    "title": "WeCV AI - 簡歷構建器",
+    "trialMode": "體驗模式",
+    "trialMode.title": "體驗模式：",
+    "trialMode.description": "您可以免費體驗簡歷創建功能。註冊賬號後可以保存簡歷、使用AI功能等。",
+    "registerToSave": "註冊保存",
+    "basicInfo": "基本信息",
+    "resumeTitle": "簡歷標題",
+    "resumeTitle.placeholder": "例如：軟件工程師簡歷",
+    "selectTemplate": "選擇模板",
+    "personalInfo": "個人信息",
+    "summary": "個人簡介",
+    "summary.placeholder": "簡要介紹您的專業背景、技能和目標...",
+    "skills": "技能",
+    "skills.placeholder": "技能1, 技能2, 技能3...",
+    "preview": {
+      "title": "簡歷預覽",
+      "yourName": "您的姓名",
+      "summary": "個人簡介",
+      "skills": "技能",
+      "button": "預覽簡歷",
+      "developing": "預覽功能開發中...",
+      "title": "簡歷預覽"
+    },
+    "upgrade": {
+      "title": "升級到完整版",
+      "feature1": "保存無限份簡歷",
+      "feature2": "AI智能寫作助手",
+      "feature3": "多語言簡歷支持",
+      "feature4": "簡歷分析和優化建議",
+      "feature5": "導出PDF/Word格式",
+      "registerNow": "立即註冊"
+    },
+    "save": "保存簡歷",
+    "saving": "保存中...",
+    "success": {
+      "saved": "簡歷保存成功！"
+    },
+    "errors": {
+      "titleRequired": "請輸入簡歷標題",
+      "loginRequired": "請先註冊賬號以保存簡歷",
+      "saveFailed": "保存失敗",
+      "networkError": "網絡錯誤"
+    },
+    "ai": {
+      "completed": "AI生成完成！",
+      "failed": "AI生成失敗"
+    }
+  },
   "navigation": {
     "home": "首頁",
     "templates": "模板",

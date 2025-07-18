@@ -223,5 +223,53 @@
     "confirm": "Confirmar",
     "apply": "Aplicar",
     "done": "Hecho"
+  },
+  "builder": {
+    "title": "WeCV AI - Constructor de CV",
+    "trialMode": "Modo de Prueba",
+    "trialMode.title": "Modo de Prueba:",
+    "trialMode.description": "Puede experimentar libremente la función de creación de CV. Registre una cuenta para guardar CV, usar funciones de IA y más.",
+    "registerToSave": "Registrarse para Guardar",
+    "basicInfo": "Información Básica",
+    "resumeTitle": "Título del CV",
+    "resumeTitle.placeholder": "ej., CV de Ingeniero de Software",
+    "selectTemplate": "Seleccionar Plantilla",
+    "personalInfo": "Información Personal",
+    "summary": "Resumen Profesional",
+    "summary.placeholder": "Breve resumen profesional...",
+    "skills": "Habilidades",
+    "skills.placeholder": "Habilidad 1, Habilidad 2, Habilidad 3...",
+    "preview": {
+      "title": "Vista Previa del CV",
+      "yourName": "Su Nombre",
+      "summary": "Resumen Profesional",
+      "skills": "Habilidades",
+      "button": "Vista Previa del CV",
+      "developing": "Función de vista previa en desarrollo..."
+    },
+    "upgrade": {
+      "title": "Actualizar a Versión Completa",
+      "feature1": "Guardar CV ilimitados",
+      "feature2": "Asistente de escritura con IA",
+      "feature3": "Soporte para CV multilingüe",
+      "feature4": "Análisis y optimización de CV",
+      "feature5": "Exportar a formato PDF/Word",
+      "registerNow": "Registrarse Ahora"
+    },
+    "save": "Guardar CV",
+    "saving": "Guardando...",
+    "success": {
+      "saved": "¡CV guardado exitosamente!"
+    },
+    "errors": {
+      "titleRequired": "Por favor ingrese un título para el CV",
+      "loginRequired": "Por favor regístrese para guardar su CV",
+      "saveFailed": "Error al guardar",
+      "networkError": "Error de red"
+    },
+    "ai": {
+      "completed": "¡Generación de IA completada!",
+      "failed": "Error en la generación de IA"
+    }
   }
 } 
