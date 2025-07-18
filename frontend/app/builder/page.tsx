@@ -23,7 +23,7 @@ export default function BuilderPage() {
       summary: '',
       experience: [],
       education: [],
-      skills: []
+      skills: [] as string[]
     }
   })
   const [isLoading, setIsLoading] = useState(false)
