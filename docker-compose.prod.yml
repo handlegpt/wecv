@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  # PostgreSQL 数据库
+  # PostgreSQL Database
   db:
     image: postgres:15-alpine
     container_name: wecv_ai_db_prod
@@ -21,7 +21,7 @@ services:
     networks:
       - wecv_network
 
-  # Redis 缓存
+  # Redis Cache
   redis:
     image: redis:7-alpine
     container_name: wecv_ai_redis_prod
@@ -31,7 +31,7 @@ services:
     networks:
       - wecv_network
 
-  # 后端 API
+  # Backend API
   backend:
     build: 
       context: ./backend
@@ -55,7 +55,7 @@ services:
     networks:
       - wecv_network
 
-  # 前端应用
+  # Frontend Application
   frontend:
     build: 
       context: ./frontend
@@ -69,7 +69,7 @@ services:
     networks:
       - wecv_network
 
-  # Nginx 反向代理
+  # Nginx Reverse Proxy
   nginx:
     image: nginx:alpine
     container_name: wecv_ai_nginx_prod
@@ -88,7 +88,7 @@ services:
     networks:
       - wecv_network
 
-  # 数据备份服务
+  # Data Backup Service
   backup:
     image: postgres:15-alpine
     container_name: wecv_ai_backup_prod

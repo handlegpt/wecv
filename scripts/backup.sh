@@ -1,28 +1,28 @@
 #!/bin/bash
 
-# 数据库备份脚本
-# 每天凌晨2点自动备份
+# Database backup script
+# Automatically backup at 2 AM daily
 
 BACKUP_DIR="/backups"
 DATE=$(date +%Y%m%d_%H%M%S)
 BACKUP_FILE="wecv_ai_backup_$DATE.sql"
 
-echo "开始备份数据库..."
+echo "Starting database backup..."
 
-# 创建备份
+# Create backup
 pg_dump -h db -U postgres -d wecv_ai > "$BACKUP_DIR/$BACKUP_FILE"
 
 if [ $? -eq 0 ]; then
-    echo "备份成功: $BACKUP_FILE"
+    echo "Backup successful: $BACKUP_FILE"
     
-    # 压缩备份文件
+    # Compress backup file
     gzip "$BACKUP_DIR/$BACKUP_FILE"
     
-    # 删除7天前的备份
+    # Delete backups older than 7 days
     find "$BACKUP_DIR" -name "wecv_ai_backup_*.sql.gz" -mtime +7 -delete
     
-    echo "备份完成，已删除7天前的备份文件"
+    echo "Backup completed, deleted backup files older than 7 days"
 else
-    echo "备份失败"
+    echo "Backup failed"
     exit 1
 fi 

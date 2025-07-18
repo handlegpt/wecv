@@ -1,22 +1,32 @@
 FROM node:20-alpine
 
-# 设置工作目录
+# Set working directory
 WORKDIR /app
 
-# 复制 package.json 和 package-lock.json
+# Install necessary system dependencies
+RUN apk add --no-cache libc6-compat
+
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# 安装依赖
-RUN npm install
+# Install dependencies
+RUN npm ci --only=production && npm cache clean --force
 
-# 复制源代码
+# Copy source code
 COPY . .
 
-# 生成 Prisma 客户端
+# Generate Prisma client
 RUN npx prisma generate
 
-# 暴露端口
+# Create uploads directory
+RUN mkdir -p uploads
+
+# Expose port
 EXPOSE 3001
 
-# 启动命令
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3001/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+
+# Start command
 CMD ["npm", "run", "dev"] 

@@ -1,8 +1,8 @@
 {
-  "name": "ai-resume-builder",
+  "name": "wecv-ai",
   "version": "1.0.0",
-  "description": "AI驱动的智能简历构建平台",
-  "main": "index.js",
+  "description": "WeCV AI - Intelligent Resume Generation & Management Platform",
+  "private": true,
   "scripts": {
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "cd frontend && npm run dev",
@@ -10,16 +10,33 @@
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd frontend && npm run build",
     "build:backend": "cd backend && npm run build",
-    "start": "cd backend && npm start",
+    "start": "npm run start:frontend && npm run start:backend",
+    "start:frontend": "cd frontend && npm run start",
+    "start:backend": "cd backend && npm run start",
     "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
-    "docker:build": "docker-compose build",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down"
+    "clean": "rm -rf frontend/node_modules backend/node_modules frontend/.next backend/dist",
+    "docker:dev": "docker-compose up -d",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up -d",
+    "docker:stop": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "db:migrate": "cd backend && npm run db:migrate",
+    "db:generate": "cd backend && npm run db:generate",
+    "db:studio": "cd backend && npm run db:studio"
   },
-  "keywords": ["resume", "ai", "cv", "career", "job"],
-  "author": "Your Name",
-  "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
-  }
+  },
+  "keywords": [
+    "resume",
+    "cv",
+    "ai",
+    "generator",
+    "builder",
+    "multilanguage",
+    "typescript",
+    "nextjs",
+    "express"
+  ],
+  "author": "WeCV AI Team",
+  "license": "MIT"
 } 

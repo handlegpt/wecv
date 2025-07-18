@@ -16,6 +16,7 @@ model User {
   location  String?
   bio       String?
   settings  Json?
+  preferredLanguage String @default("en-US")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   resumes   Resume[]
@@ -26,6 +27,8 @@ model Resume {
   id         String   @id @default(uuid())
   title      String
   content    Json
+  language   String   @default("en-US")
+  translations Json?  // Store translations for different languages
   userId     String
   user       User     @relation(fields: [userId], references: [id])
   templateId String?
@@ -34,6 +37,101 @@ model Resume {
   updatedAt  DateTime @updatedAt
   isPublic   Boolean  @default(false)
   shareUrl   String?  @unique
+  
+  // Resume sections
+  name       String?
+  email      String?
+  phone      String?
+  summary    String?
+  experiences Experience[]
+  education  Education[]
+  skills     Skill[]
+  projects   Project[]
+  
+  // Analytics and exports
+  analytics  ResumeAnalytics?
+  exports    ResumeExport[]
+  shares     ResumeShare[]
+}
+
+model Experience {
+  id          String   @id @default(uuid())
+  title       String
+  company     String
+  startDate   String
+  endDate     String?
+  description String?
+  resumeId    String
+  resume      Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Education {
+  id          String   @id @default(uuid())
+  degree      String
+  institution String
+  startDate   String
+  endDate     String?
+  gpa         String?
+  resumeId    String
+  resume      Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(uuid())
+  name      String
+  category  String?
+  level     String?  // beginner, intermediate, advanced
+  resumeId  String
+  resume    Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  url         String?
+  technologies String[]
+  resumeId    String
+  resume      Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ResumeAnalytics {
+  id          String   @id @default(uuid())
+  resumeId    String   @unique
+  resume      Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  score       Int      @default(0)
+  completeness Int     @default(0)
+  suggestions Json?    // AI-generated suggestions
+  lastAnalyzed DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ResumeExport {
+  id        String   @id @default(uuid())
+  resumeId  String
+  resume    Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  format    String   // pdf, docx, html, json
+  createdBy String
+  createdAt DateTime @default(now())
+}
+
+model ResumeShare {
+  id         String   @id @default(uuid())
+  resumeId   String
+  resume     Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  shareToken String   @unique
+  expiresAt  DateTime
+  createdBy  String
+  createdAt  DateTime @default(now())
 }
 
 model Template {
@@ -41,6 +139,18 @@ model Template {
   name      String
   category  String?
   preview   String?
+  supportedLanguages String[] @default(["en-US"])
   createdAt DateTime @default(now())
   resumes   Resume[]
+}
+
+model Language {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  name      String
+  nativeName String
+  flag      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 } 

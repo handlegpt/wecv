@@ -1,234 +1,245 @@
-# WeCV AI - Smart Resume Generator & Management Platform
+# WeCV AI - Intelligent Resume Generation & Management Platform
 
-[English](README.md) | [中文](README.zh.md) | [日本語](README.ja.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://www.docker.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.0-black.svg)](https://nextjs.org/)
 
-WeCV AI is an AI-powered intelligent resume generation and management platform that provides multi-language, multi-template, and multi-format export capabilities to help users quickly create professional resumes.
+WeCV AI is an intelligent AI-powered resume generation and management platform that helps users create professional resumes with AI assistance. Built with modern technologies and designed for scalability.
 
-## 🚀 Features
+## 🌟 Features
 
-### Core Features
-- **Smart Resume Generation**: AI-powered resume content generation
-- **Multiple Templates**: Modern, Classic, Creative, and more professional templates
-- **Real-time Preview**: Desktop, mobile, and print preview modes
-- **Multi-format Export**: PDF, Word, HTML, and other formats
-- **AI Writing Assistant**: Intelligent content optimization and professional suggestions
-- **Resume Analysis**: AI-driven resume scoring and improvement recommendations
+- **Multi-language Support**: English, Chinese (Simplified/Traditional), Japanese, Spanish, French, German
+- **AI Translation**: Intelligent resume translation across 7 languages
+- **Multiple Templates**: Professional, Creative, Modern, Minimalist
+- **AI Writing Assistant**: OpenAI-powered content generation
+- **Export Options**: PDF, DOCX, HTML formats
+- **User Management**: Registration, login, profile management
+- **Resume Management**: Create, edit, organize resumes
+- **Online Hosting**: Share resumes with public URLs
+- **Admin Dashboard**: User management, analytics, system monitoring
+- **Data Analytics**: Usage statistics and insights
+- **Permission System**: Role-based access control
 
-### User Management
-- **User Registration & Login**: Email-based registration and login
-- **Personal Settings**: Profile management, password changes, notification settings
-- **Privacy Control**: Resume visibility settings, email display control
-- **Permission Management**: User role management with admin privileges
+## 🌍 Multi-language Features
 
-### Management Features
-- **Admin Dashboard**: User management, data analytics, system monitoring
-- **Data Analytics**: User count, resume count, activity statistics
-- **Template Management**: Resume template CRUD operations
-- **System Monitoring**: System operation status monitoring
+### Supported Languages
+- 🇺🇸 **English** (en-US) - Default language
+- 🇨🇳 **Chinese Simplified** (zh-CN)
+- 🇹🇼 **Chinese Traditional** (zh-TW)
+- 🇯🇵 **Japanese** (ja-JP)
+- 🇪🇸 **Spanish** (es-ES)
+- 🇫🇷 **French** (fr-FR)
+- 🇩🇪 **German** (de-DE)
 
-### Technical Features
-- **Responsive Design**: Desktop and mobile support
-- **Real-time Saving**: Automatic content saving
-- **Sharing Functionality**: Generate resume sharing links
-- **Multi-language Support**: Chinese and English interfaces
-- **Secure Authentication**: JWT token authentication mechanism
+### Multi-language Capabilities
+- **Interface Localization**: Complete UI translation for all supported languages
+- **Resume Translation**: AI-powered translation of resume content
+- **Language Preferences**: User-specific language settings
+- **Multi-language Export**: Export resumes in different languages
+- **Batch Translation**: Translate all resumes at once
+- **Cultural Adaptation**: Language-specific resume formats and styles
 
-## 🛠️ Tech Stack
+## 🚀 Quick Start with Docker
+
+### Prerequisites
+
+- Docker and Docker Compose installed
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/handlegpt/wecv.git
+   cd wecv
+   ```
+
+2. **Start development environment**
+   ```bash
+   chmod +x start.sh
+   ./start.sh dev
+   ```
+
+3. **Access the application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:3001
+   - Health Check: http://localhost:3001/api/health
+
+### Production Deployment
+
+1. **Configure production environment**
+   ```bash
+   cp .env.prod.example .env.prod
+   # Edit .env.prod with your production settings
+   ```
+
+2. **Start production environment**
+   ```bash
+   ./start.sh prod
+   ```
+
+## 🛠️ Technology Stack
 
 ### Frontend
-- **Next.js 14**: React framework with SSR and SSG support
+- **Next.js 14**: React framework with App Router
 - **TypeScript**: Type-safe JavaScript
 - **Tailwind CSS**: Utility-first CSS framework
-- **React Hot Toast**: Lightweight notification component
+- **React Hook Form**: Form handling
+- **Framer Motion**: Animations
+- **React PDF**: PDF generation
+- **i18next**: Internationalization
 
 ### Backend
 - **Node.js**: JavaScript runtime
-- **Express**: Web application framework
-- **TypeScript**: Type-safe JavaScript
-- **Prisma ORM**: Database ORM tool
-- **PostgreSQL**: Relational database
-- **Redis**: Cache database
-- **JWT**: JSON Web Token authentication
+- **Express.js**: Web framework
+- **TypeScript**: Type safety
+- **Prisma ORM**: Database management
+- **PostgreSQL**: Primary database
+- **Redis**: Caching and sessions
+- **JWT**: Authentication
+- **OpenAI API**: AI content generation
 
-### AI Services
-- **OpenAI API**: GPT model integration
-- **Smart Analysis**: Resume content analysis and optimization suggestions
+### Infrastructure
+- **Docker**: Containerization
+- **Docker Compose**: Multi-container orchestration
+- **Nginx**: Reverse proxy and load balancing
+- **SSL/TLS**: Secure connections
+- **Automated Backups**: Database backup system
 
-### Deployment
-- **Docker**: Containerized deployment
-- **Docker Compose**: Multi-service orchestration
-- **Nginx**: Reverse proxy server
-- **SSL Certificates**: HTTPS secure access
+## 📁 Project Structure
 
-## 📦 Quick Start
-
-### Prerequisites
-- Node.js 18+
-- Docker & Docker Compose
-- PostgreSQL 14+
-- Redis 6+
-
-### 1. Clone Project
-```bash
-git clone https://github.com/handlegpt/wecv.git
-cd wecv
 ```
-
-### 2. Environment Configuration
-```bash
-# Copy environment configuration files
-cp .env.example .env
-cp .env.prod.example .env.prod
-
-# Edit configuration files
-vim .env
-```
-
-### 3. Docker Deployment (Recommended)
-```bash
-# One-click startup for all services
-./start.sh dev
-
-# Or manual startup
-docker-compose up -d
-```
-
-### 4. Development Environment Deployment
-```bash
-# Install dependencies
-npm install
-cd frontend && npm install
-cd ../backend && npm install
-
-# Start database
-docker-compose up -d postgres redis
-
-# Database migration
-cd backend
-npx prisma migrate dev
-npx prisma generate
-
-# Start backend service
-npm run dev
-
-# Start frontend service
-cd ../frontend
-npm run dev
+wecv/
+├── frontend/                 # Next.js frontend application
+│   ├── app/                 # App Router pages
+│   ├── components/          # React components
+│   ├── lib/                # Utility functions
+│   └── Dockerfile          # Frontend container
+├── backend/                 # Express.js backend API
+│   ├── src/                # Source code
+│   ├── prisma/             # Database schema
+│   └── Dockerfile          # Backend container
+├── nginx/                  # Nginx configuration
+├── scripts/                # Utility scripts
+├── docker-compose.yml      # Development environment
+├── docker-compose.prod.yml # Production environment
+└── start.sh               # Startup script
 ```
 
 ## 🔧 Configuration
 
 ### Environment Variables
+
+#### Development (.env)
+```env
+DATABASE_URL=postgresql://postgres:postgres@db:5432/wecv_ai
+JWT_SECRET=your_jwt_secret_wecv_ai
+OPENAI_API_KEY=your_openai_api_key
+PORT=3001
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_APP_NAME=WeCV AI
+```
+
+#### Production (.env.prod)
+```env
+DB_PASSWORD=your_secure_db_password
+JWT_SECRET=your_very_secure_jwt_secret_key_wecv_ai_2024
+OPENAI_API_KEY=your_openai_api_key_here
+REDIS_URL=redis://redis:6379
+NODE_ENV=production
+DOMAIN=wecv.ai
+API_DOMAIN=api.wecv.ai
+```
+
+## 🚀 Available Scripts
+
+### Development
 ```bash
-# Database configuration
-DATABASE_URL="postgresql://username:password@localhost:5432/wecv"
-
-# Redis configuration
-REDIS_URL="redis://localhost:6379"
-
-# JWT secret
-JWT_SECRET="your-jwt-secret"
-
-# OpenAI API
-OPENAI_API_KEY="your-openai-api-key"
-
-# Application configuration
-NEXT_PUBLIC_API_URL="http://localhost:3001"
-FRONTEND_URL="http://localhost:3000"
+./start.sh dev          # Start development environment
+./start.sh stop         # Stop all services
+./start.sh restart      # Restart development services
+./start.sh logs         # View development logs
+./start.sh status       # Check service status
 ```
 
-### Production Environment Deployment
+### Production
 ```bash
-# Use production environment configuration
-docker-compose -f docker-compose.prod.yml up -d
-
-# Run deployment script
-./deploy.sh
+./start.sh prod         # Start production environment
+./start.sh restart prod # Restart production services
+./start.sh logs prod    # View production logs
+./start.sh clean        # Clean all containers and data
 ```
 
-## �� Project Structure
+## 📊 Monitoring & Maintenance
 
-```
-wecv-ai/
-├── frontend/                 # Frontend application
-│   ├── app/                 # Next.js 14 App Router
-│   ├── components/          # React components
-│   ├── lib/                # Utility libraries
-│   └── public/             # Static resources
-├── backend/                 # Backend application
-│   ├── src/
-│   │   ├── controllers/    # Controllers
-│   │   ├── routes/         # Routes
-│   │   ├── middlewares/    # Middlewares
-│   │   └── types/          # Type definitions
-│   └── prisma/             # Database models
-├── nginx/                  # Nginx configuration
-├── scripts/                # Deployment scripts
-├── docker-compose.yml      # Development environment config
-├── docker-compose.prod.yml # Production environment config
-└── README.md              # Project documentation
+### Health Checks
+- Backend: `http://localhost:3001/api/health`
+- Frontend: `http://localhost:3000`
+
+### Database Backup
+```bash
+# Manual backup
+docker-compose exec db pg_dump -U postgres wecv_ai > backup.sql
+
+# Automated backup (runs daily at 2 AM)
+# Configured in docker-compose.prod.yml
 ```
 
-## 🎯 Usage Guide
-
-### User Features
-1. **Register/Login**: Use email to register account
-2. **Create Resume**: Select template, fill in personal information
-3. **AI Assistant**: Use AI to optimize resume content
-4. **Preview/Export**: Real-time preview and export resume
-5. **Share Resume**: Generate sharing links
-
-### Admin Features
-1. **User Management**: View and manage user accounts
-2. **Data Analytics**: View platform usage data
-3. **System Monitoring**: Monitor system operation status
-4. **Template Management**: Manage resume templates
+### System Monitoring
+```bash
+# Run monitoring script
+./scripts/monitor.sh
+```
 
 ## 🔒 Security Features
 
-- **JWT Authentication**: Secure user authentication mechanism
-- **Password Encryption**: bcrypt password hashing
-- **CORS Configuration**: Cross-origin request security control
-- **Input Validation**: Server-side data validation
-- **SQL Injection Protection**: Prisma ORM automatic protection
-- **XSS Protection**: Frontend input filtering
+- **JWT Authentication**: Secure token-based authentication
+- **Role-based Access Control**: Admin and user permissions
+- **Input Validation**: Comprehensive data validation
+- **SQL Injection Protection**: Prisma ORM with parameterized queries
+- **XSS Protection**: Content Security Policy headers
+- **HTTPS Enforcement**: SSL/TLS encryption
+- **Rate Limiting**: API request throttling
 
-## 📊 Performance Optimization
+## 🌐 Deployment
 
-- **Redis Caching**: Reduce database queries
-- **Image Optimization**: Automatic image compression
-- **Code Splitting**: On-demand component loading
-- **CDN Support**: Static resource CDN acceleration
-- **Database Indexing**: Optimize query performance
+### Docker Deployment (Recommended)
+1. Clone the repository
+2. Configure environment variables
+3. Run `./start.sh prod`
+4. Configure domain and SSL certificates
+
+### Manual Deployment
+1. Install Node.js, PostgreSQL, Redis
+2. Configure environment variables
+3. Run database migrations
+4. Start frontend and backend services
 
 ## 🤝 Contributing
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
-## 📝 License
+## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-If you encounter issues or have suggestions, please:
+- **Documentation**: Check the `/docs` directory
+- **Issues**: Report bugs on GitHub Issues
+- **Discussions**: Join GitHub Discussions for questions
 
-1. Check [GitHub Issues](https://github.com/handlegpt/wecv/issues)
-2. Create a new Issue
-3. Contact the development team
+## 🔄 Updates
 
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) - React framework
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [Prisma](https://www.prisma.io/) - Database ORM
-- [OpenAI](https://openai.com/) - AI services
-- [Docker](https://www.docker.com/) - Containerization platform
+- **Dependencies**: Run `npm update` in frontend/backend directories
+- **Database**: Run `npx prisma migrate deploy` for schema updates
+- **Docker Images**: Rebuild with `docker-compose build`
 
 ---
 
-**WeCV AI** - Making resume creation smarter and more professional! 
+**WeCV AI** - Making resume creation intelligent and effortless! 🚀 

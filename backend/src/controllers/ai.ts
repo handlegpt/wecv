@@ -178,3 +178,68 @@ function extractRecommendations(analysis: string): string[] {
   
   return recommendations.slice(0, 5) // 最多返回5条建议
 } 
+
+// AI翻译功能
+export async function translateContent(req: Request, res: Response) {
+  const { content, sourceLanguage, targetLanguage } = req.body
+  
+  if (!content || !sourceLanguage || !targetLanguage) {
+    return res.status(400).json({ message: '缺少必要参数' })
+  }
+
+  try {
+    const languageNames = {
+      'en-US': 'English',
+      'zh-CN': 'Chinese (Simplified)',
+      'zh-TW': 'Chinese (Traditional)',
+      'ja-JP': 'Japanese',
+      'es-ES': 'Spanish',
+      'fr-FR': 'French',
+      'de-DE': 'German'
+    }
+
+    const sourceLang = languageNames[sourceLanguage] || sourceLanguage
+    const targetLang = languageNames[targetLanguage] || targetLanguage
+
+    const translationPrompt = `
+请将以下简历内容从${sourceLang}翻译成${targetLang}。请保持JSON格式不变，只翻译其中的文本内容。
+
+原文内容：
+${content}
+
+请确保：
+1. 保持JSON结构完全不变
+2. 只翻译文本内容，不翻译字段名
+3. 保持专业术语的准确性
+4. 适应目标语言的文化和表达习惯
+5. 返回完整的JSON格式内容
+`
+
+    const completion = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [
+        {
+          role: 'system',
+          content: '你是一个专业的简历翻译专家，擅长将简历内容翻译成不同语言，同时保持专业性和准确性。'
+        },
+        {
+          role: 'user',
+          content: translationPrompt
+        }
+      ],
+      max_tokens: 2000,
+      temperature: 0.3
+    })
+
+    const translatedContent = completion.data.choices[0].message?.content
+    
+    res.json({ 
+      translatedContent,
+      sourceLanguage,
+      targetLanguage
+    })
+  } catch (error) {
+    console.error('翻译错误:', error)
+    res.status(500).json({ message: '翻译失败', error: error.message })
+  }
+} 

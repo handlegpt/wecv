@@ -1,48 +1,48 @@
-# 构建阶段
+# Build stage
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# 复制 package.json 和 package-lock.json
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# 安装依赖
+# Install dependencies
 RUN npm ci
 
-# 复制源代码
+# Copy source code
 COPY . .
 
-# 构建应用
+# Build application
 RUN npm run build
 
-# 生产阶段
+# Production stage
 FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# 安装生产依赖
+# Install production dependencies
 COPY package*.json ./
 RUN npm ci --only=production
 
-# 从构建阶段复制构建结果
+# Copy build results from build stage
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
-# 创建非 root 用户
+# Create non-root user
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
-# 设置权限
+# Set permissions
 RUN chown -R nextjs:nodejs /app
 
 USER nextjs
 
-# 暴露端口
+# Expose port
 EXPOSE 3000
 
-# 健康检查
+# Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
 
-# 启动命令
+# Start command
 CMD ["npm", "start"] 
