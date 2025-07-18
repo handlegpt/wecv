@@ -530,6 +530,96 @@
     "originalLanguage": "Idioma Original",
     "noResumes": "No se encontraron CVs"
   },
+  "privacy": {
+    "title": "Privacidad y Seguridad",
+    "subtitle": "Nos comprometemos a proteger su privacidad y garantizar la seguridad de su información personal. Conozca nuestras prácticas de datos y medidas de seguridad.",
+    "features": {
+      "title": "Características de Privacidad"
+    },
+    "dataProtection": {
+      "title": "Protección de Datos",
+      "description": "Implementamos medidas integrales de protección de datos para salvaguardar su información personal y datos de CV."
+    },
+    "encryption": {
+      "title": "Cifrado de Extremo a Extremo",
+      "description": "Todos los datos están cifrados en tránsito y en reposo usando protocolos de cifrado estándar de la industria."
+    },
+    "transparency": {
+      "title": "Transparencia",
+      "description": "Somos transparentes sobre cómo recopilamos, usamos y protegemos sus datos. Usted tiene control total sobre su información."
+    },
+    "storage": {
+      "title": "Almacenamiento Seguro",
+      "description": "Sus datos se almacenan en servidores seguros con múltiples capas de protección y auditorías de seguridad regulares."
+    },
+    "accessControl": {
+      "title": "Control de Acceso",
+      "description": "Los controles de acceso estrictos aseguran que solo el personal autorizado pueda acceder a sus datos para propósitos legítimos."
+    },
+    "compliance": {
+      "title": "Cumplimiento",
+      "description": "Cumplimos con las regulaciones internacionales de protección de datos incluyendo GDPR, CCPA y otras leyes aplicables."
+    },
+    "security": {
+      "title": "Medidas de Seguridad",
+      "ssl": {
+        "title": "Cifrado SSL/TLS",
+        "description": "Todas las comunicaciones entre su navegador y nuestros servidores están cifradas usando protocolos SSL/TLS."
+      },
+      "backup": {
+        "title": "Copias de Seguridad Regulares",
+        "description": "Sus datos se respaldan regularmente en ubicaciones seguras para prevenir pérdida de datos y asegurar disponibilidad."
+      }
+    },
+    "dataCollection": {
+      "title": "Recopilación y Uso de Datos",
+      "whatWeCollect": {
+        "title": "Lo Que Recopilamos",
+        "item1": "Información personal (nombre, correo, número de teléfono)",
+        "item2": "Contenido del CV e información profesional",
+        "item3": "Datos de uso y análisis (anonimizados)",
+        "item4": "Datos técnicos (dirección IP, tipo de navegador, información del dispositivo)"
+      },
+      "howWeUse": {
+        "title": "Cómo Usamos Sus Datos",
+        "item1": "Para proporcionar y mejorar nuestros servicios de construcción de CV",
+        "item2": "Para personalizar su experiencia y ofrecer funciones relevantes",
+        "item3": "Para comunicarnos con usted sobre su cuenta y servicios",
+        "item4": "Para asegurar la seguridad de la plataforma y prevenir fraude"
+      }
+    },
+    "userRights": {
+      "title": "Sus Derechos",
+      "access": {
+        "title": "Acceder a Sus Datos",
+        "description": "Usted tiene el derecho de acceder a todos los datos personales que tenemos sobre usted y solicitar copias de su información."
+      },
+      "control": {
+        "title": "Controlar Sus Datos",
+        "description": "Puede actualizar, corregir o modificar su información personal en cualquier momento a través de la configuración de su cuenta."
+      },
+      "deletion": {
+        "title": "Eliminar Sus Datos",
+        "description": "Puede solicitar la eliminación de su cuenta y todos los datos asociados. Procesaremos su solicitud dentro de 30 días."
+      },
+      "portability": {
+        "title": "Portabilidad de Datos",
+        "description": "Puede exportar sus datos de CV en formatos estándar y transferirlos a otros servicios si es necesario."
+      }
+    },
+    "contact": {
+      "title": "Contáctenos",
+      "privacy": {
+        "title": "Preguntas de Privacidad",
+        "description": "Si tiene preguntas sobre nuestras prácticas de privacidad o quiere ejercer sus derechos de datos, contacte a nuestro equipo de privacidad."
+      },
+      "security": {
+        "title": "Preocupaciones de Seguridad",
+        "description": "Si descubre una vulnerabilidad de seguridad o tiene preocupaciones sobre la seguridad de datos, repórtelo inmediatamente a nuestro equipo de seguridad."
+      }
+    },
+    "lastUpdated": "Última Actualización"
+  },
   "buyMeACoffee": {
     "badge": "Apoya WeCV AI",
     "title": "¿Te gusta WeCV AI?",

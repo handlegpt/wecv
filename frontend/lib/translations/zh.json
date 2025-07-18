@@ -475,6 +475,96 @@
       ]
     }
   },
+  "privacy": {
+    "title": "隐私与安全",
+    "subtitle": "我们致力于保护您的隐私并确保您个人信息的安全。了解我们的数据实践和安全措施。",
+    "features": {
+      "title": "隐私功能"
+    },
+    "dataProtection": {
+      "title": "数据保护",
+      "description": "我们实施全面的数据保护措施来保护您的个人信息和简历数据。"
+    },
+    "encryption": {
+      "title": "端到端加密",
+      "description": "所有数据在传输和存储时都使用行业标准加密协议进行加密。"
+    },
+    "transparency": {
+      "title": "透明度",
+      "description": "我们透明地说明如何收集、使用和保护您的数据。您对您的信息拥有完全控制权。"
+    },
+    "storage": {
+      "title": "安全存储",
+      "description": "您的数据存储在具有多层保护和安全审计的安全服务器上。"
+    },
+    "accessControl": {
+      "title": "访问控制",
+      "description": "严格的访问控制确保只有授权人员才能出于合法目的访问您的数据。"
+    },
+    "compliance": {
+      "title": "合规性",
+      "description": "我们遵守国际数据保护法规，包括GDPR、CCPA和其他适用法律。"
+    },
+    "security": {
+      "title": "安全措施",
+      "ssl": {
+        "title": "SSL/TLS加密",
+        "description": "您的浏览器与我们服务器之间的所有通信都使用SSL/TLS协议加密。"
+      },
+      "backup": {
+        "title": "定期备份",
+        "description": "您的数据定期备份到安全位置，以防止数据丢失并确保可用性。"
+      }
+    },
+    "dataCollection": {
+      "title": "数据收集与使用",
+      "whatWeCollect": {
+        "title": "我们收集什么",
+        "item1": "个人信息（姓名、邮箱、电话号码）",
+        "item2": "简历内容和专业信息",
+        "item3": "使用数据和分析（匿名化）",
+        "item4": "技术数据（IP地址、浏览器类型、设备信息）"
+      },
+      "howWeUse": {
+        "title": "我们如何使用您的数据",
+        "item1": "提供和改进我们的简历构建服务",
+        "item2": "个性化您的体验并提供相关功能",
+        "item3": "就您的账户和服务与您沟通",
+        "item4": "确保平台安全并防止欺诈"
+      }
+    },
+    "userRights": {
+      "title": "您的权利",
+      "access": {
+        "title": "访问您的数据",
+        "description": "您有权访问我们持有的所有个人数据，并请求您的信息副本。"
+      },
+      "control": {
+        "title": "控制您的数据",
+        "description": "您可以随时通过账户设置更新、更正或修改您的个人信息。"
+      },
+      "deletion": {
+        "title": "删除您的数据",
+        "description": "您可以请求删除您的账户和所有相关数据。我们将在30天内处理您的请求。"
+      },
+      "portability": {
+        "title": "数据可携带性",
+        "description": "您可以以标准格式导出您的简历数据，并在需要时转移到其他服务。"
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "privacy": {
+        "title": "隐私问题",
+        "description": "如果您对我们的隐私实践有疑问或想行使您的数据权利，请联系我们的隐私团队。"
+      },
+      "security": {
+        "title": "安全问题",
+        "description": "如果您发现安全漏洞或对数据安全有疑虑，请立即向我们的安全团队报告。"
+      }
+    },
+    "lastUpdated": "最后更新"
+  },
   "buyMeACoffee": {
     "badge": "支持WeCV AI",
     "title": "喜欢WeCV AI吗？",

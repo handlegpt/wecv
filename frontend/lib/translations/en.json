@@ -496,6 +496,96 @@
       ]
     }
   },
+  "privacy": {
+    "title": "Privacy & Security",
+    "subtitle": "We are committed to protecting your privacy and ensuring the security of your personal information. Learn about our data practices and security measures.",
+    "features": {
+      "title": "Privacy Features"
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "We implement comprehensive data protection measures to safeguard your personal information and resume data."
+    },
+    "encryption": {
+      "title": "End-to-End Encryption",
+      "description": "All data is encrypted in transit and at rest using industry-standard encryption protocols."
+    },
+    "transparency": {
+      "title": "Transparency",
+      "description": "We are transparent about how we collect, use, and protect your data. You have full control over your information."
+    },
+    "storage": {
+      "title": "Secure Storage",
+      "description": "Your data is stored on secure servers with multiple layers of protection and regular security audits."
+    },
+    "accessControl": {
+      "title": "Access Control",
+      "description": "Strict access controls ensure that only authorized personnel can access your data for legitimate purposes."
+    },
+    "compliance": {
+      "title": "Compliance",
+      "description": "We comply with international data protection regulations including GDPR, CCPA, and other applicable laws."
+    },
+    "security": {
+      "title": "Security Measures",
+      "ssl": {
+        "title": "SSL/TLS Encryption",
+        "description": "All communications between your browser and our servers are encrypted using SSL/TLS protocols."
+      },
+      "backup": {
+        "title": "Regular Backups",
+        "description": "Your data is regularly backed up to secure locations to prevent data loss and ensure availability."
+      }
+    },
+    "dataCollection": {
+      "title": "Data Collection & Usage",
+      "whatWeCollect": {
+        "title": "What We Collect",
+        "item1": "Personal information (name, email, phone number)",
+        "item2": "Resume content and professional information",
+        "item3": "Usage data and analytics (anonymized)",
+        "item4": "Technical data (IP address, browser type, device information)"
+      },
+      "howWeUse": {
+        "title": "How We Use Your Data",
+        "item1": "To provide and improve our resume building services",
+        "item2": "To personalize your experience and offer relevant features",
+        "item3": "To communicate with you about your account and services",
+        "item4": "To ensure platform security and prevent fraud"
+      }
+    },
+    "userRights": {
+      "title": "Your Rights",
+      "access": {
+        "title": "Access Your Data",
+        "description": "You have the right to access all personal data we hold about you and request copies of your information."
+      },
+      "control": {
+        "title": "Control Your Data",
+        "description": "You can update, correct, or modify your personal information at any time through your account settings."
+      },
+      "deletion": {
+        "title": "Delete Your Data",
+        "description": "You can request deletion of your account and all associated data. We will process your request within 30 days."
+      },
+      "portability": {
+        "title": "Data Portability",
+        "description": "You can export your resume data in standard formats and transfer it to other services if needed."
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "privacy": {
+        "title": "Privacy Questions",
+        "description": "If you have questions about our privacy practices or want to exercise your data rights, please contact our privacy team."
+      },
+      "security": {
+        "title": "Security Concerns",
+        "description": "If you discover a security vulnerability or have concerns about data security, please report it to our security team immediately."
+      }
+    },
+    "lastUpdated": "Last Updated"
+  },
   "buyMeACoffee": {
     "badge": "Support WeCV AI",
     "title": "Love WeCV AI?",

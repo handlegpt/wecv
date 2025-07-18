@@ -14,6 +14,7 @@ export function Header() {
     { name: t('navigation.home'), href: '/' },
     { name: t('navigation.templates'), href: '/templates' },
     { name: t('navigation.pricing'), href: '#pricing' },
+    { name: t('privacy.title'), href: '/privacy' },
   ]
 
   return (

@@ -475,6 +475,96 @@
       ]
     }
   },
+  "privacy": {
+    "title": "隱私與安全",
+    "subtitle": "我們致力於保護您的隱私並確保您個人資訊的安全。了解我們的資料實踐和安全措施。",
+    "features": {
+      "title": "隱私功能"
+    },
+    "dataProtection": {
+      "title": "資料保護",
+      "description": "我們實施全面的資料保護措施來保護您的個人資訊和履歷資料。"
+    },
+    "encryption": {
+      "title": "端到端加密",
+      "description": "所有資料在傳輸和儲存時都使用業界標準加密協議進行加密。"
+    },
+    "transparency": {
+      "title": "透明度",
+      "description": "我們透明地說明如何收集、使用和保護您的資料。您對您的資訊擁有完全控制權。"
+    },
+    "storage": {
+      "title": "安全儲存",
+      "description": "您的資料儲存在具有多層保護和安全審計的安全伺服器上。"
+    },
+    "accessControl": {
+      "title": "存取控制",
+      "description": "嚴格的存取控制確保只有授權人員才能出於合法目的存取您的資料。"
+    },
+    "compliance": {
+      "title": "合規性",
+      "description": "我們遵守國際資料保護法規，包括GDPR、CCPA和其他適用法律。"
+    },
+    "security": {
+      "title": "安全措施",
+      "ssl": {
+        "title": "SSL/TLS加密",
+        "description": "您的瀏覽器與我們伺服器之間的所有通訊都使用SSL/TLS協議加密。"
+      },
+      "backup": {
+        "title": "定期備份",
+        "description": "您的資料定期備份到安全位置，以防止資料遺失並確保可用性。"
+      }
+    },
+    "dataCollection": {
+      "title": "資料收集與使用",
+      "whatWeCollect": {
+        "title": "我們收集什麼",
+        "item1": "個人資訊（姓名、信箱、電話號碼）",
+        "item2": "履歷內容和專業資訊",
+        "item3": "使用資料和分析（匿名化）",
+        "item4": "技術資料（IP位址、瀏覽器類型、裝置資訊）"
+      },
+      "howWeUse": {
+        "title": "我們如何使用您的資料",
+        "item1": "提供和改進我們的履歷建構服務",
+        "item2": "個人化您的體驗並提供相關功能",
+        "item3": "就您的帳戶和服務與您溝通",
+        "item4": "確保平台安全並防止詐欺"
+      }
+    },
+    "userRights": {
+      "title": "您的權利",
+      "access": {
+        "title": "存取您的資料",
+        "description": "您有權存取我們持有的所有個人資料，並請求您的資訊副本。"
+      },
+      "control": {
+        "title": "控制您的資料",
+        "description": "您可以隨時透過帳戶設定更新、更正或修改您的個人資訊。"
+      },
+      "deletion": {
+        "title": "刪除您的資料",
+        "description": "您可以請求刪除您的帳戶和所有相關資料。我們將在30天內處理您的請求。"
+      },
+      "portability": {
+        "title": "資料可攜性",
+        "description": "您可以以標準格式匯出您的履歷資料，並在需要時轉移到其他服務。"
+      }
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "privacy": {
+        "title": "隱私問題",
+        "description": "如果您對我們的隱私實踐有疑問或想行使您的資料權利，請聯絡我們的隱私團隊。"
+      },
+      "security": {
+        "title": "安全問題",
+        "description": "如果您發現安全漏洞或對資料安全有疑慮，請立即向我們的安全團隊報告。"
+      }
+    },
+    "lastUpdated": "最後更新"
+  },
   "buyMeACoffee": {
     "badge": "支持WeCV AI",
     "title": "喜歡WeCV AI嗎？",

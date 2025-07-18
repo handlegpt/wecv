@@ -530,6 +530,96 @@
     "originalLanguage": "Originalsprache",
     "noResumes": "Keine Lebensläufe gefunden"
   },
+  "privacy": {
+    "title": "Datenschutz und Sicherheit",
+    "subtitle": "Wir setzen uns für den Schutz Ihrer Privatsphäre und die Sicherheit Ihrer persönlichen Informationen ein. Erfahren Sie mehr über unsere Datenpraktiken und Sicherheitsmaßnahmen.",
+    "features": {
+      "title": "Datenschutz-Funktionen"
+    },
+    "dataProtection": {
+      "title": "Datenschutz",
+      "description": "Wir implementieren umfassende Datenschutzmaßnahmen, um Ihre persönlichen Informationen und Lebenslauf-Daten zu schützen."
+    },
+    "encryption": {
+      "title": "Ende-zu-Ende-Verschlüsselung",
+      "description": "Alle Daten werden bei der Übertragung und im Ruhezustand mit branchenüblichen Verschlüsselungsprotokollen verschlüsselt."
+    },
+    "transparency": {
+      "title": "Transparenz",
+      "description": "Wir sind transparent darüber, wie wir Ihre Daten sammeln, verwenden und schützen. Sie haben die vollständige Kontrolle über Ihre Informationen."
+    },
+    "storage": {
+      "title": "Sichere Speicherung",
+      "description": "Ihre Daten werden auf sicheren Servern mit mehreren Schutzebenen und regelmäßigen Sicherheitsaudits gespeichert."
+    },
+    "accessControl": {
+      "title": "Zugriffskontrolle",
+      "description": "Strenge Zugriffskontrollen stellen sicher, dass nur autorisiertes Personal für legitime Zwecke auf Ihre Daten zugreifen kann."
+    },
+    "compliance": {
+      "title": "Compliance",
+      "description": "Wir halten uns an internationale Datenschutzvorschriften einschließlich DSGVO, CCPA und andere anwendbare Gesetze."
+    },
+    "security": {
+      "title": "Sicherheitsmaßnahmen",
+      "ssl": {
+        "title": "SSL/TLS-Verschlüsselung",
+        "description": "Alle Kommunikation zwischen Ihrem Browser und unseren Servern wird mit SSL/TLS-Protokollen verschlüsselt."
+      },
+      "backup": {
+        "title": "Regelmäßige Backups",
+        "description": "Ihre Daten werden regelmäßig an sichere Standorte gesichert, um Datenverlust zu verhindern und Verfügbarkeit zu gewährleisten."
+      }
+    },
+    "dataCollection": {
+      "title": "Datenerhebung und -verwendung",
+      "whatWeCollect": {
+        "title": "Was Wir Sammeln",
+        "item1": "Persönliche Informationen (Name, E-Mail, Telefonnummer)",
+        "item2": "Lebenslauf-Inhalte und berufliche Informationen",
+        "item3": "Nutzungsdaten und Analysen (anonymisiert)",
+        "item4": "Technische Daten (IP-Adresse, Browsertyp, Geräteinformationen)"
+      },
+      "howWeUse": {
+        "title": "Wie Wir Ihre Daten Verwenden",
+        "item1": "Um unsere Lebenslauf-Erstellungsdienste bereitzustellen und zu verbessern",
+        "item2": "Um Ihre Erfahrung zu personalisieren und relevante Funktionen anzubieten",
+        "item3": "Um mit Ihnen über Ihr Konto und Dienste zu kommunizieren",
+        "item4": "Um die Plattformsicherheit zu gewährleisten und Betrug zu verhindern"
+      }
+    },
+    "userRights": {
+      "title": "Ihre Rechte",
+      "access": {
+        "title": "Auf Ihre Daten Zugreifen",
+        "description": "Sie haben das Recht, auf alle persönlichen Daten zuzugreifen, die wir über Sie haben, und Kopien Ihrer Informationen anzufordern."
+      },
+      "control": {
+        "title": "Ihre Daten Kontrollieren",
+        "description": "Sie können Ihre persönlichen Informationen jederzeit über Ihre Kontoeinstellungen aktualisieren, korrigieren oder ändern."
+      },
+      "deletion": {
+        "title": "Ihre Daten Löschen",
+        "description": "Sie können die Löschung Ihres Kontos und aller zugehörigen Daten beantragen. Wir bearbeiten Ihre Anfrage innerhalb von 30 Tagen."
+      },
+      "portability": {
+        "title": "Datenübertragbarkeit",
+        "description": "Sie können Ihre Lebenslauf-Daten in Standardformaten exportieren und bei Bedarf an andere Dienste übertragen."
+      }
+    },
+    "contact": {
+      "title": "Kontaktieren Sie Uns",
+      "privacy": {
+        "title": "Datenschutz-Fragen",
+        "description": "Wenn Sie Fragen zu unseren Datenschutzpraktiken haben oder Ihre Datenrechte ausüben möchten, kontaktieren Sie unser Datenschutz-Team."
+      },
+      "security": {
+        "title": "Sicherheitsbedenken",
+        "description": "Wenn Sie eine Sicherheitslücke entdecken oder Bedenken bezüglich der Datensicherheit haben, melden Sie diese sofort unserem Sicherheitsteam."
+      }
+    },
+    "lastUpdated": "Zuletzt Aktualisiert"
+  },
   "buyMeACoffee": {
     "badge": "WeCV AI unterstützen",
     "title": "Gefällt Ihnen WeCV AI?",
