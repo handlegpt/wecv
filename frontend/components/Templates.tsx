@@ -2,6 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
+import { TemplatePreview } from './TemplatePreview'
 
 const templates = [
   {
@@ -55,11 +56,14 @@ export function Templates() {
               key={template.id}
               className="card hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="aspect-[3/4] bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-                <div className="text-gray-500 text-sm">
-                  {t(template.nameKey)} {t('templates.preview')}
-                </div>
+              {/* Template Preview */}
+              <div className="aspect-[3/4] bg-gray-50 rounded-lg mb-4 overflow-hidden">
+                <TemplatePreview 
+                  templateId={template.id} 
+                  className="w-full h-full transform scale-75 origin-top"
+                />
               </div>
+              
               <div className="mb-2">
                 <span className="inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full">
                   {t(template.categoryKey)}
