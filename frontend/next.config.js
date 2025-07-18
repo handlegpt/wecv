@@ -4,8 +4,11 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // Enable static exports for Docker
-  output: 'standalone'
+  // Enable standalone output for Docker
+  output: 'standalone',
+  experimental: {
+    outputFileTracingRoot: undefined,
+  }
 }
 
 module.exports = nextConfig 
