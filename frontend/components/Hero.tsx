@@ -3,18 +3,12 @@
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import LanguageSelector from './LanguageSelector'
 
 export function Hero() {
   const { t } = useTranslation()
 
   return (
     <section className="relative bg-gradient-to-br from-primary-50 to-primary-100 py-20 lg:py-32">
-      {/* Language Selector */}
-      <div className="absolute top-4 right-4 z-10">
-        <LanguageSelector />
-      </div>
-      
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1 
@@ -57,30 +51,11 @@ export function Hero() {
         </div>
         
         {/* 装饰性元素 */}
-        <motion.div 
-          className="absolute top-10 left-10 w-20 h-20 bg-primary-200 rounded-full opacity-20"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ 
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-10 right-10 w-32 h-32 bg-secondary-200 rounded-full opacity-20"
-          animate={{ 
-            scale: [1, 1.3, 1],
-            rotate: [360, 180, 0]
-          }}
-          transition={{ 
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-4 -left-4 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+          <div className="absolute top-0 -right-4 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        </div>
       </div>
     </section>
   )
