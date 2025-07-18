@@ -1,0 +1,113 @@
+version: '3.9'
+
+services:
+  # PostgreSQL 数据库
+  db:
+    image: postgres:15-alpine
+    container_name: wecv_ai_db_prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+      POSTGRES_DB: wecv_ai
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - wecv_network
+
+  # Redis 缓存
+  redis:
+    image: redis:7-alpine
+    container_name: wecv_ai_redis_prod
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - wecv_network
+
+  # 后端 API
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    container_name: wecv_ai_backend_prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:${DB_PASSWORD:-postgres}@db:5432/wecv_ai
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - PORT=3001
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    volumes:
+      - ./uploads:/app/uploads
+    networks:
+      - wecv_network
+
+  # 前端应用
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    container_name: wecv_ai_frontend_prod
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=https://api.wecv.ai
+      - NEXT_PUBLIC_APP_NAME=WeCV AI
+    networks:
+      - wecv_network
+
+  # Nginx 反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: wecv_ai_nginx_prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./ssl:/etc/nginx/ssl
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - wecv_network
+
+  # 数据备份服务
+  backup:
+    image: postgres:15-alpine
+    container_name: wecv_ai_backup_prod
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+    volumes:
+      - ./backups:/backups
+      - ./scripts/backup.sh:/backup.sh
+    command: sh -c "chmod +x /backup.sh && /backup.sh"
+    depends_on:
+      - db
+    networks:
+      - wecv_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  wecv_network:
+    driver: bridge 

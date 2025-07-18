@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  phone     String?
+  location  String?
+  bio       String?
+  settings  Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  resumes   Resume[]
+  role      String   @default("user")
+}
+
+model Resume {
+  id         String   @id @default(uuid())
+  title      String
+  content    Json
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  templateId String?
+  template   Template? @relation(fields: [templateId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  isPublic   Boolean  @default(false)
+  shareUrl   String?  @unique
+}
+
+model Template {
+  id        String   @id @default(uuid())
+  name      String
+  category  String?
+  preview   String?
+  createdAt DateTime @default(now())
+  resumes   Resume[]
+} 
