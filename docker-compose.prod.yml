@@ -45,6 +45,9 @@ services:
       - JWT_SECRET=${JWT_SECRET}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=3001
+      - FRONTEND_URL=https://wecv.ai
+      - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
     depends_on:
       db:
         condition: service_healthy
@@ -52,6 +55,8 @@ services:
         condition: service_started
     volumes:
       - ./uploads:/app/uploads
+      - ./exports:/app/exports
+      - ./temp:/app/temp
     networks:
       - wecv_network
 
@@ -66,6 +71,7 @@ services:
       - NODE_ENV=production
       - NEXT_PUBLIC_API_URL=https://api.wecv.ai
       - NEXT_PUBLIC_APP_NAME=WeCV AI
+      - NEXT_PUBLIC_APP_VERSION=1.0.0
     networks:
       - wecv_network
 
@@ -82,6 +88,8 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./ssl:/etc/nginx/ssl
       - ./logs/nginx:/var/log/nginx
+      - ./uploads:/var/www/uploads
+      - ./exports:/var/www/exports
     depends_on:
       - frontend
       - backend
@@ -104,9 +112,30 @@ services:
     networks:
       - wecv_network
 
+  # Monitoring Service
+  monitoring:
+    image: prom/prometheus:latest
+    container_name: wecv_ai_monitoring_prod
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - wecv_network
+
 volumes:
   postgres_data:
   redis_data:
+  prometheus_data:
 
 networks:
   wecv_network:

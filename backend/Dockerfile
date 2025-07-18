@@ -3,8 +3,20 @@ FROM node:20-alpine
 # Set working directory
 WORKDIR /app
 
-# Install necessary system dependencies
-RUN apk add --no-cache libc6-compat
+# Install necessary system dependencies for Puppeteer and other tools
+RUN apk add --no-cache \
+    libc6-compat \
+    chromium \
+    nss \
+    freetype \
+    freetype-dev \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
+
+# Set environment variables for Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -18,8 +30,11 @@ COPY . .
 # Generate Prisma client
 RUN npx prisma generate
 
-# Create uploads directory
-RUN mkdir -p uploads
+# Create necessary directories
+RUN mkdir -p uploads exports temp
+
+# Set proper permissions
+RUN chmod -R 755 uploads exports temp
 
 # Expose port
 EXPOSE 3001
