@@ -46,8 +46,7 @@
       "price": "¥0",
       "period": "/mois",
       "features": {
-        "templates": "3 Modèles de CV",
-        "aiAssistant": "Assistant d'Écriture IA de Base",
+        "templates": "Tous les Modèles de CV",
         "pdfExport": "Export PDF",
         "basicSupport": "Support de Base"
       },

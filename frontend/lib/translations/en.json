@@ -46,8 +46,7 @@
       "price": "¥0",
       "period": "/month",
       "features": {
-        "templates": "3 Resume Templates",
-        "aiAssistant": "Basic AI Writing Assistant",
+        "templates": "All Resume Templates",
         "pdfExport": "PDF Export",
         "basicSupport": "Basic Support"
       },

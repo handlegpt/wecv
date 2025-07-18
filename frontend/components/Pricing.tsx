@@ -9,7 +9,6 @@ const plans = [
     period: '/月',
     features: [
       'pricing.free.features.templates',
-      'pricing.free.features.aiAssistant',
       'pricing.free.features.pdfExport',
       'pricing.free.features.basicSupport'
     ],

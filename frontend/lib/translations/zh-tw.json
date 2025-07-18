@@ -46,8 +46,7 @@
       "price": "¥0",
       "period": "/月",
       "features": {
-        "templates": "3個簡歷模板",
-        "aiAssistant": "基礎AI寫作助手",
+        "templates": "所有簡歷模板",
         "pdfExport": "PDF導出",
         "basicSupport": "基礎支持"
       },

@@ -46,8 +46,7 @@
       "price": "¥0",
       "period": "/mes",
       "features": {
-        "templates": "3 Plantillas de CV",
-        "aiAssistant": "Asistente de Escritura AI Básico",
+        "templates": "Todas las Plantillas de CV",
         "pdfExport": "Exportación PDF",
         "basicSupport": "Soporte Básico"
       },

@@ -46,8 +46,7 @@
       "price": "¥0",
       "period": "/Monat",
       "features": {
-        "templates": "3 Lebenslauf-Vorlagen",
-        "aiAssistant": "Grundlegender KI-Schreibassistent",
+        "templates": "Alle Lebenslauf-Vorlagen",
         "pdfExport": "PDF-Export",
         "basicSupport": "Grundlegender Support"
       },
