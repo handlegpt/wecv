@@ -6,22 +6,22 @@
     "ctaSecondary": "Vorlagen Anzeigen"
   },
   "features": {
-    "title": "Leistungsstarke Funktionen",
-    "subtitle": "Wir bieten umfassende Lebenslauf-Erstellungsfunktionen, um Ihre Jobsuche reibungsloser zu gestalten",
-    "aiAssistant": {
+    "sectionTitle": "Leistungsstarke Funktionen",
+    "sectionSubtitle": "Wir bieten umfassende Lebenslauf-Erstellungsfunktionen, um Ihre Jobsuche reibungsloser zu gestalten",
+    "aiWriting": {
       "title": "KI-Schreibassistent",
-      "description": "Verwenden Sie KI-Technologie, um Lebenslauf-Inhalte intelligent zu optimieren und professionelle Schreibvorschläge zu geben"
+      "description": "Nutzen Sie KI-Technologie, um Lebenslauf-Inhalte intelligent zu optimieren und professionelle Schreibvorschläge zu geben"
     },
     "multiLanguage": {
       "title": "Mehrsprachige Unterstützung",
-      "description": "Unterstützung für Chinesisch, Englisch und andere Sprachen für internationale Bedürfnisse"
+      "description": "Unterstützung für Chinesisch, Englisch und andere Sprachen, um internationalen Anforderungen gerecht zu werden"
     },
     "templates": {
       "title": "Reiche Vorlagen",
       "description": "Bieten Sie verschiedene professionelle Lebenslauf-Vorlagen mit Ein-Klick-Stilwechsel"
     },
     "export": {
-      "title": "Mehrere Exportformate",
+      "title": "Mehrere Export-Formate",
       "description": "Unterstützung für PDF-, Word-, HTML- und andere Format-Exporte"
     },
     "privacy": {
@@ -34,47 +34,47 @@
     }
   },
   "pricing": {
-    "title": "Wählen Sie den Plan, der zu Ihnen passt",
-    "subtitle": "Beginnen Sie mit der kostenlosen Version und upgraden Sie je nach Bedarf zu erweiterten Plänen",
+    "sectionTitle": "Wählen Sie den Plan, der zu Ihnen Passt",
+    "sectionSubtitle": "Beginnen Sie mit der kostenlosen Version und upgraden Sie zu fortschrittlicheren Plänen basierend auf Ihren Bedürfnissen",
+    "mostPopular": "Am Beliebtesten",
     "free": {
-      "title": "Kostenloser Plan",
+      "name": "Kostenloser Plan",
       "price": "¥0",
       "period": "/Monat",
-      "features": [
-        "3 Lebenslauf-Vorlagen",
-        "Grundlegender KI-Schreibassistent",
-        "PDF-Export",
-        "Grundlegender Support"
-      ],
+      "features": {
+        "templates": "3 Lebenslauf-Vorlagen",
+        "aiAssistant": "Grundlegender KI-Schreibassistent",
+        "pdfExport": "PDF-Export",
+        "basicSupport": "Grundlegender Support"
+      },
       "cta": "Kostenlos Starten"
     },
     "pro": {
-      "title": "Professioneller Plan",
+      "name": "Professioneller Plan",
       "price": "¥29",
       "period": "/Monat",
-      "popular": "Am Beliebtesten",
-      "features": [
-        "Alle Lebenslauf-Vorlagen",
-        "Erweiterter KI-Schreibassistent",
-        "Multi-Format-Export",
-        "Online-Lebenslauf-Hosting",
-        "Prioritäts-Kundensupport",
-        "Werbefreie Erfahrung"
-      ],
+      "features": {
+        "allTemplates": "Alle Lebenslauf-Vorlagen",
+        "advancedAI": "Fortgeschrittener KI-Schreibassistent",
+        "multipleFormats": "Mehrfach-Format-Export",
+        "onlineHosting": "Online-Lebenslauf-Hosting",
+        "prioritySupport": "Prioritäts-Kundensupport",
+        "noAds": "Werbefreie Erfahrung"
+      },
       "cta": "Professionell Wählen"
     },
     "enterprise": {
-      "title": "Unternehmensplan",
+      "name": "Unternehmensplan",
       "price": "¥99",
       "period": "/Monat",
-      "features": [
-        "Alle professionellen Funktionen",
-        "Benutzerdefinierte KI-Modelle",
-        "Team-Zusammenarbeit",
-        "Erweiterte Analysen",
-        "API-Zugang",
-        "Dedizierter Support"
-      ],
+      "features": {
+        "allProFeatures": "Alle professionellen Funktionen",
+        "customAI": "Benutzerdefinierte KI-Modelle",
+        "teamCollaboration": "Team-Zusammenarbeit",
+        "advancedAnalytics": "Erweiterte Analysen",
+        "apiAccess": "API-Zugang",
+        "dedicatedSupport": "Dedizierter Support"
+      },
       "cta": "Vertrieb Kontaktieren"
     }
   },

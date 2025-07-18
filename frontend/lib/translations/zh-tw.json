@@ -6,9 +6,9 @@
     "ctaSecondary": "查看模板"
   },
   "features": {
-    "title": "強大功能",
-    "subtitle": "我們提供全面的簡歷創建功能，讓您的求職之旅更加順暢",
-    "aiAssistant": {
+    "sectionTitle": "強大功能",
+    "sectionSubtitle": "我們提供全面的簡歷創建功能，讓您的求職之旅更加順暢",
+    "aiWriting": {
       "title": "AI寫作助手",
       "description": "使用AI技術智能優化簡歷內容並提供專業寫作建議"
     },
@@ -34,47 +34,47 @@
     }
   },
   "pricing": {
-    "title": "選擇適合您的計劃",
-    "subtitle": "從免費版本開始，根據您的需求升級到更高級的計劃",
+    "sectionTitle": "選擇適合您的計劃",
+    "sectionSubtitle": "從免費版本開始，根據您的需求升級到更高級的計劃",
+    "mostPopular": "最受歡迎",
     "free": {
-      "title": "免費計劃",
+      "name": "免費計劃",
       "price": "¥0",
       "period": "/月",
-      "features": [
-        "3個簡歷模板",
-        "基礎AI寫作助手",
-        "PDF導出",
-        "基礎支持"
-      ],
+      "features": {
+        "templates": "3個簡歷模板",
+        "aiAssistant": "基礎AI寫作助手",
+        "pdfExport": "PDF導出",
+        "basicSupport": "基礎支持"
+      },
       "cta": "免費開始"
     },
     "pro": {
-      "title": "專業計劃",
+      "name": "專業計劃",
       "price": "¥29",
       "period": "/月",
-      "popular": "最受歡迎",
-      "features": [
-        "所有簡歷模板",
-        "高級AI寫作助手",
-        "多種格式導出",
-        "在線簡歷託管",
-        "優先客戶支持",
-        "無廣告體驗"
-      ],
+      "features": {
+        "allTemplates": "所有簡歷模板",
+        "advancedAI": "高級AI寫作助手",
+        "multipleFormats": "多種格式導出",
+        "onlineHosting": "在線簡歷託管",
+        "prioritySupport": "優先客戶支持",
+        "noAds": "無廣告體驗"
+      },
       "cta": "選擇專業版"
     },
     "enterprise": {
-      "title": "企業計劃",
+      "name": "企業計劃",
       "price": "¥99",
       "period": "/月",
-      "features": [
-        "所有專業功能",
-        "自定義AI模型",
-        "團隊協作",
-        "高級分析",
-        "API訪問",
-        "專屬支持"
-      ],
+      "features": {
+        "allProFeatures": "所有專業功能",
+        "customAI": "自定義AI模型",
+        "teamCollaboration": "團隊協作",
+        "advancedAnalytics": "高級分析",
+        "apiAccess": "API訪問",
+        "dedicatedSupport": "專屬支持"
+      },
       "cta": "聯繫銷售"
     }
   },

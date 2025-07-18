@@ -6,9 +6,9 @@
     "ctaSecondary": "Voir les Modèles"
   },
   "features": {
-    "title": "Fonctionnalités Puissantes",
-    "subtitle": "Nous fournissons des fonctionnalités complètes de création de CV pour rendre votre recherche d'emploi plus fluide",
-    "aiAssistant": {
+    "sectionTitle": "Fonctionnalités Puissantes",
+    "sectionSubtitle": "Nous fournissons des fonctionnalités complètes de création de CV pour rendre votre recherche d'emploi plus fluide",
+    "aiWriting": {
       "title": "Assistant d'Écriture IA",
       "description": "Utilisez la technologie IA pour optimiser intelligemment le contenu du CV et fournir des suggestions d'écriture professionnelles"
     },
@@ -30,51 +30,51 @@
     },
     "hosting": {
       "title": "Hébergement en Ligne",
-      "description": "Fournissez un service d'hébergement de CV en ligne avec génération de liens exclusifs"
+      "description": "Fournir un service d'hébergement de CV en ligne avec génération de liens exclusifs"
     }
   },
   "pricing": {
-    "title": "Choisissez le Plan qui Vous Convient",
-    "subtitle": "Commencez avec la version gratuite et passez à des plans plus avancés selon vos besoins",
+    "sectionTitle": "Choisissez le Plan qui Vous Convient",
+    "sectionSubtitle": "Commencez avec la version gratuite et passez à des plans plus avancés selon vos besoins",
+    "mostPopular": "Le Plus Populaire",
     "free": {
-      "title": "Plan Gratuit",
+      "name": "Plan Gratuit",
       "price": "¥0",
       "period": "/mois",
-      "features": [
-        "3 Modèles de CV",
-        "Assistant d'Écriture IA Basique",
-        "Exportation PDF",
-        "Support Basique"
-      ],
+      "features": {
+        "templates": "3 Modèles de CV",
+        "aiAssistant": "Assistant d'Écriture IA Basique",
+        "pdfExport": "Exportation PDF",
+        "basicSupport": "Support Basique"
+      },
       "cta": "Commencer Gratuitement"
     },
     "pro": {
-      "title": "Plan Professionnel",
+      "name": "Plan Professionnel",
       "price": "¥29",
       "period": "/mois",
-      "popular": "Le Plus Populaire",
-      "features": [
-        "Tous les Modèles de CV",
-        "Assistant d'Écriture IA Avancé",
-        "Exportation Multi-formats",
-        "Hébergement de CV en Ligne",
-        "Support Client Prioritaire",
-        "Expérience Sans Publicité"
-      ],
+      "features": {
+        "allTemplates": "Tous les Modèles de CV",
+        "advancedAI": "Assistant d'Écriture IA Avancé",
+        "multipleFormats": "Exportation de Formats Multiples",
+        "onlineHosting": "Hébergement de CV en Ligne",
+        "prioritySupport": "Support Client Prioritaire",
+        "noAds": "Expérience Sans Publicité"
+      },
       "cta": "Choisir Professionnel"
     },
     "enterprise": {
-      "title": "Plan Entreprise",
+      "name": "Plan Entreprise",
       "price": "¥99",
       "period": "/mois",
-      "features": [
-        "Toutes les Fonctionnalités Professionnelles",
-        "Modèles IA Personnalisés",
-        "Collaboration d'Équipe",
-        "Analyses Avancées",
-        "Accès API",
-        "Support Dédié"
-      ],
+      "features": {
+        "allProFeatures": "Toutes les Fonctionnalités Professionnelles",
+        "customAI": "Modèles IA Personnalisés",
+        "teamCollaboration": "Collaboration d'Équipe",
+        "advancedAnalytics": "Analyses Avancées",
+        "apiAccess": "Accès API",
+        "dedicatedSupport": "Support Dédié"
+      },
       "cta": "Contacter les Ventes"
     }
   },

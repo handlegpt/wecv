@@ -6,75 +6,75 @@
     "ctaSecondary": "テンプレートを見る"
   },
   "features": {
-    "title": "強力な機能",
-    "subtitle": "包括的な履歴書作成機能を提供し、就職活動をよりスムーズにします",
-    "aiAssistant": {
-      "title": "AI執筆アシスタント",
-      "description": "AI技術を使用して履歴書の内容を知的に最適化し、プロフェッショナルな執筆提案を提供"
+    "sectionTitle": "強力な機能",
+    "sectionSubtitle": "包括的な履歴書作成機能を提供し、あなたの求職の旅をよりスムーズにします",
+    "aiWriting": {
+      "title": "AIライティングアシスタント",
+      "description": "AI技術を使用して履歴書の内容をインテリジェントに最適化し、プロフェッショナルなライティング提案を提供"
     },
     "multiLanguage": {
       "title": "多言語サポート",
-      "description": "中国語、英語、その他の言語をサポートし、国際的なニーズに対応"
+      "description": "中国語、英語などの多言語をサポートし、国際的なニーズに対応"
     },
     "templates": {
       "title": "豊富なテンプレート",
-      "description": "ワンクリックでスタイルを切り替え可能な様々なプロフェッショナル履歴書テンプレートを提供"
+      "description": "様々なプロフェッショナルな履歴書テンプレートを提供し、ワンクリックでスタイル切り替え"
     },
     "export": {
-      "title": "複数エクスポート形式",
+      "title": "複数のエクスポート形式",
       "description": "PDF、Word、HTMLなどの形式でのエクスポートをサポート"
     },
     "privacy": {
       "title": "プライバシー保護",
-      "description": "ローカルストレージ、データセキュリティ、ユーザープライバシーを保護"
+      "description": "ローカルストレージ、データセキュリティ、ユーザープライバシー保護"
     },
     "hosting": {
       "title": "オンラインホスティング",
-      "description": "専用リンク生成付きのオンライン履歴書ホスティングサービスを提供"
+      "description": "オンライン履歴書ホスティングサービスを提供し、専用リンクを生成"
     }
   },
   "pricing": {
-    "title": "あなたに合ったプランを選択",
-    "subtitle": "無料版から始めて、ニーズに応じてより高度なプランにアップグレード",
+    "sectionTitle": "あなたに合ったプランを選択",
+    "sectionSubtitle": "無料版から始めて、ニーズに応じてより高度なプランにアップグレード",
+    "mostPopular": "最も人気",
     "free": {
-      "title": "無料プラン",
+      "name": "無料プラン",
       "price": "¥0",
       "period": "/月",
-      "features": [
-        "3つの履歴書テンプレート",
-        "基本的なAI執筆アシスタント",
-        "PDFエクスポート",
-        "基本的なサポート"
-      ],
+      "features": {
+        "templates": "3つの履歴書テンプレート",
+        "aiAssistant": "基本的なAIライティングアシスタント",
+        "pdfExport": "PDFエクスポート",
+        "basicSupport": "基本的なサポート"
+      },
       "cta": "無料で開始"
     },
     "pro": {
-      "title": "プロフェッショナルプラン",
+      "name": "プロフェッショナルプラン",
       "price": "¥29",
       "period": "/月",
-      "popular": "最も人気",
-      "features": [
-        "すべての履歴書テンプレート",
-        "高度なAI執筆アシスタント",
-        "多形式エクスポート",
-        "オンライン履歴書ホスティング",
-        "優先カスタマーサポート",
-        "広告なし体験"
-      ],
+      "features": {
+        "allTemplates": "すべての履歴書テンプレート",
+        "advancedAI": "高度なAIライティングアシスタント",
+        "multipleFormats": "複数形式エクスポート",
+        "onlineHosting": "オンライン履歴書ホスティング",
+        "prioritySupport": "優先顧客サポート",
+        "noAds": "広告なし体験"
+      },
       "cta": "プロフェッショナルを選択"
     },
     "enterprise": {
-      "title": "エンタープライズプラン",
+      "name": "エンタープライズプラン",
       "price": "¥99",
       "period": "/月",
-      "features": [
-        "すべてのプロフェッショナル機能",
-        "カスタムAIモデル",
-        "チームコラボレーション",
-        "高度な分析",
-        "APIアクセス",
-        "専用サポート"
-      ],
+      "features": {
+        "allProFeatures": "すべてのプロフェッショナル機能",
+        "customAI": "カスタムAIモデル",
+        "teamCollaboration": "チームコラボレーション",
+        "advancedAnalytics": "高度な分析",
+        "apiAccess": "APIアクセス",
+        "dedicatedSupport": "専用サポート"
+      },
       "cta": "営業に連絡"
     }
   },

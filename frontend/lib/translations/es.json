@@ -6,11 +6,11 @@
     "ctaSecondary": "Ver Plantillas"
   },
   "features": {
-    "title": "Características Potentes",
-    "subtitle": "Proporcionamos funciones completas de creación de CV para hacer su búsqueda de trabajo más fluida",
-    "aiAssistant": {
-      "title": "Asistente de Escritura IA",
-      "description": "Use tecnología IA para optimizar inteligentemente el contenido del CV y proporcionar sugerencias de escritura profesional"
+    "sectionTitle": "Funciones Potentes",
+    "sectionSubtitle": "Proporcionamos funciones completas de creación de CV para hacer su búsqueda de trabajo más fluida",
+    "aiWriting": {
+      "title": "Asistente de Escritura AI",
+      "description": "Use tecnología AI para optimizar inteligentemente el contenido del CV y proporcionar sugerencias de escritura profesional"
     },
     "multiLanguage": {
       "title": "Soporte Multiidioma",
@@ -30,51 +30,51 @@
     },
     "hosting": {
       "title": "Alojamiento en Línea",
-      "description": "Proporcione servicio de alojamiento de CV en línea con generación de enlaces exclusivos"
+      "description": "Proporcionar servicio de alojamiento de CV en línea con generación de enlaces exclusivos"
     }
   },
   "pricing": {
-    "title": "Elija el Plan que se Adapte a Usted",
-    "subtitle": "Comience con la versión gratuita y actualice a planes más avanzados según sus necesidades",
+    "sectionTitle": "Elige el Plan que Te Convenga",
+    "sectionSubtitle": "Comienza con la versión gratuita y actualiza a planes más avanzados según tus necesidades",
+    "mostPopular": "Más Popular",
     "free": {
-      "title": "Plan Gratuito",
+      "name": "Plan Gratuito",
       "price": "¥0",
       "period": "/mes",
-      "features": [
-        "3 Plantillas de CV",
-        "Asistente de Escritura IA Básico",
-        "Exportación PDF",
-        "Soporte Básico"
-      ],
+      "features": {
+        "templates": "3 Plantillas de CV",
+        "aiAssistant": "Asistente de Escritura AI Básico",
+        "pdfExport": "Exportación PDF",
+        "basicSupport": "Soporte Básico"
+      },
       "cta": "Comenzar Gratis"
     },
     "pro": {
-      "title": "Plan Profesional",
+      "name": "Plan Profesional",
       "price": "¥29",
       "period": "/mes",
-      "popular": "Más Popular",
-      "features": [
-        "Todas las Plantillas de CV",
-        "Asistente de Escritura IA Avanzado",
-        "Exportación de Múltiples Formatos",
-        "Alojamiento de CV en Línea",
-        "Soporte al Cliente Prioritario",
-        "Experiencia Sin Anuncios"
-      ],
+      "features": {
+        "allTemplates": "Todas las Plantillas de CV",
+        "advancedAI": "Asistente de Escritura AI Avanzado",
+        "multipleFormats": "Exportación de Múltiples Formatos",
+        "onlineHosting": "Alojamiento de CV en Línea",
+        "prioritySupport": "Soporte Prioritario al Cliente",
+        "noAds": "Experiencia Sin Anuncios"
+      },
       "cta": "Elegir Profesional"
     },
     "enterprise": {
-      "title": "Plan Empresarial",
+      "name": "Plan Empresarial",
       "price": "¥99",
       "period": "/mes",
-      "features": [
-        "Todas las Características Profesionales",
-        "Modelos de IA Personalizados",
-        "Colaboración en Equipo",
-        "Análisis Avanzado",
-        "Acceso a API",
-        "Soporte Dedicado"
-      ],
+      "features": {
+        "allProFeatures": "Todas las Funciones Profesionales",
+        "customAI": "Modelos AI Personalizados",
+        "teamCollaboration": "Colaboración en Equipo",
+        "advancedAnalytics": "Análisis Avanzado",
+        "apiAccess": "Acceso API",
+        "dedicatedSupport": "Soporte Dedicado"
+      },
       "cta": "Contactar Ventas"
     }
   },
