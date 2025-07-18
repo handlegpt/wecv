@@ -27,11 +27,14 @@ WORKDIR /app
 # Install necessary system dependencies
 RUN apk add --no-cache libc6-compat
 
-# Copy built application from builder stage
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+# Copy package files
+COPY package*.json ./
 
-# Copy public directory
+# Install only production dependencies
+RUN npm ci --only=production --legacy-peer-deps && npm cache clean --force
+
+# Copy built application from builder stage
+COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
 # Create non-root user
@@ -54,4 +57,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
 
 # Start the application
-CMD ["node", "server.js"] 
+CMD ["npm", "start"] 
