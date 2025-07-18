@@ -413,7 +413,7 @@ export default function SettingsPage() {
 }
 
 // 密码修改组件
-function PasswordChangeForm({ onPasswordChange }: { onPasswordChange: (current: string, new: string) => Promise<boolean> }) {
+function PasswordChangeForm({ onPasswordChange }: { onPasswordChange: (current: string, newPassword: string) => Promise<boolean> }) {
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')

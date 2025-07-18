@@ -1,142 +1,81 @@
 version: '3.9'
-
 services:
-  # PostgreSQL Database
   db:
     image: postgres:15-alpine
     container_name: wecv_ai_db_prod
-    restart: unless-stopped
+    restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
-      POSTGRES_DB: wecv_ai
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-wecv_ai}
+    ports:
+      - '5432:5432'
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./backups:/backups
+      - db_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    networks:
-      - wecv_network
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  # Redis Cache
   redis:
     image: redis:7-alpine
     container_name: wecv_ai_redis_prod
-    restart: unless-stopped
+    restart: always
+    ports:
+      - '6379:6379'
     volumes:
       - redis_data:/data
-    networks:
-      - wecv_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
-  # Backend API
   backend:
     build: 
       context: ./backend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     container_name: wecv_ai_backend_prod
-    restart: unless-stopped
+    restart: always
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://postgres:${DB_PASSWORD:-postgres}@db:5432/wecv_ai
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-wecv_ai}
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=${JWT_SECRET}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - PORT=3001
-      - FRONTEND_URL=https://wecv.ai
+      - FRONTEND_URL=http://localhost:3000
       - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
       - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    ports:
+      - '3001:3001'
     depends_on:
       db:
         condition: service_healthy
       redis:
-        condition: service_started
+        condition: service_healthy
     volumes:
       - ./uploads:/app/uploads
       - ./exports:/app/exports
       - ./temp:/app/temp
-    networks:
-      - wecv_network
 
-  # Frontend Application
   frontend:
     build: 
       context: ./frontend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     container_name: wecv_ai_frontend_prod
-    restart: unless-stopped
+    restart: always
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=https://api.wecv.ai
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
       - NEXT_PUBLIC_APP_NAME=WeCV AI
       - NEXT_PUBLIC_APP_VERSION=1.0.0
-    networks:
-      - wecv_network
-
-  # Nginx Reverse Proxy
-  nginx:
-    image: nginx:alpine
-    container_name: wecv_ai_nginx_prod
-    restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./ssl:/etc/nginx/ssl
-      - ./logs/nginx:/var/log/nginx
-      - ./uploads:/var/www/uploads
-      - ./exports:/var/www/exports
+      - '3000:3000'
     depends_on:
-      - frontend
       - backend
-    networks:
-      - wecv_network
-
-  # Data Backup Service
-  backup:
-    image: postgres:15-alpine
-    container_name: wecv_ai_backup_prod
-    restart: unless-stopped
-    environment:
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
-    volumes:
-      - ./backups:/backups
-      - ./scripts/backup.sh:/backup.sh
-    command: sh -c "chmod +x /backup.sh && /backup.sh"
-    depends_on:
-      - db
-    networks:
-      - wecv_network
-
-  # Monitoring Service
-  monitoring:
-    image: prom/prometheus:latest
-    container_name: wecv_ai_monitoring_prod
-    restart: unless-stopped
-    ports:
-      - "9090:9090"
-    volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus_data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/etc/prometheus/console_libraries'
-      - '--web.console.templates=/etc/prometheus/consoles'
-      - '--storage.tsdb.retention.time=200h'
-      - '--web.enable-lifecycle'
-    networks:
-      - wecv_network
 
 volumes:
-  postgres_data:
-  redis_data:
-  prometheus_data:
-
-networks:
-  wecv_network:
-    driver: bridge 
+  db_data:
+  redis_data: 
