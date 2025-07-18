@@ -6,32 +6,60 @@ import { TemplatePreview } from './TemplatePreview'
 
 const templates = [
   {
+    id: 'impact',
+    nameKey: 'Impact Professional',
+    descriptionKey: 'Emphasizes achievements and quantifiable results with bold design',
+    categoryKey: 'Executive',
+    image: '/templates/impact.jpg'
+  },
+  {
+    id: 'clean',
+    nameKey: 'Clean Minimalist',
+    descriptionKey: 'Simple and clean design focusing on content clarity',
+    categoryKey: 'Professional',
+    image: '/templates/clean.jpg'
+  },
+  {
+    id: 'contemporary',
+    nameKey: 'Contemporary Modern',
+    descriptionKey: 'Modern design with balanced professional and creative elements',
+    categoryKey: 'Modern',
+    image: '/templates/contemporary.jpg'
+  },
+  {
+    id: 'executive',
+    nameKey: 'Executive Leadership',
+    descriptionKey: 'Sophisticated design for senior management positions',
+    categoryKey: 'Executive',
+    image: '/templates/executive.jpg'
+  },
+  {
+    id: 'elegant',
+    nameKey: 'Elegant Professional',
+    descriptionKey: 'Refined design with sophisticated typography and layout',
+    categoryKey: 'Creative',
+    image: '/templates/elegant.jpg'
+  },
+  {
     id: 'modern',
-    nameKey: 'templates.modern.name',
-    descriptionKey: 'templates.modern.description',
-    categoryKey: 'templates.categories.technical',
+    nameKey: 'Modern Professional',
+    descriptionKey: 'Clean and contemporary design with strong visual hierarchy',
+    categoryKey: 'Modern',
     image: '/templates/modern.jpg'
   },
   {
     id: 'classic',
-    nameKey: 'templates.classic.name',
-    descriptionKey: 'templates.classic.description',
-    categoryKey: 'templates.categories.business',
+    nameKey: 'Classic Traditional',
+    descriptionKey: 'Timeless design suitable for all industries',
+    categoryKey: 'Classic',
     image: '/templates/classic.jpg'
   },
   {
     id: 'creative',
-    nameKey: 'templates.creative.name',
-    descriptionKey: 'templates.creative.description',
-    categoryKey: 'templates.categories.creative',
+    nameKey: 'Creative Portfolio',
+    descriptionKey: 'Bold and innovative design for creative professionals',
+    categoryKey: 'Creative',
     image: '/templates/creative.jpg'
-  },
-  {
-    id: 'minimal',
-    nameKey: 'templates.minimal.name',
-    descriptionKey: 'templates.minimal.description',
-    categoryKey: 'templates.categories.general',
-    image: '/templates/minimal.jpg'
   }
 ]
 
@@ -66,14 +94,14 @@ export function Templates() {
               
               <div className="mb-2">
                 <span className="inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full">
-                  {t(template.categoryKey)}
+                  {template.categoryKey}
                 </span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {t(template.nameKey)}
+                {template.nameKey}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                {t(template.descriptionKey)}
+                {template.descriptionKey}
               </p>
               <Link 
                 href={`/builder?template=${template.id}`}
@@ -96,4 +124,4 @@ export function Templates() {
       </div>
     </section>
   )
-} 
+}
