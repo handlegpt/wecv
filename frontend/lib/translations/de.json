@@ -139,20 +139,44 @@
       "general": "Allgemein"
     },
     "modern": {
-      "name": "Modern Minimalistisch",
-      "description": "Sauberer und moderner Stil, geeignet für technische Positionen"
+      "name": "Modern Professionell",
+      "description": "Sauberes und zeitgenössisches Design mit starker visueller Hierarchie"
     },
     "classic": {
-      "name": "Klassisch Geschäftlich",
-      "description": "Traditioneller Geschäftsstil, geeignet für Führungspositionen"
+      "name": "Klassisch Traditionell",
+      "description": "Zeitloses Design geeignet für alle Branchen"
     },
     "creative": {
-      "name": "Kreatives Design",
-      "description": "Kreativer Designstil, geeignet für kreative Positionen"
+      "name": "Kreatives Portfolio",
+      "description": "Kühnes und innovatives Design für kreative Fachkräfte"
     },
     "minimal": {
-      "name": "Minimalistisch",
-      "description": "Minimalistisches Design, hebt den Inhalt selbst hervor"
+      "name": "Minimal Sauber",
+      "description": "Einfaches und elegantes Design mit Fokus auf Inhalt"
+    },
+    "impact": {
+      "name": "Impact Professionell",
+      "description": "Betont Leistungen und quantifizierbare Ergebnisse mit kühnem Design"
+    },
+    "clean": {
+      "name": "Sauber Minimalistisch",
+      "description": "Einfaches und sauberes Design mit Fokus auf Inhaltsklarheit"
+    },
+    "contemporary": {
+      "name": "Zeitgenössisch Modern",
+      "description": "Modernes Design mit ausgewogenen professionellen und kreativen Elementen"
+    },
+    "executive": {
+      "name": "Führungskraft",
+      "description": "Anspruchsvolles Design für Führungspositionen"
+    },
+    "elegant": {
+      "name": "Elegant Professionell",
+      "description": "Raffiniertes Design mit anspruchsvoller Typografie und Layout"
+    },
+    "simple": {
+      "name": "Einfach Basis",
+      "description": "Ultra-minimalistisches Design mit maximaler Lesbarkeit"
     }
   },
   "languageTips": {

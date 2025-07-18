@@ -7,57 +7,57 @@ import { TemplatePreview } from './TemplatePreview'
 const templates = [
   {
     id: 'impact',
-    nameKey: 'Impact Professional',
-    descriptionKey: 'Emphasizes achievements and quantifiable results with bold design',
+    nameKey: 'templates.impact.name',
+    descriptionKey: 'templates.impact.description',
     categoryKey: 'Executive',
     image: '/templates/impact.jpg'
   },
   {
     id: 'clean',
-    nameKey: 'Clean Minimalist',
-    descriptionKey: 'Simple and clean design focusing on content clarity',
+    nameKey: 'templates.clean.name',
+    descriptionKey: 'templates.clean.description',
     categoryKey: 'Professional',
     image: '/templates/clean.jpg'
   },
   {
     id: 'contemporary',
-    nameKey: 'Contemporary Modern',
-    descriptionKey: 'Modern design with balanced professional and creative elements',
+    nameKey: 'templates.contemporary.name',
+    descriptionKey: 'templates.contemporary.description',
     categoryKey: 'Modern',
     image: '/templates/contemporary.jpg'
   },
   {
     id: 'executive',
-    nameKey: 'Executive Leadership',
-    descriptionKey: 'Sophisticated design for senior management positions',
+    nameKey: 'templates.executive.name',
+    descriptionKey: 'templates.executive.description',
     categoryKey: 'Executive',
     image: '/templates/executive.jpg'
   },
   {
     id: 'elegant',
-    nameKey: 'Elegant Professional',
-    descriptionKey: 'Refined design with sophisticated typography and layout',
+    nameKey: 'templates.elegant.name',
+    descriptionKey: 'templates.elegant.description',
     categoryKey: 'Creative',
     image: '/templates/elegant.jpg'
   },
   {
     id: 'modern',
-    nameKey: 'Modern Professional',
-    descriptionKey: 'Clean and contemporary design with strong visual hierarchy',
+    nameKey: 'templates.modern.name',
+    descriptionKey: 'templates.modern.description',
     categoryKey: 'Modern',
     image: '/templates/modern.jpg'
   },
   {
     id: 'classic',
-    nameKey: 'Classic Traditional',
-    descriptionKey: 'Timeless design suitable for all industries',
+    nameKey: 'templates.classic.name',
+    descriptionKey: 'templates.classic.description',
     categoryKey: 'Classic',
     image: '/templates/classic.jpg'
   },
   {
     id: 'creative',
-    nameKey: 'Creative Portfolio',
-    descriptionKey: 'Bold and innovative design for creative professionals',
+    nameKey: 'templates.creative.name',
+    descriptionKey: 'templates.creative.description',
     categoryKey: 'Creative',
     image: '/templates/creative.jpg'
   }
@@ -98,10 +98,10 @@ export function Templates() {
                 </span>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {template.nameKey}
+                {t(template.nameKey)}
               </h3>
               <p className="text-gray-600 text-sm mb-4">
-                {template.descriptionKey}
+                {t(template.descriptionKey)}
               </p>
               <Link 
                 href={`/builder?template=${template.id}`}

@@ -424,20 +424,44 @@
       "general": "通用"
     },
     "modern": {
-      "name": "現代簡約",
-      "description": "簡潔現代風格，適合技術職位"
+      "name": "現代專業",
+      "description": "簡潔現代的設計，具有強烈的視覺層次"
     },
     "classic": {
-      "name": "經典商務",
-      "description": "傳統商務風格，適合管理職位"
+      "name": "經典傳統",
+      "description": "永恆的設計，適合所有行業"
     },
     "creative": {
-      "name": "創意設計",
-      "description": "創意設計風格，適合創意職位"
+      "name": "創意作品集",
+      "description": "大膽創新的設計，適合創意專業人士"
     },
     "minimal": {
-      "name": "極簡主義",
-      "description": "極簡設計，突出內容本身"
+      "name": "極簡清潔",
+      "description": "簡潔優雅的設計，專注於內容"
+    },
+    "impact": {
+      "name": "影響力專業",
+      "description": "強調成就和可量化結果的大膽設計"
+    },
+    "clean": {
+      "name": "清潔極簡",
+      "description": "簡潔清潔的設計，專注於內容清晰度"
+    },
+    "contemporary": {
+      "name": "當代現代",
+      "description": "現代設計，平衡專業和創意元素"
+    },
+    "executive": {
+      "name": "高管領導",
+      "description": "適合高級管理職位的精緻設計"
+    },
+    "elegant": {
+      "name": "優雅專業",
+      "description": "精緻的排版和佈局設計"
+    },
+    "simple": {
+      "name": "簡單基礎",
+      "description": "超極簡設計，最大可讀性"
     }
   },
   "languageTips": {

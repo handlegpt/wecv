@@ -139,20 +139,44 @@
       "general": "General"
     },
     "modern": {
-      "name": "Minimalista Moderno",
-      "description": "Estilo limpio y moderno, adecuado para posiciones técnicas"
+      "name": "Profesional Moderno",
+      "description": "Diseño limpio y contemporáneo con fuerte jerarquía visual"
     },
     "classic": {
-      "name": "Negocios Clásico",
-      "description": "Estilo de negocios tradicional, adecuado para posiciones de gestión"
+      "name": "Tradicional Clásico",
+      "description": "Diseño atemporal adecuado para todas las industrias"
     },
     "creative": {
-      "name": "Diseño Creativo",
-      "description": "Estilo de diseño creativo, adecuado para posiciones creativas"
+      "name": "Portfolio Creativo",
+      "description": "Diseño audaz e innovador para profesionales creativos"
     },
     "minimal": {
-      "name": "Minimalista",
-      "description": "Diseño minimalista, destacando el contenido mismo"
+      "name": "Minimalista Limpio",
+      "description": "Diseño simple y elegante enfocado en el contenido"
+    },
+    "impact": {
+      "name": "Profesional de Impacto",
+      "description": "Enfatiza logros y resultados cuantificables con diseño audaz"
+    },
+    "clean": {
+      "name": "Minimalista Limpio",
+      "description": "Diseño simple y limpio enfocado en la claridad del contenido"
+    },
+    "contemporary": {
+      "name": "Moderno Contemporáneo",
+      "description": "Diseño moderno con elementos profesionales y creativos balanceados"
+    },
+    "executive": {
+      "name": "Liderazgo Ejecutivo",
+      "description": "Diseño sofisticado para posiciones de alta gerencia"
+    },
+    "elegant": {
+      "name": "Profesional Elegante",
+      "description": "Diseño refinado con tipografía y layout sofisticados"
+    },
+    "simple": {
+      "name": "Básico Simple",
+      "description": "Diseño ultra-minimalista con máxima legibilidad"
     }
   },
   "languageTips": {

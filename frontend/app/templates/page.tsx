@@ -35,72 +35,72 @@ export default function TemplatesPage() {
   const mockTemplates: Template[] = [
     {
       id: 'impact',
-      name: 'Impact Professional',
+      name: t('templates.impact.name'),
       category: 'executive',
-      description: 'Emphasizes achievements and quantifiable results with bold design',
+      description: t('templates.impact.description'),
       image: '/templates/impact.jpg'
     },
     {
       id: 'clean',
-      name: 'Clean Minimalist',
+      name: t('templates.clean.name'),
       category: 'professional',
-      description: 'Simple and clean design focusing on content clarity',
+      description: t('templates.clean.description'),
       image: '/templates/clean.jpg'
     },
     {
       id: 'contemporary',
-      name: 'Contemporary Modern',
+      name: t('templates.contemporary.name'),
       category: 'modern',
-      description: 'Modern design with balanced professional and creative elements',
+      description: t('templates.contemporary.description'),
       image: '/templates/contemporary.jpg'
     },
     {
       id: 'executive',
-      name: 'Executive Leadership',
+      name: t('templates.executive.name'),
       category: 'executive',
-      description: 'Sophisticated design for senior management positions',
+      description: t('templates.executive.description'),
       image: '/templates/executive.jpg'
     },
     {
       id: 'elegant',
-      name: 'Elegant Professional',
+      name: t('templates.elegant.name'),
       category: 'creative',
-      description: 'Refined design with sophisticated typography and layout',
+      description: t('templates.elegant.description'),
       image: '/templates/elegant.jpg'
     },
     {
       id: 'modern',
-      name: 'Modern Professional',
+      name: t('templates.modern.name'),
       category: 'modern',
-      description: 'Clean and contemporary design with strong visual hierarchy',
+      description: t('templates.modern.description'),
       image: '/templates/modern.jpg'
     },
     {
       id: 'classic',
-      name: 'Classic Traditional',
+      name: t('templates.classic.name'),
       category: 'classic',
-      description: 'Timeless design suitable for all industries',
+      description: t('templates.classic.description'),
       image: '/templates/classic.jpg'
     },
     {
       id: 'creative',
-      name: 'Creative Portfolio',
+      name: t('templates.creative.name'),
       category: 'creative',
-      description: 'Bold and innovative design for creative professionals',
+      description: t('templates.creative.description'),
       image: '/templates/creative.jpg'
     },
     {
       id: 'minimal',
-      name: 'Minimal Clean',
+      name: t('templates.minimal.name'),
       category: 'minimal',
-      description: 'Simple and elegant design focusing on content',
+      description: t('templates.minimal.description'),
       image: '/templates/minimal.jpg'
     },
     {
       id: 'simple',
-      name: 'Simple Basic',
+      name: t('templates.simple.name'),
       category: 'minimal',
-      description: 'Ultra-minimal design with maximum readability',
+      description: t('templates.simple.description'),
       image: '/templates/simple.jpg'
     }
   ]

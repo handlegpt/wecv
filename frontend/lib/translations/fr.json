@@ -139,20 +139,44 @@
       "general": "Général"
     },
     "modern": {
-      "name": "Minimaliste Moderne",
-      "description": "Style épuré et moderne, adapté aux postes techniques"
+      "name": "Professionnel Moderne",
+      "description": "Design propre et contemporain avec une hiérarchie visuelle forte"
     },
     "classic": {
-      "name": "Affaires Classique",
-      "description": "Style d'affaires traditionnel, adapté aux postes de gestion"
+      "name": "Traditionnel Classique",
+      "description": "Design intemporel adapté à toutes les industries"
     },
     "creative": {
-      "name": "Design Créatif",
-      "description": "Style de design créatif, adapté aux postes créatifs"
+      "name": "Portfolio Créatif",
+      "description": "Design audacieux et innovant pour les professionnels créatifs"
     },
     "minimal": {
-      "name": "Minimaliste",
-      "description": "Design minimaliste, mettant en valeur le contenu lui-même"
+      "name": "Minimaliste Propre",
+      "description": "Design simple et élégant axé sur le contenu"
+    },
+    "impact": {
+      "name": "Professionnel d'Impact",
+      "description": "Met l'accent sur les réalisations et résultats quantifiables avec un design audacieux"
+    },
+    "clean": {
+      "name": "Minimaliste Propre",
+      "description": "Design simple et propre axé sur la clarté du contenu"
+    },
+    "contemporary": {
+      "name": "Moderne Contemporain",
+      "description": "Design moderne avec des éléments professionnels et créatifs équilibrés"
+    },
+    "executive": {
+      "name": "Leadership Exécutif",
+      "description": "Design sophistiqué pour les postes de haute direction"
+    },
+    "elegant": {
+      "name": "Professionnel Élégant",
+      "description": "Design raffiné avec typographie et mise en page sophistiquées"
+    },
+    "simple": {
+      "name": "Basique Simple",
+      "description": "Design ultra-minimaliste avec une lisibilité maximale"
     }
   },
   "languageTips": {

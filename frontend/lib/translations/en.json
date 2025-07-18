@@ -445,20 +445,44 @@
       "general": "General"
     },
     "modern": {
-      "name": "Modern Minimalist",
-      "description": "Clean and modern style, suitable for technical positions"
+      "name": "Modern Professional",
+      "description": "Clean and contemporary design with strong visual hierarchy"
     },
     "classic": {
-      "name": "Classic Business",
-      "description": "Traditional business style, suitable for management positions"
+      "name": "Classic Traditional",
+      "description": "Timeless design suitable for all industries"
     },
     "creative": {
-      "name": "Creative Design",
-      "description": "Creative design style, suitable for creative positions"
+      "name": "Creative Portfolio",
+      "description": "Bold and innovative design for creative professionals"
     },
     "minimal": {
-      "name": "Minimalist",
-      "description": "Minimalist design, highlighting the content itself"
+      "name": "Minimal Clean",
+      "description": "Simple and elegant design focusing on content"
+    },
+    "impact": {
+      "name": "Impact Professional",
+      "description": "Emphasizes achievements and quantifiable results with bold design"
+    },
+    "clean": {
+      "name": "Clean Minimalist",
+      "description": "Simple and clean design focusing on content clarity"
+    },
+    "contemporary": {
+      "name": "Contemporary Modern",
+      "description": "Modern design with balanced professional and creative elements"
+    },
+    "executive": {
+      "name": "Executive Leadership",
+      "description": "Sophisticated design for senior management positions"
+    },
+    "elegant": {
+      "name": "Elegant Professional",
+      "description": "Refined design with sophisticated typography and layout"
+    },
+    "simple": {
+      "name": "Simple Basic",
+      "description": "Ultra-minimal design with maximum readability"
     }
   },
   "languageTips": {

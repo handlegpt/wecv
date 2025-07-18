@@ -57,7 +57,7 @@ export function BuyMeACoffee() {
                 </div>
                 <button 
                   className="w-full bg-amber-600 text-white py-3 px-6 rounded-lg hover:bg-amber-700 transition-colors duration-200 font-medium"
-                  onClick={() => window.open('https://buymeacoffee.com/wecvai', '_blank')}
+                  onClick={() => window.open('https://buymeacoffee.com/wego', '_blank')}
                 >
                   {t('buyMeACoffee.buyNow', 'Buy Now')}
                 </button>
@@ -82,7 +82,7 @@ export function BuyMeACoffee() {
                 </div>
                 <button 
                   className="w-full bg-amber-600 text-white py-3 px-6 rounded-lg hover:bg-amber-700 transition-colors duration-200 font-medium"
-                  onClick={() => window.open('https://buymeacoffee.com/wecvai', '_blank')}
+                  onClick={() => window.open('https://buymeacoffee.com/wego', '_blank')}
                 >
                   {t('buyMeACoffee.buyNow', 'Buy Now')}
                 </button>
@@ -107,7 +107,7 @@ export function BuyMeACoffee() {
                 </div>
                 <button 
                   className="w-full bg-amber-600 text-white py-3 px-6 rounded-lg hover:bg-amber-700 transition-colors duration-200 font-medium"
-                  onClick={() => window.open('https://buymeacoffee.com/wecvai', '_blank')}
+                  onClick={() => window.open('https://buymeacoffee.com/wego', '_blank')}
                 >
                   {t('buyMeACoffee.buyNow', 'Buy Now')}
                 </button>

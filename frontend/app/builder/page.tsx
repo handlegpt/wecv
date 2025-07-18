@@ -49,10 +49,10 @@ export default function BuilderPage() {
       } else {
         // 使用模拟数据作为后备
         const mockTemplates = [
-          { id: 'modern', name: 'Modern Professional', category: 'modern' },
-          { id: 'classic', name: 'Classic Traditional', category: 'classic' },
-          { id: 'creative', name: 'Creative Portfolio', category: 'creative' },
-          { id: 'minimal', name: 'Minimal Clean', category: 'minimal' }
+          { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
+          { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
+          { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
+          { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' }
         ]
         setTemplates(mockTemplates)
         setSelectedTemplate('modern')
@@ -60,10 +60,10 @@ export default function BuilderPage() {
     } catch (error) {
       // 使用模拟数据作为后备
       const mockTemplates = [
-        { id: 'modern', name: 'Modern Professional', category: 'modern' },
-        { id: 'classic', name: 'Classic Traditional', category: 'classic' },
-        { id: 'creative', name: 'Creative Portfolio', category: 'creative' },
-        { id: 'minimal', name: 'Minimal Clean', category: 'minimal' }
+        { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
+        { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
+        { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
+        { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' }
       ]
       setTemplates(mockTemplates)
       setSelectedTemplate('modern')

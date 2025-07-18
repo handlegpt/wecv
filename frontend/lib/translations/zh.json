@@ -424,20 +424,44 @@
       "general": "通用"
     },
     "modern": {
-      "name": "现代简约",
-      "description": "简洁现代风格，适合技术职位"
+      "name": "现代专业",
+      "description": "简洁现代的设计，具有强烈的视觉层次"
     },
     "classic": {
-      "name": "经典商务",
-      "description": "传统商务风格，适合管理职位"
+      "name": "经典传统",
+      "description": "永恒的设计，适合所有行业"
     },
     "creative": {
-      "name": "创意设计",
-      "description": "创意设计风格，适合创意职位"
+      "name": "创意作品集",
+      "description": "大胆创新的设计，适合创意专业人士"
     },
     "minimal": {
-      "name": "极简主义",
-      "description": "极简设计，突出内容本身"
+      "name": "极简清洁",
+      "description": "简洁优雅的设计，专注于内容"
+    },
+    "impact": {
+      "name": "影响力专业",
+      "description": "强调成就和可量化结果的大胆设计"
+    },
+    "clean": {
+      "name": "清洁极简",
+      "description": "简洁清洁的设计，专注于内容清晰度"
+    },
+    "contemporary": {
+      "name": "当代现代",
+      "description": "现代设计，平衡专业和创意元素"
+    },
+    "executive": {
+      "name": "高管领导",
+      "description": "适合高级管理职位的精致设计"
+    },
+    "elegant": {
+      "name": "优雅专业",
+      "description": "精致的排版和布局设计"
+    },
+    "simple": {
+      "name": "简单基础",
+      "description": "超极简设计，最大可读性"
     }
   },
   "languageTips": {
