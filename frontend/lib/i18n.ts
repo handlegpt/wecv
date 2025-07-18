@@ -26,12 +26,32 @@ const enUS = {
     },
     // Features
     features: {
-      aiWriting: 'AI Writing Assistant',
-      multiLanguage: 'Multi-language Support',
-      templates: 'Rich Templates',
-      export: 'Multiple Export Formats',
-      privacy: 'Privacy Protection',
-      hosting: 'Online Hosting',
+      sectionTitle: 'Powerful Features',
+      sectionSubtitle: 'We provide comprehensive resume creation features to make your job search journey smoother',
+      aiWriting: {
+        title: 'AI Writing Assistant',
+        description: 'Use AI technology to intelligently optimize resume content and provide professional writing suggestions'
+      },
+      multiLanguage: {
+        title: 'Multi-language Support',
+        description: 'Support Chinese, English and other languages to meet international needs'
+      },
+      templates: {
+        title: 'Rich Templates',
+        description: 'Provide various professional resume templates with one-click style switching'
+      },
+      export: {
+        title: 'Multiple Export Formats',
+        description: 'Support PDF, Word, HTML and other format exports'
+      },
+      privacy: {
+        title: 'Privacy Protection',
+        description: 'Local storage, data security, protect user privacy'
+      },
+      hosting: {
+        title: 'Online Hosting',
+        description: 'Provide online resume hosting service with exclusive link generation'
+      },
       analytics: 'Resume Analytics'
     },
     // Buttons
@@ -134,12 +154,32 @@ const zhCN = {
       ctaSecondary: '查看模板'
     },
     features: {
-      aiWriting: 'AI辅助编写',
-      multiLanguage: '多语言支持',
-      templates: '丰富模板',
-      export: '多格式导出',
-      privacy: '隐私保护',
-      hosting: '在线托管',
+      sectionTitle: '强大的功能特性',
+      sectionSubtitle: '我们提供全方位的简历制作功能，让您的求职之路更加顺畅',
+      aiWriting: {
+        title: 'AI辅助编写',
+        description: '使用AI技术智能优化简历内容，提供专业的写作建议'
+      },
+      multiLanguage: {
+        title: '多语言支持',
+        description: '支持中文、英文等多种语言，满足国际化需求'
+      },
+      templates: {
+        title: '丰富模板',
+        description: '提供多种专业简历模板，一键切换不同风格'
+      },
+      export: {
+        title: '多格式导出',
+        description: '支持PDF、Word、HTML等多种格式导出'
+      },
+      privacy: {
+        title: '隐私保护',
+        description: '本地存储，数据安全，保护用户隐私'
+      },
+      hosting: {
+        title: '在线托管',
+        description: '提供在线简历托管服务，生成专属链接'
+      },
       analytics: '简历分析'
     },
     buttons: {
@@ -238,12 +278,32 @@ const zhTW = {
       ctaSecondary: '查看範本'
     },
     features: {
-      aiWriting: 'AI輔助撰寫',
-      multiLanguage: '多語言支援',
-      templates: '豐富範本',
-      export: '多格式匯出',
-      privacy: '隱私保護',
-      hosting: '線上託管',
+      sectionTitle: '強大的功能特性',
+      sectionSubtitle: '我們提供全方位的履歷製作功能，讓您的求職之路更加順暢',
+      aiWriting: {
+        title: 'AI輔助撰寫',
+        description: '使用AI技術智能優化履歷內容，提供專業的寫作建議'
+      },
+      multiLanguage: {
+        title: '多語言支援',
+        description: '支援中文、英文等多種語言，滿足國際化需求'
+      },
+      templates: {
+        title: '豐富範本',
+        description: '提供多種專業履歷範本，一鍵切換不同風格'
+      },
+      export: {
+        title: '多格式匯出',
+        description: '支援PDF、Word、HTML等多種格式匯出'
+      },
+      privacy: {
+        title: '隱私保護',
+        description: '本地儲存，資料安全，保護用戶隱私'
+      },
+      hosting: {
+        title: '線上託管',
+        description: '提供線上履歷託管服務，生成專屬連結'
+      },
       analytics: '履歷分析'
     },
     buttons: {

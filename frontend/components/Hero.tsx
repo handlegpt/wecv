@@ -3,12 +3,18 @@
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import LanguageSelector from './LanguageSelector'
 
 export function Hero() {
   const { t } = useTranslation()
 
   return (
     <section className="relative bg-gradient-to-br from-primary-50 to-primary-100 py-20 lg:py-32">
+      {/* Language Selector */}
+      <div className="absolute top-4 right-4 z-10">
+        <LanguageSelector />
+      </div>
+      
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h1 
@@ -17,7 +23,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            WeCV AI - 智能AI简历生成与管理平台
+            {t('hero.title')}
           </motion.h1>
           
           <motion.p 
@@ -26,7 +32,6 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            用AI高效打造专业简历，支持多语言、多模板、多格式导出，永久免费。
             {t('hero.subtitle')}
           </motion.p>
           

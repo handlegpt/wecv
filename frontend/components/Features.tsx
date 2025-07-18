@@ -13,33 +13,33 @@ import {
 const features = [
   {
     icon: SparklesIcon,
-    title: 'features.aiWriting',
-    description: '使用AI技术智能优化简历内容，提供专业的写作建议'
+    title: 'features.aiWriting.title',
+    description: 'features.aiWriting.description'
   },
   {
     icon: GlobeAltIcon,
-    title: 'features.multiLanguage',
-    description: '支持中文、英文等多种语言，满足国际化需求'
+    title: 'features.multiLanguage.title',
+    description: 'features.multiLanguage.description'
   },
   {
     icon: DocumentTextIcon,
-    title: 'features.templates',
-    description: '提供多种专业简历模板，一键切换不同风格'
+    title: 'features.templates.title',
+    description: 'features.templates.description'
   },
   {
     icon: ArrowDownTrayIcon,
-    title: 'features.export',
-    description: '支持PDF、Word、HTML等多种格式导出'
+    title: 'features.export.title',
+    description: 'features.export.description'
   },
   {
     icon: ShieldCheckIcon,
-    title: 'features.privacy',
-    description: '本地存储，数据安全，保护用户隐私'
+    title: 'features.privacy.title',
+    description: 'features.privacy.description'
   },
   {
     icon: CloudArrowUpIcon,
-    title: 'features.hosting',
-    description: '提供在线简历托管服务，生成专属链接'
+    title: 'features.hosting.title',
+    description: 'features.hosting.description'
   }
 ]
 
@@ -51,10 +51,10 @@ export function Features() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            强大的功能特性
+            {t('features.sectionTitle')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            我们提供全方位的简历制作功能，让您的求职之路更加顺畅
+            {t('features.sectionSubtitle')}
           </p>
         </div>
         
@@ -73,7 +73,7 @@ export function Features() {
                 </h3>
               </div>
               <p className="text-gray-600">
-                {feature.description}
+                {t(feature.description)}
               </p>
             </div>
           ))}
