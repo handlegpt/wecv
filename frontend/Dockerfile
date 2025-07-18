@@ -9,8 +9,8 @@ RUN apk add --no-cache libc6-compat
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies with clean cache
-RUN npm ci --only=production && npm cache clean --force
+# Remove existing package-lock.json and install dependencies
+RUN rm -f package-lock.json && npm install --production && npm cache clean --force
 
 # Copy source code
 COPY . .

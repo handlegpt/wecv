@@ -3,11 +3,26 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Install necessary system dependencies for Puppeteer
+RUN apk add --no-cache \
+    libc6-compat \
+    chromium \
+    nss \
+    freetype \
+    freetype-dev \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
+
+# Set environment variables for Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Remove existing package-lock.json and install dependencies
+RUN rm -f package-lock.json && npm install
 
 # Copy source code
 COPY . .
@@ -23,9 +38,24 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
+# Install necessary system dependencies for Puppeteer
+RUN apk add --no-cache \
+    libc6-compat \
+    chromium \
+    nss \
+    freetype \
+    freetype-dev \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
+
+# Set environment variables for Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
 # Install production dependencies
 COPY package*.json ./
-RUN npm ci --only=production
+RUN rm -f package-lock.json && npm install --production
 
 # Copy necessary files from build stage
 COPY --from=builder /app/dist ./dist
@@ -36,8 +66,8 @@ COPY --from=builder /app/prisma ./prisma
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nodejs -u 1001
 
-# Create uploads directory
-RUN mkdir -p uploads && chown -R nodejs:nodejs uploads
+# Create necessary directories
+RUN mkdir -p uploads exports temp && chown -R nodejs:nodejs uploads exports temp
 
 USER nodejs
 

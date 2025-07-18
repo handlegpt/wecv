@@ -21,8 +21,8 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production && npm cache clean --force
+# Remove existing package-lock.json and install dependencies
+RUN rm -f package-lock.json && npm install --production && npm cache clean --force
 
 # Copy source code
 COPY . .
