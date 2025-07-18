@@ -14,12 +14,13 @@ const plans = [
       'pricing.free.features.basicSupport'
     ],
     popular: false,
-    ctaKey: 'pricing.free.cta'
+    ctaKey: 'pricing.free.cta',
+    available: true
   },
   {
     nameKey: 'pricing.pro.name',
-    price: '¥29',
-    period: '/月',
+    price: 'Coming Soon',
+    period: '',
     features: [
       'pricing.pro.features.allTemplates',
       'pricing.pro.features.advancedAI',
@@ -29,12 +30,13 @@ const plans = [
       'pricing.pro.features.noAds'
     ],
     popular: true,
-    ctaKey: 'pricing.pro.cta'
+    ctaKey: 'pricing.comingSoon.notifyMe',
+    available: false
   },
   {
     nameKey: 'pricing.enterprise.name',
-    price: '¥99',
-    period: '/月',
+    price: 'Coming Soon',
+    period: '',
     features: [
       'pricing.enterprise.features.allProFeatures',
       'pricing.enterprise.features.customAI',
@@ -44,7 +46,8 @@ const plans = [
       'pricing.enterprise.features.dedicatedSupport'
     ],
     popular: false,
-    ctaKey: 'pricing.enterprise.cta'
+    ctaKey: 'pricing.comingSoon.notifyMe',
+    available: false
   }
 ]
 
@@ -86,20 +89,29 @@ export function Pricing() {
                   {t(plan.nameKey)}
                 </h3>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-gray-900">
+                  <span className={`text-4xl font-bold ${
+                    plan.available ? 'text-gray-900' : 'text-gray-500'
+                  }`}>
                     {plan.price}
                   </span>
                   <span className="text-gray-600 ml-1">
                     {plan.period}
                   </span>
                 </div>
+                {!plan.available && (
+                  <p className="text-sm text-gray-500 mt-2">
+                    {t('pricing.comingSoon.description')}
+                  </p>
+                )}
               </div>
               
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center">
                     <svg 
-                      className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" 
+                      className={`w-5 h-5 mr-3 flex-shrink-0 ${
+                        plan.available ? 'text-green-500' : 'text-gray-400'
+                      }`}
                       fill="currentColor" 
                       viewBox="0 0 20 20"
                     >
@@ -109,17 +121,22 @@ export function Pricing() {
                         clipRule="evenodd" 
                       />
                     </svg>
-                    <span className="text-gray-700">{t(feature)}</span>
+                    <span className={`${
+                      plan.available ? 'text-gray-700' : 'text-gray-500'
+                    }`}>{t(feature)}</span>
                   </li>
                 ))}
               </ul>
               
               <button 
                 className={`w-full py-3 px-6 rounded-lg font-medium transition-colors duration-200 ${
-                  plan.popular
-                    ? 'btn-primary'
-                    : 'btn-secondary'
+                  plan.available
+                    ? plan.popular
+                      ? 'btn-primary'
+                      : 'btn-secondary'
+                    : 'bg-gray-100 text-gray-500 cursor-not-allowed'
                 }`}
+                disabled={!plan.available}
               >
                 {t(plan.ctaKey)}
               </button>

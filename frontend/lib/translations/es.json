@@ -37,6 +37,10 @@
     "sectionTitle": "Elige el Plan que Te Conviene",
     "sectionSubtitle": "Comienza con la versión gratuita y actualiza a planes más avanzados según tus necesidades",
     "mostPopular": "Más Popular",
+    "comingSoon": {
+      "description": "Estamos trabajando duro para traerte increíbles planes de precios. ¡Mantente atento para acceso anticipado exclusivo y ofertas especiales!",
+      "notifyMe": "Notifícame cuando esté disponible"
+    },
     "free": {
       "name": "Plan Gratuito",
       "price": "¥0",

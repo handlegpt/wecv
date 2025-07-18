@@ -37,6 +37,10 @@
     "sectionTitle": "選擇適合您的計劃",
     "sectionSubtitle": "從免費版本開始，根據您的需求升級到更高級的計劃",
     "mostPopular": "最受歡迎",
+    "comingSoon": {
+      "description": "我們正在努力為您帶來令人驚嘆的定價計劃。敬請期待獨家搶先體驗和特別優惠！",
+      "notifyMe": "可用時通知我"
+    },
     "free": {
       "name": "免費計劃",
       "price": "¥0",

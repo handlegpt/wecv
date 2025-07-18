@@ -37,6 +37,10 @@
     "sectionTitle": "Choose the Plan That Suits You",
     "sectionSubtitle": "Start with the free version and upgrade to more advanced plans based on your needs",
     "mostPopular": "Most Popular",
+    "comingSoon": {
+      "description": "We are working hard to bring you amazing pricing plans. Stay tuned for exclusive early access and special offers!",
+      "notifyMe": "Notify Me When Available"
+    },
     "free": {
       "name": "Free Plan",
       "price": "¥0",
