@@ -37,18 +37,6 @@
     "sectionTitle": "Elige el Plan que Te Conviene",
     "sectionSubtitle": "Comienza con la versión gratuita y actualiza a planes más avanzados según tus necesidades",
     "mostPopular": "Más Popular",
-    "comingSoon": {
-      "title": "Próximamente",
-      "description": "Estamos trabajando duro para traerte increíbles planes de precios. ¡Mantente atento para acceso anticipado exclusivo y ofertas especiales!",
-      "freePlan": "Plan Gratuito",
-      "freeDescription": "Características básicas para comenzar",
-      "proPlan": "Plan Pro",
-      "proDescription": "Características avanzadas para profesionales",
-      "enterprisePlan": "Plan Empresarial",
-      "enterpriseDescription": "Soluciones personalizadas para equipos",
-      "notifyMe": "Notifícame cuando esté disponible",
-      "earlyAccess": "Obtén acceso anticipado y descuentos especiales"
-    },
     "free": {
       "name": "Plan Gratuito",
       "price": "¥0",

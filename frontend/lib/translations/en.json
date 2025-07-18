@@ -37,18 +37,6 @@
     "sectionTitle": "Choose the Plan That Suits You",
     "sectionSubtitle": "Start with the free version and upgrade to more advanced plans based on your needs",
     "mostPopular": "Most Popular",
-    "comingSoon": {
-      "title": "Coming Soon",
-      "description": "We are working hard to bring you amazing pricing plans. Stay tuned for exclusive early access and special offers!",
-      "freePlan": "Free Plan",
-      "freeDescription": "Basic features to get you started",
-      "proPlan": "Pro Plan",
-      "proDescription": "Advanced features for professionals",
-      "enterprisePlan": "Enterprise Plan",
-      "enterpriseDescription": "Custom solutions for teams",
-      "notifyMe": "Notify Me When Available",
-      "earlyAccess": "Get early access and special discounts"
-    },
     "free": {
       "name": "Free Plan",
       "price": "¥0",

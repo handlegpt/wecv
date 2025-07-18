@@ -37,18 +37,6 @@
     "sectionTitle": "选择适合您的计划",
     "sectionSubtitle": "从免费版本开始，根据您的需求升级到更高级的计划",
     "mostPopular": "最受欢迎",
-    "comingSoon": {
-      "title": "即将推出",
-      "description": "我们正在努力为您带来令人惊叹的定价计划。敬请期待独家抢先体验和特别优惠！",
-      "freePlan": "免费计划",
-      "freeDescription": "基础功能助您开始",
-      "proPlan": "专业计划",
-      "proDescription": "专业人士的高级功能",
-      "enterprisePlan": "企业计划",
-      "enterpriseDescription": "团队的定制解决方案",
-      "notifyMe": "可用时通知我",
-      "earlyAccess": "获得抢先体验和特别折扣"
-    },
     "free": {
       "name": "免费计划",
       "price": "¥0",
