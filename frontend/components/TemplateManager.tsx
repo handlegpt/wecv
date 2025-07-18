@@ -9,7 +9,7 @@ import {
   StarIcon, 
   DocumentTextIcon,
   SparklesIcon,
-  PaletteIcon
+  CogIcon
 } from '@heroicons/react/24/outline'
 
 interface Template {
@@ -45,7 +45,7 @@ export default function TemplateManager({
     { id: 'all', name: '全部模板', icon: DocumentTextIcon },
     { id: 'professional', name: '专业模板', icon: StarIcon },
     { id: 'creative', name: '创意模板', icon: SparklesIcon },
-    { id: 'modern', name: '现代模板', icon: PaletteIcon },
+    { id: 'modern', name: '现代模板', icon: CogIcon },
     { id: 'minimalist', name: '简约模板', icon: EyeIcon }
   ]
 
