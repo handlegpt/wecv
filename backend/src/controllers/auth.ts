@@ -10,10 +10,12 @@ const JWT_SECRET = process.env.JWT_SECRET || 'secret'
 
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: process.env.EMAIL_SERVER_HOST || 'smtp.gmail.com',
+  port: parseInt(process.env.EMAIL_SERVER_PORT || '587'),
+  secure: false, // true for 465, false for other ports
   auth: {
-    user: process.env.EMAIL_USER || 'your-email@gmail.com',
-    pass: process.env.EMAIL_PASS || 'your-app-password'
+    user: process.env.EMAIL_SERVER_USER || process.env.EMAIL_USER || 'your-email@gmail.com',
+    pass: process.env.EMAIL_SERVER_PASS || process.env.EMAIL_PASS || 'your-app-password'
   }
 })
 
@@ -302,7 +304,7 @@ export async function emailLogin(req: Request, res: Response) {
 
     // Send email
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'noreply@wecv.ai',
+      from: process.env.EMAIL_FROM || process.env.EMAIL_SERVER_USER || 'noreply@wecv.ai',
       to: email,
       subject: 'WeCV AI - 登录链接',
       html: `

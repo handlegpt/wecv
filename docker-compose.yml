@@ -45,8 +45,11 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY:-your_openai_api_key}
       - PORT=3001
       - FRONTEND_URL=http://localhost:3000
-      - EMAIL_USER=${EMAIL_USER:-your-email@gmail.com}
-      - EMAIL_PASS=${EMAIL_PASS:-your-app-password}
+      - EMAIL_SERVER_HOST=${EMAIL_SERVER_HOST:-smtp.gmail.com}
+      - EMAIL_SERVER_PORT=${EMAIL_SERVER_PORT:-587}
+      - EMAIL_SERVER_USER=${EMAIL_SERVER_USER:-your-email@gmail.com}
+      - EMAIL_SERVER_PASS=${EMAIL_SERVER_PASS:-your-app-password}
+      - EMAIL_FROM=${EMAIL_FROM:-wecv <noreply@wecv.ai>}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-your-google-client-id}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-your-google-client-secret}
       - GOOGLE_REDIRECT_URI=http://localhost:3000/auth/google-login
