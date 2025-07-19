@@ -325,7 +325,9 @@
       "summary": "個人簡介",
       "skills": "技能",
       "button": "預覽簡歷",
-      "developing": "預覽功能開發中..."
+      "developing": "預覽功能開發中...",
+      "zoom": "放大預覽",
+      "modalTitle": "簡歷預覽"
     },
     "upgrade": {
       "title": "升級到完整版",

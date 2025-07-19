@@ -480,7 +480,9 @@
       "summary": "Resumen Profesional",
       "skills": "Habilidades",
       "button": "Vista Previa del CV",
-      "developing": "Función de vista previa en desarrollo..."
+      "developing": "Función de vista previa en desarrollo...",
+      "zoom": "Ampliar Vista Previa",
+      "modalTitle": "Vista Previa del CV"
     },
     "upgrade": {
       "title": "Actualizar a Versión Completa",

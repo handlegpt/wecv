@@ -474,7 +474,9 @@
       "summary": "職務要約",
       "skills": "スキル",
       "button": "履歴書プレビュー",
-      "developing": "プレビュー機能開発中..."
+      "developing": "プレビュー機能開発中...",
+      "zoom": "プレビューを拡大",
+      "modalTitle": "履歴書プレビュー"
     },
     "upgrade": {
       "title": "フルバージョンにアップグレード",

@@ -474,7 +474,9 @@
       "summary": "Résumé Professionnel",
       "skills": "Compétences",
       "button": "Aperçu du CV",
-      "developing": "Fonction d'aperçu en cours de développement..."
+      "developing": "Fonction d'aperçu en cours de développement...",
+      "zoom": "Agrandir l'Aperçu",
+      "modalTitle": "Aperçu du CV"
     },
     "upgrade": {
       "title": "Passer à la Version Complète",

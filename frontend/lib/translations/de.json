@@ -485,7 +485,9 @@
       "summary": "Berufliche Zusammenfassung",
       "skills": "Fähigkeiten",
       "button": "Lebenslauf Vorschau",
-      "developing": "Vorschau-Funktion in Entwicklung..."
+      "developing": "Vorschau-Funktion in Entwicklung...",
+      "zoom": "Vorschau Vergrößern",
+      "modalTitle": "Lebenslauf-Vorschau"
     },
     "upgrade": {
       "title": "Auf Vollversion Upgraden",

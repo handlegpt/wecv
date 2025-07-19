@@ -347,7 +347,9 @@
       "summary": "Professional Summary",
       "skills": "Skills",
       "button": "Preview Resume",
-      "developing": "Preview feature is under development..."
+      "developing": "Preview feature is under development...",
+      "zoom": "Zoom Preview",
+      "modalTitle": "Resume Preview"
     },
     "upgrade": {
       "title": "Upgrade to Full Version",

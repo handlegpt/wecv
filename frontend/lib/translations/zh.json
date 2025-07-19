@@ -325,7 +325,9 @@
       "summary": "专业总结",
       "skills": "技能",
       "button": "预览简历",
-      "developing": "预览功能正在开发中..."
+      "developing": "预览功能正在开发中...",
+      "zoom": "放大预览",
+      "modalTitle": "简历预览"
     },
     "upgrade": {
       "title": "升级到完整版本",

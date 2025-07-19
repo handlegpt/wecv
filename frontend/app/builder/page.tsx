@@ -18,6 +18,7 @@ export default function BuilderPage() {
   const { t } = useTranslation()
   const [templates, setTemplates] = useState<Template[]>([])
   const [selectedTemplate, setSelectedTemplate] = useState<string>('')
+  const [showPreviewModal, setShowPreviewModal] = useState(false)
   const [resumeData, setResumeData] = useState({
     title: '',
     content: {
@@ -99,6 +100,15 @@ export default function BuilderPage() {
     }
   }
 
+  const handleTemplateChange = (templateId: string) => {
+    setSelectedTemplate(templateId)
+    
+    // 更新URL参数
+    const url = new URL(window.location.href)
+    url.searchParams.set('template', templateId)
+    window.history.replaceState({}, '', url.toString())
+  }
+
   const handleSave = async () => {
     if (!resumeData.title.trim()) {
       toast.error(t('builder.errors.titleRequired', 'Please enter a resume title'))
@@ -147,7 +157,7 @@ export default function BuilderPage() {
       toast.error(t('builder.errors.titleRequired', 'Please enter a resume title'))
       return
     }
-    toast.success(t('builder.preview.developing', 'Preview feature is under development...'))
+    setShowPreviewModal(true)
   }
 
   const handleAIAssist = async (section: string, prompt: string) => {
@@ -342,7 +352,7 @@ export default function BuilderPage() {
                 </label>
                 <select
                   value={selectedTemplate}
-                  onChange={(e) => setSelectedTemplate(e.target.value)}
+                  onChange={(e) => handleTemplateChange(e.target.value)}
                   className="input-field"
                 >
                   {templates.map((template) => (
@@ -687,7 +697,18 @@ export default function BuilderPage() {
           {/* Right Panel - Preview */}
           <div className="lg:col-span-1">
             <div className="card">
-              <h3 className="text-lg font-semibold mb-4">{t('builder.preview.title', 'Resume Preview')}</h3>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-lg font-semibold">{t('builder.preview.title', 'Resume Preview')}</h3>
+                <button
+                  onClick={() => setShowPreviewModal(true)}
+                  className="btn-secondary text-sm px-3 py-1"
+                  title={t('builder.preview.zoom', 'Zoom Preview')}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                  </svg>
+                </button>
+              </div>
               <div className="bg-gray-100 rounded-lg p-4 h-[600px] overflow-y-auto">
                 <ResumeTemplateRenderer 
                   resumeData={resumeData}
@@ -715,6 +736,32 @@ export default function BuilderPage() {
           </div>
         </div>
       </div>
+
+      {/* Preview Modal */}
+      {showPreviewModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h3 className="text-lg font-semibold">{t('builder.preview.modalTitle', 'Resume Preview')}</h3>
+              <button
+                onClick={() => setShowPreviewModal(false)}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+              <ResumeTemplateRenderer 
+                resumeData={resumeData}
+                templateId={selectedTemplate}
+                className="w-full max-w-2xl mx-auto"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 } 
