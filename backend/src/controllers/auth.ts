@@ -22,7 +22,7 @@ const transporter = nodemailer.createTransport({
 // Google OAuth configuration
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
-const GOOGLE_REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'https://wecv.ai/api/auth/callback/google'
+const GOOGLE_REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'http://wecv.ai/api/auth/callback/google'
 
 export async function register(req: Request, res: Response) {
   try {
