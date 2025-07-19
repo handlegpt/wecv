@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
 import LanguageSelector from '@/components/LanguageSelector'
+import ResumeTemplateRenderer from '@/components/ResumeTemplateRenderer'
 
 interface Template {
   id: string
@@ -369,31 +370,11 @@ export default function BuilderPage() {
             <div className="card">
               <h3 className="text-lg font-semibold mb-4">{t('builder.preview.title', 'Resume Preview')}</h3>
               <div className="bg-gray-100 rounded-lg p-4 h-96 overflow-y-auto">
-                <div className="bg-white rounded p-4">
-                  <h4 className="font-bold text-lg mb-2">{resumeData.content.personal.name || t('builder.preview.yourName', 'Your Name')}</h4>
-                  <p className="text-gray-600 mb-2">{resumeData.content.personal.email || 'your@email.com'}</p>
-                  <p className="text-gray-600 mb-4">{resumeData.content.personal.phone || '+1 (555) 123-4567'}</p>
-                  
-                  {resumeData.content.summary && (
-                    <div className="mb-4">
-                      <h5 className="font-semibold mb-1">{t('builder.preview.summary', 'Professional Summary')}</h5>
-                      <p className="text-sm text-gray-700">{resumeData.content.summary}</p>
-                    </div>
-                  )}
-                  
-                  {resumeData.content.skills.length > 0 && (
-                    <div>
-                      <h5 className="font-semibold mb-1">{t('builder.preview.skills', 'Skills')}</h5>
-                      <div className="flex flex-wrap gap-1">
-                        {resumeData.content.skills.map((skill, index) => (
-                          <span key={index} className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
+                <ResumeTemplateRenderer 
+                  resumeData={resumeData}
+                  templateId={selectedTemplate}
+                  className="w-full h-full"
+                />
               </div>
             </div>
 
