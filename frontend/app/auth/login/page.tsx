@@ -49,7 +49,7 @@ export default function LoginPage() {
     setIsGoogleLoading(true)
     try {
       const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
-      const redirectUri = `${window.location.origin}/api/auth/callback/google`
+      const redirectUri = `https://wecv.ai/api/auth/callback/google`
       const scope = 'email profile'
       
       console.log('Google OAuth configuration:', {
