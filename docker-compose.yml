@@ -44,15 +44,15 @@ services:
       - JWT_SECRET=dev_jwt_secret_wecv_ai
       - OPENAI_API_KEY=${OPENAI_API_KEY:-your_openai_api_key}
       - PORT=3001
-      - FRONTEND_URL=http://localhost:3000
+      - FRONTEND_URL=${FRONTEND_URL:-https://wecv.ai}
       - EMAIL_SERVER_HOST=${EMAIL_SERVER_HOST:-smtp.gmail.com}
       - EMAIL_SERVER_PORT=${EMAIL_SERVER_PORT:-587}
-      - EMAIL_SERVER_USER=${EMAIL_SERVER_USER:-your-email@gmail.com}
-      - EMAIL_SERVER_PASS=${EMAIL_SERVER_PASS:-your-app-password}
+      - EMAIL_SERVER_USER=${EMAIL_SERVER_USER}
+      - EMAIL_SERVER_PASS=${EMAIL_SERVER_PASS}
       - EMAIL_FROM=${EMAIL_FROM:-wecv <noreply@wecv.ai>}
-      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-your-google-client-id}
-      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET:-your-google-client-secret}
-      - GOOGLE_REDIRECT_URI=http://localhost:3000/auth/google-login
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_REDIRECT_URI=${GOOGLE_REDIRECT_URI:-https://wecv.ai/auth/google-login}
       - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
       - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
       - PRISMA_ENGINE_CHECKSUM_IGNORE=1
@@ -81,7 +81,7 @@ services:
       - NEXT_PUBLIC_API_URL=http://backend:3001
       - NEXT_PUBLIC_APP_NAME=WeCV AI
       - NEXT_PUBLIC_APP_VERSION=1.0.0
-      - NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID:-your-google-client-id}
+      - NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
     ports:
       - '3000:3000'
     depends_on:
