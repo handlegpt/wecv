@@ -276,31 +276,35 @@ export default function BuilderPage() {
       {/* Header */}
       <header className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <h1 className="text-2xl font-bold text-gray-900">{t('builder.title', 'WeCV AI - Resume Builder')}</h1>
-            <div className="flex items-center space-x-4">
-              <LanguageSelector />
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 sm:py-6 gap-4 sm:gap-0">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t('builder.title', 'WeCV AI - Resume Builder')}</h1>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+              <div className="flex items-center justify-center sm:justify-end">
+                <LanguageSelector />
+              </div>
               {!isLoggedIn && (
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600">{t('builder.trialMode', 'Trial Mode')}</span>
-                  <Link href="/auth/register" className="btn-primary">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                  <span className="text-xs sm:text-sm text-gray-600 text-center sm:text-left">{t('builder.trialMode', 'Trial Mode')}</span>
+                  <Link href="/auth/register" className="btn-primary text-sm py-2 px-3 text-center">
                     {t('builder.registerToSave', 'Register to Save')}
                   </Link>
                 </div>
               )}
-              <button
-                onClick={handlePreview}
-                className="btn-secondary"
-              >
-                {t('builder.preview.button', 'Preview Resume')}
-              </button>
-              <button
-                onClick={handleSave}
-                disabled={isLoading}
-                className="btn-primary"
-              >
-                {isLoading ? t('builder.saving', 'Saving...') : (isLoggedIn ? t('builder.save', 'Save Resume') : t('builder.registerToSave', 'Register to Save'))}
-              </button>
+              <div className="flex space-x-2 sm:space-x-4">
+                <button
+                  onClick={handlePreview}
+                  className="btn-secondary flex-1 sm:flex-none text-sm py-2 px-3"
+                >
+                  {t('builder.preview.button', 'Preview Resume')}
+                </button>
+                <button
+                  onClick={handleSave}
+                  disabled={isLoading}
+                  className="btn-primary flex-1 sm:flex-none text-sm py-2 px-3"
+                >
+                  {isLoading ? t('builder.saving', 'Saving...') : (isLoggedIn ? t('builder.save', 'Save Resume') : t('builder.registerToSave', 'Register to Save'))}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -325,9 +329,9 @@ export default function BuilderPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Left Panel - Form */}
-          <div className="xl:col-span-2">
+          <div className="lg:col-span-2">
             <div className="card">
               <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('builder.basicInfo', 'Basic Information')}</h2>
               
@@ -695,7 +699,7 @@ export default function BuilderPage() {
           </div>
 
           {/* Right Panel - Preview */}
-          <div className="xl:col-span-1">
+          <div className="lg:col-span-1">
             <div className="card">
               <div className="flex justify-between items-center mb-3 sm:mb-4">
                 <h3 className="text-base sm:text-lg font-semibold">{t('builder.preview.title', 'Resume Preview')}</h3>
@@ -709,7 +713,7 @@ export default function BuilderPage() {
                   </svg>
                 </button>
               </div>
-              <div className="bg-gray-100 rounded-lg p-2 sm:p-4 h-[400px] sm:h-[500px] xl:h-[600px] overflow-y-auto">
+              <div className="bg-gray-100 rounded-lg p-2 sm:p-4 h-[400px] sm:h-[500px] lg:h-[600px] overflow-y-auto">
                 <ResumeTemplateRenderer 
                   resumeData={resumeData}
                   templateId={selectedTemplate}
