@@ -101,7 +101,7 @@ export function TemplatePreview({ templateId, className = '' }: TemplatePreviewP
   }
 
   return (
-    <div className={`bg-white rounded-lg shadow-lg overflow-hidden ${className}`} style={{ fontSize: '0.75rem' }}>
+    <div className={`bg-white rounded-lg shadow-lg overflow-hidden ${className}`}>
       {renderTemplate()}
     </div>
   )

@@ -88,7 +88,7 @@ export function Templates() {
               <div className="aspect-[3/4] bg-gray-50 rounded-lg mb-4 overflow-hidden">
                 <TemplatePreview 
                   templateId={template.id} 
-                  className="w-full h-full transform scale-75 origin-top"
+                  className="w-full h-full"
                 />
               </div>
               
