@@ -29,12 +29,12 @@ export default function TemplatesPage() {
 
   const categories = [
     { id: 'all', name: t('ResumeTemplates.allCategories'), count: 0 },
-    { id: 'professional', name: t('ResumeTemplates.business'), count: 0 },
-    { id: 'creative', name: t('ResumeTemplates.creative'), count: 0 },
+    { id: 'professional', name: t('ResumeTemplates.categories.professional'), count: 0 },
+    { id: 'creative', name: t('ResumeTemplates.categories.creative'), count: 0 },
     { id: 'modern', name: t('templates.modern.name'), count: 0 },
     { id: 'classic', name: t('templates.classic.name'), count: 0 },
     { id: 'minimal', name: t('templates.minimal.name'), count: 0 },
-    { id: 'executive', name: 'Executive', count: 0 }
+    { id: 'executive', name: t('ResumeTemplates.categories.executive'), count: 0 }
   ]
 
   // 改进的模板数据
@@ -45,7 +45,7 @@ export default function TemplatesPage() {
       category: 'executive',
       description: t('templates.impact.description'),
       image: '/templates/impact.jpg',
-      features: ['ATS Optimized', 'Achievement Focused', 'Professional'],
+      features: [t('ResumeTemplates.features.atsOptimized'), t('ResumeTemplates.features.achievementFocused'), t('ResumeTemplates.features.professional')],
       popularity: 95,
       difficulty: 'medium'
     },
@@ -55,7 +55,7 @@ export default function TemplatesPage() {
       category: 'professional',
       description: t('templates.clean.description'),
       image: '/templates/clean.jpg',
-      features: ['Clean Design', 'Easy to Read', 'Professional'],
+      features: [t('ResumeTemplates.features.cleanDesign'), t('ResumeTemplates.features.easyToRead'), t('ResumeTemplates.features.professional')],
       popularity: 88,
       difficulty: 'easy'
     },
@@ -65,7 +65,7 @@ export default function TemplatesPage() {
       category: 'modern',
       description: t('templates.contemporary.description'),
       image: '/templates/contemporary.jpg',
-      features: ['Modern Layout', 'Balanced Design', 'Versatile'],
+      features: [t('ResumeTemplates.features.modernLayout'), t('ResumeTemplates.features.balancedDesign'), t('ResumeTemplates.features.versatile')],
       popularity: 92,
       difficulty: 'medium'
     },
@@ -75,7 +75,7 @@ export default function TemplatesPage() {
       category: 'executive',
       description: t('templates.executive.description'),
       image: '/templates/executive.jpg',
-      features: ['Leadership Focus', 'Sophisticated', 'High Impact'],
+      features: [t('ResumeTemplates.features.leadershipFocus'), t('ResumeTemplates.features.sophisticated'), t('ResumeTemplates.features.highImpact')],
       popularity: 90,
       difficulty: 'hard'
     },
@@ -85,7 +85,7 @@ export default function TemplatesPage() {
       category: 'creative',
       description: t('templates.elegant.description'),
       image: '/templates/elegant.jpg',
-      features: ['Elegant Typography', 'Creative Layout', 'Unique'],
+      features: [t('ResumeTemplates.features.elegantTypography'), t('ResumeTemplates.features.creativeLayout'), t('ResumeTemplates.features.unique')],
       popularity: 85,
       difficulty: 'medium'
     },
@@ -95,7 +95,7 @@ export default function TemplatesPage() {
       category: 'modern',
       description: t('templates.modern.description'),
       image: '/templates/modern.jpg',
-      features: ['Contemporary', 'Clean Lines', 'Professional'],
+      features: [t('ResumeTemplates.features.contemporary'), t('ResumeTemplates.features.cleanLines'), t('ResumeTemplates.features.professional')],
       popularity: 96,
       difficulty: 'easy'
     },
@@ -105,7 +105,7 @@ export default function TemplatesPage() {
       category: 'classic',
       description: t('templates.classic.description'),
       image: '/templates/classic.jpg',
-      features: ['Timeless', 'Traditional', 'Reliable'],
+      features: [t('ResumeTemplates.features.timeless'), t('ResumeTemplates.features.traditional'), t('ResumeTemplates.features.reliable')],
       popularity: 82,
       difficulty: 'easy'
     },
@@ -115,7 +115,7 @@ export default function TemplatesPage() {
       category: 'creative',
       description: t('templates.creative.description'),
       image: '/templates/creative.jpg',
-      features: ['Innovative', 'Colorful', 'Creative'],
+      features: [t('ResumeTemplates.features.innovative'), t('ResumeTemplates.features.colorful'), t('ResumeTemplates.features.creativeLayout')],
       popularity: 78,
       difficulty: 'medium'
     },
@@ -125,7 +125,7 @@ export default function TemplatesPage() {
       category: 'minimal',
       description: t('templates.minimal.description'),
       image: '/templates/minimal.jpg',
-      features: ['Minimalist', 'Content Focus', 'Clean'],
+      features: [t('ResumeTemplates.features.minimalist'), t('ResumeTemplates.features.contentFocus'), t('ResumeTemplates.features.clean')],
       popularity: 87,
       difficulty: 'easy'
     },
@@ -135,7 +135,7 @@ export default function TemplatesPage() {
       category: 'minimal',
       description: t('templates.simple.description'),
       image: '/templates/simple.jpg',
-      features: ['Ultra Simple', 'Maximum Readability', 'Basic'],
+      features: [t('ResumeTemplates.features.ultraSimple'), t('ResumeTemplates.features.maximumReadability'), t('ResumeTemplates.features.basic')],
       popularity: 80,
       difficulty: 'easy'
     }
@@ -211,7 +211,7 @@ export default function TemplatesPage() {
           <div className="flex justify-between items-center py-6">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">{t('ResumeTemplates.title')}</h1>
-              <p className="text-gray-600 mt-2">Choose from our collection of professional resume templates</p>
+              <p className="text-gray-600 mt-2">{t('ResumeTemplates.subtitle')}</p>
             </div>
             <Link 
               href="/builder"
@@ -285,14 +285,14 @@ export default function TemplatesPage() {
                         className="bg-white text-gray-900 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors"
                       >
                         <Eye className="w-4 h-4 inline mr-1" />
-                        Preview
+                        {t('ResumeTemplates.preview')}
                       </button>
                       <button
                         onClick={() => handleTemplateSelect(template.id)}
                         className="bg-primary-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors"
                       >
                         <Play className="w-4 h-4 inline mr-1" />
-                        Use
+                        {t('ResumeTemplates.use')}
                       </button>
                     </div>
                   </div>
@@ -360,7 +360,7 @@ export default function TemplatesPage() {
             <div className="text-gray-400 text-6xl mb-4">📄</div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">{t('ResumeTemplates.noTemplates')}</h3>
             <p className="text-gray-600 mb-6">
-              Try adjusting your search or filter criteria
+              {t('ResumeTemplates.tryAdjustingSearch')}
             </p>
             <button
               onClick={() => {
@@ -369,7 +369,7 @@ export default function TemplatesPage() {
               }}
               className="btn-primary"
             >
-              Clear Filters
+              {t('ResumeTemplates.clearFilters')}
             </button>
           </div>
         )}
@@ -382,7 +382,7 @@ export default function TemplatesPage() {
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  {templates.find(t => t.id === selectedTemplate)?.name} Template
+                  {templates.find(t => t.id === selectedTemplate)?.name} {t('ResumeTemplates.templateTemplate')}
                 </h2>
                 <button
                   onClick={closePreview}
@@ -401,7 +401,7 @@ export default function TemplatesPage() {
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Template Features</h3>
+                  <h3 className="text-lg font-semibold mb-3">{t('ResumeTemplates.templateFeatures')}</h3>
                   <ul className="space-y-2 mb-6">
                     {templates.find(t => t.id === selectedTemplate)?.features?.map((feature, index) => (
                       <li key={index} className="flex items-center text-sm text-gray-600">
@@ -413,7 +413,7 @@ export default function TemplatesPage() {
                   
                   <div className="space-y-4">
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <span className="text-sm text-gray-600">Popularity</span>
+                      <span className="text-sm text-gray-600">{t('ResumeTemplates.popularity')}</span>
                       <div className="flex items-center">
                         <Star className="w-4 h-4 text-yellow-400 mr-1" />
                         <span className="text-sm font-medium">
@@ -423,9 +423,9 @@ export default function TemplatesPage() {
                     </div>
                     
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <span className="text-sm text-gray-600">Difficulty</span>
+                      <span className="text-sm text-gray-600">{t('ResumeTemplates.difficulty')}</span>
                       <span className="text-sm font-medium capitalize">
-                        {templates.find(t => t.id === selectedTemplate)?.difficulty}
+                        {t(`ResumeTemplates.difficultyLevels.${templates.find(t => t.id === selectedTemplate)?.difficulty}`)}
                       </span>
                     </div>
                   </div>
@@ -438,7 +438,7 @@ export default function TemplatesPage() {
                       }}
                       className="btn-primary w-full"
                     >
-                      Use This Template
+                      {t('ResumeTemplates.useTemplate')}
                     </button>
                   </div>
                 </div>
