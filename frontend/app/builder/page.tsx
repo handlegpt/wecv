@@ -46,17 +46,22 @@ export default function BuilderPage() {
   useEffect(() => {
     const token = localStorage.getItem('token')
     setIsLoggedIn(!!token)
-    fetchTemplates()
+    
+    // 从URL参数中获取模板ID
+    const urlParams = new URLSearchParams(window.location.search)
+    const templateParam = urlParams.get('template')
+    
+    fetchTemplates(templateParam || undefined)
   }, [])
 
-  const fetchTemplates = async () => {
+  const fetchTemplates = async (templateId?: string) => {
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/template`)
       if (response.ok) {
         const data = await response.json()
         setTemplates(data)
         if (data.length > 0) {
-          setSelectedTemplate(data[0].id)
+          setSelectedTemplate(templateId || data[0].id)
         }
       } else {
         // 使用模拟数据作为后备
@@ -64,10 +69,16 @@ export default function BuilderPage() {
           { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
           { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
           { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
-          { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' }
+          { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' },
+          { id: 'impact', name: t('templates.impact.name'), category: 'executive' },
+          { id: 'clean', name: t('templates.clean.name'), category: 'professional' },
+          { id: 'contemporary', name: t('templates.contemporary.name'), category: 'modern' },
+          { id: 'executive', name: t('templates.executive.name'), category: 'executive' },
+          { id: 'elegant', name: t('templates.elegant.name'), category: 'creative' },
+          { id: 'simple', name: t('templates.simple.name'), category: 'minimal' }
         ]
         setTemplates(mockTemplates)
-        setSelectedTemplate('modern')
+        setSelectedTemplate(templateId || 'modern')
       }
     } catch (error) {
       // 使用模拟数据作为后备
@@ -75,10 +86,16 @@ export default function BuilderPage() {
         { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
         { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
         { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
-        { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' }
+        { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' },
+        { id: 'impact', name: t('templates.impact.name'), category: 'executive' },
+        { id: 'clean', name: t('templates.clean.name'), category: 'professional' },
+        { id: 'contemporary', name: t('templates.contemporary.name'), category: 'modern' },
+        { id: 'executive', name: t('templates.executive.name'), category: 'executive' },
+        { id: 'elegant', name: t('templates.elegant.name'), category: 'creative' },
+        { id: 'simple', name: t('templates.simple.name'), category: 'minimal' }
       ]
       setTemplates(mockTemplates)
-      setSelectedTemplate('modern')
+      setSelectedTemplate(templateId || 'modern')
     }
   }
 
