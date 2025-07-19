@@ -110,65 +110,65 @@ export function TemplatePreview({ templateId, className = '' }: TemplatePreviewP
 // Impact Template - 强调成就和影响力
 function ImpactTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans bg-gradient-to-br from-blue-900 to-purple-900 text-white">
+    <div className="p-4 font-sans bg-gradient-to-br from-blue-900 to-purple-900 text-white">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold mb-2 text-yellow-400">
+      <div className="text-center mb-4">
+        <h1 className="text-xl font-bold mb-1 text-yellow-400">
           {data.personal.name}
         </h1>
-        <p className="text-xl font-medium mb-4 text-blue-200">
+        <p className="text-base font-medium mb-2 text-blue-200">
           {data.personal.title}
         </p>
-        <div className="flex justify-center space-x-4 text-sm text-gray-300">
-          <span>{data.personal.email}</span>
+        <div className="flex justify-center space-x-2 text-xs text-gray-300">
+          <span className="truncate">{data.personal.email}</span>
           <span>•</span>
-          <span>{data.personal.phone}</span>
+          <span className="truncate">{data.personal.phone}</span>
           <span>•</span>
-          <span>{data.personal.location}</span>
+          <span className="truncate">{data.personal.location}</span>
         </div>
       </div>
 
       {/* Key Achievements */}
-      <div className="mb-6 bg-white/10 p-4 rounded-lg">
-        <h2 className="text-lg font-bold mb-3 text-yellow-400">KEY ACHIEVEMENTS</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+      <div className="mb-4 bg-white/10 p-3 rounded-lg">
+        <h2 className="text-base font-bold mb-2 text-yellow-400">KEY ACHIEVEMENTS</h2>
+        <div className="grid grid-cols-1 gap-2 text-xs">
           <div className="flex items-center">
-            <span className="text-yellow-400 font-bold mr-2">↑</span>
+            <span className="text-yellow-400 font-bold mr-1">↑</span>
             <span>Increased user engagement by 40%</span>
           </div>
           <div className="flex items-center">
-            <span className="text-yellow-400 font-bold mr-2">↓</span>
+            <span className="text-yellow-400 font-bold mr-1">↓</span>
             <span>Reduced customer churn by 25%</span>
           </div>
           <div className="flex items-center">
-            <span className="text-yellow-400 font-bold mr-2">$</span>
+            <span className="text-yellow-400 font-bold mr-1">$</span>
             <span>Generated $2M in additional revenue</span>
           </div>
           <div className="flex items-center">
-            <span className="text-yellow-400 font-bold mr-2">👥</span>
+            <span className="text-yellow-400 font-bold mr-1">👥</span>
             <span>Led team of 12 engineers</span>
           </div>
         </div>
       </div>
 
       {/* Experience */}
-      <div className="mb-6">
-        <h2 className="text-lg font-bold mb-4 text-yellow-400 border-b border-yellow-400 pb-1">
+      <div className="mb-4">
+        <h2 className="text-base font-bold mb-3 text-yellow-400 border-b border-yellow-400 pb-1">
           PROFESSIONAL EXPERIENCE
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
-            <div key={index} className="bg-white/5 p-4 rounded-lg">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-bold text-lg">{exp.title}</h3>
-                <span className="text-sm text-gray-300">{exp.period}</span>
+            <div key={index} className="bg-white/5 p-3 rounded-lg">
+              <div className="flex justify-between items-start mb-1">
+                <h3 className="font-bold text-sm">{exp.title}</h3>
+                <span className="text-xs text-gray-300">{exp.period}</span>
               </div>
-              <p className="text-blue-200 font-medium mb-3">{exp.company} | {exp.location}</p>
-              <ul className="space-y-1 text-sm">
-                {exp.achievements.map((achievement: string, idx: number) => (
+              <p className="text-blue-200 font-medium mb-2 text-xs">{exp.company} | {exp.location}</p>
+              <ul className="space-y-1 text-xs">
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-yellow-400 mr-2">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-yellow-400 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -179,12 +179,12 @@ function ImpactTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       <div>
-        <h2 className="text-lg font-bold mb-3 text-yellow-400">CORE COMPETENCIES</h2>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.technical.map((skill: string, index: number) => (
+        <h2 className="text-base font-bold mb-2 text-yellow-400">CORE COMPETENCIES</h2>
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
             <span
               key={index}
-              className="bg-yellow-400 text-blue-900 text-xs px-3 py-1 rounded-full font-medium"
+              className="bg-yellow-400 text-blue-900 text-xs px-2 py-1 rounded-full font-medium"
             >
               {skill}
             </span>
@@ -198,46 +198,46 @@ function ImpactTemplate({ data }: { data: any }) {
 // Clean Template - 简洁清晰
 function CleanTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans">
+    <div className="p-4 font-sans">
       {/* Header */}
-      <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+      <div className="text-center mb-4 border-b-2 border-gray-300 pb-3">
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-xl text-gray-600 mb-4">
+        <p className="text-base text-gray-600 mb-2">
           {data.personal.title}
         </p>
-        <div className="text-sm text-gray-500 space-y-1">
-          <p>{data.personal.email}</p>
-          <p>{data.personal.phone}</p>
-          <p>{data.personal.location}</p>
+        <div className="text-xs text-gray-500 space-y-1">
+          <p className="truncate">{data.personal.email}</p>
+          <p className="truncate">{data.personal.phone}</p>
+          <p className="truncate">{data.personal.location}</p>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">PROFESSIONAL SUMMARY</h2>
-        <p className="text-gray-700 text-sm leading-relaxed">
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-2">PROFESSIONAL SUMMARY</h2>
+        <p className="text-gray-700 text-xs leading-relaxed">
           {data.summary}
         </p>
       </div>
 
       {/* Experience */}
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">WORK EXPERIENCE</h2>
-        <div className="space-y-4">
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-3">WORK EXPERIENCE</h2>
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
             <div key={index}>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-semibold text-gray-900">{exp.title}</h3>
-                <span className="text-sm text-gray-500">{exp.period}</span>
+              <div className="flex justify-between items-start mb-1">
+                <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                <span className="text-xs text-gray-500">{exp.period}</span>
               </div>
-              <p className="text-gray-600 font-medium mb-2">{exp.company} | {exp.location}</p>
-              <ul className="space-y-1 text-sm text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+              <p className="text-gray-600 font-medium mb-1 text-xs">{exp.company} | {exp.location}</p>
+              <ul className="space-y-1 text-xs text-gray-700">
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-gray-500 mr-2">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-gray-500 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -247,17 +247,17 @@ function CleanTemplate({ data }: { data: any }) {
       </div>
 
       {/* Education */}
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">EDUCATION</h2>
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-2">EDUCATION</h2>
         <div className="space-y-2">
           {data.education.map((edu: any, index: number) => (
             <div key={index}>
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
-                  <p className="text-gray-600">{edu.school}</p>
+                  <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                  <p className="text-gray-600 text-xs">{edu.school}</p>
                 </div>
-                <span className="text-sm text-gray-500">{edu.period}</span>
+                <span className="text-xs text-gray-500">{edu.period}</span>
               </div>
             </div>
           ))}
@@ -266,12 +266,12 @@ function CleanTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-3">SKILLS</h2>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.technical.map((skill: string, index: number) => (
+        <h2 className="text-base font-semibold text-gray-900 mb-2">SKILLS</h2>
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
             <span
               key={index}
-              className="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded"
+              className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded"
             >
               {skill}
             </span>
@@ -285,71 +285,71 @@ function CleanTemplate({ data }: { data: any }) {
 // Contemporary Template - 现代风格
 function ContemporaryTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans">
+    <div className="p-4 font-sans">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg mb-6">
-        <h1 className="text-2xl font-bold mb-1">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-lg mb-4">
+        <h1 className="text-xl font-bold mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-lg opacity-90 mb-3">
+        <p className="text-base opacity-90 mb-2">
           {data.personal.title}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm opacity-80">
+        <div className="grid grid-cols-2 gap-2 text-xs opacity-80">
           <div className="flex items-center">
-            <span className="mr-2">📧</span>
-            {data.personal.email}
+            <span className="mr-1">📧</span>
+            <span className="truncate">{data.personal.email}</span>
           </div>
           <div className="flex items-center">
-            <span className="mr-2">📱</span>
-            {data.personal.phone}
+            <span className="mr-1">📱</span>
+            <span className="truncate">{data.personal.phone}</span>
           </div>
           <div className="flex items-center">
-            <span className="mr-2">📍</span>
-            {data.personal.location}
+            <span className="mr-1">📍</span>
+            <span className="truncate">{data.personal.location}</span>
           </div>
           <div className="flex items-center">
-            <span className="mr-2">🔗</span>
-            {data.personal.linkedin}
+            <span className="mr-1">🔗</span>
+            <span className="truncate">{data.personal.linkedin}</span>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-4">
           {/* Summary */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-8 h-1 bg-blue-600 rounded mr-3"></span>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
               Professional Summary
             </h2>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-700 text-xs leading-relaxed">
               {data.summary}
             </p>
           </div>
 
           {/* Experience */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-              <span className="w-8 h-1 bg-blue-600 rounded mr-3"></span>
+            <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center">
+              <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
               Work Experience
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {data.experience.map((exp: any, index: number) => (
-                <div key={index} className="relative pl-6 border-l-2 border-blue-200">
-                  <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-1.5 top-2"></div>
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="font-semibold text-gray-900">{exp.title}</h3>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                <div key={index} className="relative pl-4 border-l-2 border-blue-200">
+                  <div className="absolute w-2 h-2 bg-blue-600 rounded-full -left-1 top-1"></div>
+                  <div className="flex justify-between items-start mb-1">
+                    <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-blue-600 font-medium mb-2">{exp.company} | {exp.location}</p>
-                  <ul className="space-y-1 text-sm text-gray-700">
-                    {exp.achievements.map((achievement: string, idx: number) => (
+                  <p className="text-blue-600 text-xs font-medium mb-1">{exp.company} | {exp.location}</p>
+                  <ul className="space-y-1 text-xs text-gray-700">
+                    {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                       <li key={idx} className="flex items-start">
-                        <span className="text-blue-600 mr-2">•</span>
-                        <span>{achievement}</span>
+                        <span className="text-blue-600 mr-1">•</span>
+                        <span className="text-xs">{achievement}</span>
                       </li>
                     ))}
                   </ul>
@@ -360,15 +360,15 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Skills */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-8 h-1 bg-purple-600 rounded mr-3"></span>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
               Technical Skills
             </h2>
-            <div className="flex flex-wrap gap-2">
-              {data.skills.technical.map((skill: string, index: number) => (
+            <div className="flex flex-wrap gap-1">
+              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
                 <span
                   key={index}
                   className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
@@ -381,15 +381,15 @@ function ContemporaryTemplate({ data }: { data: any }) {
 
           {/* Education */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-8 h-1 bg-green-600 rounded mr-3"></span>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-green-600 rounded mr-2"></span>
               Education
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {data.education.map((edu: any, index: number) => (
                 <div key={index}>
-                  <h3 className="font-semibold text-gray-900 text-sm">{edu.degree}</h3>
-                  <p className="text-gray-600 text-sm">{edu.school}</p>
+                  <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                  <p className="text-gray-600 text-xs">{edu.school}</p>
                   <p className="text-gray-500 text-xs">{edu.period}</p>
                 </div>
               ))}
@@ -398,13 +398,13 @@ function ContemporaryTemplate({ data }: { data: any }) {
 
           {/* Certifications */}
           <div>
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-8 h-1 bg-orange-600 rounded mr-3"></span>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
               Certifications
             </h2>
-            <div className="space-y-2">
-              {data.certifications.map((cert: string, index: number) => (
-                <p key={index} className="text-sm text-gray-700">• {cert}</p>
+            <div className="space-y-1">
+              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {cert}</p>
               ))}
             </div>
           </div>
@@ -417,48 +417,48 @@ function ContemporaryTemplate({ data }: { data: any }) {
 // Executive Template - 高管风格
 function ExecutiveTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-serif bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="p-4 font-serif bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
-      <div className="text-center mb-8 border-b-4 border-gray-800 pb-6">
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">
+      <div className="text-center mb-4 border-b-4 border-gray-800 pb-3">
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-2xl text-gray-700 mb-4 font-medium">
+        <p className="text-base text-gray-700 mb-2 font-medium">
           {data.personal.title}
         </p>
-        <div className="text-sm text-gray-600 space-y-1">
-          <p>{data.personal.email} | {data.personal.phone}</p>
-          <p>{data.personal.location} | {data.personal.linkedin}</p>
+        <div className="text-xs text-gray-600 space-y-1">
+          <p className="truncate">{data.personal.email} | {data.personal.phone}</p>
+          <p className="truncate">{data.personal.location} | {data.personal.linkedin}</p>
         </div>
       </div>
 
       {/* Executive Summary */}
-      <div className="mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4 border-b-2 border-gray-800 pb-2">
+      <div className="mb-4">
+        <h2 className="text-base font-bold text-gray-900 mb-2 border-b-2 border-gray-800 pb-1">
           EXECUTIVE SUMMARY
         </h2>
-        <p className="text-gray-700 text-base leading-relaxed">
+        <p className="text-gray-700 text-xs leading-relaxed">
           {data.summary}
         </p>
       </div>
 
       {/* Core Competencies */}
-      <div className="mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4 border-b-2 border-gray-800 pb-2">
+      <div className="mb-4">
+        <h2 className="text-base font-bold text-gray-900 mb-2 border-b-2 border-gray-800 pb-1">
           CORE COMPETENCIES
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">Strategic Leadership</h3>
-            <ul className="text-sm text-gray-700 space-y-1">
+            <h3 className="font-semibold text-gray-800 mb-1 text-xs">Strategic Leadership</h3>
+            <ul className="text-xs text-gray-700 space-y-1">
               <li>• Cross-functional team management</li>
               <li>• Strategic planning and execution</li>
               <li>• Stakeholder relationship building</li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-800 mb-2">Business Acumen</h3>
-            <ul className="text-sm text-gray-700 space-y-1">
+            <h3 className="font-semibold text-gray-800 mb-1 text-xs">Business Acumen</h3>
+            <ul className="text-xs text-gray-700 space-y-1">
               <li>• Revenue growth and optimization</li>
               <li>• Market analysis and strategy</li>
               <li>• Performance metrics and KPIs</li>
@@ -468,26 +468,26 @@ function ExecutiveTemplate({ data }: { data: any }) {
       </div>
 
       {/* Professional Experience */}
-      <div className="mb-8">
-        <h2 className="text-xl font-bold text-gray-900 mb-4 border-b-2 border-gray-800 pb-2">
+      <div className="mb-4">
+        <h2 className="text-base font-bold text-gray-900 mb-2 border-b-2 border-gray-800 pb-1">
           PROFESSIONAL EXPERIENCE
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
             <div key={index}>
-              <div className="flex justify-between items-start mb-3">
+              <div className="flex justify-between items-start mb-1">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">{exp.title}</h3>
-                  <p className="text-lg font-semibold text-gray-700">{exp.company}</p>
-                  <p className="text-gray-600">{exp.location}</p>
+                  <h3 className="text-sm font-bold text-gray-900">{exp.title}</h3>
+                  <p className="text-sm font-semibold text-gray-700">{exp.company}</p>
+                  <p className="text-gray-600 text-xs">{exp.location}</p>
                 </div>
-                <span className="text-sm text-gray-500 font-medium">{exp.period}</span>
+                <span className="text-xs text-gray-500">{exp.period}</span>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+              <ul className="space-y-1 text-xs text-gray-700">
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-gray-800 mr-2 font-bold">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-gray-500 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -497,17 +497,34 @@ function ExecutiveTemplate({ data }: { data: any }) {
       </div>
 
       {/* Education & Credentials */}
-      <div>
-        <h2 className="text-xl font-bold text-gray-900 mb-4 border-b-2 border-gray-800 pb-2">
+      <div className="mb-4">
+        <h2 className="text-base font-bold text-gray-900 mb-2 border-b-2 border-gray-800 pb-1">
           EDUCATION & CREDENTIALS
         </h2>
-        <div className="space-y-3">
+        <div className="space-y-2">
           {data.education.map((edu: any, index: number) => (
             <div key={index}>
-              <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
-              <p className="text-gray-700">{edu.school}</p>
-              <p className="text-gray-600 text-sm">{edu.period} | GPA: {edu.gpa}</p>
+              <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+              <p className="text-gray-700 text-xs">{edu.school}</p>
+              <p className="text-gray-600 text-xs">{edu.period} | GPA: {edu.gpa}</p>
             </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Skills */}
+      <div>
+        <h2 className="text-base font-bold text-gray-900 mb-2 border-b-2 border-gray-800 pb-1">
+          CORE COMPETENCIES
+        </h2>
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
+            <span
+              key={index}
+              className="px-2 py-1 bg-gray-800 text-white rounded text-xs"
+            >
+              {skill}
+            </span>
           ))}
         </div>
       </div>
@@ -518,53 +535,53 @@ function ExecutiveTemplate({ data }: { data: any }) {
 // Elegant Template - 优雅精致
 function ElegantTemplate({ data }: { data: any }) {
   return (
-    <div className="p-8 font-serif bg-white">
+    <div className="p-4 font-serif bg-white">
       {/* Header */}
-      <div className="text-center mb-10 border-b-2 border-gray-300 pb-8">
-        <h1 className="text-4xl font-light text-gray-900 mb-3 tracking-wide">
+      <div className="text-center mb-4 border-b-2 border-gray-300 pb-3">
+        <h1 className="text-xl font-light text-gray-900 mb-1 tracking-wide">
           {data.personal.name}
         </h1>
-        <p className="text-xl text-gray-600 mb-6 font-medium">
+        <p className="text-base text-gray-600 mb-2 font-medium">
           {data.personal.title}
         </p>
-        <div className="text-sm text-gray-500 space-y-1">
-          <p>{data.personal.email}</p>
-          <p>{data.personal.phone} | {data.personal.location}</p>
-          <p>{data.personal.linkedin}</p>
+        <div className="text-xs text-gray-500 space-y-1">
+          <p className="truncate">{data.personal.email}</p>
+          <p className="truncate">{data.personal.phone} | {data.personal.location}</p>
+          <p className="truncate">{data.personal.linkedin}</p>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4 uppercase tracking-wide">
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-2 uppercase tracking-wide">
           Professional Summary
         </h2>
-        <p className="text-gray-700 text-sm leading-relaxed italic">
+        <p className="text-gray-700 text-xs leading-relaxed italic">
           {data.summary}
         </p>
       </div>
 
       {/* Experience */}
-      <div className="mb-8">
-        <h2 className="text-lg font-semibold text-gray-900 mb-6 uppercase tracking-wide">
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-2 uppercase tracking-wide">
           Professional Experience
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
-            <div key={index} className="border-l-4 border-gray-300 pl-6">
-              <div className="flex justify-between items-start mb-3">
+            <div key={index} className="border-l-4 border-gray-300 pl-4">
+              <div className="flex justify-between items-start mb-1">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{exp.title}</h3>
-                  <p className="text-gray-600 font-medium">{exp.company}</p>
-                  <p className="text-gray-500 text-sm">{exp.location}</p>
+                  <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                  <p className="text-gray-600 text-xs font-medium">{exp.company}</p>
+                  <p className="text-gray-500 text-xs">{exp.location}</p>
                 </div>
-                <span className="text-sm text-gray-500 italic">{exp.period}</span>
+                <span className="text-xs text-gray-500 italic">{exp.period}</span>
               </div>
-              <ul className="space-y-2 text-sm text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+              <ul className="space-y-1 text-xs text-gray-700">
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-gray-400 mr-3">◦</span>
-                    <span>{achievement}</span>
+                    <span className="text-gray-400 mr-2">◦</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -574,19 +591,19 @@ function ElegantTemplate({ data }: { data: any }) {
       </div>
 
       {/* Skills & Education */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4 uppercase tracking-wide">
+          <h2 className="text-base font-semibold text-gray-900 mb-2 uppercase tracking-wide">
             Core Competencies
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2">
             <div>
-              <h3 className="font-medium text-gray-800 mb-2">Technical Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {data.skills.technical.map((skill: string, index: number) => (
+              <h3 className="font-medium text-gray-800 mb-1 text-xs">Technical Skills</h3>
+              <div className="flex flex-wrap gap-1">
+                {data.skills.technical.slice(0, 3).map((skill: string, index: number) => (
                   <span
                     key={index}
-                    className="text-gray-700 text-xs border border-gray-300 px-3 py-1 rounded-full"
+                    className="text-gray-700 text-xs border border-gray-300 px-2 py-1 rounded-full"
                   >
                     {skill}
                   </span>
@@ -594,12 +611,12 @@ function ElegantTemplate({ data }: { data: any }) {
               </div>
             </div>
             <div>
-              <h3 className="font-medium text-gray-800 mb-2">Leadership Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {data.skills.soft.map((skill: string, index: number) => (
+              <h3 className="font-medium text-gray-800 mb-1 text-xs">Leadership Skills</h3>
+              <div className="flex flex-wrap gap-1">
+                {data.skills.soft.slice(0, 3).map((skill: string, index: number) => (
                   <span
                     key={index}
-                    className="text-gray-700 text-xs border border-gray-300 px-3 py-1 rounded-full"
+                    className="text-gray-700 text-xs border border-gray-300 px-2 py-1 rounded-full"
                   >
                     {skill}
                   </span>
@@ -610,15 +627,15 @@ function ElegantTemplate({ data }: { data: any }) {
         </div>
 
         <div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-4 uppercase tracking-wide">
+          <h2 className="text-base font-semibold text-gray-900 mb-2 uppercase tracking-wide">
             Education
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-2">
             {data.education.map((edu: any, index: number) => (
               <div key={index}>
-                <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
-                <p className="text-gray-600">{edu.school}</p>
-                <p className="text-gray-500 text-sm">{edu.period}</p>
+                <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                <p className="text-gray-600 text-xs">{edu.school}</p>
+                <p className="text-gray-500 text-xs">{edu.period}</p>
               </div>
             ))}
           </div>
@@ -631,46 +648,46 @@ function ElegantTemplate({ data }: { data: any }) {
 // Simple Template - 极简设计
 function SimpleTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans">
+    <div className="p-4 font-sans">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+      <div className="text-center mb-4">
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-lg text-gray-600 mb-4">
+        <p className="text-base text-gray-600 mb-2">
           {data.personal.title}
         </p>
-        <div className="text-sm text-gray-500 space-y-1">
-          <p>{data.personal.email}</p>
-          <p>{data.personal.phone}</p>
-          <p>{data.personal.location}</p>
+        <div className="text-xs text-gray-500 space-y-1">
+          <p className="truncate">{data.personal.email}</p>
+          <p className="truncate">{data.personal.phone}</p>
+          <p className="truncate">{data.personal.location}</p>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="mb-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-3">Summary</h2>
-        <p className="text-gray-700 text-sm leading-relaxed">
+      <div className="mb-4">
+        <h2 className="text-base font-medium text-gray-900 mb-2">Summary</h2>
+        <p className="text-gray-700 text-xs leading-relaxed">
           {data.summary}
         </p>
       </div>
 
       {/* Experience */}
-      <div className="mb-6">
-        <h2 className="text-lg font-medium text-gray-900 mb-4">Experience</h2>
-        <div className="space-y-4">
+      <div className="mb-4">
+        <h2 className="text-base font-medium text-gray-900 mb-3">Experience</h2>
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
             <div key={index}>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-medium text-gray-900">{exp.title}</h3>
+              <div className="flex justify-between items-start mb-1">
+                <h3 className="font-medium text-gray-900 text-xs">{exp.title}</h3>
                 <span className="text-xs text-gray-500">{exp.period}</span>
               </div>
-              <p className="text-gray-600 text-sm mb-2">{exp.company}</p>
-              <ul className="space-y-1 text-sm text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+              <p className="text-gray-600 text-xs mb-1">{exp.company}</p>
+              <ul className="space-y-1 text-xs text-gray-700">
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-gray-500 mr-2">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-gray-500 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -681,12 +698,12 @@ function SimpleTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       <div>
-        <h2 className="text-lg font-medium text-gray-900 mb-3">Skills</h2>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.technical.map((skill: string, index: number) => (
+        <h2 className="text-base font-medium text-gray-900 mb-2">Skills</h2>
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
             <span
               key={index}
-              className="text-gray-700 text-xs border border-gray-300 px-2 py-1 rounded"
+              className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
             >
               {skill}
             </span>
@@ -700,54 +717,54 @@ function SimpleTemplate({ data }: { data: any }) {
 // 现代模板 - 改进版
 function ModernTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans">
+    <div className="p-4 font-sans">
       {/* Header */}
-      <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">
+      <div className="text-center mb-4">
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-lg text-blue-600 font-medium mb-2">
+        <p className="text-base text-blue-600 font-medium mb-1">
           {data.personal.title}
         </p>
-        <div className="flex justify-center space-x-4 text-sm text-gray-600">
-          <span>{data.personal.email}</span>
+        <div className="flex justify-center space-x-2 text-xs text-gray-600">
+          <span className="truncate">{data.personal.email}</span>
           <span>•</span>
-          <span>{data.personal.phone}</span>
+          <span className="truncate">{data.personal.phone}</span>
           <span>•</span>
-          <span>{data.personal.location}</span>
+          <span className="truncate">{data.personal.location}</span>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-2 border-b-2 border-blue-600 pb-1">
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-2 border-b-2 border-blue-600 pb-1">
           Professional Summary
         </h2>
-        <p className="text-gray-700 text-sm leading-relaxed">
+        <p className="text-gray-700 text-xs leading-relaxed">
           {data.summary}
         </p>
       </div>
 
       {/* Experience */}
-      <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-3 border-b-2 border-blue-600 pb-1">
+      <div className="mb-4">
+        <h2 className="text-base font-semibold text-gray-900 mb-2 border-b-2 border-blue-600 pb-1">
           Work Experience
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
             <div key={index}>
               <div className="flex justify-between items-start mb-1">
-                <h3 className="font-semibold text-gray-900 text-sm">{exp.title}</h3>
-                <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-blue-600 text-sm font-medium mb-1">{exp.company}</p>
+              <p className="text-blue-600 text-xs font-medium mb-1">{exp.company}</p>
               <ul className="space-y-1 text-xs text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-blue-600 mr-2">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-blue-600 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -758,11 +775,11 @@ function ModernTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-900 mb-2 border-b-2 border-blue-600 pb-1">
+        <h2 className="text-base font-semibold text-gray-900 mb-2 border-b-2 border-blue-600 pb-1">
           Skills
         </h2>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.technical.map((skill: string, index: number) => (
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
             <span
               key={index}
               className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
@@ -779,46 +796,46 @@ function ModernTemplate({ data }: { data: any }) {
 // 经典模板 - 改进版
 function ClassicTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-serif">
+    <div className="p-4 font-serif">
       {/* Header */}
-      <div className="text-center mb-6 border-b-2 border-gray-300 pb-4">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
+      <div className="text-center mb-4 border-b-2 border-gray-300 pb-3">
+        <h1 className="text-xl font-bold text-gray-900 mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-xl text-gray-600 mb-2">
+        <p className="text-base text-gray-600 mb-2">
           {data.personal.title}
         </p>
-        <div className="text-sm text-gray-500 space-y-1">
-          <p>{data.personal.email}</p>
-          <p>{data.personal.phone}</p>
-          <p>{data.personal.location}</p>
+        <div className="text-xs text-gray-500 space-y-1">
+          <p className="truncate">{data.personal.email}</p>
+          <p className="truncate">{data.personal.phone}</p>
+          <p className="truncate">{data.personal.location}</p>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Professional Summary</h2>
-        <p className="text-gray-700 text-sm leading-relaxed">
+      <div className="mb-4">
+        <h2 className="text-base font-bold text-gray-900 mb-2">Professional Summary</h2>
+        <p className="text-gray-700 text-xs leading-relaxed">
           {data.summary}
         </p>
       </div>
 
       {/* Experience */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Work Experience</h2>
-        <div className="space-y-4">
+      <div className="mb-4">
+        <h2 className="text-base font-bold text-gray-900 mb-2">Work Experience</h2>
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
             <div key={index}>
               <div className="flex justify-between items-start mb-1">
-                <h3 className="font-semibold text-gray-900 text-sm">{exp.title}</h3>
+                <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
                 <span className="text-xs text-gray-500">{exp.period}</span>
               </div>
-              <p className="text-gray-600 text-sm font-medium mb-1">{exp.company}</p>
+              <p className="text-gray-600 text-xs font-medium mb-1">{exp.company}</p>
               <ul className="space-y-1 text-xs text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-gray-500 mr-2">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-gray-500 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -829,9 +846,9 @@ function ClassicTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       <div>
-        <h2 className="text-xl font-bold text-gray-900 mb-3">Skills</h2>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.technical.map((skill: string, index: number) => (
+        <h2 className="text-base font-bold text-gray-900 mb-2">Skills</h2>
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
             <span
               key={index}
               className="bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded"
@@ -848,67 +865,71 @@ function ClassicTemplate({ data }: { data: any }) {
 // 创意模板 - 改进版
 function CreativeTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div className="p-4 font-sans bg-gradient-to-br from-blue-50 to-indigo-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-lg mb-6">
-        <h1 className="text-2xl font-bold mb-1">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-lg mb-4">
+        <h1 className="text-lg font-bold mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-lg opacity-90 mb-2">
+        <p className="text-sm opacity-90 mb-2">
           {data.personal.title}
         </p>
-        <div className="grid grid-cols-1 gap-1 text-sm opacity-80">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-xs opacity-80">
           <div className="flex items-center">
-            <span className="mr-2">📧</span>
-            {data.personal.email}
+            <span className="mr-1">📧</span>
+            <span className="truncate">{data.personal.email}</span>
           </div>
           <div className="flex items-center">
-            <span className="mr-2">📱</span>
-            {data.personal.phone}
+            <span className="mr-1">📱</span>
+            <span className="truncate">{data.personal.phone}</span>
           </div>
           <div className="flex items-center">
-            <span className="mr-2">📍</span>
-            {data.personal.location}
+            <span className="mr-1">📍</span>
+            <span className="truncate">{data.personal.location}</span>
+          </div>
+          <div className="flex items-center">
+            <span className="mr-1">🔗</span>
+            <span className="truncate">{data.personal.linkedin}</span>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-3">
           {/* Summary */}
-          <div className="bg-white p-4 rounded-lg shadow-sm">
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-4 h-1 bg-blue-600 rounded mr-2"></span>
               Summary
             </h2>
-            <p className="text-gray-700 text-sm leading-relaxed">
+            <p className="text-gray-700 text-xs leading-relaxed">
               {data.summary}
             </p>
           </div>
 
           {/* Experience */}
-          <div className="bg-white p-4 rounded-lg shadow-sm">
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-4 h-1 bg-blue-600 rounded mr-2"></span>
               Experience
             </h2>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {data.experience.map((exp: any, index: number) => (
-                <div key={index} className="relative pl-4 border-l-2 border-blue-200">
-                  <div className="absolute w-2 h-2 bg-blue-600 rounded-full -left-1 top-2"></div>
+                <div key={index} className="relative pl-3 border-l-2 border-blue-200">
+                  <div className="absolute w-1.5 h-1.5 bg-blue-600 rounded-full -left-0.5 top-1"></div>
                   <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-semibold text-gray-900 text-sm">{exp.title}</h3>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                    <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-blue-600 text-sm font-medium mb-1">{exp.company}</p>
+                  <p className="text-blue-600 text-xs font-medium mb-1">{exp.company}</p>
                   <ul className="space-y-1 text-xs text-gray-700">
-                    {exp.achievements.map((achievement: string, idx: number) => (
+                    {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                       <li key={idx} className="flex items-start">
-                        <span className="text-blue-600 mr-2">•</span>
-                        <span>{achievement}</span>
+                        <span className="text-blue-600 mr-1">•</span>
+                        <span className="text-xs">{achievement}</span>
                       </li>
                     ))}
                   </ul>
@@ -919,21 +940,51 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Skills */}
-          <div className="bg-white p-4 rounded-lg shadow-sm">
-            <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-4 h-1 bg-purple-600 rounded mr-2"></span>
               Skills
             </h2>
-            <div className="flex flex-wrap gap-2">
-              {data.skills.technical.map((skill: string, index: number) => (
+            <div className="flex flex-wrap gap-1">
+              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
                 <span
                   key={index}
                   className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
                 >
                   {skill}
                 </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Education */}
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-4 h-1 bg-green-600 rounded mr-2"></span>
+              Education
+            </h2>
+            <div className="space-y-2">
+              {data.education.map((edu: any, index: number) => (
+                <div key={index}>
+                  <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                  <p className="text-gray-600 text-xs">{edu.school}</p>
+                  <p className="text-gray-500 text-xs">{edu.period}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Certifications */}
+          <div className="bg-white p-3 rounded-lg shadow-sm">
+            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-4 h-1 bg-orange-600 rounded mr-2"></span>
+              Certifications
+            </h2>
+            <div className="space-y-1">
+              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {cert}</p>
               ))}
             </div>
           </div>
@@ -946,46 +997,46 @@ function CreativeTemplate({ data }: { data: any }) {
 // 简约模板 - 改进版
 function MinimalTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans">
+    <div className="p-4 font-sans">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-light text-gray-900 mb-2">
+      <div className="text-center mb-4">
+        <h1 className="text-xl font-light text-gray-900 mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-lg text-gray-600 mb-4">
+        <p className="text-base text-gray-600 mb-2">
           {data.personal.title}
         </p>
-        <div className="text-sm text-gray-500 space-y-1">
-          <p>{data.personal.email}</p>
-          <p>{data.personal.phone}</p>
-          <p>{data.personal.location}</p>
+        <div className="text-xs text-gray-500 space-y-1">
+          <p className="truncate">{data.personal.email}</p>
+          <p className="truncate">{data.personal.phone}</p>
+          <p className="truncate">{data.personal.location}</p>
         </div>
       </div>
 
       {/* Summary */}
-      <div className="mb-8">
-        <h2 className="text-lg font-medium text-gray-900 mb-3">Summary</h2>
-        <p className="text-gray-700 text-sm leading-relaxed">
+      <div className="mb-4">
+        <h2 className="text-base font-medium text-gray-900 mb-2">Summary</h2>
+        <p className="text-gray-700 text-xs leading-relaxed">
           {data.summary}
         </p>
       </div>
 
       {/* Experience */}
-      <div className="mb-8">
-        <h2 className="text-lg font-medium text-gray-900 mb-4">Experience</h2>
-        <div className="space-y-6">
+      <div className="mb-4">
+        <h2 className="text-base font-medium text-gray-900 mb-3">Experience</h2>
+        <div className="space-y-3">
           {data.experience.map((exp: any, index: number) => (
             <div key={index}>
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="font-medium text-gray-900 text-sm">{exp.title}</h3>
+              <div className="flex justify-between items-start mb-1">
+                <h3 className="font-medium text-gray-900 text-xs">{exp.title}</h3>
                 <span className="text-xs text-gray-500">{exp.period}</span>
               </div>
-              <p className="text-gray-600 text-sm mb-2">{exp.company}</p>
+              <p className="text-gray-600 text-xs mb-1">{exp.company}</p>
               <ul className="space-y-1 text-xs text-gray-700">
-                {exp.achievements.map((achievement: string, idx: number) => (
+                {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                   <li key={idx} className="flex items-start">
-                    <span className="text-gray-500 mr-2">•</span>
-                    <span>{achievement}</span>
+                    <span className="text-gray-500 mr-1">•</span>
+                    <span className="text-xs">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -996,9 +1047,9 @@ function MinimalTemplate({ data }: { data: any }) {
 
       {/* Skills */}
       <div>
-        <h2 className="text-lg font-medium text-gray-900 mb-3">Skills</h2>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.technical.map((skill: string, index: number) => (
+        <h2 className="text-base font-medium text-gray-900 mb-2">Skills</h2>
+        <div className="flex flex-wrap gap-1">
+          {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
             <span
               key={index}
               className="text-gray-700 text-xs border border-gray-300 px-2 py-1 rounded"
