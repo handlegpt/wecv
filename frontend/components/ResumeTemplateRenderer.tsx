@@ -76,6 +76,48 @@ function ModernTemplate({ data }: { data: any }) {
         </div>
       )}
 
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3 border-b-2 border-blue-600 pb-1">
+            Work Experience
+          </h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index} className="border-l-4 border-blue-600 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                  <span className="text-sm text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3 border-b-2 border-blue-600 pb-1">
+            Education
+          </h2>
+          <div className="space-y-4">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index} className="border-l-4 border-blue-600 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                  <span className="text-sm text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{edu.school}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Skills */}
       {data.content?.skills && data.content.skills.length > 0 && (
         <div className="mb-6">
@@ -124,6 +166,44 @@ function ClassicTemplate({ data }: { data: any }) {
           <p className="text-gray-700 leading-relaxed text-sm">
             {data.content.summary}
           </p>
+        </div>
+      )}
+
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Work Experience</h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index} className="border-l-4 border-gray-300 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                  <span className="text-sm text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Education</h2>
+          <div className="space-y-4">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index} className="border-l-4 border-gray-300 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                  <span className="text-sm text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{edu.school}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -182,38 +262,96 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* Summary */}
-      {data.content?.summary && (
-        <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-            <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
-            Professional Summary
-          </h2>
-          <p className="text-gray-700 leading-relaxed text-sm">
-            {data.content.summary}
-          </p>
-        </div>
-      )}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left Column */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Summary */}
+          {data.content?.summary && (
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
+                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+                Professional Summary
+              </h2>
+              <p className="text-gray-700 leading-relaxed text-sm">
+                {data.content.summary}
+              </p>
+            </div>
+          )}
 
-      {/* Skills */}
-      {data.content?.skills && data.content.skills.length > 0 && (
-        <div className="bg-white p-4 rounded-lg shadow-sm">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-            <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
-            Skills
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {data.content.skills.map((skill: string, index: number) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+          {/* Experience */}
+          {data.content?.experience && data.content.experience.length > 0 && (
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+                Work Experience
+              </h2>
+              <div className="space-y-4">
+                {data.content.experience.map((exp: any, index: number) => (
+                  <div key={index} className="relative pl-6 border-l-2 border-blue-200">
+                    <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-1.5 top-2"></div>
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                      <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                        {exp.period}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-2 font-medium">{exp.company}</p>
+                    <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Education */}
+          {data.content?.education && data.content.education.length > 0 && (
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+                Education
+              </h2>
+              <div className="space-y-4">
+                {data.content.education.map((edu: any, index: number) => (
+                  <div key={index} className="relative pl-6 border-l-2 border-blue-200">
+                    <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-1.5 top-2"></div>
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                      <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                        {edu.period}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 mb-2 font-medium">{edu.school}</p>
+                    <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      )}
+
+        {/* Right Column */}
+        <div className="lg:col-span-1">
+          {/* Skills */}
+          {data.content?.skills && data.content.skills.length > 0 && (
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
+                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+                Skills
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {data.content.skills.map((skill: string, index: number) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
@@ -246,6 +384,48 @@ function MinimalTemplate({ data }: { data: any }) {
           <p className="text-gray-700 text-sm leading-relaxed">
             {data.content.summary}
           </p>
+        </div>
+      )}
+
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-sm font-semibold text-gray-900 mb-2 uppercase tracking-wide">
+            Experience
+          </h2>
+          <div className="space-y-3">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index}>
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-semibold text-gray-900 text-sm">{exp.title}</h3>
+                  <span className="text-xs text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 text-xs mb-1">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-xs leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-sm font-semibold text-gray-900 mb-2 uppercase tracking-wide">
+            Education
+          </h2>
+          <div className="space-y-3">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index}>
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-semibold text-gray-900 text-sm">{edu.degree}</h3>
+                  <span className="text-xs text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 text-xs mb-1">{edu.school}</p>
+                <p className="text-gray-700 text-xs leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -302,6 +482,48 @@ function ImpactTemplate({ data }: { data: any }) {
         </div>
       )}
 
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-bold mb-4 text-yellow-400 border-b border-yellow-400 pb-1">
+            PROFESSIONAL EXPERIENCE
+          </h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index} className="bg-white/5 p-4 rounded-lg">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold text-lg">{exp.title}</h3>
+                  <span className="text-sm text-gray-300">{exp.period}</span>
+                </div>
+                <p className="text-blue-200 font-medium mb-3">{exp.company} | {exp.location}</p>
+                <p className="text-gray-200 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-bold mb-4 text-yellow-400 border-b border-yellow-400 pb-1">
+            EDUCATION
+          </h2>
+          <div className="space-y-4">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index} className="bg-white/5 p-4 rounded-lg">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-bold text-lg">{edu.degree}</h3>
+                  <span className="text-sm text-gray-300">{edu.period}</span>
+                </div>
+                <p className="text-blue-200 font-medium mb-3">{edu.school}</p>
+                <p className="text-gray-200 text-sm leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Skills */}
       {data.content?.skills && data.content.skills.length > 0 && (
         <div>
@@ -348,6 +570,46 @@ function CleanTemplate({ data }: { data: any }) {
           <p className="text-gray-700 text-sm leading-relaxed">
             {data.content.summary}
           </p>
+        </div>
+      )}
+
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">WORK EXPERIENCE</h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index}>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                  <span className="text-sm text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 font-medium mb-2">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">EDUCATION</h2>
+          <div className="space-y-2">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index}>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                    <p className="text-gray-600">{edu.school}</p>
+                  </div>
+                  <span className="text-sm text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed mt-1">{edu.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -415,6 +677,44 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       )}
 
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Experience</h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index} className="border-l-4 border-blue-500 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                  <span className="text-sm text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Education</h2>
+          <div className="space-y-4">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index} className="border-l-4 border-green-500 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                  <span className="text-sm text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{edu.school}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Skills */}
       {data.content?.skills && data.content.skills.length > 0 && (
         <div>
@@ -461,6 +761,44 @@ function ExecutiveTemplate({ data }: { data: any }) {
           <p className="text-gray-700 leading-relaxed text-sm">
             {data.content.summary}
           </p>
+        </div>
+      )}
+
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">PROFESSIONAL EXPERIENCE</h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index} className="border-l-4 border-gray-800 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                  <span className="text-sm text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">EDUCATION</h2>
+          <div className="space-y-4">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index} className="border-l-4 border-gray-800 pl-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                  <span className="text-sm text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2">{edu.school}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -513,6 +851,44 @@ function ElegantTemplate({ data }: { data: any }) {
         </div>
       )}
 
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6 border-l-4 border-gray-300 pl-4">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Work Experience</h2>
+          <div className="space-y-4">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index} className="mb-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{exp.title}</h3>
+                  <span className="text-sm text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2 italic">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6 border-l-4 border-gray-300 pl-4">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Education</h2>
+          <div className="space-y-4">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index} className="mb-4">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
+                  <span className="text-sm text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 mb-2 italic">{edu.school}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Skills */}
       {data.content?.skills && data.content.skills.length > 0 && (
         <div className="border-l-4 border-gray-300 pl-4">
@@ -561,6 +937,48 @@ function SimpleTemplate({ data }: { data: any }) {
           <p className="text-gray-700 text-sm leading-relaxed">
             {data.content.summary}
           </p>
+        </div>
+      )}
+
+      {/* Experience */}
+      {data.content?.experience && data.content.experience.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-sm font-semibold text-gray-900 mb-2 uppercase tracking-wide">
+            Experience
+          </h2>
+          <div className="space-y-3">
+            {data.content.experience.map((exp: any, index: number) => (
+              <div key={index}>
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-semibold text-gray-900 text-sm">{exp.title}</h3>
+                  <span className="text-xs text-gray-500">{exp.period}</span>
+                </div>
+                <p className="text-gray-600 text-xs mb-1">{exp.company} | {exp.location}</p>
+                <p className="text-gray-700 text-xs leading-relaxed">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Education */}
+      {data.content?.education && data.content.education.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-sm font-semibold text-gray-900 mb-2 uppercase tracking-wide">
+            Education
+          </h2>
+          <div className="space-y-3">
+            {data.content.education.map((edu: any, index: number) => (
+              <div key={index}>
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-semibold text-gray-900 text-sm">{edu.degree}</h3>
+                  <span className="text-xs text-gray-500">{edu.period}</span>
+                </div>
+                <p className="text-gray-600 text-xs mb-1">{edu.school}</p>
+                <p className="text-gray-700 text-xs leading-relaxed">{edu.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

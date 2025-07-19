@@ -21,10 +21,21 @@ export default function BuilderPage() {
   const [resumeData, setResumeData] = useState({
     title: '',
     content: {
-      personal: { name: '', email: '', phone: '', location: '' },
+      personal: { name: '', email: '', phone: '', location: '', title: '' },
       summary: '',
-      experience: [],
-      education: [],
+      experience: [] as Array<{
+        title: string
+        company: string
+        location: string
+        period: string
+        description: string
+      }>,
+      education: [] as Array<{
+        degree: string
+        school: string
+        period: string
+        description: string
+      }>,
       skills: [] as string[]
     }
   })
@@ -152,6 +163,87 @@ export default function BuilderPage() {
     }
   }
 
+  const addExperience = () => {
+    setResumeData({
+      ...resumeData,
+      content: {
+        ...resumeData.content,
+        experience: [
+          ...resumeData.content.experience,
+          {
+            title: '',
+            company: '',
+            location: '',
+            period: '',
+            description: ''
+          }
+        ]
+      }
+    })
+  }
+
+  const removeExperience = (index: number) => {
+    setResumeData({
+      ...resumeData,
+      content: {
+        ...resumeData.content,
+        experience: resumeData.content.experience.filter((_, i) => i !== index)
+      }
+    })
+  }
+
+  const updateExperience = (index: number, field: string, value: string) => {
+    const updatedExperience = [...resumeData.content.experience]
+    updatedExperience[index] = { ...updatedExperience[index], [field]: value }
+    setResumeData({
+      ...resumeData,
+      content: {
+        ...resumeData.content,
+        experience: updatedExperience
+      }
+    })
+  }
+
+  const addEducation = () => {
+    setResumeData({
+      ...resumeData,
+      content: {
+        ...resumeData.content,
+        education: [
+          ...resumeData.content.education,
+          {
+            degree: '',
+            school: '',
+            period: '',
+            description: ''
+          }
+        ]
+      }
+    })
+  }
+
+  const removeEducation = (index: number) => {
+    setResumeData({
+      ...resumeData,
+      content: {
+        ...resumeData.content,
+        education: resumeData.content.education.filter((_, i) => i !== index)
+      }
+    })
+  }
+
+  const updateEducation = (index: number, field: string, value: string) => {
+    const updatedEducation = [...resumeData.content.education]
+    updatedEducation[index] = { ...updatedEducation[index], [field]: value }
+    setResumeData({
+      ...resumeData,
+      content: {
+        ...resumeData.content,
+        education: updatedEducation
+      }
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -268,6 +360,24 @@ export default function BuilderPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t('form.title', 'Professional Title')}
+                    </label>
+                    <input
+                      type="text"
+                      value={resumeData.content.personal.title}
+                      onChange={(e) => setResumeData({
+                        ...resumeData,
+                        content: { 
+                          ...resumeData.content, 
+                          personal: { ...resumeData.content.personal, title: e.target.value }
+                        }
+                      })}
+                      className="input-field"
+                      placeholder={t('form.title.placeholder', 'e.g., Software Engineer')}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       {t('form.email', 'Email')}
                     </label>
                     <input
@@ -361,6 +471,198 @@ export default function BuilderPage() {
                   rows={3}
                   placeholder={t('builder.skills.placeholder', 'Skill 1, Skill 2, Skill 3...')}
                 />
+              </div>
+
+              {/* Work Experience */}
+              <div className="mb-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-lg font-medium">{t('builder.experience', 'Work Experience')}</h3>
+                  <button
+                    onClick={addExperience}
+                    className="btn-secondary text-sm"
+                  >
+                    + {t('builder.addExperience', 'Add Experience')}
+                  </button>
+                </div>
+                
+                {resumeData.content.experience.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg">
+                    <p>{t('builder.noExperience', 'No work experience added yet')}</p>
+                    <p className="text-sm mt-2">{t('builder.clickAddExperience', 'Click "Add Experience" to get started')}</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {resumeData.content.experience.map((exp, index) => (
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-medium text-gray-900">
+                            {t('builder.experience')} #{index + 1}
+                          </h4>
+                          <button
+                            onClick={() => removeExperience(index)}
+                            className="text-red-600 hover:text-red-800 text-sm"
+                          >
+                            {t('builder.remove', 'Remove')}
+                          </button>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.jobTitle', 'Job Title')}
+                            </label>
+                            <input
+                              type="text"
+                              value={exp.title}
+                              onChange={(e) => updateExperience(index, 'title', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.jobTitle.placeholder', 'e.g., Software Engineer')}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.company', 'Company')}
+                            </label>
+                            <input
+                              type="text"
+                              value={exp.company}
+                              onChange={(e) => updateExperience(index, 'company', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.company.placeholder', 'e.g., Google Inc.')}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.location', 'Location')}
+                            </label>
+                            <input
+                              type="text"
+                              value={exp.location}
+                              onChange={(e) => updateExperience(index, 'location', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.location.placeholder', 'e.g., San Francisco, CA')}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.period', 'Period')}
+                            </label>
+                            <input
+                              type="text"
+                              value={exp.period}
+                              onChange={(e) => updateExperience(index, 'period', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.period.placeholder', 'e.g., Jan 2020 - Present')}
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="mt-4">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            {t('builder.description', 'Description')}
+                          </label>
+                          <textarea
+                            value={exp.description}
+                            onChange={(e) => updateExperience(index, 'description', e.target.value)}
+                            className="input-field"
+                            rows={3}
+                            placeholder={t('builder.description.placeholder', 'Describe your responsibilities and achievements...')}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Education */}
+              <div className="mb-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-lg font-medium">{t('builder.education', 'Education')}</h3>
+                  <button
+                    onClick={addEducation}
+                    className="btn-secondary text-sm"
+                  >
+                    + {t('builder.addEducation', 'Add Education')}
+                  </button>
+                </div>
+                
+                {resumeData.content.education.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg">
+                    <p>{t('builder.noEducation', 'No education added yet')}</p>
+                    <p className="text-sm mt-2">{t('builder.clickAddEducation', 'Click "Add Education" to get started')}</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {resumeData.content.education.map((edu, index) => (
+                      <div key={index} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-medium text-gray-900">
+                            {t('builder.education')} #{index + 1}
+                          </h4>
+                          <button
+                            onClick={() => removeEducation(index)}
+                            className="text-red-600 hover:text-red-800 text-sm"
+                          >
+                            {t('builder.remove', 'Remove')}
+                          </button>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.degree', 'Degree')}
+                            </label>
+                            <input
+                              type="text"
+                              value={edu.degree}
+                              onChange={(e) => updateEducation(index, 'degree', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.degree.placeholder', 'e.g., Bachelor of Science in Computer Science')}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.school', 'School/University')}
+                            </label>
+                            <input
+                              type="text"
+                              value={edu.school}
+                              onChange={(e) => updateEducation(index, 'school', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.school.placeholder', 'e.g., Stanford University')}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                              {t('builder.period', 'Period')}
+                            </label>
+                            <input
+                              type="text"
+                              value={edu.period}
+                              onChange={(e) => updateEducation(index, 'period', e.target.value)}
+                              className="input-field"
+                              placeholder={t('builder.period.placeholder', 'e.g., 2016 - 2020')}
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="mt-4">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            {t('builder.description', 'Description')}
+                          </label>
+                          <textarea
+                            value={edu.description}
+                            onChange={(e) => updateEducation(index, 'description', e.target.value)}
+                            className="input-field"
+                            rows={3}
+                            placeholder={t('builder.description.placeholder', 'Describe your studies, achievements, GPA...')}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
