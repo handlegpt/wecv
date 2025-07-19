@@ -2,14 +2,14 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { PrismaClient } from '@prisma/client'
-import nodemailer from 'nodemailer'
+import * as nodemailer from 'nodemailer'
 import axios from 'axios'
 
 const prisma = new PrismaClient()
 const JWT_SECRET = process.env.JWT_SECRET || 'secret'
 
 // Email transporter configuration
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER || 'your-email@gmail.com',
