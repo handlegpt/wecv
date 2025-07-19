@@ -671,11 +671,11 @@ export default function BuilderPage() {
           <div className="lg:col-span-1">
             <div className="card">
               <h3 className="text-lg font-semibold mb-4">{t('builder.preview.title', 'Resume Preview')}</h3>
-              <div className="bg-gray-100 rounded-lg p-4 h-96 overflow-y-auto">
+              <div className="bg-gray-100 rounded-lg p-4 h-[600px] overflow-y-auto">
                 <ResumeTemplateRenderer 
                   resumeData={resumeData}
                   templateId={selectedTemplate}
-                  className="w-full h-full"
+                  className="w-full"
                 />
               </div>
             </div>

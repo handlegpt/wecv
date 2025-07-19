@@ -5,6 +5,7 @@ import { Providers } from '@/components/providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
+// 默认metadata（英文）
 export const metadata: Metadata = {
   title: 'WeCV AI - Intelligent Resume Generation & Management Platform',
   description: 'WeCV AI helps global job seekers efficiently create professional resumes with AI-driven technology, multi-language and multi-template support, online hosting and export.',

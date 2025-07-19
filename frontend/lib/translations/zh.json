@@ -1,4 +1,9 @@
 {
+  "site": {
+    "title": "WeCV AI - 智能简历生成与管理平台",
+    "description": "WeCV AI帮助全球求职者通过AI驱动技术、多语言和多模板支持、在线托管和导出功能高效创建专业简历。",
+    "keywords": "WeCV, AI简历, 智能简历, 求职, 简历模板, 简历生成器"
+  },
   "hero": {
     "title": "AI驱动的专业简历生成器",
     "subtitle": "加入数千名通过WeCV AI改变职业生涯的专业人士",

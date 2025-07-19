@@ -1,4 +1,9 @@
 {
+  "site": {
+    "title": "WeCV AI - Intelligent Resume Generation & Management Platform",
+    "description": "WeCV AI helps global job seekers efficiently create professional resumes with AI-driven technology, multi-language and multi-template support, online hosting and export.",
+    "keywords": "WeCV, AI Resume, Intelligent Resume, Job Search, Resume Templates, Resume Builder"
+  },
   "hero": {
     "title": "Create Professional Resumes with AI",
     "subtitle": "Join thousands of professionals who have transformed their careers with WeCV AI",

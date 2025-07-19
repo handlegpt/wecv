@@ -1,4 +1,9 @@
 {
+  "site": {
+    "title": "WeCV AI - 智能簡歷生成與管理平台",
+    "description": "WeCV AI幫助全球求職者通過AI驅動技術、多語言和多模板支持、在線託管和導出功能高效創建專業簡歷。",
+    "keywords": "WeCV, AI簡歷, 智能簡歷, 求職, 簡歷模板, 簡歷生成器"
+  },
   "hero": {
     "title": "AI驅動的專業簡歷生成器",
     "subtitle": "加入數千名通過WeCV AI改變職業生涯的專業人士",

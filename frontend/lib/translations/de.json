@@ -1,4 +1,9 @@
 {
+  "site": {
+    "title": "WeCV AI - Intelligente Lebenslauf-Generierung und Verwaltungsplattform",
+    "description": "WeCV AI hilft globalen Jobsuchenden dabei, effizient professionelle Lebensläufe mit KI-gestützter Technologie, mehrsprachiger und multi-template Unterstützung, Online-Hosting und Export zu erstellen.",
+    "keywords": "WeCV, KI Lebenslauf, Intelligenter Lebenslauf, Jobsuche, Lebenslauf Vorlagen, Lebenslauf Generator"
+  },
   "hero": {
     "title": "Erstellen Sie professionelle Lebensläufe mit KI",
     "subtitle": "Schließen Sie sich Tausenden von Fachleuten an, die ihre Karriere mit WeCV AI transformiert haben",
