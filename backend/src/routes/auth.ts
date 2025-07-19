@@ -8,5 +8,6 @@ router.post('/login', login)
 router.post('/email-login', emailLogin)
 router.post('/verify-email-login', verifyEmailLogin)
 router.post('/google/callback', googleCallback)
+router.get('/callback/google', googleCallback)
 
 export default router 

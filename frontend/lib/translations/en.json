@@ -463,6 +463,7 @@
     "continueWithGoogle": "Continue with Google",
     "googleLoginError": "Google login failed",
     "googleLoginFailed": "Google login failed",
+    "googleLoginSuccess": "Google login successful",
     "or": "or",
     "tryAgain": "Try Again"
   },
@@ -550,6 +551,7 @@
     "redirectingToDashboard": "Redirecting to dashboard...",
     "verifying": "Verifying...",
     "pleaseWait": "Please wait",
+    "redirecting": "Redirecting to dashboard...",
     "googleClientNotConfigured": "Google login not configured, please contact administrator"
   },
   "settings": {

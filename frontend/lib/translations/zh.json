@@ -441,6 +441,7 @@
     "continueWithGoogle": "使用谷歌账户继续",
     "googleLoginError": "谷歌登录失败",
     "googleLoginFailed": "谷歌登录失败",
+    "googleLoginSuccess": "谷歌登录成功",
     "or": "或者",
     "tryAgain": "重试"
   },
@@ -538,6 +539,7 @@
     "redirectingToDashboard": "正在跳转到控制台...",
     "verifying": "正在验证...",
     "pleaseWait": "请稍候",
+    "redirecting": "正在跳转到仪表板...",
     "googleClientNotConfigured": "谷歌登录未配置，请联系管理员"
   },
   "settings": {

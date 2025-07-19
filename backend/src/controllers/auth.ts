@@ -164,7 +164,8 @@ export async function login(req: Request, res: Response) {
 
 export async function googleCallback(req: Request, res: Response) {
   try {
-    const { code } = req.body
+    // Handle both GET (OAuth callback) and POST (manual callback) requests
+    const code = req.method === 'GET' ? req.query.code : req.body.code
     
     if (!code) {
       return res.status(400).json({ 
@@ -234,6 +235,20 @@ export async function googleCallback(req: Request, res: Response) {
       { expiresIn: '7d' }
     )
 
+    // For GET requests (OAuth callback), redirect to frontend with token
+    if (req.method === 'GET') {
+      const frontendUrl = process.env.FRONTEND_URL || 'https://wecv.ai'
+      const redirectUrl = `${frontendUrl}/auth/google-success?token=${token}&user=${encodeURIComponent(JSON.stringify({
+        id: user.id,
+        email: user.email,
+        name: user.name
+      }))}`
+      
+      console.log('Redirecting to frontend:', redirectUrl)
+      return res.redirect(redirectUrl)
+    }
+
+    // For POST requests, return JSON response
     res.json({ 
       message: '谷歌登录成功',
       token, 
@@ -245,6 +260,13 @@ export async function googleCallback(req: Request, res: Response) {
     })
   } catch (error) {
     console.error('Google callback error:', error)
+    
+    if (req.method === 'GET') {
+      const frontendUrl = process.env.FRONTEND_URL || 'https://wecv.ai'
+      const errorUrl = `${frontendUrl}/auth/google-login?error=login_failed`
+      return res.redirect(errorUrl)
+    }
+    
     res.status(500).json({ 
       message: '谷歌登录失败，请重试',
       error: 'GOOGLE_LOGIN_FAILED'
