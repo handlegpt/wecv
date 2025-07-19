@@ -332,7 +332,7 @@ export default function PrivacyPage() {
                   {t('privacy.contact.privacy.description')}
                 </p>
                 <p className="font-medium">
-                  <strong>Email:</strong> privacy@wecv.ai
+                  <strong>Email:</strong> hello@wecv.com
                 </p>
               </div>
               <div>
@@ -343,7 +343,7 @@ export default function PrivacyPage() {
                   {t('privacy.contact.security.description')}
                 </p>
                 <p className="font-medium">
-                  <strong>Email:</strong> security@wecv.ai
+                  <strong>Email:</strong> hello@wecv.com
                 </p>
               </div>
               <div>
@@ -354,7 +354,7 @@ export default function PrivacyPage() {
                   {t('privacy.contact.dpo.description')}
                 </p>
                 <p className="font-medium">
-                  <strong>Email:</strong> dpo@wecv.ai
+                  <strong>Email:</strong> hello@wecv.com
                 </p>
               </div>
             </div>
