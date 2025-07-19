@@ -74,6 +74,11 @@ services:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://wecv.ai:3001
+        - NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+        - NEXT_PUBLIC_APP_NAME=WeCV AI
+        - NEXT_PUBLIC_APP_VERSION=1.0.0
     container_name: wecv_ai_frontend
     restart: always
     environment:

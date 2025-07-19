@@ -16,7 +16,17 @@ RUN npm install --legacy-peer-deps && npm cache clean --force
 # Copy source code
 COPY . .
 
-# Build the application
+# Build the application with environment variables
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID
+ARG NEXT_PUBLIC_APP_NAME
+ARG NEXT_PUBLIC_APP_VERSION
+
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=$NEXT_PUBLIC_GOOGLE_CLIENT_ID
+ENV NEXT_PUBLIC_APP_NAME=$NEXT_PUBLIC_APP_NAME
+ENV NEXT_PUBLIC_APP_VERSION=$NEXT_PUBLIC_APP_VERSION
+
 RUN npm run build
 
 # Production stage
