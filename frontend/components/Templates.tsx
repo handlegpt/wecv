@@ -78,14 +78,14 @@ export function Templates() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {templates.map((template) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {templates.slice(0, 6).map((template) => (
             <div 
               key={template.id}
-              className="card hover:shadow-lg transition-shadow duration-300"
+              className="card hover:shadow-lg transition-shadow duration-300 p-4"
             >
               {/* Template Preview */}
-              <div className="aspect-[3/4] bg-gray-50 rounded-lg mb-4 overflow-hidden">
+              <div className="aspect-[4/5] bg-gray-50 rounded-lg mb-4 overflow-hidden">
                 <TemplatePreview 
                   templateId={template.id} 
                   className="w-full h-full"
