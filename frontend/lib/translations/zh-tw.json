@@ -16,6 +16,12 @@
   "features": {
     "sectionTitle": "強大功能",
     "sectionSubtitle": "我們提供全面的簡歷創建功能，讓您的求職之旅更加順暢",
+    "cta": {
+      "title": "準備創建您的專業簡歷？",
+      "subtitle": "加入數千名已經通過WeCV AI改變職業生涯的專業人士",
+      "primary": "立即開始創建",
+      "secondary": "查看模板"
+    },
     "aiWriting": {
       "title": "AI寫作助手",
       "description": "使用AI技術智能優化簡歷內容並提供專業寫作建議"

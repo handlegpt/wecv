@@ -16,6 +16,12 @@
   "features": {
     "sectionTitle": "Powerful Features",
     "sectionSubtitle": "We provide comprehensive resume creation features to make your job search journey smoother",
+    "cta": {
+      "title": "Ready to create your professional resume?",
+      "subtitle": "Join thousands of professionals who have already transformed their careers with WeCV AI",
+      "primary": "Start Creating Now",
+      "secondary": "View Templates"
+    },
     "aiWriting": {
       "title": "AI Writing Assistant",
       "description": "Use AI technology to intelligently optimize resume content and provide professional writing suggestions"

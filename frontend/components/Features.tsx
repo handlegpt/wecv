@@ -13,6 +13,7 @@ import {
   Users,
   CheckCircle
 } from 'lucide-react'
+import Link from 'next/link'
 
 const features = [
   {
@@ -142,18 +143,24 @@ export function Features() {
         >
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Ready to create your professional resume?
+              {t('features.cta.title')}
             </h3>
             <p className="text-gray-600 mb-6">
-              Join thousands of professionals who have already transformed their careers with WeCV AI
+              {t('features.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
-                Start Creating Now
-              </button>
-              <button className="btn-secondary text-lg px-8 py-4 border-2 border-gray-300 hover:border-blue-300 transform hover:-translate-y-1 transition-all duration-200">
-                View Templates
-              </button>
+              <Link 
+                href="/builder"
+                className="btn-primary text-lg px-8 py-4 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200"
+              >
+                {t('features.cta.primary')}
+              </Link>
+              <Link 
+                href="/templates"
+                className="btn-secondary text-lg px-8 py-4 border-2 border-gray-300 hover:border-blue-300 transform hover:-translate-y-1 transition-all duration-200"
+              >
+                {t('features.cta.secondary')}
+              </Link>
             </div>
           </div>
         </motion.div>

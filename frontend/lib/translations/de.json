@@ -16,6 +16,12 @@
   "features": {
     "sectionTitle": "Leistungsstarke Funktionen",
     "sectionSubtitle": "Wir bieten umfassende Lebenslauf-Erstellungsfunktionen, um Ihre Jobsuche reibungsloser zu gestalten",
+    "cta": {
+      "title": "Bereit, Ihren professionellen Lebenslauf zu erstellen?",
+      "subtitle": "Schließen Sie sich Tausenden von Fachleuten an, die ihre Karriere bereits mit WeCV AI transformiert haben",
+      "primary": "Jetzt Erstellen Beginnen",
+      "secondary": "Vorlagen Anzeigen"
+    },
     "aiWriting": {
       "title": "KI-Schreibassistent",
       "description": "Nutzen Sie KI-Technologie, um Lebenslauf-Inhalte intelligent zu optimieren und professionelle Schreibvorschläge zu geben"
@@ -26,7 +32,7 @@
     },
     "templates": {
       "title": "Reiche Vorlagen",
-      "description": "Bieten Sie verschiedene professionelle Lebenslauf-Vorlagen mit Ein-Klick-Stilwechsel"
+      "description": "Bieten Sie verschiedene professionelle Lebenslauf-Vorlagen mit ein-Klick-Stilwechsel"
     },
     "export": {
       "title": "Mehrere Export-Formate",
@@ -34,7 +40,7 @@
     },
     "privacy": {
       "title": "Datenschutz",
-      "description": "Lokale Speicherung, Datensicherheit, Schutz der Privatsphäre des Benutzers"
+      "description": "Lokale Speicherung, Datensicherheit, Schutz der Privatsphäre der Benutzer"
     },
     "hosting": {
       "title": "Online-Hosting",

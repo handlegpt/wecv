@@ -11,6 +11,12 @@
   "features": {
     "sectionTitle": "Funciones Potentes",
     "sectionSubtitle": "Proporcionamos funciones completas de creación de CV para hacer su búsqueda de trabajo más fluida",
+    "cta": {
+      "title": "¿Listo para crear tu CV profesional?",
+      "subtitle": "Únete a miles de profesionales que ya han transformado sus carreras con WeCV AI",
+      "primary": "Comenzar a Crear Ahora",
+      "secondary": "Ver Plantillas"
+    },
     "aiWriting": {
       "title": "Asistente de Escritura AI",
       "description": "Use tecnología AI para optimizar inteligentemente el contenido del CV y proporcionar sugerencias de escritura profesional"

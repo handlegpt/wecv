@@ -16,6 +16,12 @@
   "features": {
     "sectionTitle": "强大功能",
     "sectionSubtitle": "我们提供全面的简历创建功能，让您的求职之旅更加顺畅",
+    "cta": {
+      "title": "准备创建您的专业简历？",
+      "subtitle": "加入数千名已经通过WeCV AI改变职业生涯的专业人士",
+      "primary": "立即开始创建",
+      "secondary": "查看模板"
+    },
     "aiWriting": {
       "title": "AI写作助手",
       "description": "使用AI技术智能优化简历内容并提供专业写作建议"
