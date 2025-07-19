@@ -1,9 +1,11 @@
 {
   "hero": {
-    "title": "KI-gestützter Lebenslauf-Generator",
-    "subtitle": "Erstellen Sie professionelle Lebensläufe mit KI-Technologie, unterstützt mehrere Sprachen, Vorlagen und Exportformate",
-    "cta": "Erstellen Starten",
-    "ctaSecondary": "Vorlagen Anzeigen"
+    "title": "Erstellen Sie professionelle Lebensläufe mit KI",
+    "subtitle": "Schließen Sie sich Tausenden von Fachleuten an, die ihre Karriere mit WeCV AI transformiert haben",
+    "cta": "Erstellen beginnen",
+    "noCreditCard": "Keine Kreditkarte erforderlich",
+    "joinProfessionals": "Schließen Sie sich 100.000+ Fachleuten an",
+    "atsFriendly": "ATS-freundliche Vorlagen"
   },
   "features": {
     "sectionTitle": "Leistungsstarke Funktionen",

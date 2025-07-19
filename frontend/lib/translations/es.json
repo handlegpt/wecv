@@ -1,9 +1,11 @@
 {
   "hero": {
-    "title": "Constructor de CV con IA",
-    "subtitle": "Cree CV profesionales con tecnología IA, compatible con múltiples idiomas, plantillas y formatos de exportación",
+    "title": "Crea CVs Profesionales con IA",
+    "subtitle": "Únete a miles de profesionales que han transformado sus carreras con WeCV AI",
     "cta": "Comenzar a Crear",
-    "ctaSecondary": "Ver Plantillas"
+    "noCreditCard": "No se requiere tarjeta de crédito",
+    "joinProfessionals": "Únete a 100,000+ profesionales",
+    "atsFriendly": "Plantillas compatibles con ATS"
   },
   "features": {
     "sectionTitle": "Funciones Potentes",

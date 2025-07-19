@@ -90,15 +90,15 @@ export function Hero() {
               >
                 <div className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span>No credit card required</span>
+                  <span>{t('hero.noCreditCard', 'No credit card required')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Users className="w-5 h-5 text-blue-500" />
-                  <span>Join 50,000+ professionals</span>
+                  <span>{t('hero.joinProfessionals', 'Join 100,000+ professionals')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Award className="w-5 h-5 text-purple-500" />
-                  <span>ATS-friendly templates</span>
+                  <span>{t('hero.atsFriendly', 'ATS-friendly templates')}</span>
                 </div>
               </motion.div>
             </motion.div>

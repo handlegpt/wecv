@@ -1,9 +1,11 @@
 {
   "hero": {
-    "title": "AI驅動的簡歷生成器",
-    "subtitle": "使用AI技術創建專業簡歷，支持多語言、模板和多種導出格式",
+    "title": "AI驅動的專業簡歷生成器",
+    "subtitle": "加入數千名通過WeCV AI改變職業生涯的專業人士",
     "cta": "開始創建",
-    "ctaSecondary": "查看模板"
+    "noCreditCard": "無需信用卡",
+    "joinProfessionals": "加入10萬+專業人士",
+    "atsFriendly": "ATS友好模板"
   },
   "features": {
     "sectionTitle": "強大功能",

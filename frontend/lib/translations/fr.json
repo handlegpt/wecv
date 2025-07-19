@@ -1,9 +1,11 @@
 {
   "hero": {
-    "title": "Constructeur de CV IA",
-    "subtitle": "Créez des CV professionnels avec la technologie IA, prenant en charge plusieurs langues, modèles et formats d'exportation",
+    "title": "Créez des CV Professionnels avec l'IA",
+    "subtitle": "Rejoignez des milliers de professionnels qui ont transformé leur carrière avec WeCV AI",
     "cta": "Commencer à Créer",
-    "ctaSecondary": "Voir les Modèles"
+    "noCreditCard": "Aucune carte de crédit requise",
+    "joinProfessionals": "Rejoignez 100,000+ professionnels",
+    "atsFriendly": "Modèles compatibles ATS"
   },
   "features": {
     "sectionTitle": "Fonctionnalités Puissantes",

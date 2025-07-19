@@ -1,9 +1,11 @@
 {
   "hero": {
-    "title": "AI搭載履歴書ビルダー",
-    "subtitle": "AI技術を使用してプロフェッショナルな履歴書を作成、多言語、テンプレート、エクスポート形式をサポート",
+    "title": "AI駆動のプロフェッショナル履歴書作成",
+    "subtitle": "WeCV AIでキャリアを変えた何千人ものプロフェッショナルに参加",
     "cta": "作成開始",
-    "ctaSecondary": "テンプレートを見る"
+    "noCreditCard": "クレジットカード不要",
+    "joinProfessionals": "10万人以上のプロフェッショナルに参加",
+    "atsFriendly": "ATS対応テンプレート"
   },
   "features": {
     "sectionTitle": "強力な機能",
