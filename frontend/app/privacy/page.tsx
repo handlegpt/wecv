@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslation } from 'react-i18next';
-import { Shield, Lock, Eye, Database, Users, FileText, Globe, Clock } from 'lucide-react';
+import { Shield, Lock, Eye, Database, Users, FileText, Globe, Clock, Cookie, Building, Baby, Plane, AlertTriangle } from 'lucide-react';
 
 export default function PrivacyPage() {
   const { t } = useTranslation();
@@ -49,6 +49,33 @@ export default function PrivacyPage() {
       icon: Clock,
       title: t('privacy.security.backup.title'),
       description: t('privacy.security.backup.description')
+    }
+  ];
+
+  const userRights = [
+    {
+      title: t('privacy.userRights.access.title'),
+      description: t('privacy.userRights.access.description')
+    },
+    {
+      title: t('privacy.userRights.control.title'),
+      description: t('privacy.userRights.control.description')
+    },
+    {
+      title: t('privacy.userRights.deletion.title'),
+      description: t('privacy.userRights.deletion.description')
+    },
+    {
+      title: t('privacy.userRights.portability.title'),
+      description: t('privacy.userRights.portability.description')
+    },
+    {
+      title: t('privacy.userRights.objection.title'),
+      description: t('privacy.userRights.objection.description')
+    },
+    {
+      title: t('privacy.userRights.withdraw.title'),
+      description: t('privacy.userRights.withdraw.description')
     }
   ];
 
@@ -129,7 +156,7 @@ export default function PrivacyPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               {t('privacy.dataCollection.title')}
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {t('privacy.dataCollection.whatWeCollect.title')}
@@ -139,6 +166,8 @@ export default function PrivacyPage() {
                   <li>{t('privacy.dataCollection.whatWeCollect.item2')}</li>
                   <li>{t('privacy.dataCollection.whatWeCollect.item3')}</li>
                   <li>{t('privacy.dataCollection.whatWeCollect.item4')}</li>
+                  <li>{t('privacy.dataCollection.whatWeCollect.item5')}</li>
+                  <li>{t('privacy.dataCollection.whatWeCollect.item6')}</li>
                 </ul>
               </div>
               <div>
@@ -150,7 +179,25 @@ export default function PrivacyPage() {
                   <li>{t('privacy.dataCollection.howWeUse.item2')}</li>
                   <li>{t('privacy.dataCollection.howWeUse.item3')}</li>
                   <li>{t('privacy.dataCollection.howWeUse.item4')}</li>
+                  <li>{t('privacy.dataCollection.howWeUse.item5')}</li>
+                  <li>{t('privacy.dataCollection.howWeUse.item6')}</li>
                 </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {t('privacy.dataCollection.dataRetention.title')}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {t('privacy.dataCollection.dataRetention.description')}
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {t('privacy.dataCollection.dataSharing.title')}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {t('privacy.dataCollection.dataSharing.description')}
+                </p>
               </div>
             </div>
           </div>
@@ -163,39 +210,110 @@ export default function PrivacyPage() {
               {t('privacy.userRights.title')}
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
+              {userRights.map((right, index) => (
+                <div key={index}>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                    {right.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {right.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Cookies */}
+        <section className="mb-16">
+          <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-yellow-100 rounded-lg mr-4">
+                <Cookie className="h-6 w-6 text-yellow-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                {t('privacy.cookies.title')}
+              </h2>
+            </div>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              {t('privacy.cookies.description')}
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {t('privacy.userRights.access.title')}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {t('privacy.userRights.access.description')}
-                </p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Cookie类型</h3>
+                <ul className="space-y-2 text-gray-600">
+                  <li><strong>必需Cookie:</strong> {t('privacy.cookies.types.essential')}</li>
+                  <li><strong>分析Cookie:</strong> {t('privacy.cookies.types.analytics')}</li>
+                  <li><strong>偏好Cookie:</strong> {t('privacy.cookies.types.preferences')}</li>
+                  <li><strong>营销Cookie:</strong> {t('privacy.cookies.types.marketing')}</li>
+                </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {t('privacy.userRights.control.title')}
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Cookie管理</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {t('privacy.userRights.control.description')}
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {t('privacy.userRights.deletion.title')}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {t('privacy.userRights.deletion.description')}
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {t('privacy.userRights.portability.title')}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {t('privacy.userRights.portability.description')}
+                  {t('privacy.cookies.management')}
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Third Party Services */}
+        <section className="mb-16">
+          <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-purple-100 rounded-lg mr-4">
+                <Building className="h-6 w-6 text-purple-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                {t('privacy.thirdParty.title')}
+              </h2>
+            </div>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              {t('privacy.thirdParty.description')}
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {(t('privacy.thirdParty.services', { returnObjects: true }) as string[]).map((service, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                  <span className="text-gray-600">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Children's Privacy */}
+        <section className="mb-16">
+          <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-red-100 rounded-lg mr-4">
+                <Baby className="h-6 w-6 text-red-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                {t('privacy.children.title')}
+              </h2>
+            </div>
+            <p className="text-gray-600 leading-relaxed">
+              {t('privacy.children.description')}
+            </p>
+          </div>
+        </section>
+
+        {/* International Data Transfers */}
+        <section className="mb-16">
+          <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-blue-100 rounded-lg mr-4">
+                <Plane className="h-6 w-6 text-blue-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                {t('privacy.international.title')}
+              </h2>
+            </div>
+            <p className="text-gray-600 leading-relaxed">
+              {t('privacy.international.description')}
+            </p>
           </div>
         </section>
 
@@ -205,15 +323,15 @@ export default function PrivacyPage() {
             <h2 className="text-3xl font-bold mb-6">
               {t('privacy.contact.title')}
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <h3 className="text-xl font-semibold mb-4">
                   {t('privacy.contact.privacy.title')}
                 </h3>
-                <p className="text-blue-100 leading-relaxed">
+                <p className="text-blue-100 leading-relaxed mb-4">
                   {t('privacy.contact.privacy.description')}
                 </p>
-                <p className="mt-4">
+                <p className="font-medium">
                   <strong>Email:</strong> privacy@wecv.ai
                 </p>
               </div>
@@ -221,14 +339,42 @@ export default function PrivacyPage() {
                 <h3 className="text-xl font-semibold mb-4">
                   {t('privacy.contact.security.title')}
                 </h3>
-                <p className="text-blue-100 leading-relaxed">
+                <p className="text-blue-100 leading-relaxed mb-4">
                   {t('privacy.contact.security.description')}
                 </p>
-                <p className="mt-4">
+                <p className="font-medium">
                   <strong>Email:</strong> security@wecv.ai
                 </p>
               </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-4">
+                  {t('privacy.contact.dpo.title')}
+                </h3>
+                <p className="text-blue-100 leading-relaxed mb-4">
+                  {t('privacy.contact.dpo.description')}
+                </p>
+                <p className="font-medium">
+                  <strong>Email:</strong> dpo@wecv.ai
+                </p>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* Changes to Policy */}
+        <section className="mb-16">
+          <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="flex items-center mb-6">
+              <div className="p-3 bg-orange-100 rounded-lg mr-4">
+                <AlertTriangle className="h-6 w-6 text-orange-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                {t('privacy.changes.title')}
+              </h2>
+            </div>
+            <p className="text-gray-600 leading-relaxed">
+              {t('privacy.changes.description')}
+            </p>
           </div>
         </section>
 

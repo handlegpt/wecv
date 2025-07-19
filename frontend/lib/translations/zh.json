@@ -593,14 +593,26 @@
         "item1": "个人信息（姓名、邮箱、电话号码）",
         "item2": "简历内容和专业信息",
         "item3": "使用数据和分析（匿名化）",
-        "item4": "技术数据（IP地址、浏览器类型、设备信息）"
+        "item4": "技术数据（IP地址、浏览器类型、设备信息）",
+        "item5": "AI交互数据用于服务改进",
+        "item6": "支付信息（由第三方提供商安全处理）"
       },
       "howWeUse": {
         "title": "我们如何使用您的数据",
         "item1": "提供和改进我们的简历构建服务",
         "item2": "个性化您的体验并提供相关功能",
         "item3": "就您的账户和服务与您沟通",
-        "item4": "确保平台安全并防止欺诈"
+        "item4": "确保平台安全并防止欺诈",
+        "item5": "分析使用模式并改进我们的AI功能",
+        "item6": "遵守法律义务和法规"
+      },
+      "dataRetention": {
+        "title": "数据保留",
+        "description": "我们仅在提供服务所需的时间内保留您的数据。您可以随时请求删除您的数据。"
+      },
+      "dataSharing": {
+        "title": "数据共享",
+        "description": "我们不出售您的个人数据。我们可能与协助我们运营平台的受信任第三方服务提供商共享数据。"
       }
     },
     "userRights": {
@@ -620,7 +632,44 @@
       "portability": {
         "title": "数据可携带性",
         "description": "您可以以标准格式导出您的简历数据，并在需要时转移到其他服务。"
+      },
+      "objection": {
+        "title": "反对处理",
+        "description": "您有权反对某些类型的数据处理并请求限制。"
+      },
+      "withdraw": {
+        "title": "撤回同意",
+        "description": "您可以随时撤回对数据处理的同意，其中处理基于同意。"
       }
+    },
+    "cookies": {
+      "title": "Cookie和跟踪",
+      "description": "我们使用cookie和类似技术来增强您的体验、分析使用情况并提供个性化内容。",
+      "types": {
+        "essential": "基本功能必需cookie",
+        "analytics": "分析cookie以了解使用模式",
+        "preferences": "偏好cookie以记住您的设置",
+        "marketing": "营销cookie用于相关内容"
+      },
+      "management": "您可以通过浏览器设置或我们的cookie同意工具管理您的cookie偏好。"
+    },
+    "thirdParty": {
+      "title": "第三方服务",
+      "description": "我们可能使用第三方服务进行分析、支付处理和客户支持。这些服务有自己的隐私政策。",
+      "services": [
+        "Google Analytics用于使用分析",
+        "Stripe用于支付处理",
+        "OpenAI用于AI功能",
+        "Cloudflare用于安全和性能"
+      ]
+    },
+    "children": {
+      "title": "儿童隐私",
+      "description": "我们的服务不适用于13岁以下的儿童。我们不会故意收集13岁以下儿童的个人信息。"
+    },
+    "international": {
+      "title": "国际数据传输",
+      "description": "您的数据可能会被传输到您所在国家以外的其他国家并进行处理。我们确保采取适当的保障措施。"
     },
     "contact": {
       "title": "联系我们",
@@ -631,9 +680,17 @@
       "security": {
         "title": "安全问题",
         "description": "如果您发现安全漏洞或对数据安全有疑虑，请立即向我们的安全团队报告。"
+      },
+      "dpo": {
+        "title": "数据保护官",
+        "description": "对于GDPR相关查询，您可以联系我们的数据保护官。"
       }
     },
-    "lastUpdated": "最后更新"
+    "lastUpdated": "最后更新",
+    "changes": {
+      "title": "政策变更",
+      "description": "我们可能会不时更新此隐私政策。我们将通过电子邮件或我们的平台通知您任何重大变更。"
+    }
   },
   "buyMeACoffee": {
     "badge": "支持WeCV AI",

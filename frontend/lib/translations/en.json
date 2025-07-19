@@ -615,14 +615,26 @@
         "item1": "Personal information (name, email, phone number)",
         "item2": "Resume content and professional information",
         "item3": "Usage data and analytics (anonymized)",
-        "item4": "Technical data (IP address, browser type, device information)"
+        "item4": "Technical data (IP address, browser type, device information)",
+        "item5": "AI interaction data for service improvement",
+        "item6": "Payment information (processed securely by third-party providers)"
       },
       "howWeUse": {
         "title": "How We Use Your Data",
         "item1": "To provide and improve our resume building services",
         "item2": "To personalize your experience and offer relevant features",
         "item3": "To communicate with you about your account and services",
-        "item4": "To ensure platform security and prevent fraud"
+        "item4": "To ensure platform security and prevent fraud",
+        "item5": "To analyze usage patterns and improve our AI features",
+        "item6": "To comply with legal obligations and regulations"
+      },
+      "dataRetention": {
+        "title": "Data Retention",
+        "description": "We retain your data only as long as necessary to provide our services. You can request deletion of your data at any time."
+      },
+      "dataSharing": {
+        "title": "Data Sharing",
+        "description": "We do not sell your personal data. We may share data with trusted third-party service providers who assist us in operating our platform."
       }
     },
     "userRights": {
@@ -642,7 +654,44 @@
       "portability": {
         "title": "Data Portability",
         "description": "You can export your resume data in standard formats and transfer it to other services if needed."
+      },
+      "objection": {
+        "title": "Object to Processing",
+        "description": "You have the right to object to certain types of data processing and request restrictions."
+      },
+      "withdraw": {
+        "title": "Withdraw Consent",
+        "description": "You can withdraw your consent for data processing at any time, where processing is based on consent."
       }
+    },
+    "cookies": {
+      "title": "Cookies & Tracking",
+      "description": "We use cookies and similar technologies to enhance your experience, analyze usage, and provide personalized content.",
+      "types": {
+        "essential": "Essential cookies for basic functionality",
+        "analytics": "Analytics cookies to understand usage patterns",
+        "preferences": "Preference cookies to remember your settings",
+        "marketing": "Marketing cookies for relevant content"
+      },
+      "management": "You can manage your cookie preferences through your browser settings or our cookie consent tool."
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "description": "We may use third-party services for analytics, payment processing, and customer support. These services have their own privacy policies.",
+      "services": [
+        "Google Analytics for usage analytics",
+        "Stripe for payment processing",
+        "OpenAI for AI features",
+        "Cloudflare for security and performance"
+      ]
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "description": "Our services are not intended for children under 13. We do not knowingly collect personal information from children under 13."
+    },
+    "international": {
+      "title": "International Data Transfers",
+      "description": "Your data may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place."
     },
     "contact": {
       "title": "Contact Us",
@@ -653,9 +702,17 @@
       "security": {
         "title": "Security Concerns",
         "description": "If you discover a security vulnerability or have concerns about data security, please report it to our security team immediately."
+      },
+      "dpo": {
+        "title": "Data Protection Officer",
+        "description": "For GDPR-related inquiries, you can contact our Data Protection Officer."
       }
     },
-    "lastUpdated": "Last Updated"
+    "lastUpdated": "Last Updated",
+    "changes": {
+      "title": "Changes to This Policy",
+      "description": "We may update this privacy policy from time to time. We will notify you of any material changes via email or through our platform."
+    }
   },
   "buyMeACoffee": {
     "badge": "Support WeCV AI",

@@ -5,6 +5,7 @@ import { Templates } from '@/components/Templates'
 import { Pricing } from '@/components/Pricing'
 import { Testimonials } from '@/components/Testimonials'
 import { CTA } from '@/components/CTA'
+import { Footer } from '@/components/Footer'
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Pricing />
       <Testimonials />
       <CTA />
+      <Footer />
     </main>
   )
 } 
