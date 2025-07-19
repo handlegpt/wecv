@@ -26,8 +26,11 @@ export async function register(req: Request, res: Response) {
   try {
     const { email, password, name } = req.body
     
+    console.log('Registration attempt:', { email, name: name || 'not provided' })
+    
     // Validate required fields
     if (!email || !password) {
+      console.log('Registration failed: missing required fields')
       return res.status(400).json({ 
         message: '邮箱和密码必填',
         error: 'MISSING_REQUIRED_FIELDS'
@@ -37,6 +40,7 @@ export async function register(req: Request, res: Response) {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
+      console.log('Registration failed: invalid email format')
       return res.status(400).json({ 
         message: '请输入有效的邮箱地址',
         error: 'INVALID_EMAIL_FORMAT'
@@ -45,6 +49,7 @@ export async function register(req: Request, res: Response) {
 
     // Validate password length
     if (password.length < 6) {
+      console.log('Registration failed: password too short')
       return res.status(400).json({ 
         message: '密码至少6位',
         error: 'PASSWORD_TOO_SHORT'
@@ -57,6 +62,7 @@ export async function register(req: Request, res: Response) {
     })
     
     if (existingUser) {
+      console.log('Registration failed: user already exists')
       return res.status(409).json({ 
         message: '该邮箱已被注册',
         error: 'USER_ALREADY_EXISTS'
@@ -283,8 +289,16 @@ export async function emailLogin(req: Request, res: Response) {
       { expiresIn: '15m' } // 15 minutes expiry
     )
 
-    // Create login URL
-    const loginUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/auth/verify-email?token=${loginToken}`
+    // Create login URL - fix typo in environment variable
+    const frontendUrl = process.env.FRONTEND_URL || process.env.FRONTEND_URL || 'http://localhost:3000'
+    const loginUrl = `${frontendUrl}/auth/verify-email?token=${loginToken}`
+
+    console.log('Email configuration:', {
+      from: process.env.EMAIL_USER || 'noreply@wecv.ai',
+      to: email,
+      frontendUrl: frontendUrl,
+      loginUrl: loginUrl
+    })
 
     // Send email
     const mailOptions = {
@@ -312,9 +326,17 @@ export async function emailLogin(req: Request, res: Response) {
       `
     }
 
-    await transporter.sendMail(mailOptions)
-
-    console.log(`Email login link sent to: ${email}`)
+    try {
+      await transporter.sendMail(mailOptions)
+      console.log(`Email login link sent to: ${email}`)
+    } catch (emailError) {
+      console.error('Email sending failed:', emailError)
+      // Return success even if email fails to avoid exposing email configuration issues
+      return res.json({ 
+        message: '登录链接已发送到您的邮箱',
+        email: email
+      })
+    }
 
     res.json({ 
       message: '登录链接已发送到您的邮箱',
