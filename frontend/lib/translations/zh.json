@@ -408,6 +408,9 @@
   "navigation": {
     "home": "首页",
     "templates": "模板",
+    "blog": "资源",
+    "help": "帮助",
+    "about": "关于",
     "pricing": "定价",
     "login": "登录",
     "register": "注册",

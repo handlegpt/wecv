@@ -408,6 +408,9 @@
   "navigation": {
     "home": "首頁",
     "templates": "模板",
+    "blog": "資源",
+    "help": "幫助",
+    "about": "關於",
     "pricing": "定價",
     "login": "登錄",
     "register": "註冊",

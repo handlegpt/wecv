@@ -275,11 +275,14 @@
   "navigation": {
     "home": "Inicio",
     "templates": "Plantillas",
+    "blog": "Recursos",
+    "help": "Ayuda",
+    "about": "Acerca de",
     "pricing": "Precios",
     "login": "Iniciar Sesión",
     "register": "Registrarse",
     "dashboard": "Panel",
-    "admin": "Administrador",
+    "admin": "Administración",
     "settings": "Configuración",
     "logout": "Cerrar Sesión"
   },

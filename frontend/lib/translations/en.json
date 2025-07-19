@@ -430,6 +430,9 @@
   "navigation": {
     "home": "Home",
     "templates": "Templates",
+    "blog": "Resources",
+    "help": "Help",
+    "about": "About",
     "pricing": "Pricing",
     "login": "Login",
     "register": "Register",

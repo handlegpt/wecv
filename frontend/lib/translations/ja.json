@@ -557,6 +557,9 @@
   "navigation": {
     "home": "ホーム",
     "templates": "テンプレート",
+    "blog": "リソース",
+    "help": "ヘルプ",
+    "about": "会社概要",
     "pricing": "料金",
     "login": "ログイン",
     "register": "登録",

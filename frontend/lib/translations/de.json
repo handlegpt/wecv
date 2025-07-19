@@ -280,11 +280,14 @@
   "navigation": {
     "home": "Startseite",
     "templates": "Vorlagen",
+    "blog": "Ressourcen",
+    "help": "Hilfe",
+    "about": "Über uns",
     "pricing": "Preise",
     "login": "Anmelden",
     "register": "Registrieren",
     "dashboard": "Dashboard",
-    "admin": "Administration",
+    "admin": "Verwaltung",
     "settings": "Einstellungen",
     "logout": "Abmelden"
   },

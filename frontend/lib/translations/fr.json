@@ -557,6 +557,9 @@
   "navigation": {
     "home": "Accueil",
     "templates": "Modèles",
+    "blog": "Ressources",
+    "help": "Aide",
+    "about": "À propos",
     "pricing": "Tarifs",
     "login": "Connexion",
     "register": "S'inscrire",
