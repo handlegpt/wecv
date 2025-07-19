@@ -307,17 +307,17 @@ export default function BuilderPage() {
       </header>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
         {!isLoggedIn && (
-          <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <svg className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+          <div className="mb-4 sm:mb-6 bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+            <div className="flex items-start sm:items-center">
+              <div className="flex-shrink-0 mt-0.5 sm:mt-0">
+                <svg className="h-4 w-4 sm:h-5 sm:w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
               </div>
-              <div className="ml-3">
-                <p className="text-sm text-blue-700">
+              <div className="ml-2 sm:ml-3">
+                <p className="text-xs sm:text-sm text-blue-700">
                   <strong>{t('builder.trialMode.title', 'Trial Mode:')}</strong> {t('builder.trialMode.description', 'You can freely experience the resume creation feature. Register an account to save resumes, use AI features, and more.')}
                 </p>
               </div>
@@ -325,14 +325,14 @@ export default function BuilderPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 sm:gap-6">
           {/* Left Panel - Form */}
-          <div className="lg:col-span-2">
+          <div className="xl:col-span-2">
             <div className="card">
-              <h2 className="text-xl font-semibold mb-6">{t('builder.basicInfo', 'Basic Information')}</h2>
+              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('builder.basicInfo', 'Basic Information')}</h2>
               
               {/* Resume Title */}
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t('builder.resumeTitle', 'Resume Title')}
                 </label>
@@ -346,7 +346,7 @@ export default function BuilderPage() {
               </div>
 
               {/* Template Selection */}
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t('builder.selectTemplate', 'Select Template')}
                 </label>
@@ -364,9 +364,9 @@ export default function BuilderPage() {
               </div>
 
               {/* Personal Information */}
-              <div className="mb-6">
-                <h3 className="text-lg font-medium mb-4">{t('builder.personalInfo', 'Personal Information')}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="mb-4 sm:mb-6">
+                <h3 className="text-base sm:text-lg font-medium mb-3 sm:mb-4">{t('builder.personalInfo', 'Personal Information')}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       {t('form.name', 'Name')}
@@ -439,7 +439,7 @@ export default function BuilderPage() {
                       placeholder={t('form.phone.placeholder', '+1 (555) 123-4567')}
                     />
                   </div>
-                  <div>
+                  <div className="sm:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       {t('form.location', 'Location')}
                     </label>
@@ -461,7 +461,7 @@ export default function BuilderPage() {
               </div>
 
               {/* Summary */}
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t('builder.summary', 'Professional Summary')}
                 </label>
@@ -481,7 +481,7 @@ export default function BuilderPage() {
               </div>
 
               {/* Skills */}
-              <div className="mb-6">
+              <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t('builder.skills', 'Skills')}
                 </label>
@@ -501,40 +501,40 @@ export default function BuilderPage() {
               </div>
 
               {/* Work Experience */}
-              <div className="mb-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">{t('builder.experience', 'Work Experience')}</h3>
+              <div className="mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 sm:mb-4 gap-2 sm:gap-0">
+                  <h3 className="text-base sm:text-lg font-medium">{t('builder.experience', 'Work Experience')}</h3>
                   <button
                     onClick={addExperience}
-                    className="btn-secondary text-sm"
+                    className="btn-secondary text-sm py-2 px-3 sm:px-4 w-full sm:w-auto"
                   >
                     + {t('builder.addExperience', 'Add Experience')}
                   </button>
                 </div>
                 
                 {resumeData.content.experience.length === 0 ? (
-                  <div className="text-center py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg">
-                    <p>{t('builder.noExperience', 'No work experience added yet')}</p>
-                    <p className="text-sm mt-2">{t('builder.clickAddExperience', 'Click "Add Experience" to get started')}</p>
+                  <div className="text-center py-6 sm:py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg">
+                    <p className="text-sm sm:text-base">{t('builder.noExperience', 'No work experience added yet')}</p>
+                    <p className="text-xs sm:text-sm mt-2">{t('builder.clickAddExperience', 'Click "Add Experience" to get started')}</p>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {resumeData.content.experience.map((exp, index) => (
-                      <div key={index} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                        <div className="flex justify-between items-center mb-4">
-                          <h4 className="font-medium text-gray-900">
+                      <div key={index} className="border border-gray-200 rounded-lg p-3 sm:p-4 bg-gray-50">
+                        <div className="flex justify-between items-center mb-3 sm:mb-4">
+                          <h4 className="font-medium text-gray-900 text-sm sm:text-base">
                             {t('builder.experience')} #{index + 1}
                           </h4>
                           <button
                             onClick={() => removeExperience(index)}
-                            className="text-red-600 hover:text-red-800 text-sm"
+                            className="text-red-600 hover:text-red-800 text-xs sm:text-sm px-2 py-1 rounded hover:bg-red-50"
                           >
                             {t('builder.remove', 'Remove')}
                           </button>
                         </div>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                          <div className="sm:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                               {t('builder.jobTitle', 'Job Title')}
                             </label>
@@ -570,7 +570,7 @@ export default function BuilderPage() {
                               placeholder={t('builder.location.placeholder', 'e.g., San Francisco, CA')}
                             />
                           </div>
-                          <div>
+                          <div className="sm:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                               {t('builder.period', 'Period')}
                             </label>
@@ -584,7 +584,7 @@ export default function BuilderPage() {
                           </div>
                         </div>
                         
-                        <div className="mt-4">
+                        <div className="mt-3 sm:mt-4">
                           <label className="block text-sm font-medium text-gray-700 mb-2">
                             {t('builder.description', 'Description')}
                           </label>
@@ -603,40 +603,40 @@ export default function BuilderPage() {
               </div>
 
               {/* Education */}
-              <div className="mb-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-medium">{t('builder.education', 'Education')}</h3>
+              <div className="mb-4 sm:mb-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 sm:mb-4 gap-2 sm:gap-0">
+                  <h3 className="text-base sm:text-lg font-medium">{t('builder.education', 'Education')}</h3>
                   <button
                     onClick={addEducation}
-                    className="btn-secondary text-sm"
+                    className="btn-secondary text-sm py-2 px-3 sm:px-4 w-full sm:w-auto"
                   >
                     + {t('builder.addEducation', 'Add Education')}
                   </button>
                 </div>
                 
                 {resumeData.content.education.length === 0 ? (
-                  <div className="text-center py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg">
-                    <p>{t('builder.noEducation', 'No education added yet')}</p>
-                    <p className="text-sm mt-2">{t('builder.clickAddEducation', 'Click "Add Education" to get started')}</p>
+                  <div className="text-center py-6 sm:py-8 text-gray-500 border-2 border-dashed border-gray-300 rounded-lg">
+                    <p className="text-sm sm:text-base">{t('builder.noEducation', 'No education added yet')}</p>
+                    <p className="text-xs sm:text-sm mt-2">{t('builder.clickAddEducation', 'Click "Add Education" to get started')}</p>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {resumeData.content.education.map((edu, index) => (
-                      <div key={index} className="border border-gray-200 rounded-lg p-4 bg-gray-50">
-                        <div className="flex justify-between items-center mb-4">
-                          <h4 className="font-medium text-gray-900">
+                      <div key={index} className="border border-gray-200 rounded-lg p-3 sm:p-4 bg-gray-50">
+                        <div className="flex justify-between items-center mb-3 sm:mb-4">
+                          <h4 className="font-medium text-gray-900 text-sm sm:text-base">
                             {t('builder.education')} #{index + 1}
                           </h4>
                           <button
                             onClick={() => removeEducation(index)}
-                            className="text-red-600 hover:text-red-800 text-sm"
+                            className="text-red-600 hover:text-red-800 text-xs sm:text-sm px-2 py-1 rounded hover:bg-red-50"
                           >
                             {t('builder.remove', 'Remove')}
                           </button>
                         </div>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                          <div className="sm:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                               {t('builder.degree', 'Degree')}
                             </label>
@@ -648,7 +648,7 @@ export default function BuilderPage() {
                               placeholder={t('builder.degree.placeholder', 'e.g., Bachelor of Science in Computer Science')}
                             />
                           </div>
-                          <div>
+                          <div className="sm:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                               {t('builder.school', 'School/University')}
                             </label>
@@ -660,7 +660,7 @@ export default function BuilderPage() {
                               placeholder={t('builder.school.placeholder', 'e.g., Stanford University')}
                             />
                           </div>
-                          <div>
+                          <div className="sm:col-span-2">
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                               {t('builder.period', 'Period')}
                             </label>
@@ -674,7 +674,7 @@ export default function BuilderPage() {
                           </div>
                         </div>
                         
-                        <div className="mt-4">
+                        <div className="mt-3 sm:mt-4">
                           <label className="block text-sm font-medium text-gray-700 mb-2">
                             {t('builder.description', 'Description')}
                           </label>
@@ -695,21 +695,21 @@ export default function BuilderPage() {
           </div>
 
           {/* Right Panel - Preview */}
-          <div className="lg:col-span-1">
+          <div className="xl:col-span-1">
             <div className="card">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold">{t('builder.preview.title', 'Resume Preview')}</h3>
+              <div className="flex justify-between items-center mb-3 sm:mb-4">
+                <h3 className="text-base sm:text-lg font-semibold">{t('builder.preview.title', 'Resume Preview')}</h3>
                 <button
                   onClick={() => setShowPreviewModal(true)}
-                  className="btn-secondary text-sm px-3 py-1"
+                  className="btn-secondary text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
                   title={t('builder.preview.zoom', 'Zoom Preview')}
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                   </svg>
                 </button>
               </div>
-              <div className="bg-gray-100 rounded-lg p-4 h-[600px] overflow-y-auto">
+              <div className="bg-gray-100 rounded-lg p-2 sm:p-4 h-[400px] sm:h-[500px] xl:h-[600px] overflow-y-auto">
                 <ResumeTemplateRenderer 
                   resumeData={resumeData}
                   templateId={selectedTemplate}
@@ -719,16 +719,16 @@ export default function BuilderPage() {
             </div>
 
             {!isLoggedIn && (
-              <div className="card mt-4 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
-                <h3 className="text-lg font-semibold mb-2 text-blue-900">{t('builder.upgrade.title', 'Upgrade to Full Version')}</h3>
-                <ul className="text-sm text-blue-800 space-y-1 mb-4">
+              <div className="card mt-3 sm:mt-4 bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200">
+                <h3 className="text-base sm:text-lg font-semibold mb-2 text-blue-900">{t('builder.upgrade.title', 'Upgrade to Full Version')}</h3>
+                <ul className="text-xs sm:text-sm text-blue-800 space-y-1 mb-3 sm:mb-4">
                   <li>✓ {t('builder.upgrade.feature1', 'Save unlimited resumes')}</li>
                   <li>✓ {t('builder.upgrade.feature2', 'AI writing assistant')}</li>
                   <li>✓ {t('builder.upgrade.feature3', 'Multi-language resume support')}</li>
                   <li>✓ {t('builder.upgrade.feature4', 'Resume analysis and optimization')}</li>
                   <li>✓ {t('builder.upgrade.feature5', 'Export to PDF/Word format')}</li>
                 </ul>
-                <Link href="/auth/register" className="btn-primary w-full">
+                <Link href="/auth/register" className="btn-primary w-full text-sm py-2 px-3">
                   {t('builder.upgrade.registerNow', 'Register Now')}
                 </Link>
               </div>
@@ -739,20 +739,20 @@ export default function BuilderPage() {
 
       {/* Preview Modal */}
       {showPreviewModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
-            <div className="flex justify-between items-center p-4 border-b">
-              <h3 className="text-lg font-semibold">{t('builder.preview.modalTitle', 'Resume Preview')}</h3>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+          <div className="bg-white rounded-lg w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden">
+            <div className="flex justify-between items-center p-3 sm:p-4 border-b">
+              <h3 className="text-base sm:text-lg font-semibold">{t('builder.preview.modalTitle', 'Resume Preview')}</h3>
               <button
                 onClick={() => setShowPreviewModal(false)}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-gray-500 hover:text-gray-700 p-1"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+            <div className="p-3 sm:p-6 overflow-y-auto max-h-[calc(95vh-80px)] sm:max-h-[calc(90vh-120px)]">
               <ResumeTemplateRenderer 
                 resumeData={resumeData}
                 templateId={selectedTemplate}
