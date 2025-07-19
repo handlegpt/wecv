@@ -742,5 +742,12 @@
         "description": "在社交媒体上为我们评分"
       }
     }
+  },
+  "footer": {
+    "product": "产品",
+    "legal": "法律",
+    "termsOfService": "服务条款",
+    "cookiePolicy": "Cookie政策",
+    "allRightsReserved": "保留所有权利。"
   }
 } 

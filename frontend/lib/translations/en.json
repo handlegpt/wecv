@@ -764,5 +764,12 @@
         "description": "Rate us on social media"
       }
     }
+  },
+  "footer": {
+    "product": "Product",
+    "legal": "Legal",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "allRightsReserved": "All rights reserved."
   }
 } 

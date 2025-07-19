@@ -45,7 +45,7 @@ export function Footer() {
 
           {/* Product Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">产品</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.product', 'Product')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/templates" className="text-gray-300 hover:text-white transition-colors">
@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">法律</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.legal', 'Legal')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors">
@@ -76,12 +76,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/terms" className="text-gray-300 hover:text-white transition-colors">
-                  服务条款
+                  {t('footer.termsOfService', 'Terms of Service')}
                 </Link>
               </li>
               <li>
                 <Link href="/cookies" className="text-gray-300 hover:text-white transition-colors">
-                  Cookie政策
+                  {t('footer.cookiePolicy', 'Cookie Policy')}
                 </Link>
               </li>
             </ul>
@@ -91,17 +91,17 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © {currentYear} WeCV AI. 保留所有权利。
+            © {currentYear} WeCV AI. {t('footer.allRightsReserved', 'All rights reserved.')}
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
               {t('privacy.title', 'Privacy')}
             </Link>
             <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
-              服务条款
+              {t('footer.termsOfService', 'Terms of Service')}
             </Link>
             <Link href="/cookies" className="text-gray-400 hover:text-white text-sm transition-colors">
-              Cookie政策
+              {t('footer.cookiePolicy', 'Cookie Policy')}
             </Link>
           </div>
         </div>

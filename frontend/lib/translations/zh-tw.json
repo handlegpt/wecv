@@ -663,5 +663,12 @@
         "description": "在社交媒體上為我們評分"
       }
     }
+  },
+  "footer": {
+    "product": "產品",
+    "legal": "法律",
+    "termsOfService": "服務條款",
+    "cookiePolicy": "Cookie政策",
+    "allRightsReserved": "保留所有權利。"
   }
 } 

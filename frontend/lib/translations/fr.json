@@ -718,5 +718,12 @@
         "description": "Notez-nous sur les réseaux sociaux"
       }
     }
+  },
+  "footer": {
+    "product": "Produit",
+    "legal": "Légal",
+    "termsOfService": "Conditions de Service",
+    "cookiePolicy": "Politique de Cookies",
+    "allRightsReserved": "Tous droits réservés."
   }
 } 

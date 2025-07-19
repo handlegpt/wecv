@@ -718,5 +718,12 @@
     "title": "WeCV AI - Plataforma de Generación y Gestión Inteligente de CV",
     "description": "WeCV AI ayuda a los buscadores de empleo globales a crear eficientemente CV profesionales con tecnología impulsada por IA, soporte multiidioma y multitemplate, alojamiento en línea y exportación.",
     "keywords": "WeCV, CV con IA, CV Inteligente, Búsqueda de Empleo, Plantillas de CV, Constructor de CV"
+  },
+  "footer": {
+    "product": "Producto",
+    "legal": "Legal",
+    "termsOfService": "Términos de Servicio",
+    "cookiePolicy": "Política de Cookies",
+    "allRightsReserved": "Todos los derechos reservados."
   }
 } 

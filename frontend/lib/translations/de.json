@@ -718,5 +718,12 @@
         "description": "Bewerten Sie uns in sozialen Medien"
       }
     }
+  },
+  "footer": {
+    "product": "Produkt",
+    "legal": "Rechtlich",
+    "termsOfService": "Nutzungsbedingungen",
+    "cookiePolicy": "Cookie-Richtlinie",
+    "allRightsReserved": "Alle Rechte vorbehalten."
   }
 } 
