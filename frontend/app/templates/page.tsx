@@ -265,14 +265,14 @@ export default function TemplatesPage() {
 
         {/* Templates Grid */}
         {filteredTemplates.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTemplates.map((template) => (
               <div 
                 key={template.id}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden group"
               >
                 {/* Template Preview */}
-                <div className="aspect-[3/4] bg-gray-50 p-4 relative">
+                <div className="aspect-[4/5] bg-gray-50 p-4 relative">
                   <TemplatePreview 
                     templateId={template.id} 
                     className="w-full h-full"
@@ -299,54 +299,54 @@ export default function TemplatesPage() {
                 </div>
 
                 {/* Template Info */}
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="inline-block bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded-full">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-block bg-primary-100 text-primary-800 text-xs px-3 py-1 rounded-full font-medium">
                       {template.category}
                     </span>
                     <div className="flex items-center text-sm text-gray-500">
                       <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                      {template.popularity}%
+                      <span className="font-medium">{template.popularity}%</span>
                     </div>
                   </div>
                   
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {template.name}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-3">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {template.description}
                   </p>
 
                   {/* Features */}
                   {template.features && (
                     <div className="mb-4">
-                      <div className="flex flex-wrap gap-1">
-                        {template.features.slice(0, 2).map((feature, index) => (
+                      <div className="flex flex-wrap gap-2">
+                        {template.features.slice(0, 3).map((feature, index) => (
                           <span
                             key={index}
-                            className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
+                            className="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full"
                           >
                             {feature}
                           </span>
                         ))}
-                        {template.features.length > 2 && (
-                          <span className="text-xs text-gray-500">+{template.features.length - 2} more</span>
+                        {template.features.length > 3 && (
+                          <span className="text-xs text-gray-500">+{template.features.length - 3} more</span>
                         )}
                       </div>
                     </div>
                   )}
                   
                   {/* Actions */}
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <button
                       onClick={() => handleTemplateSelect(template.id)}
-                      className="flex-1 btn-primary text-sm py-2"
+                      className="flex-1 btn-primary text-sm py-3 font-medium"
                     >
                       {t('ResumeTemplates.useTemplate')}
                     </button>
                     <button 
                       onClick={() => handleTemplatePreview(template.id)}
-                      className="btn-secondary text-sm py-2 px-3"
+                      className="btn-secondary text-sm py-3 px-4"
                     >
                       <Eye className="w-4 h-4" />
                     </button>
