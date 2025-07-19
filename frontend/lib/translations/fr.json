@@ -15,7 +15,12 @@
   },
   "features": {
     "sectionTitle": "Fonctionnalités Puissantes",
-    "sectionSubtitle": "Nous fournissons des fonctionnalités complètes de création de CV pour rendre votre recherche d'emploi plus fluide",
+    "sectionSubtitle": "Nous fournissons des fonctionnalités complètes de création de CV pour rendre votre parcours de recherche d'emploi plus fluide",
+    "stats": {
+      "activeUsers": "Utilisateurs Actifs",
+      "successRate": "Taux de Réussite",
+      "resumesCreated": "CV Créés"
+    },
     "cta": {
       "title": "Prêt à créer votre CV professionnel ?",
       "subtitle": "Rejoignez des milliers de professionnels qui ont déjà transformé leur carrière avec WeCV AI",

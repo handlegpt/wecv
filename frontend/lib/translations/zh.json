@@ -10,12 +10,17 @@
     "cta": "开始创建",
     "ctaSecondary": "查看模板",
     "noCreditCard": "无需信用卡",
-    "joinProfessionals": "加入10万+专业人士",
+    "joinProfessionals": "加入100,000+专业人士",
     "atsFriendly": "ATS友好模板"
   },
   "features": {
     "sectionTitle": "强大功能",
     "sectionSubtitle": "我们提供全面的简历创建功能，让您的求职之旅更加顺畅",
+    "stats": {
+      "activeUsers": "活跃用户",
+      "successRate": "成功率",
+      "resumesCreated": "简历创建数"
+    },
     "cta": {
       "title": "准备创建您的专业简历？",
       "subtitle": "加入数千名已经通过WeCV AI改变职业生涯的专业人士",

@@ -10,12 +10,17 @@
     "cta": "開始創建",
     "ctaSecondary": "查看模板",
     "noCreditCard": "無需信用卡",
-    "joinProfessionals": "加入10萬+專業人士",
+    "joinProfessionals": "加入100,000+專業人士",
     "atsFriendly": "ATS友好模板"
   },
   "features": {
     "sectionTitle": "強大功能",
     "sectionSubtitle": "我們提供全面的簡歷創建功能，讓您的求職之旅更加順暢",
+    "stats": {
+      "activeUsers": "活躍用戶",
+      "successRate": "成功率",
+      "resumesCreated": "簡歷創建數"
+    },
     "cta": {
       "title": "準備創建您的專業簡歷？",
       "subtitle": "加入數千名已經通過WeCV AI改變職業生涯的專業人士",

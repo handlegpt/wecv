@@ -55,9 +55,9 @@ const features = [
 ]
 
 const stats = [
-  { icon: Users, value: '50,000+', label: 'Active Users' },
-  { icon: CheckCircle, value: '98%', label: 'Success Rate' },
-  { icon: Zap, value: '2.5M+', label: 'Resumes Created' }
+  { icon: Users, value: '100,000+', label: 'features.stats.activeUsers' },
+  { icon: CheckCircle, value: '98%', label: 'features.stats.successRate' },
+  { icon: Zap, value: '500K+', label: 'features.stats.resumesCreated' }
 ]
 
 export function Features() {
@@ -96,7 +96,7 @@ export function Features() {
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-600">{t(stat.label)}</div>
             </div>
           ))}
         </motion.div>

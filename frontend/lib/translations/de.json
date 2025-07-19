@@ -16,11 +16,16 @@
   "features": {
     "sectionTitle": "Leistungsstarke Funktionen",
     "sectionSubtitle": "Wir bieten umfassende Lebenslauf-Erstellungsfunktionen, um Ihre Jobsuche reibungsloser zu gestalten",
+    "stats": {
+      "activeUsers": "Aktive Benutzer",
+      "successRate": "Erfolgsrate",
+      "resumesCreated": "Erstellte Lebensläufe"
+    },
     "cta": {
       "title": "Bereit, Ihren professionellen Lebenslauf zu erstellen?",
       "subtitle": "Schließen Sie sich Tausenden von Fachleuten an, die ihre Karriere bereits mit WeCV AI transformiert haben",
-      "primary": "Jetzt Erstellen Beginnen",
-      "secondary": "Vorlagen Anzeigen"
+      "primary": "Jetzt mit der Erstellung beginnen",
+      "secondary": "Vorlagen anzeigen"
     },
     "aiWriting": {
       "title": "KI-Schreibassistent",

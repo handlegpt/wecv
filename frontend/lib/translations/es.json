@@ -10,10 +10,15 @@
   },
   "features": {
     "sectionTitle": "Funciones Potentes",
-    "sectionSubtitle": "Proporcionamos funciones completas de creación de CV para hacer su búsqueda de trabajo más fluida",
+    "sectionSubtitle": "Proporcionamos funciones completas de creación de currículums para hacer su viaje de búsqueda de empleo más suave",
+    "stats": {
+      "activeUsers": "Usuarios Activos",
+      "successRate": "Tasa de Éxito",
+      "resumesCreated": "Currículums Creados"
+    },
     "cta": {
-      "title": "¿Listo para crear tu CV profesional?",
-      "subtitle": "Únete a miles de profesionales que ya han transformado sus carreras con WeCV AI",
+      "title": "¿Listo para crear su currículum profesional?",
+      "subtitle": "Únase a miles de profesionales que ya han transformado sus carreras con WeCV AI",
       "primary": "Comenzar a Crear Ahora",
       "secondary": "Ver Plantillas"
     },

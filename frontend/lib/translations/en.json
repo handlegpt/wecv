@@ -16,6 +16,11 @@
   "features": {
     "sectionTitle": "Powerful Features",
     "sectionSubtitle": "We provide comprehensive resume creation features to make your job search journey smoother",
+    "stats": {
+      "activeUsers": "Active Users",
+      "successRate": "Success Rate",
+      "resumesCreated": "Resumes Created"
+    },
     "cta": {
       "title": "Ready to create your professional resume?",
       "subtitle": "Join thousands of professionals who have already transformed their careers with WeCV AI",

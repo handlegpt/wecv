@@ -10,12 +10,17 @@
     "cta": "作成開始",
     "ctaSecondary": "テンプレートを見る",
     "noCreditCard": "クレジットカード不要",
-    "joinProfessionals": "10万人以上のプロフェッショナルに参加",
+    "joinProfessionals": "100,000人以上のプロフェッショナルに参加",
     "atsFriendly": "ATS対応テンプレート"
   },
   "features": {
     "sectionTitle": "強力な機能",
     "sectionSubtitle": "包括的な履歴書作成機能を提供し、あなたの求職の旅をよりスムーズにします",
+    "stats": {
+      "activeUsers": "アクティブユーザー",
+      "successRate": "成功率",
+      "resumesCreated": "作成された履歴書数"
+    },
     "cta": {
       "title": "プロフェッショナルな履歴書を作成する準備はできていますか？",
       "subtitle": "WeCV AIで既にキャリアを変革した何千人ものプロフェッショナルに参加",
