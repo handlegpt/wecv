@@ -237,7 +237,7 @@ export async function googleCallback(req: Request, res: Response) {
 
     // For GET requests (OAuth callback), redirect to frontend with token
     if (req.method === 'GET') {
-      const frontendUrl = process.env.FRONTEND_URL || 'https://wecv.ai'
+      const frontendUrl = process.env.FRONTEND_URL || 'http://wecv.ai'
       const redirectUrl = `${frontendUrl}/auth/google-success?token=${token}&user=${encodeURIComponent(JSON.stringify({
         id: user.id,
         email: user.email,
@@ -262,7 +262,7 @@ export async function googleCallback(req: Request, res: Response) {
     console.error('Google callback error:', error)
     
     if (req.method === 'GET') {
-      const frontendUrl = process.env.FRONTEND_URL || 'https://wecv.ai'
+      const frontendUrl = process.env.FRONTEND_URL || 'http://wecv.ai'
       const errorUrl = `${frontendUrl}/auth/google-login?error=login_failed`
       return res.redirect(errorUrl)
     }
