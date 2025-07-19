@@ -549,7 +549,8 @@
     "verificationSuccess": "Verification Successful",
     "redirectingToDashboard": "Redirecting to dashboard...",
     "verifying": "Verifying...",
-    "pleaseWait": "Please wait"
+    "pleaseWait": "Please wait",
+    "googleClientNotConfigured": "Google login not configured, please contact administrator"
   },
   "settings": {
     "multilanguage": "Multilanguage Settings",

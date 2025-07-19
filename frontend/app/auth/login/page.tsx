@@ -52,6 +52,20 @@ export default function LoginPage() {
       const redirectUri = `${window.location.origin}/auth/google-login`
       const scope = 'email profile'
       
+      console.log('Google OAuth configuration:', {
+        clientId: googleClientId,
+        redirectUri: redirectUri,
+        scope: scope,
+        origin: window.location.origin
+      })
+      
+      if (!googleClientId || googleClientId === 'your-google-client-id') {
+        console.error('Google Client ID not configured')
+        toast.error(t('messages.googleClientNotConfigured', '谷歌登录未配置，请联系管理员'))
+        setIsGoogleLoading(false)
+        return
+      }
+      
       const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
         `client_id=${googleClientId}&` +
         `redirect_uri=${encodeURIComponent(redirectUri)}&` +
@@ -60,6 +74,7 @@ export default function LoginPage() {
         `access_type=offline&` +
         `prompt=consent`
 
+      console.log('Redirecting to Google OAuth:', googleAuthUrl)
       window.location.href = googleAuthUrl
     } catch (error) {
       console.error('Google login error:', error)

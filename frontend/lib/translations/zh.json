@@ -537,7 +537,8 @@
     "verificationSuccess": "验证成功",
     "redirectingToDashboard": "正在跳转到控制台...",
     "verifying": "正在验证...",
-    "pleaseWait": "请稍候"
+    "pleaseWait": "请稍候",
+    "googleClientNotConfigured": "谷歌登录未配置，请联系管理员"
   },
   "settings": {
     "multilanguage": "多语言设置",
