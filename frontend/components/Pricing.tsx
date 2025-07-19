@@ -25,6 +25,7 @@ const plans = [
       'pricing.pro.features.advancedAI',
       'pricing.pro.features.multipleFormats',
       'pricing.pro.features.onlineHosting',
+      'pricing.pro.features.premiumDomains',
       'pricing.pro.features.prioritySupport',
       'pricing.pro.features.noAds'
     ],
@@ -40,6 +41,7 @@ const plans = [
       'pricing.enterprise.features.allProFeatures',
       'pricing.enterprise.features.customAI',
       'pricing.enterprise.features.teamCollaboration',
+      'pricing.enterprise.features.premiumDomains',
       'pricing.enterprise.features.advancedAnalytics',
       'pricing.enterprise.features.apiAccess',
       'pricing.enterprise.features.dedicatedSupport'
