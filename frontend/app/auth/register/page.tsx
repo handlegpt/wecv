@@ -29,9 +29,15 @@ export default function RegisterPage() {
 
     setIsLoading(true)
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
+      console.log('Registering with API URL:', apiUrl)
+      
+      const response = await fetch(`${apiUrl}/api/auth/register`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify({
           name: data.name,
           email: data.email,
@@ -39,11 +45,16 @@ export default function RegisterPage() {
         })
       })
       
+      console.log('Response status:', response.status)
+      
       if (response.ok) {
+        const result = await response.json()
+        console.log('Registration successful:', result)
         toast.success(t('messages.registerSuccess', '注册成功！请登录'))
         router.push('/auth/login')
       } else {
         const error = await response.json()
+        console.error('Registration failed:', error)
         toast.error(error.message || t('messages.registerFailed', '注册失败'))
       }
     } catch (error) {

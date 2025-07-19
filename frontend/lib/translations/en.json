@@ -446,7 +446,18 @@
     "registerNow": "Register Now",
     "haveAccount": "Already have an account?",
     "loginNow": "Login Now",
-    "confirmPassword": "Confirm Password"
+    "confirmPassword": "Confirm Password",
+    "emailLogin": "Email Login",
+    "emailLoginDescription": "Enter your email and we'll send you a login link",
+    "sendLoginLink": "Send Login Link",
+    "backToPasswordLogin": "Back to Password Login",
+    "emailLoginOption": "Use Email Verification Login",
+    "verifyEmail": "Verify Email",
+    "verificationFailed": "Verification Failed",
+    "invalidToken": "Invalid verification link",
+    "backToLogin": "Back to Login",
+    "verifyingToken": "Verifying your login link...",
+    "sendAnotherEmail": "Send Another Email"
   },
   "validation": {
     "emailRequired": "Please enter your email",
@@ -522,7 +533,16 @@
     "registerFailed": "Registration failed",
     "registering": "Registering...",
     "loggingIn": "Logging in...",
-    "networkError": "Network error, please try again"
+    "networkError": "Network error, please try again",
+    "emailSent": "Verification email sent, please check your inbox",
+    "emailLoginFailed": "Email sending failed",
+    "sending": "Sending...",
+    "emailSentTitle": "Email Sent",
+    "emailSentDescription": "Please check your email and click the login link",
+    "verificationSuccess": "Verification Successful",
+    "redirectingToDashboard": "Redirecting to dashboard...",
+    "verifying": "Verifying...",
+    "pleaseWait": "Please wait"
   },
   "settings": {
     "multilanguage": "Multilanguage Settings",

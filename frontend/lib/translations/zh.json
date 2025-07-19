@@ -424,7 +424,18 @@
     "registerNow": "立即注册",
     "haveAccount": "已有账户？",
     "loginNow": "立即登录",
-    "confirmPassword": "确认密码"
+    "confirmPassword": "确认密码",
+    "emailLogin": "邮件登录",
+    "emailLoginDescription": "输入您的邮箱，我们将发送登录链接",
+    "sendLoginLink": "发送登录链接",
+    "backToPasswordLogin": "返回密码登录",
+    "emailLoginOption": "使用邮件验证登录",
+    "verifyEmail": "验证邮箱",
+    "verificationFailed": "验证失败",
+    "invalidToken": "无效的验证链接",
+    "backToLogin": "返回登录",
+    "verifyingToken": "正在验证您的登录链接...",
+    "sendAnotherEmail": "重新发送邮件"
   },
   "validation": {
     "emailRequired": "请输入您的邮箱",
@@ -510,7 +521,16 @@
     "registerFailed": "注册失败",
     "registering": "注册中...",
     "loggingIn": "登录中...",
-    "networkError": "网络错误，请重试"
+    "networkError": "网络错误，请重试",
+    "emailSent": "验证邮件已发送，请检查您的邮箱",
+    "emailLoginFailed": "邮件发送失败",
+    "sending": "发送中...",
+    "emailSentTitle": "邮件已发送",
+    "emailSentDescription": "请检查您的邮箱并点击登录链接",
+    "verificationSuccess": "验证成功",
+    "redirectingToDashboard": "正在跳转到控制台...",
+    "verifying": "正在验证...",
+    "pleaseWait": "请稍候"
   },
   "settings": {
     "multilanguage": "多语言设置",

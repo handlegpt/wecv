@@ -2,9 +2,19 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { PrismaClient } from '@prisma/client'
+import nodemailer from 'nodemailer'
 
 const prisma = new PrismaClient()
 const JWT_SECRET = process.env.JWT_SECRET || 'secret'
+
+// Email transporter configuration
+const transporter = nodemailer.createTransporter({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER || 'your-email@gmail.com',
+    pass: process.env.EMAIL_PASS || 'your-app-password'
+  }
+})
 
 export async function register(req: Request, res: Response) {
   try {
@@ -134,6 +144,151 @@ export async function login(req: Request, res: Response) {
     res.status(500).json({ 
       message: '登录失败，请重试',
       error: 'INTERNAL_SERVER_ERROR'
+    })
+  }
+}
+
+export async function emailLogin(req: Request, res: Response) {
+  try {
+    const { email } = req.body
+    
+    // Validate email
+    if (!email) {
+      return res.status(400).json({ 
+        message: '请输入邮箱地址',
+        error: 'MISSING_EMAIL'
+      })
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ 
+        message: '请输入有效的邮箱地址',
+        error: 'INVALID_EMAIL_FORMAT'
+      })
+    }
+
+    // Check if user exists
+    const user = await prisma.user.findUnique({ 
+      where: { email: email.toLowerCase() } 
+    })
+    
+    if (!user) {
+      return res.status(404).json({ 
+        message: '该邮箱未注册',
+        error: 'USER_NOT_FOUND'
+      })
+    }
+
+    // Generate login token
+    const loginToken = jwt.sign(
+      { userId: user.id, email: user.email, type: 'email-login' }, 
+      JWT_SECRET, 
+      { expiresIn: '15m' } // 15 minutes expiry
+    )
+
+    // Create login URL
+    const loginUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/auth/verify-email?token=${loginToken}`
+
+    // Send email
+    const mailOptions = {
+      from: process.env.EMAIL_USER || 'noreply@wecv.ai',
+      to: email,
+      subject: 'WeCV AI - 登录链接',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #2563eb;">WeCV AI 登录</h2>
+          <p>您好 ${user.name || '用户'}，</p>
+          <p>您请求了邮件登录。请点击下面的链接登录您的账户：</p>
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${loginUrl}" 
+               style="background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
+              登录 WeCV AI
+            </a>
+          </div>
+          <p>此链接将在15分钟后失效。</p>
+          <p>如果您没有请求此登录，请忽略此邮件。</p>
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+          <p style="color: #6b7280; font-size: 12px;">
+            此邮件由 WeCV AI 系统自动发送，请勿回复。
+          </p>
+        </div>
+      `
+    }
+
+    await transporter.sendMail(mailOptions)
+
+    console.log(`Email login link sent to: ${email}`)
+
+    res.json({ 
+      message: '登录链接已发送到您的邮箱',
+      email: email
+    })
+  } catch (error) {
+    console.error('Email login error:', error)
+    res.status(500).json({ 
+      message: '邮件发送失败，请重试',
+      error: 'EMAIL_SEND_FAILED'
+    })
+  }
+}
+
+export async function verifyEmailLogin(req: Request, res: Response) {
+  try {
+    const { token } = req.body
+    
+    if (!token) {
+      return res.status(400).json({ 
+        message: '无效的验证链接',
+        error: 'MISSING_TOKEN'
+      })
+    }
+
+    // Verify token
+    const payload = jwt.verify(token, JWT_SECRET) as any
+    
+    if (payload.type !== 'email-login') {
+      return res.status(400).json({ 
+        message: '无效的验证链接',
+        error: 'INVALID_TOKEN_TYPE'
+      })
+    }
+
+    // Find user
+    const user = await prisma.user.findUnique({ 
+      where: { id: payload.userId } 
+    })
+    
+    if (!user) {
+      return res.status(404).json({ 
+        message: '用户不存在',
+        error: 'USER_NOT_FOUND'
+      })
+    }
+
+    // Generate session token
+    const sessionToken = jwt.sign(
+      { userId: user.id, email: user.email }, 
+      JWT_SECRET, 
+      { expiresIn: '7d' }
+    )
+
+    console.log(`User logged in via email: ${user.email}`)
+
+    res.json({ 
+      message: '登录成功',
+      token: sessionToken, 
+      user: { 
+        id: user.id, 
+        email: user.email, 
+        name: user.name 
+      } 
+    })
+  } catch (error) {
+    console.error('Email verification error:', error)
+    res.status(400).json({ 
+      message: '验证链接已失效或无效',
+      error: 'INVALID_TOKEN'
     })
   }
 } 

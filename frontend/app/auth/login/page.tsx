@@ -110,6 +110,12 @@ export default function LoginPage() {
                 {isLoading ? t('messages.loggingIn', '登录中...') : t('nav.login', 'Login')}
               </button>
             </div>
+
+            <div className="text-center">
+              <Link href="/auth/email-login" className="text-sm text-primary-600 hover:text-primary-500">
+                {t('auth.emailLoginOption', '使用邮件验证登录')}
+              </Link>
+            </div>
           </form>
         </div>
       </div>
