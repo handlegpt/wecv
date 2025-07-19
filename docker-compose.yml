@@ -52,7 +52,7 @@ services:
       - EMAIL_FROM=${EMAIL_FROM}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
-      - GOOGLE_REDIRECT_URI=${GOOGLE_REDIRECT_URI:-https://wecv.ai/api/auth/callback/google}
+      - GOOGLE_REDIRECT_URI=${GOOGLE_REDIRECT_URI:-http://wecv.ai/api/auth/callback/google}
       - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
       - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
       - PRISMA_ENGINE_CHECKSUM_IGNORE=1
