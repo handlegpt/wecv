@@ -151,16 +151,21 @@
     ]
   },
   "templates": {
-    "sectionTitle": "Modèles de CV Mis en Avant",
-    "sectionSubtitle": "Plusieurs modèles professionnels à choisir, il y en a toujours un qui vous convient",
+    "sectionTitle": "Modèles de CV en Vedette",
+    "sectionSubtitle": "Plusieurs modèles professionnels parmi lesquels choisir, il y en a toujours un qui vous convient",
     "preview": "Aperçu du Modèle",
     "useTemplate": "Utiliser Ce Modèle",
     "viewMore": "Voir Plus de Modèles",
     "categories": {
       "technical": "Technique",
-      "business": "Affaires",
+      "business": "Entreprise",
       "creative": "Créatif",
-      "general": "Général"
+      "general": "Général",
+      "modern": "Moderne",
+      "classic": "Classique",
+      "minimal": "Minimaliste",
+      "executive": "Exécutif",
+      "professional": "Professionnel"
     },
     "modern": {
       "name": "Professionnel Moderne",

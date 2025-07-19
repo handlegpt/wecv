@@ -445,7 +445,12 @@
       "technical": "技術",
       "business": "商務",
       "creative": "創意",
-      "general": "通用"
+      "general": "通用",
+      "modern": "現代",
+      "classic": "經典",
+      "minimal": "極簡",
+      "executive": "高管",
+      "professional": "專業"
     },
     "modern": {
       "name": "現代專業",

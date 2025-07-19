@@ -347,7 +347,7 @@ export default function BuilderPage() {
                 >
                   {templates.map((template) => (
                     <option key={template.id} value={template.id}>
-                      {template.name} - {template.category}
+                      {t(`templates.${template.id}.name`, template.name)} - {t(`templates.categories.${template.category}`, template.category)}
                     </option>
                   ))}
                 </select>

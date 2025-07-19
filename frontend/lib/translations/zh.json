@@ -467,7 +467,12 @@
       "technical": "技术",
       "business": "商务",
       "creative": "创意",
-      "general": "通用"
+      "general": "通用",
+      "modern": "现代",
+      "classic": "经典",
+      "minimal": "极简",
+      "executive": "高管",
+      "professional": "专业"
     },
     "modern": {
       "name": "现代专业",

@@ -147,7 +147,7 @@
   },
   "templates": {
     "sectionTitle": "Plantillas de CV Destacadas",
-    "sectionSubtitle": "Múltiples plantillas profesionales para elegir, siempre hay una que te queda perfecta",
+    "sectionSubtitle": "Múltiples plantillas profesionales para que elijas, siempre hay una que se adapta a ti",
     "preview": "Vista Previa de Plantilla",
     "useTemplate": "Usar Esta Plantilla",
     "viewMore": "Ver Más Plantillas",
@@ -155,7 +155,12 @@
       "technical": "Técnico",
       "business": "Negocios",
       "creative": "Creativo",
-      "general": "General"
+      "general": "General",
+      "modern": "Moderno",
+      "classic": "Clásico",
+      "minimal": "Minimalista",
+      "executive": "Ejecutivo",
+      "professional": "Profesional"
     },
     "modern": {
       "name": "Profesional Moderno",

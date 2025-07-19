@@ -489,7 +489,12 @@
       "technical": "Technical",
       "business": "Business",
       "creative": "Creative",
-      "general": "General"
+      "general": "General",
+      "modern": "Modern",
+      "classic": "Classic",
+      "minimal": "Minimal",
+      "executive": "Executive",
+      "professional": "Professional"
     },
     "modern": {
       "name": "Modern Professional",

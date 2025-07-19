@@ -154,13 +154,18 @@
     "sectionTitle": "Ausgewählte Lebenslauf-Vorlagen",
     "sectionSubtitle": "Mehrere professionelle Vorlagen zur Auswahl, es gibt immer eine, die zu Ihnen passt",
     "preview": "Vorlagen-Vorschau",
-    "useTemplate": "Diese Vorlage verwenden",
-    "viewMore": "Weitere Vorlagen anzeigen",
+    "useTemplate": "Diese Vorlage Verwenden",
+    "viewMore": "Weitere Vorlagen Anzeigen",
     "categories": {
       "technical": "Technisch",
       "business": "Geschäftlich",
       "creative": "Kreativ",
-      "general": "Allgemein"
+      "general": "Allgemein",
+      "modern": "Modern",
+      "classic": "Klassisch",
+      "minimal": "Minimalistisch",
+      "executive": "Führungskraft",
+      "professional": "Professionell"
     },
     "modern": {
       "name": "Modern Professionell",

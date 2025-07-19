@@ -151,8 +151,8 @@
     ]
   },
   "templates": {
-    "sectionTitle": "おすすめの履歴書テンプレート",
-    "sectionSubtitle": "あなたに合ったプロフェッショナルなテンプレートを選択できます",
+    "sectionTitle": "履歴書テンプレート",
+    "sectionSubtitle": "複数のプロフェッショナルテンプレートから選択できます。あなたに合ったものが必ずあります",
     "preview": "テンプレートプレビュー",
     "useTemplate": "このテンプレートを使用",
     "viewMore": "さらに多くのテンプレートを見る",
@@ -160,7 +160,12 @@
       "technical": "技術",
       "business": "ビジネス",
       "creative": "クリエイティブ",
-      "general": "一般"
+      "general": "一般",
+      "modern": "モダン",
+      "classic": "クラシック",
+      "minimal": "ミニマル",
+      "executive": "エグゼクティブ",
+      "professional": "プロフェッショナル"
     },
     "modern": {
       "name": "モダンプロフェッショナル",
