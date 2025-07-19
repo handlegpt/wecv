@@ -435,7 +435,14 @@
     "invalidToken": "无效的验证链接",
     "backToLogin": "返回登录",
     "verifyingToken": "正在验证您的登录链接...",
-    "sendAnotherEmail": "重新发送邮件"
+    "sendAnotherEmail": "重新发送邮件",
+    "googleLogin": "谷歌登录",
+    "googleLoginDescription": "使用您的谷歌账户登录",
+    "continueWithGoogle": "使用谷歌账户继续",
+    "googleLoginError": "谷歌登录失败",
+    "googleLoginFailed": "谷歌登录失败",
+    "or": "或者",
+    "tryAgain": "重试"
   },
   "validation": {
     "emailRequired": "请输入您的邮箱",

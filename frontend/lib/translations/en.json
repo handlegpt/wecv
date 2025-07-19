@@ -457,7 +457,14 @@
     "invalidToken": "Invalid verification link",
     "backToLogin": "Back to Login",
     "verifyingToken": "Verifying your login link...",
-    "sendAnotherEmail": "Send Another Email"
+    "sendAnotherEmail": "Send Another Email",
+    "googleLogin": "Google Login",
+    "googleLoginDescription": "Sign in with your Google account",
+    "continueWithGoogle": "Continue with Google",
+    "googleLoginError": "Google login failed",
+    "googleLoginFailed": "Google login failed",
+    "or": "or",
+    "tryAgain": "Try Again"
   },
   "validation": {
     "emailRequired": "Please enter your email",

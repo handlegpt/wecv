@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { PrismaClient } from '@prisma/client'
 import nodemailer from 'nodemailer'
+import axios from 'axios'
 
 const prisma = new PrismaClient()
 const JWT_SECRET = process.env.JWT_SECRET || 'secret'
@@ -15,6 +16,11 @@ const transporter = nodemailer.createTransporter({
     pass: process.env.EMAIL_PASS || 'your-app-password'
   }
 })
+
+// Google OAuth configuration
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
+const GOOGLE_REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3000/auth/google-login'
 
 export async function register(req: Request, res: Response) {
   try {
@@ -144,6 +150,96 @@ export async function login(req: Request, res: Response) {
     res.status(500).json({ 
       message: '登录失败，请重试',
       error: 'INTERNAL_SERVER_ERROR'
+    })
+  }
+}
+
+export async function googleCallback(req: Request, res: Response) {
+  try {
+    const { code } = req.body
+    
+    if (!code) {
+      return res.status(400).json({ 
+        message: '授权码缺失',
+        error: 'MISSING_AUTH_CODE'
+      })
+    }
+
+    // Exchange authorization code for access token
+    const tokenResponse = await axios.post('https://oauth2.googleapis.com/token', {
+      client_id: GOOGLE_CLIENT_ID,
+      client_secret: GOOGLE_CLIENT_SECRET,
+      code: code,
+      grant_type: 'authorization_code',
+      redirect_uri: GOOGLE_REDIRECT_URI
+    })
+
+    const { access_token } = tokenResponse.data
+
+    // Get user info from Google
+    const userInfoResponse = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
+      headers: {
+        Authorization: `Bearer ${access_token}`
+      }
+    })
+
+    const { id, email, name, picture } = userInfoResponse.data
+
+    // Check if user exists
+    let user = await prisma.user.findUnique({ 
+      where: { email: email.toLowerCase() } 
+    })
+
+    if (!user) {
+      // Create new user
+      user = await prisma.user.create({
+        data: { 
+          email: email.toLowerCase(), 
+          name: name || email.split('@')[0],
+          password: '', // Google users don't need password
+          settings: {
+            googleId: id,
+            avatar: picture
+          }
+        }
+      })
+      console.log(`Google user created: ${user.email}`)
+    } else {
+      // Update existing user with Google info
+      await prisma.user.update({
+        where: { id: user.id },
+        data: {
+          settings: {
+            ...user.settings,
+            googleId: id,
+            avatar: picture
+          }
+        }
+      })
+      console.log(`Google user logged in: ${user.email}`)
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+      { userId: user.id, email: user.email }, 
+      JWT_SECRET, 
+      { expiresIn: '7d' }
+    )
+
+    res.json({ 
+      message: '谷歌登录成功',
+      token, 
+      user: { 
+        id: user.id, 
+        email: user.email, 
+        name: user.name 
+      } 
+    })
+  } catch (error) {
+    console.error('Google callback error:', error)
+    res.status(500).json({ 
+      message: '谷歌登录失败，请重试',
+      error: 'GOOGLE_LOGIN_FAILED'
     })
   }
 }
