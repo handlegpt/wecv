@@ -850,5 +850,17 @@
     "termsOfService": "服务条款",
     "cookiePolicy": "Cookie政策",
     "allRightsReserved": "保留所有权利。"
+  },
+  "dashboard": {
+    "welcome": "欢迎",
+    "myResumes": "我的简历",
+    "createNewResume": "创建新简历",
+    "noResumes": "还没有简历",
+    "startCreating": "开始创建您的第一份专业简历吧！",
+    "createResume": "创建简历",
+    "edit": "编辑",
+    "delete": "删除",
+    "createdAt": "创建时间",
+    "updatedAt": "更新时间"
   }
 } 

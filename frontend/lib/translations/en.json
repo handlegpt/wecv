@@ -441,6 +441,18 @@
     "settings": "Settings",
     "logout": "Logout"
   },
+  "dashboard": {
+    "welcome": "Welcome",
+    "myResumes": "My Resumes",
+    "createNewResume": "Create New Resume",
+    "noResumes": "No resumes yet",
+    "startCreating": "Start creating your first professional resume!",
+    "createResume": "Create Resume",
+    "edit": "Edit",
+    "delete": "Delete",
+    "createdAt": "Created",
+    "updatedAt": "Updated"
+  },
   "auth": {
     "noAccount": "Don't have an account?",
     "registerNow": "Register Now",
