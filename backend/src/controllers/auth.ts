@@ -4,6 +4,8 @@ import jwt from 'jsonwebtoken'
 import { PrismaClient } from '@prisma/client'
 import * as nodemailer from 'nodemailer'
 import axios from 'axios'
+import postmark from 'postmark'
+import { Resend } from 'resend'
 
 const prisma = new PrismaClient()
 const JWT_SECRET = process.env.JWT_SECRET || 'secret'
@@ -23,6 +25,9 @@ const transporter = nodemailer.createTransport({
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 const GOOGLE_REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'http://wecv.ai/api/auth/callback/google'
+
+const postmarkClient = new postmark.ServerClient(process.env.POSTMARK_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function register(req: Request, res: Response) {
   try {
@@ -332,62 +337,40 @@ export async function emailLogin(req: Request, res: Response) {
       emailUser: process.env.EMAIL_SERVER_USER ? 'configured' : 'not configured'
     })
 
-    // Send email
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_SERVER_USER || 'noreply@wecv.ai',
-      to: email,
-      subject: 'WeCV AI - 登录链接',
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #2563eb;">WeCV AI 登录</h2>
-          <p>您好 ${user.name || '用户'}，</p>
-          <p>您请求了邮件登录。请点击下面的链接登录您的账户：</p>
-          <div style="text-align: center; margin: 30px 0;">
-            <a href="${loginUrl}" 
-               style="background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
-              登录 WeCV AI
-            </a>
-          </div>
-          <p>此链接将在15分钟后失效。</p>
-          <p>如果您没有请求此登录，请忽略此邮件。</p>
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-          <p style="color: #6b7280; font-size: 12px;">
-            此邮件由 WeCV AI 系统自动发送，请勿回复。
-          </p>
+    const mailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #2563eb;">WeCV AI 登录</h2>
+        <p>您好 ${user.name || '用户'}，</p>
+        <p>您请求了邮件登录。请点击下面的链接登录您的账户：</p>
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="${loginUrl}" 
+             style="background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block;">
+            登录 WeCV AI
+          </a>
         </div>
-      `
-    }
-
+        <p>此链接将在15分钟后失效。</p>
+        <p>如果您没有请求此登录，请忽略此邮件。</p>
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+        <p style="color: #6b7280; font-size: 12px;">
+          此邮件由 WeCV AI 系统自动发送，请勿回复。
+        </p>
+      </div>
+    `
     try {
-      console.log('Attempting to send email...')
-      await transporter.sendMail(mailOptions)
-      console.log(`Email login link sent to: ${email}`)
+      await resend.emails.send({
+        from: 'WeCV AI <noreply@wecv.ai>',
+        to: email,
+        subject: 'WeCV AI - 登录链接',
+        html: mailHtml
+      })
+      res.json({ message: '登录链接已发送到您的邮箱', email })
     } catch (emailError) {
-      console.error('Email sending failed:', emailError)
-      console.error('Email error details:', {
-        code: emailError.code,
-        command: emailError.command,
-        response: emailError.response,
-        responseCode: emailError.responseCode
-      })
-      
-      // Return success even if email fails to avoid exposing email configuration issues
-      return res.json({ 
-        message: '登录链接已发送到您的邮箱',
-        email: email
-      })
+      console.error('Resend sending failed:', emailError)
+      return res.status(500).json({ message: '邮件发送失败，请重试', error: 'EMAIL_SEND_FAILED' })
     }
-
-    res.json({ 
-      message: '登录链接已发送到您的邮箱',
-      email: email
-    })
   } catch (error) {
     console.error('Email login error:', error)
-    res.status(500).json({ 
-      message: '邮件发送失败，请重试',
-      error: 'EMAIL_SEND_FAILED'
-    })
+    res.status(500).json({ message: '邮件发送失败，请重试', error: 'EMAIL_SEND_FAILED' })
   }
 }
 

@@ -56,6 +56,7 @@ services:
       - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
       - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
       - PRISMA_ENGINE_CHECKSUM_IGNORE=1
+      - POSTMARK_API_KEY=${POSTMARK_API_KEY}
     ports:
       - '3001:3001'
     depends_on:

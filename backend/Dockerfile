@@ -31,8 +31,7 @@ COPY package*.json ./
 
 # Install dependencies with force flag to resolve conflicts
 RUN rm -f package-lock.json && \
-    npm install --force && \
-    npm cache clean --force
+    npm install --legacy-peer-deps && npm install resend && npm cache clean --force
 
 # Copy source code
 COPY . .
