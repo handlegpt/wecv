@@ -4,7 +4,6 @@ import jwt from 'jsonwebtoken'
 import { PrismaClient } from '@prisma/client'
 import * as nodemailer from 'nodemailer'
 import axios from 'axios'
-import postmark from 'postmark'
 import { Resend } from 'resend'
 
 const prisma = new PrismaClient()
@@ -26,7 +25,6 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET
 const GOOGLE_REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || 'http://wecv.ai/api/auth/callback/google'
 
-const postmarkClient = new postmark.ServerClient(process.env.POSTMARK_API_KEY)
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function register(req: Request, res: Response) {
