@@ -6,10 +6,11 @@ import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast'
 
 export default function GoogleSuccessPage() {
-  const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
   const searchParams = useSearchParams()
   const { t } = useTranslation()
+  const [isProcessing, setIsProcessing] = useState(true)
+  
   const token = searchParams.get('token')
   const userParam = searchParams.get('user')
 
@@ -18,13 +19,11 @@ export default function GoogleSuccessPage() {
       try {
         const user = JSON.parse(decodeURIComponent(userParam))
         
-        // Store token and user info
+        // Store token and user info in localStorage
         localStorage.setItem('token', token)
         localStorage.setItem('user', JSON.stringify(user))
         
         toast.success(t('messages.loginSuccess', '登录成功！'))
-        
-        // Redirect to dashboard
         router.push('/dashboard')
       } catch (error) {
         console.error('Error parsing user data:', error)
@@ -35,7 +34,7 @@ export default function GoogleSuccessPage() {
       toast.error(t('messages.loginFailed', '登录失败'))
       router.push('/auth/login')
     }
-  }, [token, userParam, router])
+  }, [token, userParam, router, t])
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -48,14 +47,16 @@ export default function GoogleSuccessPage() {
               </svg>
             </div>
             <h3 className="mt-4 text-lg font-medium text-gray-900">
-              {t('auth.googleLoginSuccess', '谷歌登录成功')}
+              {t('messages.googleLoginSuccess', '谷歌登录成功')}
             </h3>
             <p className="mt-2 text-sm text-gray-600">
-              {t('messages.redirecting', '正在跳转到仪表板...')}
+              {t('messages.redirecting', '正在跳转...')}
             </p>
-            <div className="mt-6">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
-            </div>
+            {isProcessing && (
+              <div className="mt-4">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
+              </div>
+            )}
           </div>
         </div>
       </div>
