@@ -31,7 +31,7 @@ model User {
   canShare  Boolean  @default(false) // Free users cannot share resumes
   canAnalytics Boolean @default(false) // Free users cannot see analytics
   canTemplates Boolean @default(true) // Free users can use basic templates
-  canMultiLanguage Boolean @default(false) // Free users cannot use multi-language
+  canMultiLanguage Boolean @default(true) // Free users can use multi-language
 }
 
 model Resume {
