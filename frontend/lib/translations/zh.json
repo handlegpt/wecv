@@ -333,7 +333,7 @@
     "addInterest": "添加兴趣"
   },
   "builder": {
-    "title": "WeCV AI - 简历编辑器",
+    "title": "简历编辑器",
     "trialMode": "试用模式",
     "trialMode.title": "试用模式：",
     "trialMode.description": "您可以自由体验简历创建功能。注册账户以保存简历、使用AI功能等。",

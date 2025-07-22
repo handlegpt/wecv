@@ -355,7 +355,7 @@
     "addInterest": "Add Interest"
   },
   "builder": {
-    "title": "WeCV AI - Resume Builder",
+    "title": "Resume Builder",
     "trialMode": "Trial Mode",
     "trialMode.title": "Trial Mode:",
     "trialMode.description": "You can freely experience the resume creation feature. Register an account to save resumes, use AI features, and more.",
