@@ -376,7 +376,7 @@ export default function BuilderPage() {
                 </div>
               </div>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t('builder.title', 'WeCV AI - Resume Builder')}</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t('builder.title', 'Resume Builder')}</h1>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
               <div className="flex items-center justify-center sm:justify-end">
                 <LanguageSelector />
