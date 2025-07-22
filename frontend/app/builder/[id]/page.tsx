@@ -213,7 +213,7 @@ export default function ResumeBuilderById() {
   }
 
   // 编辑器表单UI
-  if (!resumeData) {
+  if (!resumeData || !resumeData.content) {
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
