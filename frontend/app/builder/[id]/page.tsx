@@ -225,7 +225,7 @@ export default function ResumeBuilderById() {
   }
 
   const addExperience = () => {
-    setResumeData(prev => ({
+    setResumeData((prev: any) => ({
       ...prev,
       content: {
         ...prev.content,
@@ -235,21 +235,21 @@ export default function ResumeBuilderById() {
   };
 
   const removeExperience = (index: number) => {
-    setResumeData(prev => ({
+    setResumeData((prev: any) => ({
       ...prev,
       content: {
         ...prev.content,
-        experience: prev.content.experience.filter((_, i) => i !== index)
+        experience: prev.content.experience.filter((_: any, i: number) => i !== index)
       }
     }));
   };
 
   const updateExperience = (index: number, field: string, value: string) => {
-    setResumeData(prev => ({
+    setResumeData((prev: any) => ({
       ...prev,
       content: {
         ...prev.content,
-        experience: prev.content.experience.map((exp, i) =>
+        experience: prev.content.experience.map((exp: any, i: number) =>
           i === index ? { ...exp, [field]: value } : exp
         )
       }
@@ -257,7 +257,7 @@ export default function ResumeBuilderById() {
   };
 
   const addEducation = () => {
-    setResumeData(prev => ({
+    setResumeData((prev: any) => ({
       ...prev,
       content: {
         ...prev.content,
@@ -267,21 +267,21 @@ export default function ResumeBuilderById() {
   };
 
   const removeEducation = (index: number) => {
-    setResumeData(prev => ({
+    setResumeData((prev: any) => ({
       ...prev,
       content: {
         ...prev.content,
-        education: prev.content.education.filter((_, i) => i !== index)
+        education: prev.content.education.filter((_: any, i: number) => i !== index)
       }
     }));
   };
 
   const updateEducation = (index: number, field: string, value: string) => {
-    setResumeData(prev => ({
+    setResumeData((prev: any) => ({
       ...prev,
       content: {
         ...prev.content,
-        education: prev.content.education.map((edu, i) =>
+        education: prev.content.education.map((edu: any, i: number) =>
           i === index ? { ...edu, [field]: value } : edu
         )
       }
@@ -534,7 +534,7 @@ export default function ResumeBuilderById() {
                   </div>
                 ) : (
                   <div className="space-y-3 sm:space-y-4">
-                    {(resumeData?.content?.experience || []).map((exp, index) => (
+                    {(resumeData?.content?.experience || []).map((exp: any, index: number) => (
                       <div key={index} className="border border-gray-200 rounded-lg p-3 sm:p-4 bg-gray-50">
                         <div className="flex justify-between items-center mb-3 sm:mb-4">
                           <h4 className="font-medium text-gray-900 text-sm sm:text-base">
@@ -631,7 +631,7 @@ export default function ResumeBuilderById() {
                   </div>
                 ) : (
                   <div className="space-y-3 sm:space-y-4">
-                    {(resumeData?.content?.education || []).map((edu, index) => (
+                    {(resumeData?.content?.education || []).map((edu: any, index: number) => (
                       <div key={index} className="border border-gray-200 rounded-lg p-3 sm:p-4 bg-gray-50">
                         <div className="flex justify-between items-center mb-3 sm:mb-4">
                           <h4 className="font-medium text-gray-900 text-sm sm:text-base">
