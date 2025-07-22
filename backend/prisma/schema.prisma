@@ -146,7 +146,7 @@ model ResumeShare {
 }
 
 model Template {
-  id        String   @id @default(uuid())
+  id        String   @id
   name      String
   category  String?
   preview   String?
