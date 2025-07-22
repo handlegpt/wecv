@@ -289,6 +289,79 @@ export default function ResumeBuilderById() {
     }));
   };
 
+  // AI润色和翻译相关状态
+  const [aiLoading, setAiLoading] = useState<{ [key: string]: boolean }>({});
+  const [aiError, setAiError] = useState<{ [key: string]: string }>({});
+  const [translateLang, setTranslateLang] = useState('en'); // 默认英文
+  const [translateLoading, setTranslateLoading] = useState(false);
+  const [translateResult, setTranslateResult] = useState<string | null>(null);
+
+  const handleEnhance = async (key: string, value: string, onSuccess: (v: string) => void) => {
+    setAiLoading(prev => ({ ...prev, [key]: true }));
+    setAiError(prev => ({ ...prev, [key]: '' }));
+    setTranslateResult(null);
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/enhance`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ text: value, targetLang: translateLang })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        onSuccess(data.enhancedText);
+        setTranslateResult(`AI润色成功！`);
+      } else {
+        const errorData = await response.json();
+        setAiError(prev => ({ ...prev, [key]: errorData.message || 'AI润色失败' }));
+        setTranslateResult(`AI润色失败: ${errorData.message || '未知错误'}`);
+      }
+    } catch (error) {
+      setAiError(prev => ({ ...prev, [key]: '网络错误' }));
+      setTranslateResult(`AI润色失败: 网络错误`);
+    } finally {
+      setAiLoading(prev => ({ ...prev, [key]: false }));
+    }
+  };
+
+  const handleTranslate = async (key: string, value: string, targetLang: string, onSuccess: (v: string) => void) => {
+    setTranslateLoading(true);
+    setTranslateResult(null);
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/translate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ text: value, targetLang: targetLang })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        onSuccess(data.translatedText);
+        setTranslateResult(`AI翻译成功！`);
+      } else {
+        const errorData = await response.json();
+        setTranslateResult(`AI翻译失败: ${errorData.message || '未知错误'}`);
+      }
+    } catch (error) {
+      setTranslateResult(`AI翻译失败: 网络错误`);
+    } finally {
+      setTranslateLoading(false);
+    }
+  };
+
+  // AI翻译弹窗
+  const [showTranslateModal, setShowTranslateModal] = useState<{ key: string; value: string } | null>(null);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -482,41 +555,71 @@ export default function ResumeBuilderById() {
                   </div>
                 </div>
               </div>
+              {/* summary输入区块 */}
               <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t('builder.summary', 'Professional Summary')}
                 </label>
-                <textarea
-                  value={resumeData?.content?.summary || ''}
-                  onChange={(e) => setResumeData({
-                    ...resumeData,
-                    content: {
-                      ...resumeData.content,
-                      summary: e.target.value
-                    }
-                  })}
-                  className="input-field"
-                  rows={4}
-                  placeholder={t('builder.summary.placeholder', 'Brief professional summary...')}
-                />
+                <div className="flex gap-2">
+                  <textarea
+                    value={resumeData?.content?.summary || ''}
+                    onChange={(e) => setResumeData({
+                      ...resumeData,
+                      content: { 
+                        ...resumeData.content, 
+                        summary: e.target.value
+                      }
+                    })}
+                    className="input-field flex-1"
+                    rows={4}
+                    placeholder={t('builder.summary.placeholder', 'Brief professional summary...')}
+                  />
+                  <div className="flex flex-col gap-1">
+                    <button
+                      className="btn-secondary text-xs"
+                      disabled={aiLoading.summary}
+                      onClick={() => handleEnhance('summary', resumeData?.content?.summary || '', v => setResumeData({ ...resumeData, content: { ...resumeData.content, summary: v } }))}
+                    >{aiLoading.summary ? '润色中...' : 'AI润色'}</button>
+                    <button
+                      className="btn-secondary text-xs"
+                      onClick={() => setShowTranslateModal({ key: 'summary', value: resumeData?.content?.summary || '' })}
+                    >AI翻译</button>
+                  </div>
+                </div>
+                {aiError.summary && <div className="text-red-500 text-xs mt-1">{aiError.summary}</div>}
               </div>
+              {/* skills输入区块 */}
               <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {t('builder.skills', 'Skills')}
                 </label>
-                <textarea
-                  value={Array.isArray(resumeData?.content?.skills) ? resumeData.content.skills.join(', ') : ''}
-                  onChange={(e) => setResumeData({
-                    ...resumeData,
-                    content: {
-                      ...resumeData.content,
-                      skills: e.target.value.split(',').map(s => s.trim()).filter(s => s)
-                    }
-                  })}
-                  className="input-field"
-                  rows={3}
-                  placeholder={t('builder.skills.placeholder', 'Skill 1, Skill 2, Skill 3...')}
-                />
+                <div className="flex gap-2">
+                  <textarea
+                    value={Array.isArray(resumeData?.content?.skills) ? resumeData.content.skills.join(', ') : ''}
+                    onChange={(e) => setResumeData({
+                      ...resumeData,
+                      content: { 
+                        ...resumeData.content, 
+                        skills: e.target.value.split(',').map(s => s.trim()).filter(s => s)
+                      }
+                    })}
+                    className="input-field flex-1"
+                    rows={3}
+                    placeholder={t('builder.skills.placeholder', 'Skill 1, Skill 2, Skill 3...')}
+                  />
+                  <div className="flex flex-col gap-1">
+                    <button
+                      className="btn-secondary text-xs"
+                      disabled={aiLoading.skills}
+                      onClick={() => handleEnhance('skills', Array.isArray(resumeData?.content?.skills) ? resumeData.content.skills.join(', ') : '', v => setResumeData({ ...resumeData, content: { ...resumeData.content, skills: v.split(',').map(s => s.trim()).filter(s => s) } }))}
+                    >{aiLoading.skills ? '润色中...' : 'AI润色'}</button>
+                    <button
+                      className="btn-secondary text-xs"
+                      onClick={() => setShowTranslateModal({ key: 'skills', value: Array.isArray(resumeData?.content?.skills) ? resumeData.content.skills.join(', ') : '' })}
+                    >AI翻译</button>
+                  </div>
+                </div>
+                {aiError.skills && <div className="text-red-500 text-xs mt-1">{aiError.skills}</div>}
               </div>
               <div className="mb-4 sm:mb-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 sm:mb-4 gap-2 sm:gap-0">
@@ -602,13 +705,27 @@ export default function ResumeBuilderById() {
                           <label className="block text-sm font-medium text-gray-700 mb-2">
                             {t('builder.description', 'Description')}
                           </label>
-                          <textarea
-                            value={exp.description || ''}
-                            onChange={(e) => updateExperience(index, 'description', e.target.value)}
-                            className="input-field"
-                            rows={3}
-                            placeholder={t('builder.description.placeholder', 'Describe your responsibilities and achievements...')}
-                          />
+                          <div className="flex gap-2">
+                            <textarea
+                              value={exp.description}
+                              onChange={(e) => updateExperience(index, 'description', e.target.value)}
+                              className="input-field flex-1"
+                              rows={3}
+                              placeholder={t('builder.description.placeholder', 'Describe your responsibilities and achievements...')}
+                            />
+                            <div className="flex flex-col gap-1">
+                              <button
+                                className="btn-secondary text-xs"
+                                disabled={aiLoading[`exp${index}`]}
+                                onClick={() => handleEnhance(`exp${index}`, exp.description, v => updateExperience(index, 'description', v))}
+                              >{aiLoading[`exp${index}`] ? '润色中...' : 'AI润色'}</button>
+                              <button
+                                className="btn-secondary text-xs"
+                                onClick={() => setShowTranslateModal({ key: `exp${index}`, value: exp.description })}
+                              >AI翻译</button>
+                            </div>
+                          </div>
+                          {aiError[`exp${index}`] && <div className="text-red-500 text-xs mt-1">{aiError[`exp${index}`]}</div>}
                         </div>
                       </div>
                     ))}
@@ -687,13 +804,27 @@ export default function ResumeBuilderById() {
                           <label className="block text-sm font-medium text-gray-700 mb-2">
                             {t('builder.description', 'Description')}
                           </label>
-                          <textarea
-                            value={edu.description || ''}
-                            onChange={(e) => updateEducation(index, 'description', e.target.value)}
-                            className="input-field"
-                            rows={3}
-                            placeholder={t('builder.description.placeholder', 'Describe your studies, achievements, GPA...')}
-                          />
+                          <div className="flex gap-2">
+                            <textarea
+                              value={edu.description}
+                              onChange={(e) => updateEducation(index, 'description', e.target.value)}
+                              className="input-field flex-1"
+                              rows={3}
+                              placeholder={t('builder.description.placeholder', 'Describe your studies, achievements, GPA...')}
+                            />
+                            <div className="flex flex-col gap-1">
+                              <button
+                                className="btn-secondary text-xs"
+                                disabled={aiLoading[`edu${index}`]}
+                                onClick={() => handleEnhance(`edu${index}`, edu.description, v => updateEducation(index, 'description', v))}
+                              >{aiLoading[`edu${index}`] ? '润色中...' : 'AI润色'}</button>
+                              <button
+                                className="btn-secondary text-xs"
+                                onClick={() => setShowTranslateModal({ key: `edu${index}`, value: edu.description })}
+                              >AI翻译</button>
+                            </div>
+                          </div>
+                          {aiError[`edu${index}`] && <div className="text-red-500 text-xs mt-1">{aiError[`edu${index}`]}</div>}
                         </div>
                       </div>
                     ))}
@@ -816,6 +947,52 @@ export default function ResumeBuilderById() {
                 className="w-full max-w-2xl mx-auto"
               />
             </div>
+          </div>
+        </div>
+      )}
+      {/* AI翻译弹窗 */}
+      {showTranslateModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+          <div className="bg-white rounded-lg w-full max-w-md p-4 sm:p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">AI翻译</h3>
+              <button onClick={() => setShowTranslateModal(null)} className="text-gray-500 hover:text-gray-700 p-1">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">目标语言</label>
+              <select className="input-field" value={translateLang} onChange={e => setTranslateLang(e.target.value)}>
+                <option value="en">英文</option>
+                <option value="zh">中文</option>
+                <option value="ja">日文</option>
+              </select>
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">原文</label>
+              <textarea className="input-field" rows={3} value={showTranslateModal.value} readOnly />
+            </div>
+            <div className="mb-4">
+              <button className="btn-primary w-full" disabled={translateLoading} onClick={() => handleTranslate(showTranslateModal.key, showTranslateModal.value, translateLang, v => {
+                // 翻译结果直接填充到对应输入框
+                if (showTranslateModal.key === 'summary') setResumeData({ ...resumeData, content: { ...resumeData.content, summary: v } })
+                else if (showTranslateModal.key === 'skills') setResumeData({ ...resumeData, content: { ...resumeData.content, skills: v.split(',').map(s => s.trim()).filter(s => s) } })
+                else if (showTranslateModal.key.startsWith('exp')) {
+                  const idx = parseInt(showTranslateModal.key.replace('exp', ''))
+                  const updated = [...resumeData.content.experience]
+                  updated[idx].description = v
+                  setResumeData({ ...resumeData, content: { ...resumeData.content, experience: updated } })
+                } else if (showTranslateModal.key.startsWith('edu')) {
+                  const idx = parseInt(showTranslateModal.key.replace('edu', ''))
+                  const updated = [...resumeData.content.education]
+                  updated[idx].description = v
+                  setResumeData({ ...resumeData, content: { ...resumeData.content, education: updated } })
+                }
+              })}>{translateLoading ? '翻译中...' : '翻译'}</button>
+            </div>
+            {translateResult && <div className="text-green-600 text-sm mb-2">{translateResult}</div>}
           </div>
         </div>
       )}
