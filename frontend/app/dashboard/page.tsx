@@ -9,6 +9,8 @@ import { Header } from '@/components/Header'
 import { Sparkles } from 'lucide-react'
 import { useSearchParams, usePathname, useRouter as useNextRouter } from 'next/navigation'
 import ReactModal from 'react-modal'
+import jsPDF from 'jspdf'
+import html2canvas from 'html2canvas'
 
 interface Resume {
   id: string
@@ -213,6 +215,45 @@ export default function DashboardPage() {
 
   // 获取推荐模板（mock或真实API）
   // 移除推荐模板相关state和useEffect
+
+  // 新增导出PDF方法
+  const handleExportPDF = async (resumeId: string) => {
+    try {
+      const token = localStorage.getItem('token')
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}`, {
+        headers: { 'Authorization': `Bearer ${token}` }
+      })
+      if (!res.ok) throw new Error('获取简历内容失败')
+      const data = await res.json()
+      // 创建一个隐藏的div用于渲染简历内容
+      const container = document.createElement('div')
+      container.style.position = 'fixed'
+      container.style.left = '-9999px'
+      container.style.top = '0'
+      container.style.width = '800px'
+      container.style.background = '#fff'
+      container.innerHTML = `
+        <h2 style='font-size:24px;font-weight:bold;margin-bottom:8px;'>${data.title || 'Resume'}</h2>
+        <div style='margin-bottom:8px;'>${data.content?.personal?.name || ''} | ${data.content?.personal?.email || ''} | ${data.content?.personal?.phone || ''}</div>
+        <div style='margin-bottom:8px;'>${data.content?.summary || ''}</div>
+        <div><b>Experience:</b><ul>${(data.content?.experience||[]).map((exp:any) => `<li>${exp.title} @ ${exp.company} (${exp.period})<br/>${exp.description}</li>`).join('')}</ul></div>
+        <div><b>Education:</b><ul>${(data.content?.education||[]).map((edu:any) => `<li>${edu.degree} @ ${edu.school} (${edu.period})<br/>${edu.description}</li>`).join('')}</ul></div>
+        <div><b>Skills:</b> ${(data.content?.skills||[]).join(', ')}</div>
+      `
+      document.body.appendChild(container)
+      const canvas = await html2canvas(container, { scale: 2 })
+      const imgData = canvas.toDataURL('image/png')
+      const pdf = new jsPDF('p', 'mm', 'a4')
+      const pdfWidth = 210
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight)
+      pdf.save(`${data.title || 'resume'}.pdf`)
+      document.body.removeChild(container)
+      toast.success('PDF导出成功！')
+    } catch (e) {
+      toast.error('PDF导出失败')
+    }
+  }
 
   if (isLoading) {
     return (
@@ -459,6 +500,12 @@ export default function DashboardPage() {
                           <h3 className="text-lg font-semibold text-gray-900">{resume.title}</h3>
                         </div>
                         <div className="flex space-x-2">
+                          <button
+                            className="text-green-600 hover:text-green-800 text-sm"
+                            onClick={() => handleExportPDF(resume.id)}
+                          >
+                            {t('dashboard.exportPDF', '导出 PDF')}
+                          </button>
                           <button
                             className="text-blue-600 hover:text-blue-800 text-sm"
                             onClick={() => setPreviewResume(resume)}
