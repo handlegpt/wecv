@@ -147,7 +147,7 @@ export default function TemplatesPage() {
 
   const fetchTemplates = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/template`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/template`)
       if (response.ok) {
         const data = await response.json()
         setTemplates(data)

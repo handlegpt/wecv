@@ -92,7 +92,7 @@ export default function BuilderPage() {
         formData.append('file', file)
         
         const token = localStorage.getItem('token')
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/upload`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/upload`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`
@@ -145,7 +145,7 @@ export default function BuilderPage() {
 
   const fetchTemplates = async (templateId?: string) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/template`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/template`)
       if (response.ok) {
         const data = await response.json()
         setTemplates(data)
@@ -213,7 +213,7 @@ export default function BuilderPage() {
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -257,7 +257,7 @@ export default function BuilderPage() {
 
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ai/write`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/write`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
