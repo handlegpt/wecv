@@ -333,7 +333,7 @@
     "addInterest": "添加兴趣"
   },
   "builder": {
-    "title": "WeCV AI - 简历生成器",
+    "title": "WeCV AI - 简历编辑器",
     "trialMode": "试用模式",
     "trialMode.title": "试用模式：",
     "trialMode.description": "您可以自由体验简历创建功能。注册账户以保存简历、使用AI功能等。",
@@ -370,6 +370,25 @@
     "degree.placeholder": "例如：计算机科学学士学位",
     "school": "学校/大学",
     "school.placeholder": "例如：斯坦福大学",
+    "upload": {
+      "button": "上传简历",
+      "title": "上传简历",
+      "clickToUpload": "点击上传",
+      "uploading": "上传中...",
+      "supportedFormats": "PDF或JSON文件，最大10MB",
+      "pdfNote": "PDF文件将被处理以提取简历内容",
+      "jsonNote": "JSON文件应包含我们格式的简历数据",
+      "jsonSuccess": "JSON简历导入成功！",
+      "pdfSuccess": "PDF简历导入成功！",
+      "invalidJson": "无效的JSON格式",
+      "pdfFailed": "PDF简历导入失败",
+      "unsupportedFormat": "不支持的文件格式。请上传PDF或JSON文件。",
+      "error": "上传失败"
+    },
+    "export": {
+      "json": "导出JSON",
+      "jsonSuccess": "简历已导出为JSON！"
+    },
     "preview": {
       "title": "简历预览",
       "yourName": "您的姓名",
@@ -396,7 +415,7 @@
     },
     "errors": {
       "titleRequired": "请输入简历标题",
-      "loginRequired": "请注册以保存您的简历",
+      "loginRequired": "请注册以保存简历",
       "saveFailed": "保存失败",
       "networkError": "网络错误"
     },

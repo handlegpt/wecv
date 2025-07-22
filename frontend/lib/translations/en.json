@@ -392,6 +392,25 @@
     "degree.placeholder": "e.g., Bachelor of Science in Computer Science",
     "school": "School/University",
     "school.placeholder": "e.g., Stanford University",
+    "upload": {
+      "button": "Upload Resume",
+      "title": "Upload Resume",
+      "clickToUpload": "Click to upload",
+      "uploading": "Uploading...",
+      "supportedFormats": "PDF or JSON files up to 10MB",
+      "pdfNote": "PDF files will be processed to extract resume content",
+      "jsonNote": "JSON files should contain resume data in our format",
+      "jsonSuccess": "JSON resume imported successfully!",
+      "pdfSuccess": "PDF resume imported successfully!",
+      "invalidJson": "Invalid JSON format",
+      "pdfFailed": "Failed to import PDF resume",
+      "unsupportedFormat": "Unsupported file format. Please upload PDF or JSON files.",
+      "error": "Upload failed"
+    },
+    "export": {
+      "json": "Export JSON",
+      "jsonSuccess": "Resume exported as JSON!"
+    },
     "preview": {
       "title": "Resume Preview",
       "yourName": "Your Name",
