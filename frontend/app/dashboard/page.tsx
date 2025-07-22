@@ -382,7 +382,7 @@ export default function DashboardPage() {
                     )}
                   </div>
                   <div className={`px-4 py-2 rounded-full text-sm font-medium ${planStatus.color}`}>
-                    {planStatus.status.toUpperCase()}
+                    {planStatus.status ? planStatus.status.toUpperCase() : ''}
                   </div>
                 </div>
               </div>
