@@ -127,7 +127,7 @@ export function Header({ variant = 'default', user: propUser, onLogout, title, o
                 <div className="flex items-center space-x-2">
                   <span className="text-gray-700">{t('dashboard.welcome', '欢迎')}，{currentUser?.name}</span>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${planStatus.color}`}>
-                    {planStatus.status.toUpperCase()}
+                    {planStatus.status ? planStatus.status.toUpperCase() : ''}
                   </span>
                 </div>
                 <button
