@@ -63,8 +63,7 @@ export default function DashboardPage() {
   const [aiSuggestions, setAiSuggestions] = useState<string[]>([])
 
   // 2. 推荐模板相关state
-  const [recommendedTemplates, setRecommendedTemplates] = useState<any[]>([])
-  const [templateLoading, setTemplateLoading] = useState(false)
+  // 移除推荐模板相关state和useEffect
 
   // Tab切换记忆：初始化时从URL参数读取tab
   useEffect(() => {
@@ -213,20 +212,7 @@ export default function DashboardPage() {
   }
 
   // 获取推荐模板（mock或真实API）
-  useEffect(() => {
-    if (activeTab === 'overview') {
-      setTemplateLoading(true)
-      // TODO: 替换为真实API
-      fetch('/api/template/recommend')
-        .then(res => res.ok ? res.json() : Promise.resolve([
-          { id: 'modern', name: 'Modern', previewImage: '/templates/modern.png', description: '适合互联网行业' },
-          { id: 'classic', name: 'Classic', previewImage: '/templates/classic.png', description: '适合传统行业' }
-        ]))
-        .then(data => setRecommendedTemplates(data))
-        .catch(() => setRecommendedTemplates([]))
-        .finally(() => setTemplateLoading(false))
-    }
-  }, [activeTab])
+  // 移除推荐模板相关state和useEffect
 
   if (isLoading) {
     return (
@@ -282,25 +268,7 @@ export default function DashboardPage() {
           {/* Overview Tab */}
           {activeTab === 'overview' && (
             <>
-              <div className="card mb-6">
-                <h3 className="text-lg font-bold mb-2">{t('dashboard.recommendTemplates', '为你推荐模板')}</h3>
-                {templateLoading ? (
-                  <div className="text-gray-500">{t('dashboard.loading', '加载中...')}</div>
-                ) : (
-                  <div className="flex flex-wrap gap-4">
-                    {recommendedTemplates.map(tpl => (
-                      <div key={tpl.id} className="border rounded-lg p-4 w-64 flex flex-col items-center">
-                        <img src={tpl.previewImage} alt={tpl.name} className="w-32 h-32 object-cover rounded mb-2" />
-                        <div className="font-semibold mb-1">{tpl.name}</div>
-                        <div className="text-gray-500 text-sm mb-2">{tpl.description}</div>
-                        <button className="btn-primary w-full" onClick={() => {
-                          nextRouter.push(`/builder?template=${tpl.id}`)
-                        }}>{t('dashboard.applyTemplate', '一键应用')}</button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {/* 推荐模板区块已移除 */}
               {/* Stats Cards */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="card">
