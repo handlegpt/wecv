@@ -56,15 +56,16 @@ export default function ResumeBuilderById() {
       })
       if (res.ok) {
         const data = await res.json()
-        // 健壮性兜底处理
+        // 更强兜底：content为对象且所有子字段都兜底
+        const safeContent = typeof data.content === 'object' && data.content !== null ? data.content : {}
         setResumeData({
           title: data.title || '',
           content: {
-            personal: data.content?.personal || { name: '', email: '', phone: '', location: '', title: '' },
-            summary: data.content?.summary || '',
-            experience: Array.isArray(data.content?.experience) ? data.content.experience : [],
-            education: Array.isArray(data.content?.education) ? data.content.education : [],
-            skills: Array.isArray(data.content?.skills) ? data.content.skills : []
+            personal: safeContent.personal || { name: '', email: '', phone: '', location: '', title: '' },
+            summary: safeContent.summary || '',
+            experience: Array.isArray(safeContent.experience) ? safeContent.experience : [],
+            education: Array.isArray(safeContent.education) ? safeContent.education : [],
+            skills: Array.isArray(safeContent.skills) ? safeContent.skills : []
           }
         })
         setSelectedTemplate(data.templateId || '')
@@ -213,7 +214,7 @@ export default function ResumeBuilderById() {
   }
 
   // 编辑器表单UI
-  if (!resumeData || !resumeData.content) {
+  if (!resumeData || !resumeData.content || typeof resumeData.content !== 'object') {
     return (
       <div className="min-h-screen bg-gray-50">
         <Header />
