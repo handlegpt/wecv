@@ -411,16 +411,15 @@
       "json": "Export JSON",
       "jsonSuccess": "Resume exported as JSON!"
     },
-    "preview": {
-      "title": "Resume Preview",
-      "yourName": "Your Name",
-      "summary": "Professional Summary",
-      "skills": "Skills",
-      "button": "Preview Resume",
-      "developing": "Preview feature is under development...",
-      "zoom": "Zoom Preview",
-      "modalTitle": "Resume Preview"
-    },
+    "preview": "Resume Preview",
+    "previewTitle": "Resume Preview",
+    "previewModalTitle": "Resume Preview",
+    "previewYourName": "Your Name",
+    "previewSummary": "Professional Summary",
+    "previewSkills": "Skills",
+    "previewButton": "Preview Resume",
+    "previewDeveloping": "Preview feature is under development...",
+    "previewZoom": "Zoom Preview",
     "upgrade": {
       "title": "Upgrade to Full Version",
       "feature1": "Save unlimited resumes",

@@ -389,16 +389,15 @@
       "json": "导出JSON",
       "jsonSuccess": "简历已导出为JSON！"
     },
-    "preview": {
-      "title": "简历预览",
-      "yourName": "您的姓名",
-      "summary": "专业总结",
-      "skills": "技能",
-      "button": "预览简历",
-      "developing": "预览功能正在开发中...",
-      "zoom": "放大预览",
-      "modalTitle": "简历预览"
-    },
+    "preview": "简历预览",
+    "previewTitle": "简历预览",
+    "previewModalTitle": "简历预览",
+    "previewYourName": "您的姓名",
+    "previewSummary": "专业总结",
+    "previewSkills": "技能",
+    "previewButton": "预览简历",
+    "previewDeveloping": "预览功能正在开发中...",
+    "previewZoom": "放大预览",
     "upgrade": {
       "title": "升级到完整版本",
       "feature1": "保存无限简历",
