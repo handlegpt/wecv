@@ -71,6 +71,21 @@ export default function DashboardPage() {
       if (resumesResponse.ok) {
         const resumesData = await resumesResponse.json()
         setResumes(resumesData)
+        // Fetch user plan并统计数量
+        const planResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/plan`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+        if (planResponse.ok) {
+          const planData = await planResponse.json()
+          setUserStats({
+            totalResumes: resumesData.length,
+            resumesThisMonth: Math.floor(Math.random() * 5) + 1, // Mock data
+            lastActive: new Date().toISOString(),
+            planUsage: Math.floor((resumesData.length / planData.maxResumes) * 100)
+          })
+        }
       }
 
       // Fetch user profile and plan
@@ -83,23 +98,6 @@ export default function DashboardPage() {
       if (userResponse.ok) {
         const userData = await userResponse.json()
         setUser(userData)
-      }
-
-      // Fetch user plan
-      const planResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/plan`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      
-      if (planResponse.ok) {
-        const planData = await planResponse.json()
-        setUserStats({
-          totalResumes: resumes.length,
-          resumesThisMonth: Math.floor(Math.random() * 5) + 1, // Mock data
-          lastActive: new Date().toISOString(),
-          planUsage: Math.floor((resumes.length / planData.maxResumes) * 100)
-        })
       }
     } catch (error) {
       toast.error(t('messages.networkError', '网络错误'))
