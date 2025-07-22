@@ -4,6 +4,127 @@ import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
+export async function getUserProfile(req: Request, res: Response) {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.userId },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        phone: true,
+        location: true,
+        bio: true,
+        settings: true,
+        preferredLanguage: true,
+        createdAt: true
+      }
+    })
+
+    if (!user) {
+      return res.status(404).json({ message: '用户不存在' })
+    }
+
+    res.json(user)
+  } catch (error) {
+    console.error('获取用户资料错误:', error)
+    res.status(500).json({ message: '获取用户资料失败' })
+  }
+}
+
+export async function updateUserProfile(req: Request, res: Response) {
+  try {
+    const { name, email, phone, location, bio, preferredLanguage } = req.body
+
+    // 验证邮箱格式
+    if (email && !email.includes('@')) {
+      return res.status(400).json({ message: '邮箱格式不正确' })
+    }
+
+    // 检查邮箱是否已被其他用户使用
+    if (email) {
+      const existingUser = await prisma.user.findFirst({
+        where: {
+          email,
+          id: { not: req.userId }
+        }
+      })
+      if (existingUser) {
+        return res.status(400).json({ message: '邮箱已被使用' })
+      }
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: req.userId },
+      data: {
+        name,
+        email,
+        phone,
+        location,
+        bio,
+        preferredLanguage
+      }
+    })
+
+    res.json({ message: '资料更新成功', user: updatedUser })
+  } catch (error) {
+    console.error('更新用户资料错误:', error)
+    res.status(500).json({ message: '更新用户资料失败' })
+  }
+}
+
+export async function getUserPlan(req: Request, res: Response) {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.userId },
+      select: {
+        plan: true,
+        planExpiresAt: true,
+        maxResumes: true,
+        canUseAI: true,
+        canExport: true,
+        canShare: true,
+        canAnalytics: true,
+        canTemplates: true,
+        canMultiLanguage: true,
+        resumes: {
+          select: {
+            id: true,
+            title: true,
+            createdAt: true
+          }
+        }
+      }
+    })
+
+    if (!user) {
+      return res.status(404).json({ message: '用户不存在' })
+    }
+
+    const resumeCount = user.resumes.length
+    const planInfo = {
+      plan: user.plan,
+      planExpiresAt: user.planExpiresAt,
+      maxResumes: user.maxResumes,
+      currentResumes: resumeCount,
+      remainingResumes: Math.max(0, user.maxResumes - resumeCount),
+      features: {
+        ai: user.canUseAI,
+        export: user.canExport,
+        share: user.canShare,
+        analytics: user.canAnalytics,
+        templates: user.canTemplates,
+        multiLanguage: user.canMultiLanguage
+      }
+    }
+
+    res.json(planInfo)
+  } catch (error) {
+    console.error('获取用户计划错误:', error)
+    res.status(500).json({ message: '获取用户计划失败' })
+  }
+}
+
 export async function getSettings(req: Request, res: Response) {
   try {
     const user = await prisma.user.findUnique({

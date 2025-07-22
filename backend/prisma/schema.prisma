@@ -21,6 +21,17 @@ model User {
   updatedAt DateTime @updatedAt
   resumes   Resume[]
   role      String   @default("user")
+  
+  // User subscription and plan
+  plan      String   @default("free") // free, pro, enterprise
+  planExpiresAt DateTime?
+  maxResumes Int     @default(3) // Free users can only have 3 resumes
+  canUseAI  Boolean  @default(false) // Free users cannot use AI features
+  canExport Boolean  @default(true) // Free users can export
+  canShare  Boolean  @default(false) // Free users cannot share resumes
+  canAnalytics Boolean @default(false) // Free users cannot see analytics
+  canTemplates Boolean @default(true) // Free users can use basic templates
+  canMultiLanguage Boolean @default(false) // Free users cannot use multi-language
 }
 
 model Resume {
