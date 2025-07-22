@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { TemplatePreview } from '@/components/TemplatePreview'
 import { Eye, Play, Star, Users, Clock } from 'lucide-react'
+import { Header } from '@/components/Header'
 
 interface Template {
   id: string
@@ -205,23 +206,7 @@ export default function TemplatesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">{t('ResumeTemplates.title')}</h1>
-              <p className="text-gray-600 mt-2">{t('ResumeTemplates.subtitle')}</p>
-            </div>
-            <Link 
-              href="/builder"
-              className="btn-primary"
-            >
-              {t('buttons.create')}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">

@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
+import { Header } from '@/components/Header'
+import { Sparkles } from 'lucide-react'
 
 interface Resume {
   id: string
@@ -147,29 +149,7 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">WeCV AI</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-gray-700">{t('dashboard.welcome', '欢迎')}，{user?.name}</span>
-                <span className={`px-2 py-1 rounded-full text-xs font-medium ${planStatus.color}`}>
-                  {planStatus.status.toUpperCase()}
-                </span>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="btn-secondary"
-              >
-                {t('nav.logout', '退出登录')}
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header variant="dashboard" user={user} onLogout={handleLogout} />
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">

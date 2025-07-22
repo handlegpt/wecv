@@ -6,7 +6,15 @@ import { useState } from 'react'
 import { Menu, X, Sparkles } from 'lucide-react'
 import LanguageSelector from './LanguageSelector'
 
-export function Header() {
+interface HeaderProps {
+  variant?: 'default' | 'dashboard' | 'admin'
+  user?: any
+  onLogout?: () => void
+  title?: string
+  onBack?: () => void
+}
+
+export function Header({ variant = 'default', user, onLogout, title, onBack }: HeaderProps) {
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -18,6 +26,20 @@ export function Header() {
     { name: t('navigation.about'), href: '/about' },
     { name: t('navigation.pricing'), href: '#pricing' },
   ]
+
+  const getPlanStatus = () => {
+    if (!user) return { status: 'free', color: 'bg-gray-100 text-gray-800' }
+    
+    if (user.plan === 'pro') {
+      return { status: 'pro', color: 'bg-blue-100 text-blue-800' }
+    } else if (user.plan === 'enterprise') {
+      return { status: 'enterprise', color: 'bg-purple-100 text-purple-800' }
+    } else {
+      return { status: 'free', color: 'bg-gray-100 text-gray-800' }
+    }
+  }
+
+  const planStatus = getPlanStatus()
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -37,37 +59,70 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          {variant === 'default' && (
+            <nav className="hidden md:flex items-center space-x-8">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          )}
 
           {/* Right side - Language Selector and Auth */}
           <div className="flex items-center space-x-4">
             <LanguageSelector />
             
-            {/* Desktop Auth Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
-              <Link
-                href="/auth/login"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
-              >
-                {t('navigation.login')}
-              </Link>
-              <Link
-                href="/auth/register"
-                className="btn-primary"
-              >
-                {t('navigation.register')}
-              </Link>
-            </div>
+            {variant === 'default' ? (
+              /* Desktop Auth Buttons */
+              <div className="hidden md:flex items-center space-x-4">
+                <Link
+                  href="/auth/login"
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                >
+                  {t('navigation.login')}
+                </Link>
+                <Link
+                  href="/auth/register"
+                  className="btn-primary"
+                >
+                  {t('navigation.register')}
+                </Link>
+              </div>
+            ) : variant === 'dashboard' && user ? (
+              /* Dashboard User Info */
+              <div className="hidden md:flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <span className="text-gray-700">{t('dashboard.welcome', '欢迎')}，{user?.name}</span>
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${planStatus.color}`}>
+                    {planStatus.status.toUpperCase()}
+                  </span>
+                </div>
+                <button
+                  onClick={onLogout}
+                  className="btn-secondary"
+                >
+                  {t('nav.logout', '退出登录')}
+                </button>
+              </div>
+            ) : variant === 'admin' ? (
+              /* Admin Header */
+              <div className="hidden md:flex items-center space-x-4">
+                <h1 className="text-xl font-bold text-gray-900">{title}</h1>
+                {onBack && (
+                  <button
+                    onClick={onBack}
+                    className="btn-secondary"
+                  >
+                    返回用户界面
+                  </button>
+                )}
+              </div>
+            ) : null}
 
             {/* Mobile menu button */}
             <button
@@ -87,32 +142,51 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 space-y-2">
-                <Link
-                  href="/auth/login"
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('navigation.login')}
-                </Link>
-                <Link
-                  href="/auth/register"
-                  className="block px-3 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {t('navigation.register')}
-                </Link>
-              </div>
+              {variant === 'default' ? (
+                <>
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                  <div className="pt-4 space-y-2">
+                    <Link
+                      href="/auth/login"
+                      className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {t('navigation.login')}
+                    </Link>
+                    <Link
+                      href="/auth/register"
+                      className="block px-3 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors duration-200"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {t('navigation.register')}
+                    </Link>
+                  </div>
+                </>
+              ) : variant === 'dashboard' && user ? (
+                <div className="pt-4 space-y-2">
+                  <div className="px-3 py-2 text-gray-700">
+                    {t('dashboard.welcome', '欢迎')}，{user?.name}
+                  </div>
+                  <button
+                    onClick={() => {
+                      onLogout?.()
+                      setIsMenuOpen(false)
+                    }}
+                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
+                  >
+                    {t('nav.logout', '退出登录')}
+                  </button>
+                </div>
+              ) : null}
             </div>
           </div>
         )}

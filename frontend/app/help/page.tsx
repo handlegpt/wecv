@@ -3,6 +3,7 @@
 import { useTranslation } from 'react-i18next'
 import { useState } from 'react'
 import { ChevronDown, ChevronUp, Mail, MessageCircle, BookOpen } from 'lucide-react'
+import { Header } from '@/components/Header'
 
 interface FAQ {
   question: string
@@ -47,18 +48,7 @@ export default function HelpPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              {t('help.title', 'Help Center')}
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t('help.subtitle', 'Find answers to common questions and learn how to create the perfect resume with WeCV AI.')}
-            </p>
-          </div>
-        </div>
-      </div>
+      <Header />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

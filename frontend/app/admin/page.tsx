@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import toast from 'react-hot-toast'
+import { Header } from '@/components/Header'
 
 interface DashboardStats {
   totalUsers: number
@@ -80,20 +81,7 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <h1 className="text-2xl font-bold text-gray-900">WeCV AI - 管理后台</h1>
-            <button
-              onClick={() => router.push('/dashboard')}
-              className="btn-secondary"
-            >
-              返回用户界面
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header variant="admin" title="WeCV AI - 管理后台" onBack={() => router.push('/dashboard')} />
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">

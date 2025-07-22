@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast'
+import { Header } from '@/components/Header'
 
 interface UserSettings {
   name: string
@@ -120,19 +122,7 @@ export default function SettingsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <h1 className="text-2xl font-bold text-gray-900">WeCV AI - 个人设置</h1>
-            <button
-              onClick={() => router.push('/dashboard')}
-              className="btn-secondary"
-            >
-              返回仪表盘
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto py-6 sm:px-6 lg:px-8">
