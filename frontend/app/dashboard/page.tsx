@@ -62,7 +62,7 @@ export default function DashboardPage() {
   const fetchUserData = async (token: string) => {
     try {
       // Fetch resumes
-      const resumesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume`, {
+      const resumesResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -74,7 +74,7 @@ export default function DashboardPage() {
       }
 
       // Fetch user profile and plan
-      const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/profile`, {
+      const userResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -86,7 +86,7 @@ export default function DashboardPage() {
       }
 
       // Fetch user plan
-      const planResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/plan`, {
+      const planResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/plan`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

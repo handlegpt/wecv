@@ -57,15 +57,20 @@ export default function SettingsPage() {
 
   const fetchUserSettings = async (token: string) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/settings`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/settings`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       })
+
       if (response.ok) {
         const data = await response.json()
         setSettings(data)
       }
     } catch (error) {
-      toast.error('获取设置失败')
+      toast.error('Failed to load settings')
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -73,7 +78,7 @@ export default function SettingsPage() {
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/settings`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/settings`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -83,12 +88,12 @@ export default function SettingsPage() {
       })
 
       if (response.ok) {
-        toast.success('设置保存成功！')
+        toast.success('Settings saved successfully!')
       } else {
-        toast.error('保存失败')
+        toast.error('Failed to save settings')
       }
     } catch (error) {
-      toast.error('网络错误')
+      toast.error('Network error')
     } finally {
       setIsLoading(false)
     }
@@ -97,7 +102,7 @@ export default function SettingsPage() {
   const handlePasswordChange = async (currentPassword: string, newPassword: string) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/password`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

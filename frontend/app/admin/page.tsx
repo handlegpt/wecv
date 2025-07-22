@@ -47,10 +47,10 @@ export default function AdminPage() {
   const fetchDashboardData = async (token: string) => {
     try {
       const [statsResponse, usersResponse] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/stats`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/stats`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/admin/users`, {
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/users`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
       ])

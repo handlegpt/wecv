@@ -35,7 +35,7 @@ export default function MultilanguageSettingsPage() {
   // Load supported languages
   const loadLanguages = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/languages`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/languages`)
       if (response.ok) {
         const data = await response.json()
         setLanguages(data)
@@ -49,7 +49,7 @@ export default function MultilanguageSettingsPage() {
   const loadUserLanguage = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/user/language`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/user/language`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -67,7 +67,7 @@ export default function MultilanguageSettingsPage() {
   const loadResumes = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -86,7 +86,7 @@ export default function MultilanguageSettingsPage() {
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/user/language`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/user/language`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ export default function MultilanguageSettingsPage() {
       
       for (const resume of resumes) {
         // Get the original content
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/resume/${resume.id}/${resume.language}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/resume/${resume.id}/${resume.language}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -131,7 +131,7 @@ export default function MultilanguageSettingsPage() {
           const otherLanguages = languages.filter(lang => lang.code !== resume.language)
           
           for (const language of otherLanguages) {
-            const translateResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ai/translate`, {
+            const translateResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/translate`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export default function MultilanguageSettingsPage() {
               const translatedContent = JSON.parse(translateData.translatedContent)
               
               // Save translation
-              await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/resume/${resume.id}/translations`, {
+              await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/resume/${resume.id}/translations`, {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json',
