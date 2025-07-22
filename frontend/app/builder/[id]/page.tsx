@@ -56,14 +56,15 @@ export default function ResumeBuilderById() {
       })
       if (res.ok) {
         const data = await res.json()
+        // 健壮性兜底处理
         setResumeData({
           title: data.title || '',
-          content: data.content || {
-            personal: { name: '', email: '', phone: '', location: '', title: '' },
-            summary: '',
-            experience: [],
-            education: [],
-            skills: []
+          content: {
+            personal: data.content?.personal || { name: '', email: '', phone: '', location: '', title: '' },
+            summary: data.content?.summary || '',
+            experience: Array.isArray(data.content?.experience) ? data.content.experience : [],
+            education: Array.isArray(data.content?.education) ? data.content.education : [],
+            skills: Array.isArray(data.content?.skills) ? data.content.skills : []
           }
         })
         setSelectedTemplate(data.templateId || '')
