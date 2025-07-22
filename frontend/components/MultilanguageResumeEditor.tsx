@@ -47,7 +47,7 @@ export default function MultilanguageResumeEditor({
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/resume/${resumeId}/${language}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/resume/${resumeId}/${language}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -72,7 +72,7 @@ export default function MultilanguageResumeEditor({
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/resume/${resumeId}/translations`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/resume/${resumeId}/translations`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export default function MultilanguageResumeEditor({
       const otherLanguages = supportedLanguages.filter(lang => lang.code !== currentLanguage)
       
       for (const language of otherLanguages) {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ai/translate`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/translate`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ export default function MultilanguageResumeEditor({
           const translatedContent = JSON.parse(data.translatedContent)
           
           // Save translation
-          await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/resume/${resumeId}/translations`, {
+          await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/resume/${resumeId}/translations`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export default function MultilanguageResumeEditor({
   const updateUserLanguage = async (language: string) => {
     try {
       const token = localStorage.getItem('token')
-      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/user/language`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/user/language`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

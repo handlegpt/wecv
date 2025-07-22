@@ -48,7 +48,7 @@ export default function MultilanguageResumeTemplate({
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/multilanguage/resume/${resumeId}/${languageCode}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/multilanguage/resume/${resumeId}/${languageCode}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

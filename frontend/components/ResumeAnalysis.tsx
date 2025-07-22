@@ -24,7 +24,7 @@ export default function ResumeAnalysis({ resumeData, onAnalysisComplete }: Resum
     setIsAnalyzing(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ai/analyze`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/analyze`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

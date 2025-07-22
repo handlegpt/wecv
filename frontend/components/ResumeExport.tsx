@@ -16,7 +16,7 @@ export default function ResumeExport({ resumeId, resumeData }: ResumeExportProps
     setIsExporting(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/export`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/export`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ export default function ResumeExport({ resumeId, resumeData }: ResumeExportProps
   const handleShare = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/share`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/share`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

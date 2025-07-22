@@ -39,7 +39,7 @@ export default function AIAssistant({ onContentGenerated, currentContent = '', c
     setIsGenerating(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/ai/write`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ai/write`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

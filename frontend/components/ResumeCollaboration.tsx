@@ -69,7 +69,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
   const fetchCollaborators = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/collaborators`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/collaborators`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -86,7 +86,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
   const fetchComments = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/comments`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/comments`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -106,7 +106,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/comments`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -136,7 +136,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
   const resolveComment = async (commentId: string) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/comments/${commentId}/resolve`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/comments/${commentId}/resolve`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -160,7 +160,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
     setIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/invite`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/invite`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -190,7 +190,7 @@ export default function ResumeCollaboration({ resumeId, currentUser }: ResumeCol
   const removeCollaborator = async (collaboratorId: string) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/${resumeId}/collaborators/${collaboratorId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${resumeId}/collaborators/${collaboratorId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
