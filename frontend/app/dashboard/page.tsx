@@ -7,6 +7,8 @@ import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
 import { Header } from '@/components/Header'
 import { Sparkles } from 'lucide-react'
+import { useSearchParams, usePathname, useRouter as useNextRouter } from 'next/navigation'
+import ReactModal from 'react-modal'
 
 interface Resume {
   id: string
@@ -45,6 +47,31 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState('overview')
   const router = useRouter()
   const { t } = useTranslation()
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const nextRouter = useNextRouter()
+  const [selectedResumes, setSelectedResumes] = useState<string[]>([])
+  const [batchDeleting, setBatchDeleting] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const resumesPerPage = 6
+  const [previewResume, setPreviewResume] = useState<any | null>(null)
+
+  // Tab切换记忆：初始化时从URL参数读取tab
+  useEffect(() => {
+    const tabParam = searchParams.get('tab')
+    if (tabParam && ['overview', 'resumes', 'plan', 'settings'].includes(tabParam)) {
+      setActiveTab(tabParam)
+    }
+  }, [searchParams])
+
+  // 切换Tab时，更新URL参数
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId)
+    const params = new URLSearchParams(searchParams)
+    params.set('tab', tabId)
+    nextRouter.replace(`${pathname}?${params.toString()}`)
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -132,6 +159,28 @@ export default function DashboardPage() {
     }
   };
 
+  const handleBatchDelete = async () => {
+    if (selectedResumes.length === 0) return
+    if (!window.confirm(t('dashboard.batchDeleteConfirm', '确定要批量删除选中的简历吗？'))) return
+    setBatchDeleting(true)
+    const token = localStorage.getItem('token')
+    try {
+      for (const id of selectedResumes) {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${id}`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+      }
+      setResumes(resumes.filter(r => !selectedResumes.includes(r.id)))
+      setSelectedResumes([])
+      toast.success(t('dashboard.batchDeleteSuccess', '批量删除成功！'))
+    } catch {
+      toast.error(t('dashboard.batchDeleteFailed', '批量删除失败'))
+    } finally {
+      setBatchDeleting(false)
+    }
+  }
+
   const getPlanStatus = () => {
     if (!user) return { status: 'free', color: 'bg-gray-100 text-gray-800' }
     
@@ -163,6 +212,12 @@ export default function DashboardPage() {
 
   const planStatus = getPlanStatus()
 
+  // 搜索过滤后的简历
+  const filteredResumes = resumes.filter(r => r.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  // 分页
+  const totalPages = Math.ceil(filteredResumes.length / resumesPerPage)
+  const pagedResumes = filteredResumes.slice((currentPage - 1) * resumesPerPage, currentPage * resumesPerPage)
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -182,7 +237,7 @@ export default function DashboardPage() {
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => handleTabChange(tab.id)}
                   className={`py-2 px-1 border-b-2 font-medium text-sm ${
                     activeTab === tab.id
                       ? 'border-primary-500 text-primary-600'
@@ -307,8 +362,18 @@ export default function DashboardPage() {
           {/* Resumes Tab */}
           {activeTab === 'resumes' && (
             <div>
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4">
                 <h2 className="text-2xl font-bold text-gray-900">{t('dashboard.myResumes', '我的简历')}</h2>
+                <input
+                  type="text"
+                  className="input-field w-full md:w-64"
+                  placeholder={t('dashboard.searchPlaceholder', '搜索简历标题...')}
+                  value={searchTerm}
+                  onChange={e => {
+                    setSearchTerm(e.target.value)
+                    setCurrentPage(1)
+                  }}
+                />
                 <Link
                   href="/builder"
                   className="btn-primary"
@@ -316,8 +381,32 @@ export default function DashboardPage() {
                   {t('dashboard.createNewResume', '创建新简历')}
                 </Link>
               </div>
-
-              {resumes.length === 0 ? (
+              {/* 批量操作区块 */}
+              {filteredResumes.length > 0 && (
+                <div className="flex items-center mb-4 space-x-4">
+                  <input
+                    type="checkbox"
+                    checked={selectedResumes.length === filteredResumes.length}
+                    onChange={e => {
+                      if (e.target.checked) {
+                        setSelectedResumes(filteredResumes.map(r => r.id))
+                      } else {
+                        setSelectedResumes([])
+                      }
+                    }}
+                  />
+                  <span>{t('dashboard.selectAll', '全选')}</span>
+                  <button
+                    className="btn-danger px-3 py-1 rounded disabled:opacity-50"
+                    disabled={selectedResumes.length === 0 || batchDeleting}
+                    onClick={handleBatchDelete}
+                  >
+                    {batchDeleting ? t('dashboard.deleting', '删除中...') : t('dashboard.batchDelete', '批量删除')}
+                  </button>
+                  <span className="text-gray-500 text-sm">{t('dashboard.selected', '已选')}: {selectedResumes.length}</span>
+                </div>
+              )}
+              {filteredResumes.length === 0 ? (
                 <div className="text-center py-12">
                   <div className="text-gray-400 mb-4">
                     <svg className="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -334,12 +423,32 @@ export default function DashboardPage() {
                   </Link>
                 </div>
               ) : (
+                <>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {resumes.map((resume) => (
+                  {pagedResumes.map((resume) => (
                     <div key={resume.id} className="card hover:shadow-lg transition-shadow duration-200">
                       <div className="flex justify-between items-start mb-4">
-                        <h3 className="text-lg font-semibold text-gray-900">{resume.title}</h3>
+                        <div className="flex items-center space-x-2">
+                          <input
+                            type="checkbox"
+                            checked={selectedResumes.includes(resume.id)}
+                            onChange={e => {
+                              if (e.target.checked) {
+                                setSelectedResumes(prev => [...prev, resume.id])
+                              } else {
+                                setSelectedResumes(prev => prev.filter(id => id !== resume.id))
+                              }
+                            }}
+                          />
+                          <h3 className="text-lg font-semibold text-gray-900">{resume.title}</h3>
+                        </div>
                         <div className="flex space-x-2">
+                          <button
+                            className="text-blue-600 hover:text-blue-800 text-sm"
+                            onClick={() => setPreviewResume(resume)}
+                          >
+                            {t('dashboard.preview', '预览')}
+                          </button>
                           <Link
                             href={`/builder/${resume.id}`}
                             className="text-primary-600 hover:text-primary-700 text-sm"
@@ -361,6 +470,42 @@ export default function DashboardPage() {
                     </div>
                   ))}
                 </div>
+                {/* 分页按钮 */}
+                {totalPages > 1 && (
+                  <div className="flex justify-center mt-6 space-x-2">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                      <button
+                        key={page}
+                        className={`px-3 py-1 rounded ${currentPage === page ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                        onClick={() => setCurrentPage(page)}
+                      >
+                        {page}
+                      </button>
+                    ))}
+                  </div>
+                )}
+                {/* 预览弹窗 */}
+                <ReactModal
+                  isOpen={!!previewResume}
+                  onRequestClose={() => setPreviewResume(null)}
+                  ariaHideApp={false}
+                  className="max-w-lg mx-auto mt-24 bg-white rounded-lg shadow-lg p-6 outline-none"
+                  overlayClassName="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+                >
+                  {previewResume && (
+                    <div>
+                      <h2 className="text-xl font-bold mb-2">{previewResume.title}</h2>
+                      <p className="text-gray-500 mb-2">{t('dashboard.createdAt', '创建时间')}：{new Date(previewResume.createdAt).toLocaleDateString()}</p>
+                      <p className="text-gray-500 mb-4">{t('dashboard.updatedAt', '更新时间')}：{new Date(previewResume.updatedAt).toLocaleDateString()}</p>
+                      {/* 这里可以根据实际resume结构展示更多内容 */}
+                      <p className="text-gray-700">{t('dashboard.previewTip', '如需完整编辑和AI分析，请点击编辑按钮。')}</p>
+                      <div className="flex justify-end mt-4">
+                        <button className="btn-secondary" onClick={() => setPreviewResume(null)}>{t('dashboard.close', '关闭')}</button>
+                      </div>
+                    </div>
+                  )}
+                </ReactModal>
+                </>
               )}
             </div>
           )}
