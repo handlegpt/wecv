@@ -416,7 +416,7 @@ export default function BuilderPage() {
                     className="btn-secondary text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 flex items-center space-x-1"
                   >
                     <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
-                    <span>{t('builder.preview', 'Preview')}</span>
+                    <span>{t('builder.previewTitle')}</span>
                   </button>
                   <button
                     onClick={handleSave}
@@ -811,11 +811,11 @@ export default function BuilderPage() {
           <div className="lg:col-span-1">
             <div className="card">
               <div className="flex justify-between items-center mb-3 sm:mb-4">
-                <h3 className="text-base sm:text-lg font-semibold">{t('builder.preview.title', 'Resume Preview')}</h3>
+                <h3 className="text-base sm:text-lg font-semibold">{t('builder.previewTitle')}</h3>
                 <button
                   onClick={() => setShowPreviewModal(true)}
                   className="btn-secondary text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2"
-                  title={t('builder.preview.zoom', 'Zoom Preview')}
+                  title={t('builder.previewZoom')}
                 >
                   <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
@@ -909,7 +909,7 @@ export default function BuilderPage() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
           <div className="bg-white rounded-lg w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-hidden">
             <div className="flex justify-between items-center p-3 sm:p-4 border-b">
-              <h3 className="text-base sm:text-lg font-semibold">{t('builder.preview.modalTitle', 'Resume Preview')}</h3>
+              <h3 className="text-base sm:text-lg font-semibold">{t('builder.previewModalTitle')}</h3>
               <button
                 onClick={() => setShowPreviewModal(false)}
                 className="text-gray-500 hover:text-gray-700 p-1"
