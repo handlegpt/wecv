@@ -1,13 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
-import toast from 'react-hot-toast'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import LanguageSelector from '@/components/LanguageSelector'
+import { Sparkles, Upload, Eye, Save, Download } from 'lucide-react'
+import { Header } from '@/components/Header'
+import toast from 'react-hot-toast'
 import ResumeTemplateRenderer from '@/components/ResumeTemplateRenderer'
-import { Sparkles } from 'lucide-react'
 
 interface Template {
   id: string
@@ -362,58 +362,7 @@ export default function BuilderPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-4 sm:py-6 gap-4 sm:gap-0">
-            <div className="flex items-center cursor-pointer" onClick={() => router.push('/')}>
-              <div className="flex items-center space-x-2">
-                <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
-                  <Sparkles className="w-6 h-6 text-white" />
-                </div>
-                <div className="flex items-center space-x-1">
-                  <span className="text-xl font-bold text-gray-900">WeCV</span>
-                  <span className="text-xl font-bold text-blue-600">AI</span>
-                </div>
-              </div>
-            </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t('builder.title', 'Resume Builder')}</h1>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-              <div className="flex items-center justify-center sm:justify-end">
-                <LanguageSelector />
-              </div>
-              {!isLoggedIn && (
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-4">
-                  <span className="text-xs sm:text-sm text-gray-600 text-center sm:text-left">{t('builder.trialMode', 'Trial Mode')}</span>
-                  <Link href="/auth/register" className="btn-primary text-sm py-2 px-3 text-center">
-                    {t('builder.registerToSave', 'Register to Save')}
-                  </Link>
-                </div>
-              )}
-              <div className="flex space-x-2 sm:space-x-4">
-                <button
-                  onClick={() => setShowUploadModal(true)}
-                  className="btn-secondary flex-1 sm:flex-none text-sm py-2 px-3"
-                >
-                  {t('builder.upload.button', 'Upload Resume')}
-                </button>
-                <button
-                  onClick={handlePreview}
-                  className="btn-secondary flex-1 sm:flex-none text-sm py-2 px-3"
-                >
-                  {t('builder.preview.button', 'Preview Resume')}
-                </button>
-                <button
-                  onClick={handleSave}
-                  disabled={isLoading}
-                  className="btn-primary flex-1 sm:flex-none text-sm py-2 px-3"
-                >
-                  {isLoading ? t('builder.saving', 'Saving...') : (isLoggedIn ? t('builder.save', 'Save Resume') : t('builder.registerToSave', 'Register to Save'))}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">

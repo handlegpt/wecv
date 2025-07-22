@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Header } from '@/components/Header'
 import LanguageSelector from '@/components/LanguageSelector'
 import MultiLanguageResume from '@/components/MultiLanguageResume'
 
@@ -87,17 +88,8 @@ export default function LanguageSettingsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Header title={t('resume.multiLanguage', 'Multi-Language Resume')} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
-            {t('resume.multiLanguage', 'Multi-Language Resume')}
-          </h1>
-          <p className="text-lg text-gray-600">
-            {t('resume.languageDescription', 'Create and preview your resume in multiple languages. Switch between languages to see how your resume looks in different formats.')}
-          </p>
-        </div>
-
         {/* Language Selection */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">

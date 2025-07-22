@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
-import { toast } from 'react-hot-toast'
+import toast from 'react-hot-toast'
+import { Header } from '@/components/Header'
 import { GlobeAltIcon, CogIcon } from '@heroicons/react/24/outline'
 import LanguageSelector from '@/components/LanguageSelector'
 
@@ -181,6 +183,7 @@ export default function MultilanguageSettingsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Header title={t('settings.multilanguage')} />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
