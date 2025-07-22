@@ -61,35 +61,70 @@ async function main() {
   // 创建简历模板
   const templates = [
     {
-      name: '现代简约',
-      category: '现代',
+      id: 'modern',
+      name: '现代专业',
+      category: 'modern',
       preview: '现代简约风格，适合技术岗位'
     },
     {
-      name: '经典商务',
-      category: '经典',
+      id: 'classic',
+      name: '经典传统',
+      category: 'classic',
       preview: '经典商务风格，适合管理岗位'
     },
     {
-      name: '创意设计',
-      category: '创意',
+      id: 'creative',
+      name: '创意作品集',
+      category: 'creative',
       preview: '创意设计风格，适合设计岗位'
     },
     {
-      name: '学术研究',
-      category: '学术',
-      preview: '学术研究风格，适合研究岗位'
+      id: 'minimal',
+      name: '极简清洁',
+      category: 'minimal',
+      preview: '极简风格，适合所有岗位'
     },
     {
-      name: '销售营销',
-      category: '销售',
-      preview: '销售营销风格，适合销售岗位'
+      id: 'impact',
+      name: '影响力专业',
+      category: 'executive',
+      preview: '强调成就和可量化结果的大胆设计'
+    },
+    {
+      id: 'clean',
+      name: '清洁极简',
+      category: 'professional',
+      preview: '简洁清洁的设计，专注于内容清晰度'
+    },
+    {
+      id: 'contemporary',
+      name: '当代现代',
+      category: 'modern',
+      preview: '现代设计，平衡专业和创意元素'
+    },
+    {
+      id: 'executive',
+      name: '高管领导',
+      category: 'executive',
+      preview: '适合高级管理职位的精致设计'
+    },
+    {
+      id: 'elegant',
+      name: '优雅专业',
+      category: 'creative',
+      preview: '精致的排版和布局设计'
+    },
+    {
+      id: 'simple',
+      name: '简单基础',
+      category: 'minimal',
+      preview: '超极简设计，最大可读性'
     }
   ]
 
   for (const template of templates) {
     await prisma.template.upsert({
-      where: { name: template.name },
+      where: { id: template.id },
       update: {},
       create: template
     })
@@ -133,7 +168,7 @@ async function main() {
         skills: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'Git']
       },
       userId: user.id,
-      templateId: (await prisma.template.findFirst({ where: { name: '现代简约' } }))?.id
+      templateId: (await prisma.template.findFirst({ where: { id: 'modern' } }))?.id
     }
   })
   console.log('示例简历创建成功')

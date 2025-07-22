@@ -19,6 +19,8 @@ export default function BuilderPage() {
   const [templates, setTemplates] = useState<Template[]>([])
   const [selectedTemplate, setSelectedTemplate] = useState<string>('')
   const [showPreviewModal, setShowPreviewModal] = useState(false)
+  const [showUploadModal, setShowUploadModal] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
   const [resumeData, setResumeData] = useState({
     title: '',
     content: {
@@ -48,12 +50,97 @@ export default function BuilderPage() {
     const token = localStorage.getItem('token')
     setIsLoggedIn(!!token)
     
-    // 从URL参数中获取模板ID
+    // Get template ID from URL parameters
     const urlParams = new URLSearchParams(window.location.search)
     const templateParam = urlParams.get('template')
     
     fetchTemplates(templateParam || undefined)
   }, [])
+
+  // Handle file upload for resume import
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    setIsUploading(true)
+    try {
+      if (file.type === 'application/json') {
+        // Handle JSON file upload
+        const text = await file.text()
+        const jsonData = JSON.parse(text)
+        
+        // Validate and parse JSON resume data
+        if (jsonData.title && jsonData.content) {
+          setResumeData({
+            title: jsonData.title,
+            content: {
+              personal: jsonData.content.personal || { name: '', email: '', phone: '', location: '', title: '' },
+              summary: jsonData.content.summary || '',
+              experience: jsonData.content.experience || [],
+              education: jsonData.content.education || [],
+              skills: jsonData.content.skills || []
+            }
+          })
+          toast.success(t('builder.upload.jsonSuccess', 'JSON resume imported successfully!'))
+        } else {
+          toast.error(t('builder.upload.invalidJson', 'Invalid JSON format'))
+        }
+      } else if (file.type === 'application/pdf') {
+        // Handle PDF file upload
+        const formData = new FormData()
+        formData.append('file', file)
+        
+        const token = localStorage.getItem('token')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resume/upload`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+          body: formData
+        })
+
+        if (response.ok) {
+          const data = await response.json()
+          setResumeData({
+            title: data.title || 'Imported Resume',
+            content: data.content
+          })
+          toast.success(t('builder.upload.pdfSuccess', 'PDF resume imported successfully!'))
+        } else {
+          toast.error(t('builder.upload.pdfFailed', 'Failed to import PDF resume'))
+        }
+      } else {
+        toast.error(t('builder.upload.unsupportedFormat', 'Unsupported file format. Please upload PDF or JSON files.'))
+      }
+    } catch (error) {
+      console.error('Upload error:', error)
+      toast.error(t('builder.upload.error', 'Upload failed'))
+    } finally {
+      setIsUploading(false)
+      setShowUploadModal(false)
+    }
+  }
+
+  // Export current resume as JSON
+  const handleExportJSON = () => {
+    const jsonData = {
+      title: resumeData.title,
+      content: resumeData.content,
+      templateId: selectedTemplate
+    }
+    
+    const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${resumeData.title || 'resume'}.json`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+    
+    toast.success(t('builder.export.jsonSuccess', 'Resume exported as JSON!'))
+  }
 
   const fetchTemplates = async (templateId?: string) => {
     try {
@@ -65,7 +152,7 @@ export default function BuilderPage() {
           setSelectedTemplate(templateId || data[0].id)
         }
       } else {
-        // 使用模拟数据作为后备
+        // Use mock data as fallback
         const mockTemplates = [
           { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
           { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
@@ -82,7 +169,7 @@ export default function BuilderPage() {
         setSelectedTemplate(templateId || 'modern')
       }
     } catch (error) {
-      // 使用模拟数据作为后备
+      // Use mock data as fallback
       const mockTemplates = [
         { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
         { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
@@ -103,7 +190,7 @@ export default function BuilderPage() {
   const handleTemplateChange = (templateId: string) => {
     setSelectedTemplate(templateId)
     
-    // 更新URL参数
+    // Update URL parameters
     const url = new URL(window.location.href)
     url.searchParams.set('template', templateId)
     window.history.replaceState({}, '', url.toString())
@@ -116,7 +203,7 @@ export default function BuilderPage() {
     }
 
     if (!isLoggedIn) {
-      // 如果未登录，提示用户注册
+      // If not logged in, prompt user to register
       toast.error(t('builder.errors.loginRequired', 'Please register to save your resume'))
       router.push('/auth/register')
       return
@@ -152,7 +239,7 @@ export default function BuilderPage() {
   }
 
   const handlePreview = () => {
-    // 预览功能，不需要登录
+    // Preview function, no login required
     if (!resumeData.title.trim()) {
       toast.error(t('builder.errors.titleRequired', 'Please enter a resume title'))
       return
@@ -292,6 +379,12 @@ export default function BuilderPage() {
               )}
               <div className="flex space-x-2 sm:space-x-4">
                 <button
+                  onClick={() => setShowUploadModal(true)}
+                  className="btn-secondary flex-1 sm:flex-none text-sm py-2 px-3"
+                >
+                  {t('builder.upload.button', 'Upload Resume')}
+                </button>
+                <button
                   onClick={handlePreview}
                   className="btn-secondary flex-1 sm:flex-none text-sm py-2 px-3"
                 >
@@ -333,7 +426,17 @@ export default function BuilderPage() {
           {/* Left Panel - Form */}
           <div className="lg:col-span-2">
             <div className="card">
-              <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">{t('builder.basicInfo', 'Basic Information')}</h2>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
+                <h2 className="text-lg sm:text-xl font-semibold">{t('builder.basicInfo', 'Basic Information')}</h2>
+                <div className="flex space-x-2">
+                  <button
+                    onClick={handleExportJSON}
+                    className="btn-secondary text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3"
+                  >
+                    {t('builder.export.json', 'Export JSON')}
+                  </button>
+                </div>
+              </div>
               
               {/* Resume Title */}
               <div className="mb-4 sm:mb-6">
@@ -740,6 +843,60 @@ export default function BuilderPage() {
           </div>
         </div>
       </div>
+
+      {/* Upload Modal */}
+      {showUploadModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4">
+          <div className="bg-white rounded-lg w-full max-w-md p-4 sm:p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">{t('builder.upload.title', 'Upload Resume')}</h3>
+              <button
+                onClick={() => setShowUploadModal(false)}
+                className="text-gray-500 hover:text-gray-700 p-1"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="text-center">
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-gray-400 transition-colors">
+                  <input
+                    type="file"
+                    accept=".pdf,.json"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                    id="resume-upload"
+                    disabled={isUploading}
+                  />
+                  <label htmlFor="resume-upload" className="cursor-pointer">
+                    <div className="space-y-2">
+                      <svg className="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <div className="text-sm text-gray-600">
+                        <span className="font-medium text-primary-600 hover:text-primary-500">
+                          {isUploading ? t('builder.upload.uploading', 'Uploading...') : t('builder.upload.clickToUpload', 'Click to upload')}
+                        </span>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {t('builder.upload.supportedFormats', 'PDF or JSON files up to 10MB')}
+                        </p>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              
+              <div className="text-xs text-gray-500 text-center">
+                <p>{t('builder.upload.pdfNote', 'PDF files will be processed to extract resume content')}</p>
+                <p>{t('builder.upload.jsonNote', 'JSON files should contain resume data in our format')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Preview Modal */}
       {showPreviewModal && (
