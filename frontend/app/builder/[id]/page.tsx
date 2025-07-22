@@ -212,6 +212,17 @@ export default function ResumeBuilderById() {
   }
 
   // 编辑器表单UI
+  if (!resumeData) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="max-w-7xl mx-auto py-20 text-center text-gray-500 text-lg">
+          {t('messages.loading', '加载中...')}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
