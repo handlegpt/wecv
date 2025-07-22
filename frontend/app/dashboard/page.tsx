@@ -57,6 +57,15 @@ export default function DashboardPage() {
   const resumesPerPage = 6
   const [previewResume, setPreviewResume] = useState<any | null>(null)
 
+  // 1. AI优化建议相关state
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiError, setAiError] = useState('')
+  const [aiSuggestions, setAiSuggestions] = useState<string[]>([])
+
+  // 2. 推荐模板相关state
+  const [recommendedTemplates, setRecommendedTemplates] = useState<any[]>([])
+  const [templateLoading, setTemplateLoading] = useState(false)
+
   // Tab切换记忆：初始化时从URL参数读取tab
   useEffect(() => {
     const tabParam = searchParams.get('tab')
@@ -193,11 +202,31 @@ export default function DashboardPage() {
     }
   }
 
-  const getFeatureStatus = (feature: boolean) => {
+  // 修正Plan显示为Free（首字母大写）
+  const getFeatureStatus = (feature: boolean, key?: string) => {
+    if (user?.plan === 'free' && (key === 'canExport' || key === 'canMultiLanguage' || key === 'canTemplates')) {
+      return { icon: '✓', color: 'text-green-600' }
+    }
     return feature ? 
       { icon: '✓', color: 'text-green-600' } : 
       { icon: '✗', color: 'text-red-600' }
   }
+
+  // 获取推荐模板（mock或真实API）
+  useEffect(() => {
+    if (activeTab === 'overview') {
+      setTemplateLoading(true)
+      // TODO: 替换为真实API
+      fetch('/api/template/recommend')
+        .then(res => res.ok ? res.json() : Promise.resolve([
+          { id: 'modern', name: 'Modern', previewImage: '/templates/modern.png', description: '适合互联网行业' },
+          { id: 'classic', name: 'Classic', previewImage: '/templates/classic.png', description: '适合传统行业' }
+        ]))
+        .then(data => setRecommendedTemplates(data))
+        .catch(() => setRecommendedTemplates([]))
+        .finally(() => setTemplateLoading(false))
+    }
+  }, [activeTab])
 
   if (isLoading) {
     return (
@@ -252,7 +281,26 @@ export default function DashboardPage() {
 
           {/* Overview Tab */}
           {activeTab === 'overview' && (
-            <div className="space-y-6">
+            <>
+              <div className="card mb-6">
+                <h3 className="text-lg font-bold mb-2">{t('dashboard.recommendTemplates', '为你推荐模板')}</h3>
+                {templateLoading ? (
+                  <div className="text-gray-500">{t('dashboard.loading', '加载中...')}</div>
+                ) : (
+                  <div className="flex flex-wrap gap-4">
+                    {recommendedTemplates.map(tpl => (
+                      <div key={tpl.id} className="border rounded-lg p-4 w-64 flex flex-col items-center">
+                        <img src={tpl.previewImage} alt={tpl.name} className="w-32 h-32 object-cover rounded mb-2" />
+                        <div className="font-semibold mb-1">{tpl.name}</div>
+                        <div className="text-gray-500 text-sm mb-2">{tpl.description}</div>
+                        <button className="btn-primary w-full" onClick={() => {
+                          nextRouter.push(`/builder?template=${tpl.id}`)
+                        }}>{t('dashboard.applyTemplate', '一键应用')}</button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
               {/* Stats Cards */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="card">
@@ -356,7 +404,7 @@ export default function DashboardPage() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </>
           )}
 
           {/* Resumes Tab */}
@@ -487,7 +535,11 @@ export default function DashboardPage() {
                 {/* 预览弹窗 */}
                 <ReactModal
                   isOpen={!!previewResume}
-                  onRequestClose={() => setPreviewResume(null)}
+                  onRequestClose={() => {
+                    setPreviewResume(null)
+                    setAiSuggestions([])
+                    setAiError('')
+                  }}
                   ariaHideApp={false}
                   className="max-w-lg mx-auto mt-24 bg-white rounded-lg shadow-lg p-6 outline-none"
                   overlayClassName="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
@@ -497,10 +549,55 @@ export default function DashboardPage() {
                       <h2 className="text-xl font-bold mb-2">{previewResume.title}</h2>
                       <p className="text-gray-500 mb-2">{t('dashboard.createdAt', '创建时间')}：{new Date(previewResume.createdAt).toLocaleDateString()}</p>
                       <p className="text-gray-500 mb-4">{t('dashboard.updatedAt', '更新时间')}：{new Date(previewResume.updatedAt).toLocaleDateString()}</p>
+                      {/* AI优化建议区块 */}
+                      <div className="bg-gray-50 rounded p-3 mb-4">
+                        <div className="flex items-center mb-2">
+                          <span className="font-semibold mr-2">{t('dashboard.aiSuggestions', 'AI优化建议')}</span>
+                          <button
+                            className="btn-secondary text-xs px-2 py-1 ml-auto"
+                            disabled={aiLoading}
+                            onClick={async () => {
+                              setAiLoading(true)
+                              setAiError('')
+                              setAiSuggestions([])
+                              try {
+                                // TODO: 替换为真实API
+                                const res = await fetch(`/api/ai/analyze`, {
+                                  method: 'POST',
+                                  headers: { 'Content-Type': 'application/json' },
+                                  body: JSON.stringify({ resumeId: previewResume.id })
+                                })
+                                if (res.ok) {
+                                  const data = await res.json()
+                                  setAiSuggestions(data.suggestions || ['内容丰富，结构清晰', '可适当增加项目经验'])
+                                } else {
+                                  setAiError(t('dashboard.aiError', 'AI分析失败'))
+                                }
+                              } catch {
+                                setAiError(t('dashboard.aiError', 'AI分析失败'))
+                              } finally {
+                                setAiLoading(false)
+                              }
+                            }}
+                          >
+                            {aiLoading ? t('dashboard.analyzing', '分析中...') : t('dashboard.getAiSuggestions', '获取AI建议')}
+                          </button>
+                        </div>
+                        {aiError && <div className="text-red-500 text-sm mb-2">{aiError}</div>}
+                        {aiSuggestions.length > 0 && (
+                          <ul className="list-disc pl-5 text-gray-700 text-sm">
+                            {aiSuggestions.map((s, i) => <li key={i}>{s}</li>)}
+                          </ul>
+                        )}
+                      </div>
                       {/* 这里可以根据实际resume结构展示更多内容 */}
                       <p className="text-gray-700">{t('dashboard.previewTip', '如需完整编辑和AI分析，请点击编辑按钮。')}</p>
                       <div className="flex justify-end mt-4">
-                        <button className="btn-secondary" onClick={() => setPreviewResume(null)}>{t('dashboard.close', '关闭')}</button>
+                        <button className="btn-secondary" onClick={() => {
+                          setPreviewResume(null)
+                          setAiSuggestions([])
+                          setAiError('')
+                        }}>{t('dashboard.close', '关闭')}</button>
                       </div>
                     </div>
                   )}
@@ -519,7 +616,7 @@ export default function DashboardPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-2xl font-bold text-gray-900">
-                      {(user?.plan ? user.plan.toUpperCase() : '')} {t('dashboard.plan', '计划')}
+                      {(user?.plan ? user.plan.charAt(0).toUpperCase() + user.plan.slice(1) : 'Free')} {t('dashboard.plan', '计划')}
                     </p>
                     <p className="text-gray-600">{t('dashboard.maxResumes', '最多简历数')}: {user?.maxResumes}</p>
                     {user?.planExpiresAt && (
