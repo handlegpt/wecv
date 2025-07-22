@@ -21,18 +21,25 @@ export function Header({ variant = 'default', user: propUser, onLogout, title, o
 
   useEffect(() => {
     // Auto-detect login status from localStorage
-    const token = localStorage.getItem('token')
-    const userData = localStorage.getItem('user')
-    
-    if (token && userData) {
-      try {
-        setUser(JSON.parse(userData))
-      } catch (error) {
-        console.error('Failed to parse user data:', error)
-        localStorage.removeItem('token')
-        localStorage.removeItem('user')
+    const syncUser = () => {
+      const token = localStorage.getItem('token')
+      const userData = localStorage.getItem('user')
+      if (token && userData) {
+        try {
+          setUser(JSON.parse(userData))
+        } catch (error) {
+          console.error('Failed to parse user data:', error)
+          localStorage.removeItem('token')
+          localStorage.removeItem('user')
+          setUser(null)
+        }
+      } else {
+        setUser(null)
       }
     }
+    syncUser()
+    window.addEventListener('storage', syncUser)
+    return () => window.removeEventListener('storage', syncUser)
   }, [])
 
   // Use prop user if provided, otherwise use detected user
