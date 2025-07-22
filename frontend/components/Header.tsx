@@ -29,7 +29,7 @@ export function Header() {
               <img 
                 src="/logo.png" 
                 alt="WeCV AI Logo" 
-                className="h-8 w-8 sm:h-10 sm:w-10"
+                className="h-10 w-10 sm:h-12 sm:w-12"
               />
             </Link>
           </div>

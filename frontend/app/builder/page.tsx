@@ -368,7 +368,7 @@ export default function BuilderPage() {
               <img 
                 src="/logo.png" 
                 alt="WeCV AI Logo" 
-                className="h-8 w-8 sm:h-10 sm:w-10 mr-2"
+                className="h-10 w-10 sm:h-12 sm:w-12 mr-2"
               />
             </div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900">{t('builder.title', 'WeCV AI - Resume Builder')}</h1>
