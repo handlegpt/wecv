@@ -115,6 +115,25 @@ export default function DashboardPage() {
     toast.success(t('messages.logoutSuccess', '已退出登录'))
   }
 
+  const handleDelete = async (id: string) => {
+    if (!window.confirm(t('dashboard.deleteConfirm', '确定要删除这份简历吗？'))) return;
+    const token = localStorage.getItem('token');
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/${id}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` }
+      });
+      if (res.ok) {
+        setResumes(resumes.filter(r => r.id !== id));
+        toast.success(t('dashboard.deleteSuccess', '删除成功！'));
+      } else {
+        toast.error(t('dashboard.deleteFailed', '删除失败'));
+      }
+    } catch {
+      toast.error(t('messages.networkError', '网络错误'));
+    }
+  };
+
   const getPlanStatus = () => {
     if (!user) return { status: 'free', color: 'bg-gray-100 text-gray-800' }
     
@@ -329,7 +348,10 @@ export default function DashboardPage() {
                           >
                             {t('dashboard.edit', '编辑')}
                           </Link>
-                          <button className="text-red-600 hover:text-red-700 text-sm">
+                          <button
+                            className="text-red-600 hover:text-red-700 text-sm"
+                            onClick={() => handleDelete(resume.id)}
+                          >
                             {t('dashboard.delete', '删除')}
                           </button>
                         </div>
