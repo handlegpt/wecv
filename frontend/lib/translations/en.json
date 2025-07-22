@@ -441,6 +441,106 @@
     "settings": "Settings",
     "logout": "Logout"
   },
+  "about": {
+    "title": "About WeCV AI",
+    "subtitle": "WeCV AI is revolutionizing the way professionals create resumes. Our AI-powered platform combines cutting-edge technology with intuitive design to help job seekers worldwide land their dream jobs.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "To democratize professional resume creation by making AI-powered tools accessible to everyone. We believe that every professional deserves the opportunity to present their best self to potential employers."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To become the world's leading AI-powered career platform, helping millions of professionals advance their careers through intelligent resume creation and career guidance."
+    },
+    "stats": {
+      "title": "Our Impact",
+      "subtitle": "Join thousands of professionals who have transformed their careers with WeCV AI",
+      "users": "Active Users",
+      "countries": "Countries",
+      "templates": "Resume Templates",
+      "satisfaction": "Satisfaction Rate"
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "These core values guide everything we do at WeCV AI",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We continuously push the boundaries of AI technology to create cutting-edge resume solutions."
+      },
+      "userFirst": {
+        "title": "User First",
+        "description": "Every feature we build is designed with our users' success in mind."
+      },
+      "security": {
+        "title": "Security",
+        "description": "Your data privacy and security are our top priorities."
+      },
+      "global": {
+        "title": "Global Reach",
+        "description": "We serve professionals worldwide with multi-language support."
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "WeCV AI was born from a simple observation: creating a professional resume shouldn't be complicated or expensive. In today's competitive job market, every detail matters, and traditional resume builders often fall short.",
+      "paragraph2": "Our team of AI researchers, designers, and career experts came together to build something different. We combined the power of artificial intelligence with intuitive design to create a platform that not only helps you build beautiful resumes but also guides you through the process with intelligent suggestions.",
+      "paragraph3": "Today, WeCV AI serves professionals in over 50 countries, helping them create resumes that stand out and get results. We're proud to be part of their career journey and committed to continuously improving our platform."
+    },
+    "why": {
+      "title": "Why Choose WeCV AI?",
+      "reason1": "AI-powered content suggestions and optimization",
+      "reason2": "Professional templates designed by career experts",
+      "reason3": "Multi-language support for global professionals",
+      "reason4": "Real-time preview and instant updates",
+      "reason5": "Secure and privacy-focused platform"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Career?",
+      "subtitle": "Join thousands of professionals who have already created stunning resumes with WeCV AI.",
+      "startCreating": "Start Creating",
+      "viewTemplates": "View Templates"
+    }
+  },
+  "help": {
+    "title": "Help Center",
+    "subtitle": "Find answers to common questions and learn how to create the perfect resume with WeCV AI.",
+    "quickActions": "Quick Actions",
+    "createResume": "Create Resume",
+    "createResumeDesc": "Start building your professional resume",
+    "browseTemplates": "Browse Templates",
+    "browseTemplatesDesc": "Explore our resume templates",
+    "contactSupport": "Contact Support",
+    "contactSupportDesc": "Get help from our team",
+    "faq": "Frequently Asked Questions",
+    "faq1": {
+      "question": "How do I create my first resume?",
+      "answer": "Click \"Start Creating\" on the homepage, choose a template, and fill in your information. You can preview and edit your resume in real-time."
+    },
+    "faq2": {
+      "question": "Can I save my resume without registering?",
+      "answer": "You can create and preview resumes without registering, but you need to create an account to save and export your resumes."
+    },
+    "faq3": {
+      "question": "What file formats can I export my resume in?",
+      "answer": "Currently we support PDF export. More formats like Word and HTML will be available soon."
+    },
+    "faq4": {
+      "question": "How does the AI writing assistant work?",
+      "answer": "Our AI assistant can help you write professional descriptions for your experience, skills, and summary. Simply click the AI button next to any section."
+    },
+    "faq5": {
+      "question": "Can I use multiple templates?",
+      "answer": "Yes! You can switch between templates at any time. Your content will be preserved when switching templates."
+    },
+    "faq6": {
+      "question": "Is my data secure?",
+      "answer": "Yes, we take data security seriously. All your information is encrypted and stored securely. You can read our privacy policy for more details."
+    },
+    "needMoreHelp": "Need More Help?",
+    "contactDesc": "Can't find what you're looking for? Our support team is here to help you create the perfect resume.",
+    "emailSupport": "Email Support",
+    "contactUs": "Contact Us"
+  },
   "dashboard": {
     "welcome": "Welcome",
     "myResumes": "My Resumes",

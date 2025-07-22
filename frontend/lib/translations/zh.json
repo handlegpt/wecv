@@ -862,5 +862,105 @@
     "delete": "删除",
     "createdAt": "创建时间",
     "updatedAt": "更新时间"
+  },
+  "about": {
+    "title": "关于 WeCV AI",
+    "subtitle": "WeCV AI 正在革新专业人士创建简历的方式。我们的 AI 驱动平台将尖端技术与直观设计相结合，帮助全球求职者获得梦想工作。",
+    "mission": {
+      "title": "我们的使命",
+      "description": "通过让 AI 驱动的工具为每个人所用，实现专业简历创建的民主化。我们相信每个专业人士都应该有机会向潜在雇主展示最好的自己。"
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "成为世界领先的 AI 驱动职业平台，通过智能简历创建和职业指导帮助数百万专业人士推进他们的职业生涯。"
+    },
+    "stats": {
+      "title": "我们的影响",
+      "subtitle": "加入数千名通过 WeCV AI 改变职业生涯的专业人士",
+      "users": "活跃用户",
+      "countries": "国家",
+      "templates": "简历模板",
+      "satisfaction": "满意度"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "subtitle": "这些核心价值观指导着我们在 WeCV AI 所做的一切",
+      "innovation": {
+        "title": "创新",
+        "description": "我们不断突破 AI 技术的边界，创造尖端的简历解决方案。"
+      },
+      "userFirst": {
+        "title": "用户至上",
+        "description": "我们构建的每个功能都旨在考虑用户的成功。"
+      },
+      "security": {
+        "title": "安全",
+        "description": "您的数据隐私和安全是我们的首要任务。"
+      },
+      "global": {
+        "title": "全球覆盖",
+        "description": "我们通过多语言支持为全球专业人士服务。"
+      }
+    },
+    "story": {
+      "title": "我们的故事",
+      "paragraph1": "WeCV AI 源于一个简单的观察：创建专业简历不应该复杂或昂贵。在当今竞争激烈的就业市场中，每个细节都很重要，而传统的简历构建器往往达不到要求。",
+      "paragraph2": "我们的 AI 研究人员、设计师和职业专家团队聚集在一起，构建了不同的东西。我们将人工智能的力量与直观设计相结合，创建了一个不仅帮助您构建精美简历的平台，还通过智能建议指导您完成整个过程。",
+      "paragraph3": "今天，WeCV AI 为 50 多个国家的专业人士服务，帮助他们创建脱颖而出的简历并获得成果。我们很自豪能成为他们职业旅程的一部分，并致力于不断改进我们的平台。"
+    },
+    "why": {
+      "title": "为什么选择 WeCV AI？",
+      "reason1": "AI 驱动的内容建议和优化",
+      "reason2": "由职业专家设计的专业模板",
+      "reason3": "为全球专业人士提供多语言支持",
+      "reason4": "实时预览和即时更新",
+      "reason5": "安全且注重隐私的平台"
+    },
+    "cta": {
+      "title": "准备改变您的职业生涯？",
+      "subtitle": "加入数千名已经使用 WeCV AI 创建精彩简历的专业人士。",
+      "startCreating": "开始创建",
+      "viewTemplates": "查看模板"
+    }
+  },
+  "help": {
+    "title": "帮助中心",
+    "subtitle": "找到常见问题的答案，学习如何使用 WeCV AI 创建完美的简历。",
+    "quickActions": "快速操作",
+    "createResume": "创建简历",
+    "createResumeDesc": "开始构建您的专业简历",
+    "browseTemplates": "浏览模板",
+    "browseTemplatesDesc": "探索我们的简历模板",
+    "contactSupport": "联系支持",
+    "contactSupportDesc": "从我们的团队获得帮助",
+    "faq": "常见问题",
+    "faq1": {
+      "question": "如何创建我的第一份简历？",
+      "answer": "在首页点击"开始创建"，选择模板并填写您的信息。您可以实时预览和编辑您的简历。"
+    },
+    "faq2": {
+      "question": "我可以不注册就保存简历吗？",
+      "answer": "您可以在不注册的情况下创建和预览简历，但需要创建账户才能保存和导出您的简历。"
+    },
+    "faq3": {
+      "question": "我可以导出什么文件格式的简历？",
+      "answer": "目前我们支持 PDF 导出。更多格式如 Word 和 HTML 将很快推出。"
+    },
+    "faq4": {
+      "question": "AI 写作助手是如何工作的？",
+      "answer": "我们的 AI 助手可以帮助您为经验、技能和总结撰写专业描述。只需点击任何部分旁边的 AI 按钮即可。"
+    },
+    "faq5": {
+      "question": "我可以使用多个模板吗？",
+      "answer": "是的！您可以随时在模板之间切换。切换模板时您的内容将被保留。"
+    },
+    "faq6": {
+      "question": "我的数据安全吗？",
+      "answer": "是的，我们认真对待数据安全。您的所有信息都经过加密并安全存储。您可以阅读我们的隐私政策了解更多详情。"
+    },
+    "needMoreHelp": "需要更多帮助？",
+    "contactDesc": "找不到您要找的内容？我们的支持团队在这里帮助您创建完美的简历。",
+    "emailSupport": "邮件支持",
+    "contactUs": "联系我们"
   }
 } 
