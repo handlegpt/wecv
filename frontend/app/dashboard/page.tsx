@@ -373,7 +373,9 @@ export default function DashboardPage() {
                 <h3 className="text-lg font-medium text-gray-900 mb-4">{t('dashboard.currentPlan', '当前计划')}</h3>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-2xl font-bold text-gray-900">{user?.plan.toUpperCase()} {t('dashboard.plan', '计划')}</p>
+                    <p className="text-2xl font-bold text-gray-900">
+                      {(user?.plan ? user.plan.toUpperCase() : '')} {t('dashboard.plan', '计划')}
+                    </p>
                     <p className="text-gray-600">{t('dashboard.maxResumes', '最多简历数')}: {user?.maxResumes}</p>
                     {user?.planExpiresAt && (
                       <p className="text-gray-600">{t('dashboard.expiresAt', '到期时间')}: {new Date(user.planExpiresAt).toLocaleDateString()}</p>
