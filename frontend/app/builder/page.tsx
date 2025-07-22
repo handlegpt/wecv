@@ -49,7 +49,21 @@ export default function BuilderPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    setIsLoggedIn(!!token)
+    const userData = localStorage.getItem('user')
+    
+    if (token && userData) {
+      try {
+        const user = JSON.parse(userData)
+        setIsLoggedIn(true)
+      } catch (error) {
+        console.error('Failed to parse user data:', error)
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        setIsLoggedIn(false)
+      }
+    } else {
+      setIsLoggedIn(false)
+    }
     
     // Get template ID from URL parameters
     const urlParams = new URLSearchParams(window.location.search)
@@ -390,6 +404,37 @@ export default function BuilderPage() {
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 sm:mb-6 gap-2 sm:gap-0">
                 <h2 className="text-lg sm:text-xl font-semibold">{t('builder.basicInfo', 'Basic Information')}</h2>
                 <div className="flex space-x-2">
+                  <button
+                    onClick={() => setShowUploadModal(true)}
+                    className="btn-secondary text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 flex items-center space-x-1"
+                  >
+                    <Upload className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span>{t('builder.upload.resume', 'Upload Resume')}</span>
+                  </button>
+                  <button
+                    onClick={handlePreview}
+                    className="btn-secondary text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 flex items-center space-x-1"
+                  >
+                    <Eye className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span>{t('builder.preview', 'Preview')}</span>
+                  </button>
+                  <button
+                    onClick={handleSave}
+                    disabled={isLoading}
+                    className="btn-primary text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3 flex items-center space-x-1"
+                  >
+                    {isLoading ? (
+                      <>
+                        <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-white"></div>
+                        <span>{t('builder.saving', 'Saving...')}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Save className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span>{isLoggedIn ? t('builder.save', 'Save') : t('builder.saveAndRegister', 'Save & Register')}</span>
+                      </>
+                    )}
+                  </button>
                   <button
                     onClick={handleExportJSON}
                     className="btn-secondary text-xs sm:text-sm py-1 sm:py-2 px-2 sm:px-3"

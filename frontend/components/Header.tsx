@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, Sparkles } from 'lucide-react'
 import LanguageSelector from './LanguageSelector'
 
@@ -14,9 +14,29 @@ interface HeaderProps {
   onBack?: () => void
 }
 
-export function Header({ variant = 'default', user, onLogout, title, onBack }: HeaderProps) {
+export function Header({ variant = 'default', user: propUser, onLogout, title, onBack }: HeaderProps) {
   const { t } = useTranslation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [user, setUser] = useState<any>(null)
+
+  useEffect(() => {
+    // Auto-detect login status from localStorage
+    const token = localStorage.getItem('token')
+    const userData = localStorage.getItem('user')
+    
+    if (token && userData) {
+      try {
+        setUser(JSON.parse(userData))
+      } catch (error) {
+        console.error('Failed to parse user data:', error)
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+      }
+    }
+  }, [])
+
+  // Use prop user if provided, otherwise use detected user
+  const currentUser = propUser || user
 
   const navigation = [
     { name: t('navigation.home'), href: '/' },
@@ -28,11 +48,11 @@ export function Header({ variant = 'default', user, onLogout, title, onBack }: H
   ]
 
   const getPlanStatus = () => {
-    if (!user) return { status: 'free', color: 'bg-gray-100 text-gray-800' }
+    if (!currentUser) return { status: 'free', color: 'bg-gray-100 text-gray-800' }
     
-    if (user.plan === 'pro') {
+    if (currentUser.plan === 'pro') {
       return { status: 'pro', color: 'bg-blue-100 text-blue-800' }
-    } else if (user.plan === 'enterprise') {
+    } else if (currentUser.plan === 'enterprise') {
       return { status: 'enterprise', color: 'bg-purple-100 text-purple-800' }
     } else {
       return { status: 'free', color: 'bg-gray-100 text-gray-800' }
@@ -40,6 +60,14 @@ export function Header({ variant = 'default', user, onLogout, title, onBack }: H
   }
 
   const planStatus = getPlanStatus()
+
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    setUser(null)
+    onLogout?.()
+    window.location.href = '/'
+  }
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -93,17 +121,17 @@ export function Header({ variant = 'default', user, onLogout, title, onBack }: H
                   {t('navigation.register')}
                 </Link>
               </div>
-            ) : variant === 'dashboard' && user ? (
+            ) : variant === 'dashboard' && currentUser ? (
               /* Dashboard User Info */
               <div className="hidden md:flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
-                  <span className="text-gray-700">{t('dashboard.welcome', '欢迎')}，{user?.name}</span>
+                  <span className="text-gray-700">{t('dashboard.welcome', '欢迎')}，{currentUser?.name}</span>
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${planStatus.color}`}>
                     {planStatus.status.toUpperCase()}
                   </span>
                 </div>
                 <button
-                  onClick={onLogout}
+                  onClick={handleLogout}
                   className="btn-secondary"
                 >
                   {t('nav.logout', '退出登录')}
@@ -171,16 +199,13 @@ export function Header({ variant = 'default', user, onLogout, title, onBack }: H
                     </Link>
                   </div>
                 </>
-              ) : variant === 'dashboard' && user ? (
+              ) : variant === 'dashboard' && currentUser ? (
                 <div className="pt-4 space-y-2">
                   <div className="px-3 py-2 text-gray-700">
-                    {t('dashboard.welcome', '欢迎')}，{user?.name}
+                    {t('dashboard.welcome', '欢迎')}，{currentUser?.name}
                   </div>
                   <button
-                    onClick={() => {
-                      onLogout?.()
-                      setIsMenuOpen(false)
-                    }}
+                    onClick={handleLogout}
                     className="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md font-medium transition-colors duration-200"
                   >
                     {t('nav.logout', '退出登录')}
