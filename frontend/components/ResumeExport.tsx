@@ -126,7 +126,7 @@ export default function ResumeExport({ resumeId, resumeData }: ResumeExportProps
             disabled={isExporting}
             className="btn-primary flex-1"
           >
-            {isExporting ? '导出中...' : `导出为 ${exportFormat.toUpperCase()}`}
+            {isExporting ? '导出中...' : `导出为 ${(exportFormat ? exportFormat.toUpperCase() : '')}`}
           </button>
           
           <button
