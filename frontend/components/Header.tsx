@@ -25,12 +25,14 @@ export function Header() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <img 
-                src="/logo.png" 
-                alt="WeCV AI Logo" 
-                className="h-10 w-10 sm:h-12 sm:w-12"
-              />
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex items-center space-x-1">
+                <span className="text-xl font-bold text-gray-900">WeCV</span>
+                <span className="text-xl font-bold text-blue-600">AI</span>
+              </div>
             </Link>
           </div>
 
