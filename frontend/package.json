@@ -34,7 +34,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "axios": "^1.6.2",
+    "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "d3-array": "^3.2.4",
@@ -63,7 +63,7 @@
     "jspdf": "^2.5.1",
     "lucide-react": "^0.294.0",
     "negotiator": "^1.0.0",
-    "next": "14.0.4",
+    "next": "14.2.30",
     "next-intl": "^3.26.5",
     "postcss": "^8",
     "react": "^18",
@@ -95,7 +95,7 @@
   "devDependencies": {
     "@types/react-syntax-highlighter": "^15.5.11",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4",
+    "eslint-config-next": "14.2.30",
     "@types/react-modal": "^3.16.3"
   }
 }
