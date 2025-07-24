@@ -23,6 +23,7 @@ COPY package*.json ./
 
 # Remove existing package-lock.json and install dependencies
 RUN rm -f package-lock.json && npm install
+RUN npm audit --production --audit-level=high || (echo "[WARNING] npm audit 检查未通过，请及时修复依赖安全问题。" && exit 1)
 
 # Copy source code
 COPY . .
@@ -56,6 +57,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 # Install production dependencies
 COPY package*.json ./
 RUN rm -f package-lock.json && npm install --production
+RUN npm audit --production --audit-level=high || (echo "[WARNING] npm audit 检查未通过，请及时修复依赖安全问题。" && exit 1)
 
 # Copy necessary files from build stage
 COPY --from=builder /app/dist ./dist

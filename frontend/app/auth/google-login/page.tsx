@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import toast from 'react-hot-toast'
 import Link from 'next/link'
 
-export default function GoogleLoginPage() {
+function GoogleLoginContent() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
@@ -192,5 +192,24 @@ export default function GoogleLoginPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function GoogleLoginPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto"></div>
+              <p className="mt-4 text-sm text-gray-600">加载中...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }>
+      <GoogleLoginContent />
+    </Suspense>
   )
 } 

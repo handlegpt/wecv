@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
@@ -41,7 +41,7 @@ interface UserStats {
   planUsage: number
 }
 
-export default function DashboardPage() {
+function DashboardContent() {
   const [resumes, setResumes] = useState<Resume[]>([])
   const [user, setUser] = useState<User | null>(null)
   const [userStats, setUserStats] = useState<UserStats | null>(null)
@@ -767,5 +767,13 @@ export default function DashboardPage() {
         </div>
       </main>
     </div>
+  )
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DashboardContent />
+    </Suspense>
   )
 } 
