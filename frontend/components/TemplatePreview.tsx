@@ -7,7 +7,7 @@ interface TemplatePreviewProps {
   className?: string
 }
 
-// 改进的示例简历数据
+// Enhanced sample resume data
 const sampleResumeData = {
   personal: {
     name: 'Sarah Johnson',
@@ -107,7 +107,7 @@ export function TemplatePreview({ templateId, className = '' }: TemplatePreviewP
   )
 }
 
-// Impact Template - 强调成就和影响力
+// Impact Template - Emphasizes achievements and impact
 function ImpactTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-sans bg-gradient-to-br from-blue-900 to-purple-900 text-white">
@@ -195,7 +195,7 @@ function ImpactTemplate({ data }: { data: any }) {
   )
 }
 
-// Clean Template - 简洁清晰
+// Clean Template - Clean and clear design
 function CleanTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-sans">
@@ -282,7 +282,7 @@ function CleanTemplate({ data }: { data: any }) {
   )
 }
 
-// Contemporary Template - 现代风格
+// Contemporary Template - Modern style
 function ContemporaryTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-sans">
@@ -314,9 +314,9 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* 使用更合适的响应式布局 - 确保电脑版上每个部分都有独立空间 */}
+      {/* Use more appropriate responsive layout - Ensure each section has independent space on desktop */}
       <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-4 lg:gap-6">
-        {/* Summary - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        {/* Summary - Full width on small screens, one column on medium screens, two columns on large screens */}
         <div className="md:col-span-1 lg:col-span-2">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
@@ -329,7 +329,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Skills - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Skills - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
@@ -349,7 +349,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Certifications - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Certifications - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
@@ -364,7 +364,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Experience - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        {/* Experience - Full width on small screens, one column on medium screens, two columns on large screens */}
         <div className="md:col-span-1 lg:col-span-2">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center">
@@ -396,7 +396,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Education - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Education - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
@@ -415,7 +415,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Languages - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Languages - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
@@ -434,7 +434,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
   )
 }
 
-// Executive Template - 高管风格
+// Executive Template - Executive style
 function ExecutiveTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-serif bg-gradient-to-br from-gray-50 to-gray-100">
@@ -552,7 +552,7 @@ function ExecutiveTemplate({ data }: { data: any }) {
   )
 }
 
-// Elegant Template - 优雅精致
+// Elegant Template - Elegant and refined
 function ElegantTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-serif bg-white">
@@ -665,7 +665,7 @@ function ElegantTemplate({ data }: { data: any }) {
   )
 }
 
-// Simple Template - 极简设计
+// Simple Template - Minimalist design
 function SimpleTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-sans">
@@ -734,7 +734,7 @@ function SimpleTemplate({ data }: { data: any }) {
   )
 }
 
-// 现代模板 - 改进版
+// Modern Template - Enhanced version
 function ModernTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-sans">
@@ -813,7 +813,7 @@ function ModernTemplate({ data }: { data: any }) {
   )
 }
 
-// 经典模板 - 改进版
+// Classic Template - Enhanced version
 function ClassicTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-serif">
@@ -882,7 +882,7 @@ function ClassicTemplate({ data }: { data: any }) {
   )
 }
 
-// 创意模板 - 改进版
+// Creative Template - Enhanced version
 function CreativeTemplate({ data }: { data: any }) {
   return (
     <div className="p-2 sm:p-3 font-sans bg-gradient-to-br from-blue-50 to-indigo-50 min-h-full">
@@ -917,9 +917,9 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* 使用更合适的响应式布局 - 确保电脑版上每个部分都有独立空间 */}
+      {/* Use more appropriate responsive layout - Ensure each section has independent space on desktop */}
       <div className="space-y-2 sm:space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 lg:grid-cols-4 lg:gap-4">
-        {/* Summary - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        {/* Summary - Full width on small screens, one column on medium screens, two columns on large screens */}
         <div className="md:col-span-1 lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
@@ -932,7 +932,7 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Skills - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Skills - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
@@ -952,7 +952,7 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Certifications - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Certifications - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
@@ -967,7 +967,7 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Experience - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        {/* Experience - Full width on small screens, one column on medium screens, two columns on large screens */}
         <div className="md:col-span-1 lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
@@ -999,7 +999,7 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Education - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Education - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
@@ -1023,7 +1023,7 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Languages - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Languages - Full width on small screens, one column on medium screens, one column on large screens */}
         <div className="md:col-span-1 lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
@@ -1042,7 +1042,7 @@ function CreativeTemplate({ data }: { data: any }) {
   )
 }
 
-// 简约模板 - 改进版
+// Minimal Template - Enhanced version
 function MinimalTemplate({ data }: { data: any }) {
   return (
     <div className="p-4 font-sans">
