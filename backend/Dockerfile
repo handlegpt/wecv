@@ -30,7 +30,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 COPY package*.json ./
 
 # Install dependencies with force flag to resolve conflicts
-RUN rm -f package-lock.json && npm ci --legacy-peer-deps && npm cache clean --force
+RUN npm ci --legacy-peer-deps && npm cache clean --force
 RUN npm audit --production --audit-level=high || (echo "[WARNING] npm audit 检查未通过，请及时修复依赖安全问题。" && exit 1)
 
 # Copy source code
