@@ -79,7 +79,7 @@ export function Templates() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {templates.slice(0, 6).map((template) => (
+          {templates.slice(0, 4).map((template) => (
             <div 
               key={template.id}
               className="card hover:shadow-lg transition-shadow duration-300 p-4"
