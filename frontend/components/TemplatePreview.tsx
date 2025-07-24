@@ -314,8 +314,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* 使用更合适的响应式布局 */}
-      <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-3 lg:gap-6">
+      {/* 使用更合适的响应式布局 - 确保电脑版上每个部分都有独立空间 */}
+      <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-4 lg:gap-6">
         {/* Summary - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
         <div className="md:col-span-1 lg:col-span-2">
           <div>
@@ -344,6 +344,21 @@ function ContemporaryTemplate({ data }: { data: any }) {
                 >
                   {skill}
                 </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Certifications - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
+          <div>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
+              Certifications
+            </h2>
+            <div className="space-y-1">
+              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {cert}</p>
               ))}
             </div>
           </div>
@@ -400,16 +415,16 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Certifications - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        {/* Languages - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
         <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
-              Certifications
+              <span className="w-6 h-1 bg-teal-600 rounded mr-2"></span>
+              Languages
             </h2>
             <div className="space-y-1">
-              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {cert}</p>
+              {data.languages.slice(0, 2).map((lang: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {lang}</p>
               ))}
             </div>
           </div>
@@ -902,8 +917,8 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* 使用更合适的响应式布局 */}
-      <div className="space-y-2 sm:space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 lg:grid-cols-3 lg:gap-4">
+      {/* 使用更合适的响应式布局 - 确保电脑版上每个部分都有独立空间 */}
+      <div className="space-y-2 sm:space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 lg:grid-cols-4 lg:gap-4">
         {/* Summary - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
         <div className="md:col-span-1 lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
@@ -932,6 +947,21 @@ function CreativeTemplate({ data }: { data: any }) {
                 >
                   {skill}
                 </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Certifications - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+              Certifications
+            </h2>
+            <div className="space-y-1">
+              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {cert}</p>
               ))}
             </div>
           </div>
@@ -988,6 +1018,21 @@ function CreativeTemplate({ data }: { data: any }) {
                   </div>
                   <p className="text-gray-600 text-xs font-medium">{edu.school}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Languages - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+              Languages
+            </h2>
+            <div className="space-y-1">
+              {data.languages.slice(0, 2).map((lang: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {lang}</p>
               ))}
             </div>
           </div>
