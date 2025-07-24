@@ -166,47 +166,47 @@ export default function BuilderPage() {
 
   const fetchTemplates = async (templateId?: string) => {
     try {
+      console.log('Builder: Fetching templates from API...')
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/template`)
+      console.log('Builder: API response status:', response.status)
+      
       if (response.ok) {
         const data = await response.json()
-        setTemplates(data)
-        if (data.length > 0) {
+        console.log('Builder: API templates data:', data)
+        if (data && data.length > 0) {
+          setTemplates(data)
           setSelectedTemplate(templateId || data[0].id)
+        } else {
+          console.log('Builder: API returned empty data, using mock templates')
+          useMockTemplates(templateId)
         }
       } else {
-        // Use mock data as fallback
-        const mockTemplates = [
-          { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
-          { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
-          { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
-          { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' },
-          { id: 'impact', name: t('templates.impact.name'), category: 'executive' },
-          { id: 'clean', name: t('templates.clean.name'), category: 'professional' },
-          { id: 'contemporary', name: t('templates.contemporary.name'), category: 'modern' },
-          { id: 'executive', name: t('templates.executive.name'), category: 'executive' },
-          { id: 'elegant', name: t('templates.elegant.name'), category: 'creative' },
-          { id: 'simple', name: t('templates.simple.name'), category: 'minimal' }
-        ]
-        setTemplates(mockTemplates)
-        setSelectedTemplate(templateId || 'modern')
+        console.log('Builder: API failed, using mock templates')
+        useMockTemplates(templateId)
       }
     } catch (error) {
-      // Use mock data as fallback
-      const mockTemplates = [
-        { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
-        { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
-        { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
-        { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' },
-        { id: 'impact', name: t('templates.impact.name'), category: 'executive' },
-        { id: 'clean', name: t('templates.clean.name'), category: 'professional' },
-        { id: 'contemporary', name: t('templates.contemporary.name'), category: 'modern' },
-        { id: 'executive', name: t('templates.executive.name'), category: 'executive' },
-        { id: 'elegant', name: t('templates.elegant.name'), category: 'creative' },
-        { id: 'simple', name: t('templates.simple.name'), category: 'minimal' }
-      ]
-      setTemplates(mockTemplates)
-      setSelectedTemplate(templateId || 'modern')
+      console.error('Builder: Failed to fetch templates:', error)
+      console.log('Builder: Using mock templates due to error')
+      useMockTemplates(templateId)
     }
+  }
+
+  const useMockTemplates = (templateId?: string) => {
+    const mockTemplates = [
+      { id: 'modern', name: t('templates.modern.name'), category: 'modern' },
+      { id: 'classic', name: t('templates.classic.name'), category: 'classic' },
+      { id: 'creative', name: t('templates.creative.name'), category: 'creative' },
+      { id: 'minimal', name: t('templates.minimal.name'), category: 'minimal' },
+      { id: 'impact', name: t('templates.impact.name'), category: 'executive' },
+      { id: 'clean', name: t('templates.clean.name'), category: 'professional' },
+      { id: 'contemporary', name: t('templates.contemporary.name'), category: 'modern' },
+      { id: 'executive', name: t('templates.executive.name'), category: 'executive' },
+      { id: 'elegant', name: t('templates.elegant.name'), category: 'creative' },
+      { id: 'simple', name: t('templates.simple.name'), category: 'minimal' }
+    ]
+    console.log('Builder: Setting mock templates:', mockTemplates)
+    setTemplates(mockTemplates)
+    setSelectedTemplate(templateId || 'modern')
   }
 
   const handleTemplateChange = (templateId: string) => {
@@ -522,12 +522,21 @@ export default function BuilderPage() {
                   onChange={(e) => handleTemplateChange(e.target.value)}
                   className="input-field"
                 >
-                  {templates.map((template) => (
-                    <option key={template.id} value={template.id}>
-                      {t(`templates.${template.id}.name`, template.name)} - {t(`templates.categories.${template.category}`, template.category)}
-                    </option>
-                  ))}
+                  {templates.length === 0 ? (
+                    <option value="">{t('builder.loadingTemplates', 'Loading templates...')}</option>
+                  ) : (
+                    templates.map((template) => (
+                      <option key={template.id} value={template.id}>
+                        {t(`templates.${template.id}.name`, template.name)} - {t(`templates.categories.${template.category}`, template.category)}
+                      </option>
+                    ))
+                  )}
                 </select>
+                {templates.length > 0 && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t('builder.templateCount', 'Available templates')}: {templates.length}
+                  </p>
+                )}
               </div>
 
               {/* Personal Information */}
