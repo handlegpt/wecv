@@ -48,7 +48,6 @@ export function Header({ variant = 'default', user: propUser, onLogout, title, o
   const navigation = [
     { name: t('navigation.home'), href: '/' },
     { name: t('navigation.templates'), href: '/templates' },
-    { name: t('navigation.blog'), href: '/blog' },
     { name: t('navigation.help'), href: '/help' },
     { name: t('navigation.about'), href: '/about' },
     { name: t('navigation.pricing'), href: '#pricing' },

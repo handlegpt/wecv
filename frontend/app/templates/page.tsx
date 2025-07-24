@@ -148,17 +148,26 @@ export default function TemplatesPage() {
 
   const fetchTemplates = async () => {
     try {
+      console.log('Fetching templates from API...')
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/template`)
+      console.log('API response status:', response.status)
+      
       if (response.ok) {
         const data = await response.json()
-        setTemplates(data)
+        console.log('API templates data:', data)
+        if (data && data.length > 0) {
+          setTemplates(data)
+        } else {
+          console.log('API returned empty data, using mock templates')
+          setTemplates(mockTemplates)
+        }
       } else {
-        // 如果后端API不可用，使用模拟数据
+        console.log('API failed, using mock templates')
         setTemplates(mockTemplates)
       }
     } catch (error) {
       console.error('Failed to fetch templates:', error)
-      // 使用模拟数据作为后备
+      console.log('Using mock templates due to error')
       setTemplates(mockTemplates)
     } finally {
       setIsLoading(false)
