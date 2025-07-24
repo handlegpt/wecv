@@ -372,7 +372,7 @@ export default function TemplatesPage() {
       {/* Template Preview Modal */}
       {selectedTemplate && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-lg max-w-5xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold text-gray-900">
@@ -386,55 +386,55 @@ export default function TemplatesPage() {
                 </button>
               </div>
               
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div>
-                  <TemplatePreview 
-                    templateId={selectedTemplate} 
-                    className="w-full"
-                  />
-                </div>
+              {/* Template Preview - Full width */}
+              <div className="mb-6">
+                <TemplatePreview 
+                  templateId={selectedTemplate} 
+                  className="w-full max-w-4xl mx-auto"
+                />
+              </div>
+              
+              {/* Template Info - Below preview */}
+              <div className="max-w-4xl mx-auto">
+                <h3 className="text-lg font-semibold mb-3">{t('ResumeTemplates.templateFeatures')}</h3>
+                <ul className="space-y-2 mb-6">
+                  {templates.find(t => t.id === selectedTemplate)?.features?.map((feature, index) => (
+                    <li key={index} className="flex items-center text-sm text-gray-600">
+                      <span className="w-2 h-2 bg-primary-600 rounded-full mr-3"></span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
                 
-                <div>
-                  <h3 className="text-lg font-semibold mb-3">{t('ResumeTemplates.templateFeatures')}</h3>
-                  <ul className="space-y-2 mb-6">
-                    {templates.find(t => t.id === selectedTemplate)?.features?.map((feature, index) => (
-                      <li key={index} className="flex items-center text-sm text-gray-600">
-                        <span className="w-2 h-2 bg-primary-600 rounded-full mr-3"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <span className="text-sm text-gray-600">{t('ResumeTemplates.popularity')}</span>
-                      <div className="flex items-center">
-                        <Star className="w-4 h-4 text-yellow-400 mr-1" />
-                        <span className="text-sm font-medium">
-                          {templates.find(t => t.id === selectedTemplate)?.popularity}%
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <span className="text-sm text-gray-600">{t('ResumeTemplates.difficulty')}</span>
-                      <span className="text-sm font-medium capitalize">
-                        {t(`ResumeTemplates.difficultyLevels.${templates.find(t => t.id === selectedTemplate)?.difficulty}`)}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span className="text-sm text-gray-600">{t('ResumeTemplates.popularity')}</span>
+                    <div className="flex items-center">
+                      <Star className="w-4 h-4 text-yellow-400 mr-1" />
+                      <span className="text-sm font-medium">
+                        {templates.find(t => t.id === selectedTemplate)?.popularity}%
                       </span>
                     </div>
                   </div>
                   
-                  <div className="mt-6">
-                    <button
-                      onClick={() => {
-                        handleTemplateSelect(selectedTemplate)
-                        closePreview()
-                      }}
-                      className="btn-primary w-full"
-                    >
-                      {t('ResumeTemplates.useTemplate')}
-                    </button>
+                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <span className="text-sm text-gray-600">{t('ResumeTemplates.difficulty')}</span>
+                    <span className="text-sm font-medium capitalize">
+                      {t(`ResumeTemplates.difficultyLevels.${templates.find(t => t.id === selectedTemplate)?.difficulty}`)}
+                    </span>
                   </div>
+                </div>
+                
+                <div className="text-center">
+                  <button
+                    onClick={() => {
+                      handleTemplateSelect(selectedTemplate)
+                      closePreview()
+                    }}
+                    className="btn-primary px-8 py-3 text-lg font-medium"
+                  >
+                    {t('ResumeTemplates.useTemplate')}
+                  </button>
                 </div>
               </div>
             </div>
