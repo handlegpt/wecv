@@ -314,10 +314,10 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Left Column */}
-        <div className="lg:col-span-2 space-y-4">
-          {/* Summary */}
+      {/* 在小屏幕上使用单列布局，大屏幕使用三列布局 */}
+      <div className="space-y-4 lg:grid lg:grid-cols-3 lg:gap-4 lg:space-y-0">
+        {/* Summary - 在小屏幕上占满宽度，大屏幕占两列 */}
+        <div className="lg:col-span-2">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
@@ -327,8 +327,30 @@ function ContemporaryTemplate({ data }: { data: any }) {
               {data.summary}
             </p>
           </div>
+        </div>
 
-          {/* Experience */}
+        {/* Skills - 在小屏幕上占满宽度，大屏幕占一列 */}
+        <div className="lg:col-span-1">
+          <div>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
+              Technical Skills
+            </h2>
+            <div className="flex flex-wrap gap-1">
+              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
+                <span
+                  key={index}
+                  className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Experience - 在小屏幕上占满宽度，大屏幕占两列 */}
+        <div className="lg:col-span-2">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center">
               <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
@@ -359,27 +381,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Right Column */}
-        <div className="space-y-4">
-          {/* Skills */}
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
-              Technical Skills
-            </h2>
-            <div className="flex flex-wrap gap-1">
-              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
-                <span
-                  key={index}
-                  className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Education */}
+        {/* Education - 在小屏幕上占满宽度，大屏幕占一列 */}
+        <div className="lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-green-600 rounded mr-2"></span>
@@ -395,8 +398,10 @@ function ContemporaryTemplate({ data }: { data: any }) {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Certifications */}
+        {/* Certifications - 在小屏幕上占满宽度，大屏幕占一列 */}
+        <div className="lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
@@ -897,10 +902,10 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-3">
-        {/* Left Column */}
-        <div className="lg:col-span-2 space-y-2 sm:space-y-3">
-          {/* Summary */}
+      {/* 在小屏幕上使用单列布局，大屏幕使用三列布局 */}
+      <div className="space-y-2 sm:space-y-3 lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0">
+        {/* Summary - 在小屏幕上占满宽度，大屏幕占两列 */}
+        <div className="lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -910,8 +915,30 @@ function CreativeTemplate({ data }: { data: any }) {
               {data.summary}
             </p>
           </div>
+        </div>
 
-          {/* Experience */}
+        {/* Skills - 在小屏幕上占满宽度，大屏幕占一列 */}
+        <div className="lg:col-span-1">
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+              Skills
+            </h2>
+            <div className="flex flex-wrap gap-1">
+              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
+                <span
+                  key={index}
+                  className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Experience - 在小屏幕上占满宽度，大屏幕占两列 */}
+        <div className="lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -942,27 +969,8 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Right Column */}
-        <div className="lg:col-span-1 space-y-2 sm:space-y-3">
-          {/* Skills */}
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Skills
-            </h2>
-            <div className="flex flex-wrap gap-1">
-              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
-                <span
-                  key={index}
-                  className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Education */}
+        {/* Education - 在小屏幕上占满宽度，大屏幕占一列 */}
+        <div className="lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
