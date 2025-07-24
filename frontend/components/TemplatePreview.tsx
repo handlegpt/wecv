@@ -314,7 +314,7 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* Use vertical layout instead of multi-column grid */}
+      {/* Use vertical layout for all sections */}
       <div className="space-y-4">
         {/* Professional Summary - Full width */}
         <div>
@@ -357,67 +357,64 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Two-column layout for remaining sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Technical Skills */}
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
-              Technical Skills
-            </h2>
-            <div className="flex flex-wrap gap-1">
-              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
-                <span
-                  key={index}
-                  className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+        {/* Technical Skills - Full width */}
+        <div>
+          <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+            <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
+            Technical Skills
+          </h2>
+          <div className="flex flex-wrap gap-1">
+            {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
+              <span
+                key={index}
+                className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
+        </div>
 
-          {/* Education */}
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-green-600 rounded mr-2"></span>
-              Education
-            </h2>
-            <div className="space-y-2">
-              {data.education.map((edu: any, index: number) => (
-                <div key={index}>
-                  <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
-                  <p className="text-gray-600 text-xs">{edu.school}</p>
-                  <p className="text-gray-500 text-xs">{edu.period}</p>
-                </div>
-              ))}
-            </div>
+        {/* Education - Full width */}
+        <div>
+          <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+            <span className="w-6 h-1 bg-green-600 rounded mr-2"></span>
+            Education
+          </h2>
+          <div className="space-y-2">
+            {data.education.map((edu: any, index: number) => (
+              <div key={index}>
+                <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                <p className="text-gray-600 text-xs">{edu.school}</p>
+                <p className="text-gray-500 text-xs">{edu.period}</p>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Certifications */}
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
-              Certifications
-            </h2>
-            <div className="space-y-1">
-              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {cert}</p>
-              ))}
-            </div>
+        {/* Certifications - Full width */}
+        <div>
+          <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+            <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
+            Certifications
+          </h2>
+          <div className="space-y-1">
+            {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+              <p key={index} className="text-xs text-gray-700">• {cert}</p>
+            ))}
           </div>
+        </div>
 
-          {/* Languages */}
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-teal-600 rounded mr-2"></span>
-              Languages
-            </h2>
-            <div className="space-y-1">
-              {data.languages.slice(0, 2).map((lang: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {lang}</p>
-              ))}
-            </div>
+        {/* Languages - Full width */}
+        <div>
+          <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+            <span className="w-6 h-1 bg-teal-600 rounded mr-2"></span>
+            Languages
+          </h2>
+          <div className="space-y-1">
+            {data.languages.slice(0, 2).map((lang: string, index: number) => (
+              <p key={index} className="text-xs text-gray-700">• {lang}</p>
+            ))}
           </div>
         </div>
       </div>
@@ -908,7 +905,7 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* Use vertical layout instead of multi-column grid */}
+      {/* Use vertical layout for all sections */}
       <div className="space-y-2 sm:space-y-3">
         {/* Summary - Full width */}
         <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
@@ -951,72 +948,69 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Two-column layout for remaining sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
-          {/* Skills */}
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Skills
-            </h2>
-            <div className="flex flex-wrap gap-1">
-              {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
-                <span
-                  key={index}
-                  className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+        {/* Skills - Full width */}
+        <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+          <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+            <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+            Skills
+          </h2>
+          <div className="flex flex-wrap gap-1">
+            {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
+              <span
+                key={index}
+                className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
+        </div>
 
-          {/* Education */}
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Education
-            </h2>
-            <div className="space-y-2">
-              {data.education.map((edu: any, index: number) => (
-                <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-blue-200">
-                  <div className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full -left-0.5 sm:-left-1 top-0.5 sm:top-1"></div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1 sm:gap-0">
-                    <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded self-start">
-                      {edu.period}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 text-xs font-medium">{edu.school}</p>
+        {/* Education - Full width */}
+        <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+          <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+            <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+            Education
+          </h2>
+          <div className="space-y-2">
+            {data.education.map((edu: any, index: number) => (
+              <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-blue-200">
+                <div className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full -left-0.5 sm:-left-1 top-0.5 sm:top-1"></div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1 sm:gap-0">
+                  <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                  <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded self-start">
+                    {edu.period}
+                  </span>
                 </div>
-              ))}
-            </div>
+                <p className="text-gray-600 text-xs font-medium">{edu.school}</p>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Certifications */}
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Certifications
-            </h2>
-            <div className="space-y-1">
-              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {cert}</p>
-              ))}
-            </div>
+        {/* Certifications - Full width */}
+        <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+          <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+            <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+            Certifications
+          </h2>
+          <div className="space-y-1">
+            {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+              <p key={index} className="text-xs text-gray-700">• {cert}</p>
+            ))}
           </div>
+        </div>
 
-          {/* Languages */}
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Languages
-            </h2>
-            <div className="space-y-1">
-              {data.languages.slice(0, 2).map((lang: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {lang}</p>
-              ))}
-            </div>
+        {/* Languages - Full width */}
+        <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+          <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+            <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+            Languages
+          </h2>
+          <div className="space-y-1">
+            {data.languages.slice(0, 2).map((lang: string, index: number) => (
+              <p key={index} className="text-xs text-gray-700">• {lang}</p>
+            ))}
           </div>
         </div>
       </div>
