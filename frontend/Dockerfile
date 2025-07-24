@@ -11,7 +11,7 @@ RUN apk add --no-cache libc6-compat
 COPY package*.json ./
 
 # Install all dependencies (including dev dependencies for build)
-RUN npm ci --legacy-peer-deps && npm cache clean --force
+RUN npm install --legacy-peer-deps && npm cache clean --force
 RUN npm audit --production --audit-level=high || (echo "[WARNING] npm audit 检查未通过，请及时修复依赖安全问题。" && exit 1)
 
 # Copy source code
