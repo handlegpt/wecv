@@ -865,42 +865,45 @@ function ClassicTemplate({ data }: { data: any }) {
 // 创意模板 - 改进版
 function CreativeTemplate({ data }: { data: any }) {
   return (
-    <div className="p-4 font-sans bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div className="p-2 sm:p-3 font-sans bg-gradient-to-br from-blue-50 to-indigo-50 min-h-full">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-lg mb-4">
-        <h1 className="text-lg font-bold mb-1">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-2 sm:p-3 rounded-lg mb-2 sm:mb-3">
+        <h1 className="text-sm sm:text-base font-bold mb-1">
           {data.personal.name}
         </h1>
-        <p className="text-sm opacity-90 mb-2">
+        <p className="text-xs sm:text-sm opacity-90 mb-2">
           {data.personal.title}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-xs opacity-80">
-          <div className="flex items-center">
-            <span className="mr-1">📧</span>
+          <div className="flex items-center min-w-0">
+            <svg className="w-3 h-3 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
             <span className="truncate">{data.personal.email}</span>
           </div>
-          <div className="flex items-center">
-            <span className="mr-1">📱</span>
+          <div className="flex items-center min-w-0">
+            <svg className="w-3 h-3 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+            </svg>
             <span className="truncate">{data.personal.phone}</span>
           </div>
-          <div className="flex items-center">
-            <span className="mr-1">📍</span>
+          <div className="flex items-center min-w-0 sm:col-span-2">
+            <svg className="w-3 h-3 mr-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+            </svg>
             <span className="truncate">{data.personal.location}</span>
-          </div>
-          <div className="flex items-center">
-            <span className="mr-1">🔗</span>
-            <span className="truncate">{data.personal.linkedin}</span>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-3">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-3">
+        <div className="lg:col-span-2 space-y-2 sm:space-y-3">
           {/* Summary */}
-          <div className="bg-white p-3 rounded-lg shadow-sm">
-            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-4 h-1 bg-blue-600 rounded mr-2"></span>
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
               Summary
             </h2>
             <p className="text-gray-700 text-xs leading-relaxed">
@@ -909,26 +912,26 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
 
           {/* Experience */}
-          <div className="bg-white p-3 rounded-lg shadow-sm">
-            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-4 h-1 bg-blue-600 rounded mr-2"></span>
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
               Experience
             </h2>
-            <div className="space-y-2">
+            <div className="space-y-2 sm:space-y-3">
               {data.experience.map((exp: any, index: number) => (
-                <div key={index} className="relative pl-3 border-l-2 border-blue-200">
-                  <div className="absolute w-1.5 h-1.5 bg-blue-600 rounded-full -left-0.5 top-1"></div>
-                  <div className="flex justify-between items-start mb-1">
+                <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-blue-200">
+                  <div className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full -left-0.5 sm:-left-1 top-0.5 sm:top-1"></div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1 sm:gap-0">
                     <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
+                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded self-start">
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-blue-600 text-xs font-medium mb-1">{exp.company}</p>
+                  <p className="text-gray-600 text-xs font-medium mb-1">{exp.company}</p>
                   <ul className="space-y-1 text-xs text-gray-700">
                     {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
                       <li key={idx} className="flex items-start">
-                        <span className="text-blue-600 mr-1">•</span>
+                        <span className="text-blue-600 mr-1 text-xs">•</span>
                         <span className="text-xs">{achievement}</span>
                       </li>
                     ))}
@@ -940,18 +943,18 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-3">
+        <div className="lg:col-span-1 space-y-2 sm:space-y-3">
           {/* Skills */}
-          <div className="bg-white p-3 rounded-lg shadow-sm">
-            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-4 h-1 bg-purple-600 rounded mr-2"></span>
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
               Skills
             </h2>
             <div className="flex flex-wrap gap-1">
               {data.skills.technical.slice(0, 4).map((skill: string, index: number) => (
                 <span
                   key={index}
-                  className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded"
+                  className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
                 >
                   {skill}
                 </span>
@@ -960,31 +963,23 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
 
           {/* Education */}
-          <div className="bg-white p-3 rounded-lg shadow-sm">
-            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-4 h-1 bg-green-600 rounded mr-2"></span>
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
               Education
             </h2>
             <div className="space-y-2">
               {data.education.map((edu: any, index: number) => (
-                <div key={index}>
-                  <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
-                  <p className="text-gray-600 text-xs">{edu.school}</p>
-                  <p className="text-gray-500 text-xs">{edu.period}</p>
+                <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-blue-200">
+                  <div className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full -left-0.5 sm:-left-1 top-0.5 sm:top-1"></div>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1 sm:gap-0">
+                    <h3 className="font-semibold text-gray-900 text-xs">{edu.degree}</h3>
+                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded self-start">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-xs font-medium">{edu.school}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Certifications */}
-          <div className="bg-white p-3 rounded-lg shadow-sm">
-            <h2 className="text-sm font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-4 h-1 bg-orange-600 rounded mr-2"></span>
-              Certifications
-            </h2>
-            <div className="space-y-1">
-              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {cert}</p>
               ))}
             </div>
           </div>
