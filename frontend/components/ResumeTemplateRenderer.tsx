@@ -230,31 +230,31 @@ function ClassicTemplate({ data }: { data: any }) {
 // Creative Template
 function CreativeTemplate({ data }: { data: any }) {
   return (
-    <div className="p-6 font-sans bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div className="p-4 sm:p-6 font-sans bg-gradient-to-br from-blue-50 to-indigo-50 min-h-full">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 rounded-lg mb-6">
-        <h1 className="text-2xl font-bold mb-2">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+        <h1 className="text-xl sm:text-2xl font-bold mb-2">
           {data.content?.personal?.name || 'Your Name'}
         </h1>
-        <p className="text-lg mb-3 opacity-90">
+        <p className="text-base sm:text-lg mb-3 opacity-90">
           {data.content?.personal?.title || 'Professional Title'}
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs sm:text-sm">
           <div className="flex items-center min-w-0">
-            <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
             <span className="truncate">{data.content?.personal?.email || 'email@example.com'}</span>
           </div>
           <div className="flex items-center min-w-0">
-            <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
             </svg>
             <span className="truncate">{data.content?.personal?.phone || '+1 (555) 123-4567'}</span>
           </div>
           <div className="flex items-center min-w-0 sm:col-span-2 lg:col-span-1">
-            <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
             </svg>
             <span className="truncate">{data.content?.personal?.location || 'City, State'}</span>
@@ -262,17 +262,17 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-4 sm:space-y-6">
           {/* Summary */}
           {data.content?.summary && (
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+            <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
+                <span className="w-4 h-1 sm:w-6 sm:h-1 bg-blue-600 rounded mr-2 sm:mr-3"></span>
                 Professional Summary
               </h2>
-              <p className="text-gray-700 leading-relaxed text-sm">
+              <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
                 {data.content.summary}
               </p>
             </div>
@@ -280,23 +280,23 @@ function CreativeTemplate({ data }: { data: any }) {
 
           {/* Experience */}
           {data.content?.experience && data.content.experience.length > 0 && (
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+            <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
+                <span className="w-4 h-1 sm:w-6 sm:h-1 bg-blue-600 rounded mr-2 sm:mr-3"></span>
                 Work Experience
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {data.content.experience.map((exp: any, index: number) => (
-                  <div key={index} className="relative pl-6 border-l-2 border-blue-200">
-                    <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-1.5 top-2"></div>
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-semibold text-gray-900">{exp.title}</h3>
-                      <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                  <div key={index} className="relative pl-4 sm:pl-6 border-l-2 border-blue-200">
+                    <div className="absolute w-2 h-2 sm:w-3 sm:h-3 bg-blue-600 rounded-full -left-1 sm:-left-1.5 top-1 sm:top-2"></div>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 sm:mb-2 gap-1 sm:gap-0">
+                      <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{exp.title}</h3>
+                      <span className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded self-start">
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-2 font-medium">{exp.company}</p>
-                    <p className="text-gray-700 text-sm leading-relaxed">{exp.description}</p>
+                    <p className="text-gray-600 mb-1 sm:mb-2 font-medium text-xs sm:text-sm">{exp.company}</p>
+                    <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{exp.description}</p>
                   </div>
                 ))}
               </div>
@@ -305,23 +305,23 @@ function CreativeTemplate({ data }: { data: any }) {
 
           {/* Education */}
           {data.content?.education && data.content.education.length > 0 && (
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+            <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-center">
+                <span className="w-4 h-1 sm:w-6 sm:h-1 bg-blue-600 rounded mr-2 sm:mr-3"></span>
                 Education
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {data.content.education.map((edu: any, index: number) => (
-                  <div key={index} className="relative pl-6 border-l-2 border-blue-200">
-                    <div className="absolute w-3 h-3 bg-blue-600 rounded-full -left-1.5 top-2"></div>
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
-                      <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">
+                  <div key={index} className="relative pl-4 sm:pl-6 border-l-2 border-blue-200">
+                    <div className="absolute w-2 h-2 sm:w-3 sm:h-3 bg-blue-600 rounded-full -left-1 sm:-left-1.5 top-1 sm:top-2"></div>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 sm:mb-2 gap-1 sm:gap-0">
+                      <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{edu.degree}</h3>
+                      <span className="text-xs sm:text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded self-start">
                         {edu.period}
                       </span>
                     </div>
-                    <p className="text-gray-600 mb-2 font-medium">{edu.school}</p>
-                    <p className="text-gray-700 text-sm leading-relaxed">{edu.description}</p>
+                    <p className="text-gray-600 mb-1 sm:mb-2 font-medium text-xs sm:text-sm">{edu.school}</p>
+                    <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{edu.description}</p>
                   </div>
                 ))}
               </div>
@@ -333,16 +333,16 @@ function CreativeTemplate({ data }: { data: any }) {
         <div className="lg:col-span-1">
           {/* Skills */}
           {data.content?.skills && data.content.skills.length > 0 && (
-            <div className="bg-white p-4 rounded-lg shadow-sm">
-              <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-                <span className="w-6 h-1 bg-blue-600 rounded mr-3"></span>
+            <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm">
+              <h2 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
+                <span className="w-4 h-1 sm:w-6 sm:h-1 bg-blue-600 rounded mr-2 sm:mr-3"></span>
                 Skills
               </h2>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {data.content.skills.map((skill: string, index: number) => (
                   <span
                     key={index}
-                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
+                    className="px-2 sm:px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs"
                   >
                     {skill}
                   </span>
