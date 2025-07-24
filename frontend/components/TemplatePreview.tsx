@@ -314,23 +314,52 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* Use more appropriate responsive layout - Ensure each section has independent space on desktop */}
-      <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-4 lg:gap-6">
-        {/* Summary - Full width on small screens, one column on medium screens, two columns on large screens */}
-        <div className="md:col-span-1 lg:col-span-2">
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
-              Professional Summary
-            </h2>
-            <p className="text-gray-700 text-xs leading-relaxed">
-              {data.summary}
-            </p>
+      {/* Use vertical layout instead of multi-column grid */}
+      <div className="space-y-4">
+        {/* Professional Summary - Full width */}
+        <div>
+          <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+            <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
+            Professional Summary
+          </h2>
+          <p className="text-gray-700 text-xs leading-relaxed">
+            {data.summary}
+          </p>
+        </div>
+
+        {/* Work Experience - Full width */}
+        <div>
+          <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center">
+            <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
+            Work Experience
+          </h2>
+          <div className="space-y-3">
+            {data.experience.map((exp: any, index: number) => (
+              <div key={index} className="relative pl-4 border-l-2 border-blue-200">
+                <div className="absolute w-2 h-2 bg-blue-600 rounded-full -left-1 top-1"></div>
+                <div className="flex justify-between items-start mb-1">
+                  <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                  <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
+                    {exp.period}
+                  </span>
+                </div>
+                <p className="text-blue-600 text-xs font-medium mb-1">{exp.company} | {exp.location}</p>
+                <ul className="space-y-1 text-xs text-gray-700">
+                  {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-blue-600 mr-1">•</span>
+                      <span className="text-xs">{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Skills - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
+        {/* Two-column layout for remaining sections */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Technical Skills */}
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
@@ -347,57 +376,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Certifications - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
-              <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
-              Certifications
-            </h2>
-            <div className="space-y-1">
-              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {cert}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Experience - Full width on small screens, one column on medium screens, two columns on large screens */}
-        <div className="md:col-span-1 lg:col-span-2">
-          <div>
-            <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center">
-              <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
-              Work Experience
-            </h2>
-            <div className="space-y-3">
-              {data.experience.map((exp: any, index: number) => (
-                <div key={index} className="relative pl-4 border-l-2 border-blue-200">
-                  <div className="absolute w-2 h-2 bg-blue-600 rounded-full -left-1 top-1"></div>
-                  <div className="flex justify-between items-start mb-1">
-                    <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded">
-                      {exp.period}
-                    </span>
-                  </div>
-                  <p className="text-blue-600 text-xs font-medium mb-1">{exp.company} | {exp.location}</p>
-                  <ul className="space-y-1 text-xs text-gray-700">
-                    {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="text-blue-600 mr-1">•</span>
-                        <span className="text-xs">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Education - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
+          {/* Education */}
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-green-600 rounded mr-2"></span>
@@ -413,10 +393,21 @@ function ContemporaryTemplate({ data }: { data: any }) {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Languages - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
+          {/* Certifications */}
+          <div>
+            <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
+              <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
+              Certifications
+            </h2>
+            <div className="space-y-1">
+              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {cert}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Languages */}
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-teal-600 rounded mr-2"></span>
@@ -917,23 +908,52 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* Use more appropriate responsive layout - Ensure each section has independent space on desktop */}
-      <div className="space-y-2 sm:space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 lg:grid-cols-4 lg:gap-4">
-        {/* Summary - Full width on small screens, one column on medium screens, two columns on large screens */}
-        <div className="md:col-span-1 lg:col-span-2">
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Summary
-            </h2>
-            <p className="text-gray-700 text-xs leading-relaxed">
-              {data.summary}
-            </p>
+      {/* Use vertical layout instead of multi-column grid */}
+      <div className="space-y-2 sm:space-y-3">
+        {/* Summary - Full width */}
+        <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+          <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+            <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+            Summary
+          </h2>
+          <p className="text-gray-700 text-xs leading-relaxed">
+            {data.summary}
+          </p>
+        </div>
+
+        {/* Experience - Full width */}
+        <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+          <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
+            <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+            Experience
+          </h2>
+          <div className="space-y-2 sm:space-y-3">
+            {data.experience.map((exp: any, index: number) => (
+              <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-blue-200">
+                <div className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full -left-0.5 sm:-left-1 top-0.5 sm:top-1"></div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1 sm:gap-0">
+                  <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
+                  <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded self-start">
+                    {exp.period}
+                  </span>
+                </div>
+                <p className="text-gray-600 text-xs font-medium mb-1">{exp.company}</p>
+                <ul className="space-y-1 text-xs text-gray-700">
+                  {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-blue-600 mr-1 text-xs">•</span>
+                      <span className="text-xs">{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Skills - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
+        {/* Two-column layout for remaining sections */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
+          {/* Skills */}
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -950,57 +970,8 @@ function CreativeTemplate({ data }: { data: any }) {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Certifications - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Certifications
-            </h2>
-            <div className="space-y-1">
-              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
-                <p key={index} className="text-xs text-gray-700">• {cert}</p>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Experience - Full width on small screens, one column on medium screens, two columns on large screens */}
-        <div className="md:col-span-1 lg:col-span-2">
-          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
-              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
-              Experience
-            </h2>
-            <div className="space-y-2 sm:space-y-3">
-              {data.experience.map((exp: any, index: number) => (
-                <div key={index} className="relative pl-3 sm:pl-4 border-l-2 border-blue-200">
-                  <div className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full -left-0.5 sm:-left-1 top-0.5 sm:top-1"></div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-1 gap-1 sm:gap-0">
-                    <h3 className="font-semibold text-gray-900 text-xs">{exp.title}</h3>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-1 py-0.5 rounded self-start">
-                      {exp.period}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 text-xs font-medium mb-1">{exp.company}</p>
-                  <ul className="space-y-1 text-xs text-gray-700">
-                    {exp.achievements.slice(0, 2).map((achievement: string, idx: number) => (
-                      <li key={idx} className="flex items-start">
-                        <span className="text-blue-600 mr-1 text-xs">•</span>
-                        <span className="text-xs">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Education - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
+          {/* Education */}
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -1021,10 +992,21 @@ function CreativeTemplate({ data }: { data: any }) {
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Languages - Full width on small screens, one column on medium screens, one column on large screens */}
-        <div className="md:col-span-1 lg:col-span-1">
+          {/* Certifications */}
+          <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
+              <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
+              Certifications
+            </h2>
+            <div className="space-y-1">
+              {data.certifications.slice(0, 2).map((cert: string, index: number) => (
+                <p key={index} className="text-xs text-gray-700">• {cert}</p>
+              ))}
+            </div>
+          </div>
+
+          {/* Languages */}
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
