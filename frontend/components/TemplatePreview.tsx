@@ -314,10 +314,10 @@ function ContemporaryTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* 在小屏幕上使用单列布局，大屏幕使用三列布局 */}
-      <div className="space-y-4 lg:grid lg:grid-cols-3 lg:gap-4 lg:space-y-0">
-        {/* Summary - 在小屏幕上占满宽度，大屏幕占两列 */}
-        <div className="lg:col-span-2">
+      {/* 使用更合适的响应式布局 */}
+      <div className="space-y-4 md:grid md:grid-cols-2 md:gap-4 md:space-y-0 lg:grid-cols-3 lg:gap-6">
+        {/* Summary - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        <div className="md:col-span-1 lg:col-span-2">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
@@ -329,8 +329,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Skills - 在小屏幕上占满宽度，大屏幕占一列 */}
-        <div className="lg:col-span-1">
+        {/* Skills - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-purple-600 rounded mr-2"></span>
@@ -349,8 +349,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Experience - 在小屏幕上占满宽度，大屏幕占两列 */}
-        <div className="lg:col-span-2">
+        {/* Experience - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        <div className="md:col-span-1 lg:col-span-2">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-3 flex items-center">
               <span className="w-6 h-1 bg-blue-600 rounded mr-2"></span>
@@ -381,8 +381,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Education - 在小屏幕上占满宽度，大屏幕占一列 */}
-        <div className="lg:col-span-1">
+        {/* Education - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-green-600 rounded mr-2"></span>
@@ -400,8 +400,8 @@ function ContemporaryTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Certifications - 在小屏幕上占满宽度，大屏幕占一列 */}
-        <div className="lg:col-span-1">
+        {/* Certifications - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
           <div>
             <h2 className="text-base font-bold text-gray-900 mb-2 flex items-center">
               <span className="w-6 h-1 bg-orange-600 rounded mr-2"></span>
@@ -902,10 +902,10 @@ function CreativeTemplate({ data }: { data: any }) {
         </div>
       </div>
 
-      {/* 在小屏幕上使用单列布局，大屏幕使用三列布局 */}
-      <div className="space-y-2 sm:space-y-3 lg:grid lg:grid-cols-3 lg:gap-2 lg:space-y-0">
-        {/* Summary - 在小屏幕上占满宽度，大屏幕占两列 */}
-        <div className="lg:col-span-2">
+      {/* 使用更合适的响应式布局 */}
+      <div className="space-y-2 sm:space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 lg:grid-cols-3 lg:gap-4">
+        {/* Summary - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        <div className="md:col-span-1 lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -917,8 +917,8 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Skills - 在小屏幕上占满宽度，大屏幕占一列 */}
-        <div className="lg:col-span-1">
+        {/* Skills - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -937,8 +937,8 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Experience - 在小屏幕上占满宽度，大屏幕占两列 */}
-        <div className="lg:col-span-2">
+        {/* Experience - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占两列 */}
+        <div className="md:col-span-1 lg:col-span-2">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
@@ -969,8 +969,8 @@ function CreativeTemplate({ data }: { data: any }) {
           </div>
         </div>
 
-        {/* Education - 在小屏幕上占满宽度，大屏幕占一列 */}
-        <div className="lg:col-span-1">
+        {/* Education - 在小屏幕上占满宽度，中等屏幕占一列，大屏幕占一列 */}
+        <div className="md:col-span-1 lg:col-span-1">
           <div className="bg-white p-2 sm:p-3 rounded-lg shadow-sm">
             <h2 className="text-xs sm:text-sm font-bold text-gray-900 mb-1 sm:mb-2 flex items-center">
               <span className="w-3 h-0.5 sm:w-4 sm:h-1 bg-blue-600 rounded mr-1 sm:mr-2"></span>
