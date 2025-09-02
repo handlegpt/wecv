@@ -12,22 +12,39 @@ export interface TemplateStyle {
     background: string
     text: string
     muted: string
+    gradient?: string
+    border?: string
+    shadow?: string
   }
   fonts: {
     heading: string
     body: string
     accent: string
     muted: string
+    size?: {
+      heading: string
+      subheading: string
+      body: string
+      small: string
+    }
   }
   spacing: {
     section: string
     item: string
     text: string
+    container?: string
+    header?: string
   }
   layout: 'single' | 'two-column' | 'modern' | 'creative' | 'minimal'
   features: string[]
   bestFor: string[]
   difficulty: 'beginner' | 'intermediate' | 'advanced'
+  effects?: {
+    shadows: boolean
+    gradients: boolean
+    borders: boolean
+    animations: boolean
+  }
 }
 
 export interface TemplateSection {
@@ -343,6 +360,200 @@ export const templateStyles: TemplateStyle[] = [
   }
 ]
 
+// 新增高级模板样式
+export const advancedTemplateStyles: TemplateStyle[] = [
+  {
+    id: 'tech',
+    name: 'Tech',
+    category: 'modern',
+    description: 'Futuristic design with tech-inspired elements and dark theme',
+    preview: '/templates/tech-preview.jpg',
+    colors: {
+      primary: '#00d4ff',
+      secondary: '#7c3aed',
+      accent: '#f59e0b',
+      background: '#0f172a',
+      text: '#f8fafc',
+      muted: '#64748b',
+      gradient: 'linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%)',
+      border: '#1e293b',
+      shadow: '0 25px 50px -12px rgba(0, 212, 255, 0.25)'
+    },
+    fonts: {
+      heading: 'font-bold text-slate-100 tracking-tight',
+      body: 'font-normal text-slate-200 leading-relaxed',
+      accent: 'font-semibold text-cyan-400',
+      muted: 'text-slate-400',
+      size: {
+        heading: 'text-3xl',
+        subheading: 'text-xl',
+        body: 'text-base',
+        small: 'text-sm'
+      }
+    },
+    spacing: {
+      section: 'mb-10',
+      item: 'mb-6',
+      text: 'mb-3',
+      container: 'p-8',
+      header: 'mb-8'
+    },
+    layout: 'modern',
+    features: ['Dark theme', 'Tech aesthetics', 'Neon accents', 'Futuristic design', 'High contrast'],
+    bestFor: ['Tech professionals', 'Developers', 'AI researchers', 'Startup founders'],
+    difficulty: 'advanced',
+    effects: {
+      shadows: true,
+      gradients: true,
+      borders: true,
+      animations: true
+    }
+  },
+  {
+    id: 'artistic',
+    name: 'Artistic',
+    category: 'creative',
+    description: 'Bold artistic design with vibrant colors and creative layouts',
+    preview: '/templates/artistic-preview.jpg',
+    colors: {
+      primary: '#ec4899',
+      secondary: '#f59e0b',
+      accent: '#8b5cf6',
+      background: '#fef3c7',
+      text: '#92400e',
+      muted: '#f59e0b',
+      gradient: 'linear-gradient(135deg, #ec4899 0%, #f59e0b 50%, #8b5cf6 100%)',
+      border: '#fbbf24',
+      shadow: '0 25px 50px -12px rgba(236, 72, 153, 0.25)'
+    },
+    fonts: {
+      heading: 'font-bold text-amber-900 tracking-tight',
+      body: 'font-normal text-amber-800 leading-relaxed',
+      accent: 'font-semibold text-pink-600',
+      muted: 'text-amber-600',
+      size: {
+        heading: 'text-3xl',
+        subheading: 'text-xl',
+        body: 'text-base',
+        small: 'text-sm'
+      }
+    },
+    spacing: {
+      section: 'mb-10',
+      item: 'mb-6',
+      text: 'mb-3',
+      container: 'p-8',
+      header: 'mb-8'
+    },
+    layout: 'creative',
+    features: ['Vibrant colors', 'Creative layouts', 'Artistic elements', 'Unique typography', 'Colorful gradients'],
+    bestFor: ['Artists', 'Designers', 'Creative professionals', 'Brand managers'],
+    difficulty: 'advanced',
+    effects: {
+      shadows: true,
+      gradients: true,
+      borders: true,
+      animations: true
+    }
+  },
+  {
+    id: 'business',
+    name: 'Business',
+    category: 'executive',
+    description: 'Professional business design with corporate aesthetics',
+    preview: '/templates/business-preview.jpg',
+    colors: {
+      primary: '#1e40af',
+      secondary: '#374151',
+      accent: '#059669',
+      background: '#ffffff',
+      text: '#111827',
+      muted: '#6b7280',
+      gradient: 'linear-gradient(135deg, #1e40af 0%, #374151 100%)',
+      border: '#dbeafe',
+      shadow: '0 25px 50px -12px rgba(30, 64, 175, 0.25)'
+    },
+    fonts: {
+      heading: 'font-bold text-blue-900 tracking-tight',
+      body: 'font-normal text-gray-800 leading-normal',
+      accent: 'font-semibold text-blue-600',
+      muted: 'text-gray-500',
+      size: {
+        heading: 'text-3xl',
+        subheading: 'text-xl',
+        body: 'text-base',
+        small: 'text-sm'
+      }
+    },
+    spacing: {
+      section: 'mb-8',
+      item: 'mb-5',
+      text: 'mb-2',
+      container: 'p-8',
+      header: 'mb-8'
+    },
+    layout: 'two-column',
+    features: ['Corporate design', 'Professional layout', 'Business aesthetics', 'Executive styling', 'Blue gradients'],
+    bestFor: ['Business professionals', 'Consultants', 'Corporate roles', 'Sales executives'],
+    difficulty: 'intermediate',
+    effects: {
+      shadows: true,
+      gradients: true,
+      borders: true,
+      animations: false
+    }
+  },
+  {
+    id: 'minimalist',
+    name: 'Minimalist',
+    category: 'minimal',
+    description: 'Ultra-minimal design with maximum focus on content',
+    preview: '/templates/minimalist-preview.jpg',
+    colors: {
+      primary: '#000000',
+      secondary: '#374151',
+      accent: '#6b7280',
+      background: '#ffffff',
+      text: '#000000',
+      muted: '#6b7280',
+      border: '#f3f4f6',
+      shadow: 'none'
+    },
+    fonts: {
+      heading: 'font-light text-black tracking-wide',
+      body: 'font-normal text-black leading-relaxed',
+      accent: 'font-medium text-gray-600',
+      muted: 'text-gray-500',
+      size: {
+        heading: 'text-2xl',
+        subheading: 'text-lg',
+        body: 'text-base',
+        small: 'text-sm'
+      }
+    },
+    spacing: {
+      section: 'mb-16',
+      item: 'mb-10',
+      text: 'mb-5',
+      container: 'p-12',
+      header: 'mb-12'
+    },
+    layout: 'minimal',
+    features: ['Ultra-minimal', 'Maximum whitespace', 'Content focus', 'Clean typography', 'No distractions'],
+    bestFor: ['Content creators', 'Writers', 'Minimalist professionals', 'Design purists'],
+    difficulty: 'advanced',
+    effects: {
+      shadows: false,
+      gradients: false,
+      borders: false,
+      animations: false
+    }
+  }
+]
+
+// 合并所有模板样式
+export const allTemplateStyles = [...templateStyles, ...advancedTemplateStyles]
+
 // 模板部分配置
 export const templateSections: TemplateSection[] = [
   {
@@ -410,28 +621,28 @@ export const templateSections: TemplateSection[] = [
 
 // 获取模板样式
 export function getTemplateStyle(templateId: string): TemplateStyle | undefined {
-  return templateStyles.find(style => style.id === templateId)
+  return allTemplateStyles.find(style => style.id === templateId)
 }
 
 // 获取所有模板样式
 export function getAllTemplateStyles(): TemplateStyle[] {
-  return templateStyles
+  return allTemplateStyles
 }
 
 // 按类别获取模板样式
 export function getTemplateStylesByCategory(category: TemplateStyle['category']): TemplateStyle[] {
-  return templateStyles.filter(style => style.category === category)
+  return allTemplateStyles.filter(style => style.category === category)
 }
 
 // 按难度获取模板样式
 export function getTemplateStylesByDifficulty(difficulty: TemplateStyle['difficulty']): TemplateStyle[] {
-  return templateStyles.filter(style => style.difficulty === difficulty)
+  return allTemplateStyles.filter(style => style.difficulty === difficulty)
 }
 
 // 搜索模板样式
 export function searchTemplateStyles(query: string): TemplateStyle[] {
   const lowercaseQuery = query.toLowerCase()
-  return templateStyles.filter(style => 
+  return allTemplateStyles.filter(style => 
     style.name.toLowerCase().includes(lowercaseQuery) ||
     style.description.toLowerCase().includes(lowercaseQuery) ||
     style.features.some(feature => feature.toLowerCase().includes(lowercaseQuery)) ||

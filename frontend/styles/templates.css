@@ -1,0 +1,409 @@
+/* 简历模板样式系统 */
+
+/* 基础模板样式 */
+.template-modern {
+  @apply bg-white text-gray-800;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.template-classic {
+  @apply bg-white text-gray-900;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.template-creative {
+  @apply bg-amber-50 text-amber-900;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.template-minimal {
+  @apply bg-white text-black;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.template-executive {
+  @apply bg-white text-gray-900;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.template-impact {
+  @apply bg-white text-green-900;
+  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 10px 10px -5px rgba(16, 185, 129, 0.04);
+}
+
+.template-clean {
+  @apply bg-white text-gray-800;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.template-contemporary {
+  @apply bg-white text-gray-800;
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+}
+
+.template-elegant {
+  @apply bg-white text-gray-900;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.template-simple {
+  @apply bg-white text-black;
+}
+
+/* 高级模板样式 */
+.template-tech {
+  @apply bg-slate-900 text-slate-100;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 212, 255, 0.25);
+}
+
+.template-artistic {
+  @apply bg-amber-50 text-amber-900;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  box-shadow: 0 25px 50px -12px rgba(236, 72, 153, 0.25);
+}
+
+.template-business {
+  @apply bg-white text-gray-900;
+  box-shadow: 0 25px 50px -12px rgba(30, 64, 175, 0.25);
+}
+
+.template-minimalist {
+  @apply bg-white text-black;
+}
+
+/* 渐变背景 */
+.gradient-modern {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-creative {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-executive {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.gradient-impact {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-contemporary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.gradient-elegant {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.gradient-tech {
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+}
+
+.gradient-artistic {
+  background: linear-gradient(135deg, #ec4899 0%, #f59e0b 50%, #8b5cf6 100%);
+}
+
+.gradient-business {
+  background: linear-gradient(135deg, #1e40af 0%, #374151 100%);
+}
+
+/* 字体样式 */
+.font-modern {
+  @apply font-bold text-gray-900 tracking-tight;
+}
+
+.font-classic {
+  @apply font-bold text-gray-900 tracking-wide;
+}
+
+.font-creative {
+  @apply font-bold text-purple-900 tracking-tight;
+}
+
+.font-minimal {
+  @apply font-light text-black tracking-wide;
+}
+
+.font-executive {
+  @apply font-bold text-gray-900 tracking-tight;
+}
+
+.font-impact {
+  @apply font-bold text-green-900 tracking-tight;
+}
+
+.font-clean {
+  @apply font-semibold text-gray-900 tracking-wide;
+}
+
+.font-contemporary {
+  @apply font-bold text-indigo-900 tracking-tight;
+}
+
+.font-elegant {
+  @apply font-light text-gray-900 tracking-wide;
+}
+
+.font-simple {
+  @apply font-bold text-black tracking-wide;
+}
+
+.font-tech {
+  @apply font-bold text-slate-100 tracking-tight;
+}
+
+.font-artistic {
+  @apply font-bold text-amber-900 tracking-tight;
+}
+
+.font-business {
+  @apply font-bold text-blue-900 tracking-tight;
+}
+
+.font-minimalist {
+  @apply font-light text-black tracking-wide;
+}
+
+/* 间距样式 */
+.spacing-modern {
+  @apply mb-10;
+}
+
+.spacing-classic {
+  @apply mb-8;
+}
+
+.spacing-creative {
+  @apply mb-10;
+}
+
+.spacing-minimal {
+  @apply mb-12;
+}
+
+.spacing-executive {
+  @apply mb-10;
+}
+
+.spacing-impact {
+  @apply mb-8;
+}
+
+.spacing-clean {
+  @apply mb-8;
+}
+
+.spacing-contemporary {
+  @apply mb-10;
+}
+
+.spacing-elegant {
+  @apply mb-12;
+}
+
+.spacing-simple {
+  @apply mb-8;
+}
+
+.spacing-tech {
+  @apply mb-10;
+}
+
+.spacing-artistic {
+  @apply mb-10;
+}
+
+.spacing-business {
+  @apply mb-8;
+}
+
+.spacing-minimalist {
+  @apply mb-16;
+}
+
+/* 容器样式 */
+.container-modern {
+  @apply p-8;
+}
+
+.container-classic {
+  @apply p-6;
+}
+
+.container-creative {
+  @apply p-8;
+}
+
+.container-minimal {
+  @apply p-10;
+}
+
+.container-executive {
+  @apply p-8;
+}
+
+.container-impact {
+  @apply p-8;
+}
+
+.container-clean {
+  @apply p-6;
+}
+
+.container-contemporary {
+  @apply p-8;
+}
+
+.container-elegant {
+  @apply p-10;
+}
+
+.container-simple {
+  @apply p-6;
+}
+
+.container-tech {
+  @apply p-8;
+}
+
+.container-artistic {
+  @apply p-8;
+}
+
+.container-business {
+  @apply p-8;
+}
+
+.container-minimalist {
+  @apply p-12;
+}
+
+/* 边框样式 */
+.border-modern {
+  @apply border border-gray-200;
+}
+
+.border-classic {
+  @apply border border-gray-300;
+}
+
+.border-creative {
+  @apply border border-purple-200;
+}
+
+.border-minimal {
+  @apply border border-gray-100;
+}
+
+.border-executive {
+  @apply border border-gray-300;
+}
+
+.border-impact {
+  @apply border border-green-200;
+}
+
+.border-clean {
+  @apply border border-gray-200;
+}
+
+.border-contemporary {
+  @apply border border-indigo-200;
+}
+
+.border-elegant {
+  @apply border border-gray-300;
+}
+
+.border-simple {
+  @apply border border-gray-100;
+}
+
+.border-tech {
+  @apply border border-slate-700;
+}
+
+.border-artistic {
+  @apply border border-amber-300;
+}
+
+.border-business {
+  @apply border border-blue-200;
+}
+
+.border-minimalist {
+  @apply border-0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .container-modern,
+  .container-creative,
+  .container-executive,
+  .container-impact,
+  .container-contemporary,
+  .container-elegant,
+  .container-tech,
+  .container-artistic,
+  .container-business {
+    @apply p-4;
+  }
+  
+  .container-minimal,
+  .container-minimalist {
+    @apply p-6;
+  }
+  
+  .spacing-modern,
+  .spacing-creative,
+  .spacing-executive,
+  .spacing-impact,
+  .spacing-contemporary,
+  .spacing-elegant,
+  .spacing-tech,
+  .spacing-artistic,
+  .spacing-business {
+    @apply mb-6;
+  }
+  
+  .spacing-minimal,
+  .spacing-minimalist {
+    @apply mb-8;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .template-modern,
+  .template-classic,
+  .template-creative,
+  .template-minimal,
+  .template-executive,
+  .template-impact,
+  .template-clean,
+  .template-contemporary,
+  .template-elegant,
+  .template-simple,
+  .template-tech,
+  .template-artistic,
+  .template-business,
+  .template-minimalist {
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .gradient-modern,
+  .gradient-creative,
+  .gradient-executive,
+  .gradient-impact,
+  .gradient-contemporary,
+  .gradient-elegant,
+  .gradient-tech,
+  .gradient-artistic,
+  .gradient-business {
+    background: white !important;
+  }
+}
