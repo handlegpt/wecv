@@ -4,27 +4,27 @@ import OpenAI from 'openai'
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
 // 简历写作提示模板
-const PROMPT_TEMPLATES = {
-  summary: '请帮我写一段专业的个人简介，突出我的专业技能和工作经验。要求：1. 简洁明了，控制在100字以内 2. 突出核心竞争力 3. 使用专业术语 4. 体现职业目标',
-  experience: '请帮我优化这段工作经历描述，使其更专业和突出成就。要求：1. 使用STAR法则（情境、任务、行动、结果）2. 用数据量化成果 3. 使用动词开头 4. 突出技能和贡献',
-  education: '请帮我写一段教育背景描述，突出我的学术成就和专业技能。要求：1. 突出相关课程和项目 2. 提及学术荣誉 3. 体现学习能力',
-  skills: '请帮我整理和优化技能列表，按照技术栈、软技能、工具等分类。要求：1. 突出核心技能 2. 使用专业术语 3. 体现技能熟练程度',
-  project: '请帮我描述这个项目经历，突出技术难点和解决方案。要求：1. 描述项目背景和目标 2. 详细说明技术实现 3. 量化项目成果 4. 体现团队协作'
+const PROMPT_TEMPLATES: Record<string, string> = {
+  summary: '请帮我优化简历中的个人总结部分，使其更加专业和有说服力。',
+  experience: '请帮我优化简历中的工作经验部分，突出成就和贡献。',
+  education: '请帮我优化简历中的教育背景部分，突出相关课程和成就。',
+  skills: '请帮我优化简历中的技能部分，按重要性和熟练程度排序。',
+  project: '请帮我优化简历中的项目经验部分，突出技术难点和成果。'
 }
 
-export async function aiWrite(req: Request, res: Response) {
-  const { prompt, type, context, max_tokens = 500 } = req.body
+export async function generateContent(req: Request, res: Response) {
+  const { prompt, type, context, max_tokens = 1000 } = req.body
   
-  if (!prompt && !type) {
-    return res.status(400).json({ message: '缺少prompt或type参数' })
+  if (!prompt && !context) {
+    return res.status(400).json({ message: '缺少提示内容或上下文' })
   }
 
   try {
     let finalPrompt = prompt
     
     // 如果提供了类型，使用对应的提示模板
-    if (type && PROMPT_TEMPLATES[type]) {
-      finalPrompt = `${PROMPT_TEMPLATES[type]}\n\n用户输入：${prompt || context || ''}`
+    if (type && PROMPT_TEMPLATES[type as keyof typeof PROMPT_TEMPLATES]) {
+      finalPrompt = `${PROMPT_TEMPLATES[type as keyof typeof PROMPT_TEMPLATES]}\n\n用户输入：${prompt || context || ''}`
     }
 
     const completion = await openai.chat.completions.create({
@@ -52,7 +52,8 @@ export async function aiWrite(req: Request, res: Response) {
     })
   } catch (error) {
     console.error('AI生成错误:', error)
-    res.status(500).json({ message: 'AI生成失败', error: error.message })
+    const errorMessage = error instanceof Error ? error.message : '未知错误'
+    res.status(500).json({ message: 'AI生成失败', error: errorMessage })
   }
 }
 
