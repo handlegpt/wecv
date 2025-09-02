@@ -34,7 +34,7 @@ const nextConfig = {
     ]
   },
 
-  // 头部配置
+  // 头部配置 - 修复MIME类型问题
   async headers() {
     return [
       {
@@ -59,47 +59,13 @@ const nextConfig = {
           },
         ],
       },
-      {
-        source: '/_next/static/css/(.*)',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'text/css; charset=utf-8',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/static/js/(.*)',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/javascript; charset=utf-8',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/static/fonts/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
+      // 移除严格的Content-Type设置，让Next.js自动处理
       {
         source: '/(.*).css',
         headers: [
           {
-            key: 'Content-Type',
-            value: 'text/css; charset=utf-8',
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
