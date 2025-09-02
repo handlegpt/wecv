@@ -52,14 +52,6 @@ export function OptimizedTemplateRenderer({
         return <ElegantTemplate data={data} style={templateStyle} />
       case 'simple':
         return <SimpleTemplate data={data} style={templateStyle} />
-      case 'tech':
-        return <TechTemplate data={data} style={templateStyle} />
-      case 'artistic':
-        return <ArtisticTemplate data={data} style={templateStyle} />
-      case 'business':
-        return <BusinessTemplate data={data} style={templateStyle} />
-      case 'minimalist':
-        return <MinimalistTemplate data={data} style={templateStyle} />
       default:
         return <ModernTemplate data={data} style={templateStyle} />
     }
