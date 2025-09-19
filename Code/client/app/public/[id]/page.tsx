@@ -2,12 +2,22 @@
 
 import React, { useState, useEffect } from "react";
 
-export default function Page({ params }: { params: { id: string } }) {
-  const id = params.id;
+export default function Page({ params }: { params: Promise<{ id: string }> }) {
+  const [id, setId] = useState<string>("");
   const path = `${process.env.NEXT_PUBLIC_S3_BUCKET}/${id}/${id}.pdf`;
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const initializeParams = async () => {
+      const resolvedParams = await params;
+      setId(resolvedParams.id);
+    };
+    initializeParams();
+  }, [params]);
+
+  useEffect(() => {
+    if (!id) return;
+    
     const checkPdfExists = async () => {
       try {
         const response = await fetch(path, { method: 'HEAD' });
@@ -19,7 +29,7 @@ export default function Page({ params }: { params: { id: string } }) {
       }
     };
     checkPdfExists();
-  }, [path]);
+  }, [id, path]);
 
   if (error) {
     return (
