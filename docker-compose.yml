@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  # MongoDB 数据库
+  mongodb:
+    image: mongo:7.0
+    container_name: wecv-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: wecv_user
+      MONGO_INITDB_ROOT_PASSWORD: wecv_password
+      MONGO_INITDB_DATABASE: wecv_ai
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./Common/mongodb/init:/docker-entrypoint-initdb.d
+    networks:
+      - wecv-network
+
+  # 后端 API 服务
+  api:
+    build:
+      context: ./Code/api
+      dockerfile: Dockerfile
+    container_name: wecv-api
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - DB_NAME=wecv_ai
+      - DB_USER=wecv_user
+      - DB_PASS=wecv_password
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_S3_BUCKET=${AWS_S3_BUCKET}
+      - AWS_S3_REGION=${AWS_S3_REGION}
+      - AWS_S3_BUCKET_URL=${AWS_S3_BUCKET_URL}
+    ports:
+      - "5022:5000"
+    depends_on:
+      - mongodb
+    networks:
+      - wecv-network
+    volumes:
+      - ./Code/api/logs:/app/logs:rw
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+
+  # 前端服务
+  client:
+    build:
+      context: ./Code/client
+      dockerfile: Dockerfile
+    container_name: wecv-client
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_BACKEND_API_ENDPOINT=http://api:5000/v1
+      - AUTH0_SECRET=${AUTH0_SECRET}
+      - AUTH0_BASE_URL=${AUTH0_BASE_URL}
+      - AUTH0_ISSUER_BASE_URL=${AUTH0_ISSUER_BASE_URL}
+      - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID}
+      - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET}
+      - NEXT_PUBLIC_GOOGLE_ANALYTICS=${NEXT_PUBLIC_GOOGLE_ANALYTICS}
+    ports:
+      - "3066:3000"
+    depends_on:
+      - api
+    networks:
+      - wecv-network
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=100m
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  wecv-network:
+    driver: bridge

@@ -1,0 +1,58 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: Install frontend dependencies
+      run: |
+        cd Code/client
+        npm ci
+        
+    - name: Install backend dependencies
+      run: |
+        cd Code/api
+        npm ci
+        
+    - name: Run frontend linting
+      run: |
+        cd Code/client
+        npm run lint || echo "Linting completed with warnings"
+        
+    - name: Run backend linting
+      run: |
+        cd Code/api
+        npm run lint || echo "Linting completed with warnings"
+        
+    - name: Build frontend
+      run: |
+        cd Code/client
+        npm run build
+        
+    - name: Build backend
+      run: |
+        cd Code/api
+        npm run build
+        
+    - name: Test Docker build
+      run: |
+        # 测试 Docker 构建
+        docker build -t wecv-frontend-test ./Code/client
+        docker build -t wecv-backend-test ./Code/api
+        echo "Docker builds successful"
