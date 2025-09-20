@@ -39,7 +39,8 @@ RUN addgroup --system --gid 1001 nodejs && \
 
 # 创建必要的目录并设置权限
 RUN mkdir -p .next .next/cache .next/cache/images public && \
-    chown -R nextjs:nodejs /app
+    chown -R nextjs:nodejs /app && \
+    chmod -R 755 /app/.next
 
 # 复制构建产物
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
