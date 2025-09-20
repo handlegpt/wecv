@@ -17,6 +17,7 @@ import LinkForm from "./LinkForm";
 import CourseForm from "./CourseForm";
 import ReferenceForm from "./ReferenceForm";
 import DraggableFormItem from "../common/DraggableFormItem";
+import SortableContainer from "../common/SortableContainer";
 import Loader from "../Loader";
 import axios from "axios";
 import ScrollToTop from "../ScrollToTop";
@@ -116,32 +117,43 @@ const renderFormSection = (
   sectionErrors: any,
   addButtonLabel: string,
   register: any
-) => (
-  <div className="relative">
-    <div className="space-y-4">
-      {items?.map((item: any, index: number) => {
-        item.index = index;
-        return (
-          <DraggableFormItem 
-            key={index} 
-            index={index}
-            totalItems={items.length}
-            onDragStop={handlers.handleReorder}
-            onMove={handlers.handleMove}
-            onDelete={handlers.handleDelete}
-          >
-            <Component 
-              {...item} 
-              register={register} 
-              errors={sectionErrors && sectionErrors[index]} 
-            />
-          </DraggableFormItem>
-        );
-      })}
+) => {
+  // 为每个项目添加唯一的 id
+  const itemsWithId = items?.map((item: any, index: number) => ({
+    ...item,
+    id: item.id || `item-${index}`,
+    index
+  })) || [];
+
+  return (
+    <div className="relative">
+      <SortableContainer 
+        items={itemsWithId}
+        onReorder={handlers.handleReorder}
+      >
+        <div className="space-y-4">
+          {itemsWithId.map((item: any, index: number) => (
+            <DraggableFormItem 
+              key={item.id} 
+              id={item.id}
+              index={index}
+              totalItems={itemsWithId.length}
+              onMove={handlers.handleMove}
+              onDelete={handlers.handleDelete}
+            >
+              <Component 
+                {...item} 
+                register={register} 
+                errors={sectionErrors && sectionErrors[index]} 
+              />
+            </DraggableFormItem>
+          ))}
+        </div>
+      </SortableContainer>
+      <AddButton onClick={handlers.handleAdd} label={addButtonLabel} />
     </div>
-    <AddButton onClick={handlers.handleAdd} label={addButtonLabel} />
-  </div>
-);
+  );
+};
 
 export default function ResumeForm() {
   const router = useRouter();
