@@ -1,41 +1,39 @@
 import { useState } from 'react';
-import Draggable from 'react-draggable';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { FaGripVertical, FaArrowUp, FaArrowDown, FaAngleDoubleUp, FaAngleDoubleDown, FaTimes } from "react-icons/fa";
 
 interface DraggableFormItemProps {
   children: React.ReactNode;
+  id: string;
   index: number;
   totalItems: number;
-  onDragStop: (oldIndex: number, newIndex: number) => void;
   onMove: (index: number, direction: 'up' | 'down' | 'top' | 'bottom') => void;
   onDelete: (index: number) => void;
 }
 
 const DraggableFormItem: React.FC<DraggableFormItemProps> = ({ 
   children, 
+  id,
   index, 
   totalItems, 
-  onDragStop, 
   onMove,
   onDelete
 }) => {
-  const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
 
-  const handleDragStart = () => {
-    setIsDragging(true);
-  };
-
-  const handleDragStop = (e: any, data: any) => {
-    setIsDragging(false);
-    const newIndex = Math.round(data.y / 100); // Approximate height of each item
-    
-    if (newIndex !== index) {
-      onDragStop(index, newIndex);
-    }
-    
-    setPosition({ x: 0, y: 0 }); // Reset position
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
   };
 
   const handleDelete = (e: React.MouseEvent) => {
@@ -58,25 +56,19 @@ const DraggableFormItem: React.FC<DraggableFormItemProps> = ({
   };
 
   return (
-    <Draggable
-      axis="y"
-      position={position}
-      onStart={handleDragStart}
-      onStop={handleDragStop}
-      bounds="parent"
-      handle=".drag-handle"
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={`
+        group relative
+        p-4 rounded-lg border-2 
+        ${isDragging 
+          ? 'border-blue-300 shadow-xl bg-white scale-[1.02] z-50' 
+          : 'border-gray-100 hover:border-gray-300 hover:shadow-md'
+        }
+        transition-all duration-200 ease-in-out
+      `}
     >
-      <div
-        className={`
-          group relative
-          p-4 rounded-lg border-2 
-          ${isDragging 
-            ? 'border-blue-300 shadow-xl bg-white scale-[1.02] z-50' 
-            : 'border-gray-100 hover:border-gray-300 hover:shadow-md'
-          }
-          transition-all duration-200 ease-in-out
-        `}
-      >
         {/* Delete button and confirmation */}
         <div className="absolute right-2 top-2 flex items-center gap-2">
           {showDeleteConfirm ? (
@@ -114,11 +106,13 @@ const DraggableFormItem: React.FC<DraggableFormItemProps> = ({
           <button 
             type="button"
             title="Drag to reorder"
-            className="drag-handle flex items-center justify-center w-8 h-8 
+            className="flex items-center justify-center w-8 h-8 
               rounded-md bg-gray-100 hover:bg-gray-200 
               cursor-grab active:cursor-grabbing
               transition-colors duration-200"
             style={{ touchAction: 'none' }}
+            {...attributes}
+            {...listeners}
           >
             <FaGripVertical className="text-gray-500 group-hover:text-gray-700" size={16} />
           </button>
@@ -200,7 +194,6 @@ const DraggableFormItem: React.FC<DraggableFormItemProps> = ({
           {children}
         </div>
       </div>
-    </Draggable>
   );
 };
 
