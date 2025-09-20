@@ -12,7 +12,7 @@ WORKDIR /app
 
 # 保留 package-lock.json 以确保依赖版本一致性
 COPY package.json package-lock.json* ./
-RUN npm ci --only=production --no-audit --no-fund && \
+RUN npm ci --no-audit --no-fund && \
     npm cache clean --force
 
 # Rebuild the source code only when needed
@@ -40,8 +40,12 @@ RUN mkdir -p logs && \
 
 # Copy built application
 COPY --from=builder --chown=api:nodejs /app/dist ./dist
-COPY --from=builder --chown=api:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=api:nodejs /app/package.json ./package.json
+
+# Install only production dependencies
+COPY package.json package-lock.json* ./
+RUN npm ci --only=production --no-audit --no-fund && \
+    npm cache clean --force
 
 # 切换到非 root 用户
 USER api
