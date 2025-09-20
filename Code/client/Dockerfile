@@ -38,7 +38,7 @@ RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 --ingroup nodejs nextjs
 
 # 创建必要的目录并设置权限
-RUN mkdir -p .next .next/cache public && \
+RUN mkdir -p .next .next/cache .next/cache/images public && \
     chown -R nextjs:nodejs /app
 
 # 复制构建产物
