@@ -12,7 +12,7 @@ WORKDIR /app
 
 # 保留 package-lock.json 以确保依赖版本一致性
 COPY package.json package-lock.json* ./
-RUN npm ci --no-audit --no-fund && \
+RUN npm ci --no-audit --no-fund --legacy-peer-deps && \
     npm cache clean --force
 
 # Rebuild the source code only when needed
