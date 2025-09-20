@@ -3,7 +3,7 @@
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
-import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+// import { AppProgressBar as ProgressBar } from "next-nprogress-bar"; // 暂时注释掉，与 React 19 不兼容
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
       <body>
         <UserProvider>
           <Layout>{children}</Layout>
-          <ProgressBar />
+          {/* <ProgressBar /> 暂时注释掉，与 React 19 不兼容 */}
           {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
           )}
