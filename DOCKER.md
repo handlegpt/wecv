@@ -18,9 +18,19 @@ cp env.example .env
 # AUTH0_ISSUER_BASE_URL=https://your-domain.auth0.com
 # AUTH0_CLIENT_ID=your_client_id
 # AUTH0_CLIENT_SECRET=your_client_secret
+# DB_HOST=mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/wecv_ai?retryWrites=true&w=majority
 ```
 
-### 3. 启动服务
+### 3. 设置 MongoDB Atlas (推荐)
+**使用云数据库，无需在服务器安装 MongoDB：**
+1. 访问 [MongoDB Atlas](https://www.mongodb.com/atlas)
+2. 创建免费账户和集群
+3. 创建数据库用户 (Database Access)
+4. 设置网络访问 (Network Access) - 添加 `0.0.0.0/0` 允许所有IP
+5. 获取连接字符串 (Connect -> Drivers -> Node.js)
+6. 将连接字符串填入 `.env` 文件的 `DB_HOST` 变量
+
+### 4. 启动服务
 ```bash
 # 构建并启动所有服务
 docker-compose up --build -d
@@ -32,10 +42,10 @@ docker-compose ps
 docker-compose logs -f
 ```
 
-### 4. 访问应用
+### 5. 访问应用
 - **前端**: http://localhost:3066
 - **后端API**: http://localhost:5022
-- **数据库**: localhost:27017
+- **数据库**: MongoDB Atlas (云数据库)
 
 ## 🔧 常用命令
 

@@ -1,23 +1,6 @@
 version: '3.8'
 
 services:
-  # MongoDB 数据库
-  mongodb:
-    image: mongo:7.0
-    container_name: wecv-mongodb
-    restart: unless-stopped
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: wecv_user
-      MONGO_INITDB_ROOT_PASSWORD: wecv_password
-      MONGO_INITDB_DATABASE: wecv_ai
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-      - ./Common/mongodb/init:/docker-entrypoint-initdb.d
-    networks:
-      - wecv-network
-
   # 后端 API 服务
   api:
     build:
@@ -28,11 +11,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5000
-      - DB_NAME=wecv_ai
-      - DB_USER=wecv_user
-      - DB_PASS=wecv_password
-      - DB_HOST=mongodb
-      - DB_PORT=27017
+      - DB_HOST=${DB_HOST}
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_S3_BUCKET=${AWS_S3_BUCKET}
@@ -40,8 +19,6 @@ services:
       - AWS_S3_BUCKET_URL=${AWS_S3_BUCKET_URL}
     ports:
       - "5022:5000"
-    depends_on:
-      - mongodb
     networks:
       - wecv-network
     volumes:
@@ -92,10 +69,6 @@ services:
       - SETGID
       - SETUID
 
-
-volumes:
-  mongodb_data:
-    driver: local
 
 networks:
   wecv-network:
